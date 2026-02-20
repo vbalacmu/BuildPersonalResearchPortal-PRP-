@@ -1,0 +1,329 @@
+POLICY BRIEF
+3434 Washington Blvd., 4th Floor, Arlington, VA 22201 • 703-993-4930 • www.mercatus.org
+The views presented in this document do not represent official positions of the Mercatus Center or George Mason University.
+A Proactive Response to AI-Driven Job Displacement
+How Reforming the Tax Code Can Build a Resilient Workforce
+Revana Sharfuddin
+October 2025
+Artificial intelligence is transforming the US economy at breakneck speed, and fears of mass job 
+displacement are fueling calls for heavy-handed government intervention. A straightforward but 
+overlooked low-hanging-fruit solution lies hidden in the tax code: correcting the fundamental 
+bias that makes it easier for businesses to invest in machines than in the workers who must learn 
+to use them.
+The current tax framework creates a profound asymmetry between physical and human capital 
+investment. Through bonus depreciation under section 168(k)—a tax provision that allows imme-
+diate write-offs of equipment costs—businesses can expense a robot or an AI server in the year it is 
+purchased, yet they must navigate a maze of restrictions to deduct the cost of retraining the people 
+expected to use that technology. This asymmetric treatment skews business investment decisions 
+away from economic merit and toward tax advantages, leading to systematic underinvestment 
+in human capital development, which is the very training that enables workers to collaborate 
+effectively with new technologies and capture the productivity gains that AI makes possible. 1 
+The imbalance discourages firms—particularly small, owner-operated ones—from investing in 
+upskilling.
+Six major restrictions in the Internal Revenue Code (IRC) create bottlenecks that effectively 
+penalize businesses for investing in human capital. These restrictions were designed for a differ-
+ent era and have long undermined the flexibility firms need to adapt to today’s AI-driven economy, 
+where rigidity carries an even greater cost. The restrictions are particularly punitive for small busi-
+nesses, whose owners often cannot access educational assistance programs because of ownership 
+caps, and for lower-wage workers, who face barriers to skill development.
+
+MERCATUS CENTER AT GEORGE MASON UNIVERSITY
+2
+The legal foundation for the treatment of physical and human capital investment dates to the 
+Supreme Court’s 1933 decision in Welch v. Helvering, where Justice Benjamin Cardozo held that 
+“learning [is] akin to capital assets. . . . The money spent in acquiring them is well and wisely spent. 
+It is not an ordinary expense of the operation of a business.”2 Under this framework, human and 
+physical capital were treated alike: Neither was deductible. Congress has since reversed course on 
+physical capital, enacting sections 168(k) and 179 to permit immediate expensing. Human capital, 
+however, remains governed by the 1933 framework—creating an asymmetry that Cardozo’s own 
+reasoning suggests should not exist.3
+This paper argues that Congress can remove the obsolete IRC restrictions and unleash market-
+driven solutions to AI displacement without resorting to dirigiste labor-market programs. The 
+following sections (1) identify the six key restrictions in the Internal Revenue Code that discourage 
+investment in human capital, (2) propose targeted reforms to restore neutrality between human 
+and physical capital, (3) discuss the significance of human-capital parity, and (4) review the dis-
+tributional and fiscal considerations of sound tax reform, before concluding with a discussion of 
+the broader economic implications of these reforms.
+1. The Tax Bottleneck in an AI Economy
+Artificial intelligence is exposing how outdated provisions in the US tax code constrain work -
+force adaptation. The tax rules that govern education and training expenses were written for a 
+mid-20th-century economy in which skills changed slowly and automation was limited. In today’s 
+fast-evolving environment, these same rules now penalize the investments most essential to resil-
+ience—employee retraining and upskilling. Section 1 examines how six key restrictions in the 
+Internal Revenue Code, particularly in sections 162, 127 , and 168, create structural barriers to 
+human-capital investment, distorting business decisions and locking firms out of the training their 
+workers need. Each subsection below shows how these outdated rules operate in an AI-driven 
+economy and why reform is essential to restoring neutrality between physical and human capital.
+1.1 No deduction for training to meet minimum job requirements
+IRC section 162 and associated guidance in IRS Publication 970, Chapter 11, disallow deductions 
+for employee education when the coursework “is needed to meet the minimum educational 
+requirements of your present trade or business.”4 Originally intended as a safeguard against tax 
+abuse, this provision now undermines the competitive flexibility essential in an economy reshaped 
+by AI. Rather than protecting the market, this provision distorts it, trapping workers in outdated 
+roles and stifling the entrepreneurial dynamism that drives genuine economic resilience.
+1.2 Job-relatedness freezes workers in yesterday’s roles
+IRC section 162 permits a business deduction for employee education only when the coursework 
+“is required by [the] employer . . . or maintains or improves skills needed in [the employee’s] present 
+
+MERCATUS CENTER AT GEORGE MASON UNIVERSITY
+3
+work,” and it expressly denies a deduction when the training “qualif[ies] you for a new trade or 
+business”5 (emphases added). In the pre-AI era, this distinction was benign; today, it penalizes 
+firms that teach frontline staff how to collaborate with large language models, to analyze sensor 
+data, or to transition from manual to supervisory tasks.
+As illustrated in the IRS flowchart from Publication 970 (figure 1), in order to determine whether 
+work-related education qualifies for tax deductibility, employers must navigate a convoluted two-
+prong test with multiple disqualifying conditions. Such rigid guidance imposes unnecessary com-
+pliance burdens—especially on family-run small businesses with limited administrative capacity. 
+Instead of encouraging skill development, the complexity of these rules often deters employers 
+from offering training at all.
+FIGURE 1. IRS decision tree for qualified work-related education deductions under § 162
+Source: Internal Revenue Service, Publication 970: Tax Benefits for Education , 2024, 60.
+
+MERCATUS CENTER AT GEORGE MASON UNIVERSITY
+4
+1.3 The 5 percent owner cap in section 127
+A qualified educational assistance program (QEAP) may exclude up to $5,250 per employee from 
+income, but no more than 5 percent of total QEAP benefits may flow to individuals who own more 
+than 5 percent of the firm.6
+For a sole proprietorship or family LLC—forms that dominate America’s enterprise landscape—
+any owner-student automatically exceeds the 5 percent cap, making compliance impossible. In 
+practical terms, this means small businesses where owners are typically the only employees can-
+not offer a compliant QEAP under section 127 , because 100 percent of benefits would inevitably 
+flow to owners, exceeding the cap. As a result, small-business owners are effectively locked out of 
+using the tax code’s educational expensing provisions, right when they need them most.
+By contrast, small businesses can immediately expense up to $2.5 million in physical capital under 
+section 179.7 This is especially counterproductive in a moment when small businesses are rapidly 
+adopting AI tools and innovations. According to recent findings, open-source AI is acting as a 
+powerful equalizer, allowing smaller firms to compete with larger incumbents.8 Yet to seize these 
+gains fully, small business owners must train themselves and their employees—a goal the current 
+tax framework actively frustrates. Tax policy should reward, not punish, entrepreneurial initia-
+tive in upskilling.
+1.4 The nondiscrimination requirement in section 127
+Beyond the owner cap, QEAPs are also required to meet nondiscrimination rules, meaning they 
+cannot primarily benefit highly compensated employees.9 This requirement compounds the access 
+problem for human capital investment. Lower-wage employees, who stand to benefit most from 
+upskilling, often encounter barriers such as lack of awareness, inflexible work schedules, and 
+minimal enrollment support. If highly compensated employees disproportionately utilize the 
+QEAP—even if the program is technically available to all—the business risks failing the nondis -
+crimination test. 
+Facing penalties and compliance burdens, employers frequently opt to discontinue these educa-
+tional programs altogether, inadvertently leaving behind the workers who need training most. If 
+an employer believes that investing in the education of a high-performing employee offers the best 
+ROI, the tax code should not stand in the way. In a dynamic labor market, employers—not rigid 
+tax rules—should decide where training dollars go.
+1.5 The $5,250 benefit cap in section 127
+Even if a business clears both the owner cap and the nondiscrimination hurdles, QEAP benefits 
+are capped at $5,250 per employee annually. This limit was set in 1986 and has never been adjusted 
+for inflation. That cap would equal approximately $15,500 in today’s dollars, meaning that over 
+four decades it has lost nearly two-thirds of its real value.10 
+
+MERCATUS CENTER AT GEORGE MASON UNIVERSITY
+5
+1.6 Expensing investment in physical capital without human capital 
+Until July 2025, the tax code actually tilted against physical capital: Most equipment had to be 
+depreciated over time, while wages and many other labor costs were immediately deductible 
+under section 162.11 The One Big Beautiful Bill Act (OBBBA) of July 2025 removed that asymmetry 
+on the capital side by permanently restoring 100 percent bonus depreciation under section 168(k) 
+for qualified property with class lives of 20 years or less—a major shift in capital cost recovery.12
+In contrast, while Congress modernized the treatment of physical capital, it left the moderniza-
+tion of human capital investment behind. Ordinary compensation is deductible, but the tax code 
+continues to ration training through section 162’s job-related and minimum-requirements tests 
+and section 127’s plan-design limits. As shown in table 1, that means a firm can now write off a 
+robot or edge server in year one but must still jump through hoops—or be disallowed entirely—to 
+deduct the training that enables its employees to use that technology. This is the neutrality gap 
+the recommendations below aim to close.
+TABLE 1. Consequences of the current restrictions
+Source: Author’s representation.
+
+MERCATUS CENTER AT GEORGE MASON UNIVERSITY
+6
+Section 168(k) currently allows 100 percent bonus depreciation for qualified machinery and tech-
+nology, permitting an immediate write-off for an AI system regardless of future use.13 The tax code 
+thus rewards labor-saving hardware while rationing labor-augmenting training.
+The combined effect of these six restrictions is systematic underinvestment in human capital 
+precisely when rapid technological change demands continual reskilling. Tax code simplicity and 
+neutrality would favor treating education reimbursements like any other form of compensation—
+taxable unless excluded on broad, simple grounds. All six restrictions identified above should be 
+eliminated to restore parity with physical capital expensing. 
+2. The Solution: Six Policy Recommendations
+Congress can restore neutrality between human and physical capital investment by removing 
+six discrete restrictions. This would involve targeted reforms that require no new programs or 
+spending—only the elimination of outdated restrictions that penalize workforce training. Each 
+recommendation below addresses one of the restrictions identified in section 1 above. 
+1. Repeal the “new trade or business” bar. 
+Amend section 162 to allow deductions for education that equips an employee (or 
+owner) for any anticipated role within the enterprise.
+2. Eliminate the “minimum education requirement” test. 
+Amend section 162 to permit deductions for education that equips an employee (or 
+owner) with baseline qualifications needed to perform or transition into roles within 
+the business. 
+3. Abolish the 5 percent owner limitation. 
+Strike section 127(b)(3). Owners who do the work should not be penalized for investing 
+in their own productivity.
+4. Remove nondiscrimination testing for QEAPs. 
+Rely on general anti-abuse standards rather than rigid head-count ratios; let markets, 
+not tax lawyers, decide who most needs training.
+5. Lift the $5,250 cap for QEAPs. 
+Eliminate the section 127(a)(2) limit entirely, so tax-free educational assistance keeps 
+pace with modern training costs.
+6. Extend full and immediate expensing to all bona fide job-related training. 
+Parity with 100 percent bonus depreciation under IRC section 168(k) would eliminate 
+the tax bias that favors machines over human capital.
+3. Why Human-Capital Parity Matters
+Restoring parity between investments in human and physical capital is more than a matter of 
+fairness—it is essential for long-run economic growth. Training is a core driver of productivity 
+
+MERCATUS CENTER AT GEORGE MASON UNIVERSITY
+7
+and wage gains, yet current tax rules discourage firms from making those investments. When the 
+tax code penalizes upskilling, it not only constrains business flexibility but also slows innovation 
+and income growth across the economy. This section explains why human-capital investment 
+yields broad social and economic benefits, how market frictions can cause firms to underinvest 
+in training, and why modernizing the tax treatment of training is critical to sustaining an adapt-
+able, AI-ready workforce.
+• Training drives long-run growth. Endogenous-growth theory establishes that skill accu-
+mulation is a core engine of long-run GDP growth.14 Subsequent empirical work confirms 
+that firm-specific, on-the-job training explains a large share of wage and productivity 
+gains as economies mature—making employer-led human-capital investment vital both 
+to national prosperity and to rising worker incomes.15
+• Market failure and imperfect contracts limit firm-led upskilling. Even though on-the-
+job training is the most effective way to build workforce skills, classic theory warns that 
+firms will underinvest in general, portable skills—since workers can leave and capture the 
+returns.16 Yet a rich set of literature shows companies still shoulder significant training 
+costs.17 While some of this underinvestment could, in theory, be mitigated through com-
+plete contracts—such as back-loaded wage schedules (deferred compensation) or train -
+ing bonds—these workarounds are imperfect and legally constrained. 18 Allowing full and 
+immediate expensing of bona fide training would close the gap, letting firms invest at the 
+socially efficient level.
+• Most businesses are nonemployer firms. Of the nation’s 35.7 million businesses in 2022, 
+29.8 million—roughly 84 percent—were nonemployers run by self-employed owners.19 Any 
+rule that locks owners out of QEAPs therefore blocks the predominant US business form 
+from formal skill investment.
+• Firm-led training reduces automation risk and raises wages. Firm-provided upskilling 
+enables workers to transition into less automatable roles, supporting both employment 
+and income growth. Research shows that training embedded within production settings 
+is more responsive to evolving job demands than generalized retraining.20 Removing tax 
+barriers to such training would empower firms to build adaptive, future-ready  workforces.
+4. Distributional and Fiscal Considerations
+Sound tax reform requires attention not only to efficiency but also to distributional and fiscal 
+effects. Expanding expensing for job-related training would strengthen economic mobility by 
+extending training opportunities to lower-wage workers and small-business employees who are 
+often excluded under current rules. At the same time, the fiscal impact of these changes would 
+
+MERCATUS CENTER AT GEORGE MASON UNIVERSITY
+8
+be modest and largely a matter of timing rather than permanent revenue loss. The points below 
+show how modernizing the tax treatment of training advances four key principles.
+• Progressivity. Lower-wage workers benefit when firms scale education programs for -
+merly reserved for managers. Eliminating complex tests frees resources to expand eligi-
+bility and outreach.
+• Revenue impact.  Treasury scores will show timing, not permanent revenue loss—just 
+as with hardware expensing. Experience with bonus depreciation suggests front-loaded 
+deductions spur investment and broaden the base for future taxable income.21
+• Simplicity. Reforms collapse multiple pages of regulations into a single principle: If the 
+expense is ordinary, necessary, and job-relevant, it is deductible.
+• Neutrality. The tax code should treat human and physical capital alike. A dollar spent on 
+worker training should receive the same timing and exclusion benefits as a dollar spent 
+on equipment—without the government picking winners and losers between machines 
+and people.
+5. Conclusion
+America stands at a pivotal moment: Artificial intelligence promises unprecedented gains in pro-
+ductivity and innovation. Yet without swift policy action, its benefits run the risk of bypassing the 
+very workers who power our economy. By dismantling outdated provisions in the Internal Rev-
+enue Code, Congress can finally level the playing field between machines and people. Extending 
+full and immediate expensing to all bona fide job-related training will empower businesses of every 
+size to invest confidently in human capital, fueling resilient, adaptable workforces.
+Such reforms would yield a trifecta of policy wins: simplicity, by collapsing sprawling regulations 
+into a single, clear standard; neutrality, by treating training dollars as equal to equipment expen-
+ditures; and progressivity, by unlocking access for lower-wage and small-business employees who 
+have been shut out of current programs. Experience with bonus depreciation demonstrates that 
+front-loaded deductions spur investment and broaden the future tax base—an effect we can rep -
+licate for workforce development.
+Rather than taxing AI or erecting complex new entitlement programs, Congress can seize this 
+moment to harness market forces for widespread upskilling. 22 Removing needless compliance 
+hurdles will not only reduce transition pain for displaced workers but also ensure that America’s 
+next wave of technological leadership is matched by a workforce equipped to thrive alongside 
+it. It is both fiscally responsible and economically strategic to make immediate, full expensing of 
+worker training permanent—because when businesses invest in people, everyone wins.
+
+MERCATUS CENTER AT GEORGE MASON UNIVERSITY
+9
+About the Author
+Revana Sharfuddin is a research fellow at the Labor Policy Project at the Mercatus Center at 
+George Mason University. Her research centers on labor economics, the evolving nature of work, 
+and the ways labor markets can adapt to foster growth and mobility for workers with diverse back-
+grounds and needs. She also studies labor market dynamics across different institutional contexts, 
+particularly in developing countries, with a focus on the role of women in the workforce and the 
+interplay between work and family life. Her writing has been published in The Hill, Dhaka Tribune, 
+Reason, and other media outlets. She also writes for the Substack Labor Market Matters. Before 
+joining the Mercatus Center, Sharfuddin worked in various research support roles at institutions 
+such as the Hoover Institution, IZA Institute of Labor Economics, and the Cato Institute. Sharfud-
+din holds a BA in economics from George Mason University and an MA in development economics 
+from Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) in Germany.
+Notes
+1. There is substantial evidence supporting claims for both the investment tilt and training underinvestment in the 
+current tax code. For evidence on how tax preferences shift firms toward eligible equipment investment, see Eric 
+Zwick and James Mahon, “Tax Policy and Heterogeneous Investment Behavior,” American Economic Review 107, no. 1 
+(2017): 217–48 (bonus depreciation raises investment in eligible capital); and Kevin A. Hassett and R. Glenn Hubbard, 
+“Tax Policy and Business Investment,” Journal of Economic Perspectives 16, no. 4 (2002): 51–72 (survey: investment 
+responds to user-cost/tax changes). For evidence on how employer training responds to tax price via deductions, see 
+Edwin Leuven and Hessel Oosterbeek, “Evaluating the Effect of Tax Deductions on Training,” Journal of Labor Econom-
+ics 22, no. 2 (2004): 461–88 (an age-40 extra deduction increased training incidence by approximately 15–20 percent 
+at the threshold—largely timing/substitution, but clear evidence that deductions change firms’ training choices). For 
+evidence on how training is a key complement to realizing productivity gains from new tech, including AI, see Lorraine 
+Dearden, Howard Reed, and John Van Reenen, “The Impact of Training on Productivity and Wages,” Oxford Bulletin of 
+Economics and Statistics 68, no. 4 (2006): 397–421 (productivity effects exceed wage effects); Timothy F. Bresnahan, 
+Erik Brynjolfsson, and Lorin M. Hitt, “Information Technology, Workplace Organization, and the Demand for Skilled 
+Labor: Firm-Level Evidence,” Quarterly Journal of Economics 117, no. 1 (2002): 339–76 (IT gains arrive with comple-
+mentary org/skill investments); and Erik Brynjolfsson, Danielle Li, and Lindsey Raymond, “Generative AI at Work,” 
+Quarterly Journal of Economics 140, no. 2 (2025): 889–943 (measured productivity gains are largest when workers 
+learn/absorb AI tools).
+2. Welch v. Helvering, 290 U.S. 111 (1933).
+3. 26 U.S.C. § 179 (election to expense certain depreciable business assets), Legal Information Institute, Cornell Law 
+School, accessed July 7, 2025, https:/ /www.law.cornell.edu/uscode/text/26/179.
+4. Internal Revenue Service, Publication 970: Tax Benefits for Education, 2024.
+5. Internal Revenue Service, Publication 970: Tax Benefits for Education, 2024.
+6. US Department of the Treasury, “26 CFR § 1.127-2 - Qualified Educational Assistance Programs,” Legal Information 
+Institute, Cornell Law School, accessed July 7, 2025, https:/ /www.law.cornell.edu/cfr/text/26/1.127-2.
+7. 26 U.S.C. § 179.
+8. “New Study Shows Open-Source AI Is a Catalyst for Economic Growth,” Meta Newsroom, May 2025,  
+https:/ /about.fb.com/news/2025/05/new-study-shows-open-source-ai-catalyst-economic-growth/. 
+9. “New Study Shows Open-Source AI Is a Catalyst for Economic Growth,” Meta Newsroom.
+
+MERCATUS CENTER AT GEORGE MASON UNIVERSITY
+10
+10. Aspen Institute, Future of Work Initiative, Modernizing Tax Incentives for Employer-Provided Educational Assistance 
+(Aspen Institute, 2020).
+11. Jeremy Sompels and Jonathan Winterkorn, “100% Bonus Depreciation Returns with the One, Big, Beautiful Bill,” 
+Plante Moran, July 21, 2025, https:/ /www.plantemoran.com/explore-our-thinking/insight/2022/08/the-tcja-100-
+percent-bonus-depreciation-starts-to-phase-out-after-2022.
+12. Congress.gov, “H.R.1 - 119th Congress (2025-2026): One Big Beautiful Bill Act,” July 4, 2025, https:/ /www.congress.
+gov/bill/119th-congress/house-bill/1. Buildings still face long cost-recovery periods (typically 27.5 or 39 years). 
+ Extending immediate expensing to structures would complete the move toward tax neutrality between different 
+forms of physical capital investment. See Erica York, “Depreciation of Structures,” Tax Foundation, January 7, 2020, 
+https:/ /taxfoundation.org/research/all/federal/depreciation-of-structures/.
+13. Garrett Watson et al., “‘One Big Beautiful Bill Act’ Tax Policies: Details and Analysis,” Tax Foundation, July 4, 2025, 
+https:/ /taxfoundation.org/research/all/federal/big-beautiful-bill-senate-gop-tax-plan/.
+14. Internal Revenue Service, Publication 946: How to Depreciate Property, 2024.
+15. Eric A. Hanushek and Ludger Woessmann, The Knowledge Capital of Nations: Education and the Economics of Growth 
+(MIT Press, 2015); Xiao Ma, Alejandro Nakab, and Daniela Vidart, “Human Capital Investment and Development: 
+The Role of On-the-Job Training,” Journal of Political Economy Macroeconomics 2, no. 1 (November 2020).
+16. Gary S. Becker, “Investment in Human Capital: A Theoretical Analysis,” in Investment in Human Beings, ed. Universities-
+National Bureau Committee for Economic Research, Journal of Political Economy 70, no. 5, part 2, (October 1962), 
+9–49.
+17. Daron Acemoglu and Jörn-Steffen Pischke, “Why Do Firms Train? Theory and Evidence,” The Quarterly Journal of 
+Economics 113, no. 1 (February 1998): 79–119; Lisa M. Lynch and Sandra E. Black, “Beyond the Incidence of Employer-
+Provided Training,” Industrial and Labor Relations Review 52, no. 1 (October 1998): 64–81.
+18. Edward P. Lazear, “Why Is There Mandatory Retirement?,” Journal of Political Economy 87, no. 6 (December 1979): 
+1261–84; Acemoglu and Pischke, “Why Do Firms Train?”
+19. US Census Bureau, “Census Bureau Releases Demographic Characteristics of Nonemployer Business Owners,” 
+press release no. CB25-TPS.32, May 8, 2025.
+20. Oliver Falck et al., “Training, Automation, and Wages: International Worker-Level Evidence” (IZA Discussion Paper 
+No. 17503, Institute of Labor Economics (IZA), December 2024).
+21. Yale Budget Lab, “Depreciation 101,” accessed July 7, 2025, https:/ /budgetlab.yale.edu/research/depreciation-101; 
+Jason Fichtner and Adam Michel, “Options for Corporate Capital Cost Recovery: Tax Rates and Depreciation” 
+(Mercatus Policy Research, Mercatus Center at George Mason University, January 29, 2015).
+22. Bernard Marr, “Will AI Make Universal Basic Income Inevitable?,” Forbes, December 12, 2024; Daron Acemoglu, 
+David Autor, and Simon Johnson, “Can We Have Pro-Worker AI? Choosing a Path of Machines in Service of Minds” 
+(Policy Memo, MIT Shaping the Future of Work Initiative, September 19, 2023).

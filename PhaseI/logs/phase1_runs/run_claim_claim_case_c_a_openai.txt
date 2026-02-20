@@ -1,0 +1,2 @@
+[MOCK] Run: claim / claim_case_c / prompt_a / openai
+No API call made. Set OPENAI_API_KEY and ANTHROPIC_API_KEY and run without --mock for real outputs.

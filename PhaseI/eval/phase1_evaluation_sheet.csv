@@ -1,0 +1,17 @@
+run_id,task,test_case,prompt_id,model,score_groundedness,score_citation,score_usefulness,notes,failure_tag
+1,triage,triage_case_a,a,openai,—,—,—,"Placeholder; score after real API run.",other
+2,triage,triage_case_a,a,anthropic,—,—,—,"Placeholder; score after real API run.",other
+3,triage,triage_case_a,b,openai,—,—,—,"Placeholder; score after real API run.",other
+4,triage,triage_case_a,b,anthropic,—,—,—,"Placeholder; score after real API run.",other
+5,triage,triage_case_b,a,openai,—,—,—,"Placeholder; score after real API run.",other
+6,triage,triage_case_b,a,anthropic,—,—,—,"Placeholder; score after real API run.",other
+7,triage,triage_case_b,b,openai,—,—,—,"Placeholder; score after real API run.",other
+8,triage,triage_case_b,b,anthropic,—,—,—,"Placeholder; score after real API run.",other
+9,claim,claim_case_c,a,openai,—,—,—,"Placeholder; score after real API run.",other
+10,claim,claim_case_c,a,anthropic,—,—,—,"Placeholder; score after real API run.",other
+11,claim,claim_case_c,b,openai,—,—,—,"Placeholder; score after real API run.",other
+12,claim,claim_case_c,b,anthropic,—,—,—,"Placeholder; score after real API run.",other
+13,claim,claim_case_d,a,openai,—,—,—,"Placeholder; score after real API run.",other
+14,claim,claim_case_d,a,anthropic,—,—,—,"Placeholder; score after real API run.",other
+15,claim,claim_case_d,b,openai,—,—,—,"Placeholder; score after real API run.",other
+16,claim,claim_case_d,b,anthropic,—,—,—,"Placeholder; score after real API run.",other

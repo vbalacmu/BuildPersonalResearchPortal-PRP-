@@ -1,0 +1,1193 @@
+Mapping the Regulatory Learning Space for the EU AI Act
+Dave Lewis1, Marta Lasek-Markey 1, Delaram Golpayegani 1, Harshvardhan J Pandit 2
+1ADAPT Centre at Trinity College Dublin
+2AI Accountability Lab at Trinity College Dublin
+delewis@tcd.ie, mlasek@tcd.ie, golpayes@tcd.ie, me@harshp.com
+Abstract
+The EU AI Act represents the world’s first transnational AI
+regulation with concrete enforcement measures. It builds on
+existing EU mechanisms for regulating health and safety of
+products but extends them to protect fundamental rights and
+to address AI as a horizontal technology across multiple ap-
+plication sectors. We argue that this will lead to multiple
+uncertainties in the enforcement of the AI Act, which cou-
+pled with the fast-changing nature of AI technology, will re-
+quire a strong emphasis on comprehensive and rapid regula-
+tory learning for the Act. We define a parametrised regula-
+tory learning space based on the provisions of the Act and
+describe a layered system of different learning arenas where
+the population of oversight authorities, value chain partici-
+pants, and affected stakeholders may interact to apply and
+learn from technical, organisational and legal implementation
+measures. We conclude by exploring how existing open data
+policies and practices in the EU can be adapted to support
+rapid and effective regulatory learning.
+Introduction
+Advances in research on fairness, accountability and trans-
+parency of algorithms has normalised approaches towards
+achieving ethical and trustworthy AI in response to soci-
+etal concerns and risks posed. Where recent surveys regard-
+ing trustworthy AI guidelines demonstrate a high degree of
+consensus on common principles, including human rights
+and agency, privacy, non-discrimination, safety and robust-
+ness, transparency and accountability (Hagendorff 2020;
+Jobin, Ienca, and Vayena 2019; Fjeld et al. 2020; Corr ˆea
+et al. 2023), others argue that such a consensus on prin-
+ciples is not reflected in their implementation and raises
+new forms of avoidance. For instance, using techno-centric
+approaches such as differential privacy and explainable AI
+to avoid external inspection of AI design decisions and
+association with ethical dilemmas and affected stakehold-
+ers (Palladino 2023), or where such principles often rep-
+resent “ethics washing” as a distraction from harmful be-
+haviour (Schultz, Conti, and Seele 2024). In addition, uncer-
+tainty about the implementation of ethical AI principles is
+magnified by the rate at which new risks emerge due to the
+accelerating pace of technological advancement and adop-
+tion such as with Large Language Models (LLMs) and Gen-
+erative AI (GenAI) (Grace et al. 2024).
+The AI Act, first proposed in April 2021 and which en-
+tered into force in August 2024, makes the EU the first juris-
+diction to regulate AI technologies (AI Act). The Act takes
+a risk-based approach modelled on the existing EU scheme,
+known as the New Legislative Framework (NLF), for har-
+monising product health and safety legislation across the EU
+internal market (Mazzini and Scalzo 2023). Thus, the AI
+Act benefits from established rules and practices for prod-
+uct regulation laid out in the so-called “Blue Guide” (Eu-
+ropean Commission, Directorate-General for Internal Mar-
+ket, Industry, Entrepreneurship and SMEs 2022). The leg-
+islative process preceding the adoption of the Act eloquently
+demonstrated the technology pacing problem. As powerful
+classes of General Purpose AI (GPAI) threatened to evade
+enforcement under the NLF, which is predicated on prod-
+ucts with a specific purpose, new provisions had to be intro-
+duced to handle the parallel advances in LLMs and GenAI.
+Market actors, regulators and civil society now have a con-
+crete timetable within which the many remaining uncertain-
+ties in enforcing provisions of the Act present a substantial
+challenge (kaizenner 2024; Keber, Schwartmann, and Zen-
+ner 2024).
+In this paper, we focus on two major areas of uncertainty
+arising from novelties that the AI Act brings to the NLF.
+Firstly, the AI Act expands the scope seen in current legis-
+lation harmonised under the NLF from protection of health
+and safety to include protection of fundamental rights. Sec-
+ondly, the AI Act attempts to regulate AI as a horizon-
+tal technology using enforcement mechanisms that are con-
+ducted on a sectoral basis under the NLF, i.e. for specific
+classes of products such as the Medical Device Regulation
+(MDR) (Medical Devices Regulation).
+We contend that given the regulatory uncertainties, pace
+of technological progress, and the relative immaturity of AI
+risk assessments and mitigations, the Act should in the first
+instance serve as a framework for learning the appropri-
+ate technical, organisational and regulatory measures which
+then shape future regulatory and technical progress. We
+therefore argue that a key benefit of the AI Act is the mo-
+tivation to mobilise resources to resolve and build consen-
+sus on these uncertainties in a way that addresses existing
+and future AI risks in an efficient and legitimate manner. We
+phrase this gain of knowledge as ‘learnings’.
+To identify such learnings, we analyse the primary un-
+arXiv:2503.05787v2  [cs.CY]  28 May 2025
+
+certainties arising from the AI Act and define ‘learning are-
+nas’ that are useful to structure and maximise the shared ef-
+ficiency of learnings under the current complex structures
+defined in the Act. We conclude with concrete recommen-
+dations on how to improve the information flow between ac-
+tors across learning arenas for accelerating shared learning
+and to better respond to the pace of advances in AI.
+Fundamental Rights and Legal Uncertainties
+This paper argues that regulatory learning in the context of
+the AI Act should begin, at the most general level, by ad-
+equately identifying the role of fundamental rights and ad-
+dressing issues related to the so-called direct effect of EU
+law. This section will briefly outline the three sources of fun-
+damental rights protection in the EU with particular focus on
+issues with direct effect of the EU Charter of Fundamental
+Rights (CFR). It will then consider the application of the
+Charter to the AI Act.
+As EU integration progressed over the years, so did pro-
+tection of fundamental rights. Consequently, within the EU
+legal order, there is currently no single uniform source of
+fundamental rights protection (Spaventa 2018). Instead, Ar-
+ticle 6 TEU identifies three sources thereof, in chronologi-
+cal order: 1) constitutional traditions shared by the Member
+States; 2) the European Convention for the Protection of Hu-
+man Rights and Fundamental Freedoms (ECHR), which all
+EU Member States are parties to but the European Union is
+not; and 3) the EU Charter of Fundamental Rights. The latter
+has been gaining in importance since the Treaty of Lisbon’s
+entry into force (2009), however, the scope of application
+of the Charter is limited by its so-called horizontal provi-
+sions, particularly Article 51. With Lenaerts, we note that the
+CFR rights are “addressed to the institutions, bodies, offices
+and agencies of the Union with due regard for the princi-
+ple of subsidiarity and to the Member States only when they
+are implementing Union law” (Lenaerts 2012). Therefore,
+while the provisions of the Charter bind the EU itself and
+the Member States, and this has been particularly evident in
+policymaking, its impact in litigation has been limited due
+to issues with direct effect of the Charter (Frantziou 2015,
+2019). To be capable of direct effect, i.e. to create rights for
+individuals, a provision of EU law must fulfil the follow-
+ing three conditions laid down in the CJEU case 26/62 Van
+Gend en Loos: it must be 1) clear, 2) precise and 3) uncon-
+ditional and, therefore, not require any further implementing
+measures.
+In relation to CFR rights, the CJEU has to date only con-
+sidered direct effect of four provisions. Consequently, Arti-
+cle 21 CFR (right to non-discrimination), Article 31(2) CFR
+(right to maximum working hours, to daily and weekly rest
+periods and to annual leave) and Article 47 CFR (right to
+an effective remedy and to a fair trail) have been deemed
+as having direct effect (Prechal 2020). Conversely, Article
+27 CFR (workers’ right to information and consultation) has
+been denied direct effect in case C-176/12 AMS, where the
+CJEU stated, in para 45, that “for this article to be fully ef-
+fective, it must be given more specific expression in Euro-
+pean Union or national law”. Therefore, it does require ad-
+ditional implementing measures. Regarding the remainder
+of the CFR, it is not clear which of the rights might be capa-
+ble of direct effect and, thus, whether individuals might be
+able to successfully rely on them.
+Consequently, it is possible that in conflicts involving
+fundamental rights in the context of the AI Act, the other
+sources of protection, i.e. the European Convention on Hu-
+man Rights which is binding on all the EU Member States,
+and indeed the national constitutions of the Member States,
+might also become relevant. As the EU and the Council of
+Europe are in the process of negotiating EU’s accession to
+the ECHR, a rebuttable presumption of equivalent protection
+between the two systems, laid down in Article 52(3) of the
+CFR, continues to apply (De Hert and Korenica 2012). In-
+deed, the European Court of Human Rights (ECtHR) has de-
+livered judgments where violations of the Convention were
+found, e.g. in relation to unjustified processing of biometric
+data (case Glukhin v Russia, Application no. 11519/20). In
+this vein, the body of ECtHR case law constitutes yet an-
+other important resource for regulatory learning pertaining
+to fundamental rights.
+While potentially all fundamental rights, including CFR
+rights, might fall within the scope of application of the AI
+Act, the Act explicitly refers to 17 fundamental rights in
+Recital 48 of the Preamble, which had also been mentioned
+in the Proposal for the AI Act (COM(2021) 206 final). This
+implies that the European Commission expects these to be
+of particular relevance in the context of AI, even though it
+does not grant them any additional legal standing. It is un-
+clear which of these fundamental rights beyond the right to
+non-discrimination, the right to an effective remedy and to
+a fair trial, as well the specific workers’ right to rest, might
+have direct effect. The lack of direct effect might constitute
+a barrier to effective enforcement of fundamental rights, par-
+ticularly in horizontal disputes involving non-state actors,
+i.e. private parties (Viljanen 2023; Fornasier 2015). In the
+context of the AI Act, disputes involving fundamental rights
+might potentially concern such types of deployers of high-
+risk AI systems as private employers, insurance companies
+or banks. Regarding fundamental rights that do not have di-
+rect effect, e.g. the workers’ right to information and con-
+sultation, it appears that such non-state actors would not be
+bound by the Charter.
+Many of the fundamental rights enshrined in the Char-
+ter have further been concretised in secondary EU legis-
+lation, some of which also has direct effect and would,
+therefore, be binding on private parties. A prime exam-
+ple is the right to the protection of personal data guaran-
+teed by the General Data Protection Regulation 2016/679
+(GDPR), referenced multiple times across the AI Act, as
+well as other legislation, such as the Law Enforcement Di-
+rective 2016/680 or the ePrivacy Directive 2002/58. Other
+examples of secondary legislation mentioned in the AI Act
+which is connected to various CFR rights include Regula-
+tion 2024/900 on the transparency and targeting of politi-
+cal advertising; Framework Directive 2002/14 on employee
+information and consultation or the Platform Workers Di-
+rective 2024/2831. Additionally, the entire body of EU con-
+sumer legislation gives effect to Article 38 of the Charter
+(the right to consumer protection), including the Medical
+
+Devices Regulation 2017/745, the Representative Actions
+Directive 2020/1828 and the Unfair Commercial Practices
+Directive 2005/29 to name a few examples mentioned in the
+AI Act. Furthermore, there is other relevant EU secondary
+legislation which, albeit not explicitly referenced in the AI
+Act, provides additional layers of protection of various Char-
+ter rights. A pertinent example is the EU non-discrimination
+law consisting of the Framework Directive 2000/78, the
+Racial Equality Directive 2000/43 and the Gender Recast
+Directive 2006/54, where implications of AI and algorith-
+mic management in employment are significant (Wachter,
+Mittelstadt, and Russell 2021; Xenidis and Senden 2020).
+Given the existing regulatory complexities and uncertainties
+surrounding the status of fundamental rights and the Charter
+in the context of the AI Act, the following list of questions
+need to be prioritised towards ensuring predictable and con-
+sistent enforcement of the Act:
+1. Will all rights under the CFR be equally protected?
+2. What role will Market Surveillance Authorities (MSAs)
+in relation to identifying whether a high-risk AI system
+has breached fundamental rights protections and enforce-
+ment of corrective measures?
+3. How will the enforcement powers of MSAs in enforcing
+rights protections (executed in concert with national bod-
+ies protecting fundamental rights as per Article 77 of the
+AI Act) interplay with those of notified bodies, national
+competent authorities?
+4. What role and weight will be placed on the Fundamen-
+tal Rights Impact Assessment (FRIA) conducted by AI
+deployers and AI providers (Article 27) in enforcing fun-
+damental rights protections?
+Integrating Horizontal & V ertical
+Requirements
+The AI Act takes a risk-based approach with technical re-
+quirements that fall primarily on AI providers that aim to
+place an AI system on the market or into service in the
+EU, as well as organisations that deploy such AI offerings,
+termed AI deployers. The requirements specify the ex-ante
+application of quality management (Article 17) and risk
+management techniques (Article 9) and involve technical
+measures for data governance and data protection (Article
+10), technical documentation and record keeping (Articles
+11 and 12), transparency (Article 13) and human oversight in
+AI system operation (Article 14), and implementation of ac-
+curacy, robustness and cybersecurity measures (Article 15).
+While the requirements are similar in scope to many ex-
+isting voluntary ethical AI guidelines, their integration into
+the NLF poses important questions. In particular, it remains
+to be seen whether satisfying these requirements will ade-
+quately deliver the Act’s goals of a well-functioning internal
+market balanced with high levels of protections for health,
+safety and fundamental rights (Recital 1) (Evers 2024).
+Adopting the well-established pattern of the NLF, the en-
+forcement of technical requirements combines ex-ante certi-
+fication of AI-based products classified as “high-risk” prior
+to release and ex-post monitoring and surveillance of such
+products once released and in use. The required certification
+process depends on the class of the high-risk AI system in
+question, of which the Act defines two sets. The first relates
+to the use of AI in products that are already subject to har-
+monised product legislation and listed in Annex I of the Act,
+which would receive certification on conformance to the Act
+via the certification mechanisms established therein. The
+second relates to the use of AI in applications not subject
+to existing product legislation but are deemed to represent
+risks needing oversight and listed in Annex III of the Act,
+for which self-certification of compliance will suffice, apart
+from the area of remote biometric identification (Annex III,
+point 1) for which a new certification mechanism will be es-
+tablished. The ex-post enforcement of requirements on high-
+risk AI systems involves planned post-market monitoring of
+deployed systems by providers, adherence by deployers to
+the instructions of use provided with the system and surveil-
+lance of these by a network of Market Surveillance Authori-
+ties (MSA). If an MSA has reason to believe that a high-risk
+AI system placed on the market does not comply with the
+Act’s requirements, it has the power to obtain detailed tech-
+nical documentation and resources from the provider, up to
+and including copies of the system code in order to make de-
+termination of breaches of requirements. Depending on the
+severity of any assessed breaches, an MSA may require cor-
+rective measures to be made to the system or its instructions
+for use or that the system is removed from the market. It may
+also impose financial penalties on the provider or deployer.
+The ability to unambiguously verify that a high-risk AI
+system employs appropriate technical measures to mitigate
+risks to health, safety and fundamental rights relies on in-
+vestigation of technical documentation, testing and instruc-
+tions, which therefore are central to the consistent and effec-
+tive implementation of the Act, and where efficiency is vital
+to minimising the regulatory burden of complying with the
+Act (Golpayegani et al. 2024). However, the Act is limited
+to essential high-level requirements for technical measures
+and how they should be undertaken is stated in horizon-
+tal terms independent of sectoral context. Instead, in com-
+mon with some other regulations under the NLF, the Act
+allows compliance with requirements to be demonstrated by
+provider in terms of a presumption of conformity gained by
+adherence to separate technical standards. These technical
+standards can be either “Harmonised Standards” developed
+by European Standards Organisations (ESOs) or if that is
+not possible or insufficient then via “Common Specifica-
+tion” to be developed by the European Commission (EC)
+(Tartaro 2023). The EC has already issued a request for
+harmonised standards in 10 areas to the ESOs, addressing
+different aspects of the required technical measures (Euro-
+pean Commission 2023). A Joint Technical Committee of
+the ESO’s CEN and CENELEC (JTC21) has been chartered
+in response to develop European Standards for AI.
+By developing the technical specifications needed to im-
+plement the Act’s technical provisions in this way, ESOs can
+leverage expertise of industry practitioners, as well as draw
+upon existing international standards so that resulting speci-
+fications are technically correct, reflective of the recent state
+of the art and more readily implementable by industry ac-
+
+tors. However, this presents several additional uncertainties:
+• EU-wide coordination of national regulatory authorities:
+Under the NLF, product legislation is enforced at the na-
+tional level, primarily by relevant MSAs, where legisla-
+tions in Annex I of the Act involve such MSAs when
+products in their competent vertical sectors involve AI.
+However, MSAs in each of these regulated sectors are al-
+ready part of an EU wide Administrative Coordination
+Group (AdCos) to coordinate and ensure consistent en-
+forcement, and where the AdCos groups in turn coordi-
+nate on common NLF implementation issues.
+It is unclear if similar EU wide coordination is envisaged
+for each of the separate areas introduced to the NLF un-
+der Annex III of the AI Act, or if this will be coordinated
+as a group via a network of the AI National Competent
+Authorities (NCA). Further, it is unclear if issues raised
+under Annex I sectoral enforcement will be escalated to
+the AI Office and Board at EU level by that sector’s Ad-
+ministrative Coordination Group or via the NCA. Sim-
+ilarly, for consistency of GDPR, EU-wide coordination
+happens through the European Data Protection Board
+(EDPB) whose members are supervisory authorities. The
+AI Act is unclear on whether the similarly defined Euro-
+pean Artificial Intelligence Board (EAIB) in Article 65,
+will involve EU-wide coordination bodies related to fun-
+damental rights directly, or whether this is to occur via
+the NCA. For example, in Ireland the national compe-
+tent authority for the AI Act is yet to be announced while
+there is a notified body already operating to serve the cer-
+tification needs of the large medical device sector, and in
+addition there are 10 different agencies and departments
+covering the MSA role for the 20 Annex I legislative acts
+as well as 9 fundamental rights protection bodies. There-
+fore, the EU-wide coordination to implement the AI Act
+involves numerous entities and is thus considerable.
+• Limited representation in standards development: Stan-
+dards development is a meticulous, lengthy and highly
+technical process. Therefore, the bulk of participation
+comes from large multinational companies that sustain
+teams of suitably-experienced experts, whereas other less
+well-resourced experts from NGOs, SMEs or academia
+struggle to maintain effective level of contribution (Cuc-
+curu 2019). This raises concerns that the resulting AI
+harmonised standards from CEN/CENELEC JTC21 may
+not sufficiently represent the interests of citizens and
+SMEs in favour of the large companies that the Act must
+also regulate (Veale and Borgesius 2021). Further, JTC21
+is able to adopt standards directly from ISO/IEC, where
+the subcommittee on AI (SC42) has been developing AI
+standards since 2018, many of which align to topics in the
+EC’s harmonised standards request, e.g. ISO/IEC 23894
+on AI risk management (ISO/IEC 2023a) and ISO/IEC
+24029-2 on AI robustness (ISO/IEC 2023b). However,
+as these are developed by experts from a global mem-
+bership of national standards bodies rather than just the
+European-based ones, the representation of weaker Eu-
+ropean actors may be further diluted.
+• Lack of free access to harmonised standards: Standards
+bodies such as ISO/IEC and CEN/CENELEC rely on
+charging for access as means of funding to maintain
+their convening and quality assurance functions, and
+harmonised standards are typically high-demand items.
+However, as harmonised standards essentially enter EU
+law and are key to enforcing important consumer protec-
+tions, paywall access became untenable and resulted in
+court actions (Kamara 2022). The European Court of Jus-
+tice delivered a judgment in Case C-588/21 P that there
+was an overriding public interest in free access to har-
+monised standards, and in response ISO/IEC have asked
+to annul this decision (Case T-631/24), thereby casting
+uncertainty regarding the sustainability of the current
+model for harmonised standards.
+• Developing standards with reference to legal require-
+ments and ethical norms: ISO/IEC and CEN/CENELEC
+guidelines prohibit addressing legal compliance so as
+to avoid introducing barriers to trade in these specifi-
+cations. Harmonised standards address this by includ-
+ing a specific annex to map provisions in the standard to
+specific legislative requirements. This arms-length treat-
+ment and the perceived lack of democratic legitimacy in
+standards development means that issues of fundamental
+rights and ethics are limited to non-normative technical
+reports (ISO/IEC 2022).
+• Integrating horizontal and vertical standards develop-
+ment: A key benefit of grounding harmonised standards
+in international ISO/IEC standards is the support of-
+fered for regulatory certification regimes, where confor-
+mity assessment is based on the ISO 17000 series of
+standards. This allows for use of standardised certifi-
+cation assessments from authorised bodies that certify
+against a given regulation and its harmonised standards
+through “notification” (i.e. competent authorities assess
+certification providers and “notify” them if deemed qual-
+ified). Complementing this scheme is the harmonised
+management system standard (MSS) template defined by
+ISO/IEC (ISO/IEC 2024). This common template facil-
+itates organisations combining adoption of MSSs from
+different standards committees into a unified organisa-
+tional management system, e.g. ISO/IEC 27001 for in-
+formation security and ISO 42001 which is the MSS de-
+veloped by SC42 for AI from the harmonised manage-
+ment system. This however offers no guarantee that sim-
+ilar concepts or control measures included from differ-
+ent ISO/IEC standards committees are not in conflict, as
+they are often developed at different times and as com-
+mittees addressing horizontal technologies such as AI are
+typically chartered separately to those addressing sec-
+torial standards, such as ISO/TC 210 on health related
+products. The ideal solution for a Joint Committee to be
+formed between separate committees is tricky as there
+are two sets of consensus forming and voting communi-
+ties involved which makes it typically slower to establish
+and complete standards project. To date, the harmonised
+standards request to JTC21 has only sought horizontal
+harmonised standards from JTC21, so the development
+of harmonised standards specific to AI use in a vertical
+
+domain such as medical devices may introduce uncer-
+tainties in the timeliness and consistency of liaison be-
+tween these committees on joint specifications.
+Mapping a Regulatory Learning Space
+Regulatory learning is a means by which technology regu-
+lation can respond and adapt to rapid advances in the ca-
+pabilities and use of the technologies subject to regulation.
+It features in the EU’s smart regulation policies (European
+Commission 2010), which aim to ensure in general that reg-
+ulation achieves its policy objectives with the minimum reg-
+ulatory burden on industry, society and public administra-
+tion across the legislative lifecycle. The AI Act contains
+many provisions that invoke a range regulatory learning and
+revision mechanisms that include sharing and coordination
+of enforcement actions between the Member State and reg-
+ulatory bodies (Article 65,66); operating learning environ-
+ments such a regulatory sandboxes (Article 57, 58, 59) and
+real-world trials (Article 60); providing and revising sup-
+porting technical specification (e.g. harmonised standards,
+guidelines, codes of practice, codes of conduct or report-
+ing templates); authoritative opinions from expert represen-
+tative, i.e. advisory forum (Article 67) and scientific panels
+(Article 68) and modification to the legal code through del-
+egated acts (Article 97), implementing acts (Articles 41, 56,
+58, 108, etc.) and periodic review and revision of the legis-
+lation (Article 112).
+Regulatory sandboxes have previously found some suc-
+cess with financial regulation (Ahern 2021) and the AI Act
+requires at least one in operation in each Member State (Ar-
+ticle 57, 58, 59). Sandboxes allow regulators and prospec-
+tive regulated actors to experience, assess and report on
+technical measures and their documentation. This is con-
+ducted within time and scope-limited constraints set by reg-
+ulatory bodies to inform the improvement of implementation
+on both sides. However, as part of a Member State’s com-
+petence, their scoping and resourcing of sandboxes 1 may
+be constrained by national policy priorities, which may re-
+sult in gaps or duplications across the resulting population
+of sandboxes. Experiences from finance sector also show
+the benefits of resolving ambiguities in regulatory require-
+ments and terminology through collaborative learning are-
+nas that do not need to operate under the ambit of regulators
+(Buckley et al. 2020). Mechanisms such as living labs and
+test-beds can also offer complementary arenas for regula-
+tory learning with different degrees of technology maturity,
+regulator involvement, resourcing models, access routes and
+stakeholder engagement (Kert, Vebrova, and Schade 2022)
+as well as for exploring non-technical governance innova-
+tion (Engels, Wentland, and Pfotenhauer 2019). Correspond-
+ingly, the AI Act includes oversight rules for real-world test-
+ing of technical measures using human subjects (Articles
+60, 61). However, the degree of autonomy on sandboxes
+available to AI National Competent Authorities and the po-
+tential for valuable regulatory learning from other activities
+presents a major coordination problem. This falls into the re-
+1https://artificialintelligenceact.eu/ai-regulatory-sandbox-
+approaches-eu-member-state-overview/
+mit of the European AI Board (Article 66) and the EC. Such
+coordination will need to be handled transparently and sys-
+tematically to ensure that the many uncertainties raised by
+the Act across different protections and sectors are addressed
+in a timely, predictable, efficient and legitimate manner. Fur-
+ther, the risk-based approach adopted from the NLF is at its
+core an adaptive mechanism for managing uncertainty. Pre-
+deployment certification aims to ensure that known or rea-
+sonably foreseeable risks are sufficiently mitigated within
+the available state of the art in technical measures. Where
+new risks materialise or mitigation measures fail in unan-
+ticipated ways, the market surveillance system enables such
+knowledge to be disseminated across the market to rapidly
+correct or remove affected products and to motivate invest-
+ment in corresponding mitigation measures. We therefore
+view the certification and surveillance activities for imple-
+menting the Act (including penalties and appeals to courts)
+as part of its regulatory learning mechanisms.
+These trends in adoption of regulatory learning coupled
+with the uncertainties in the Act indicate that a broad and
+structured framework for regulatory learning is required to
+enable the efficient, timely and stakeholder-inclusive system
+for resolving uncertainties and adapting to technological ad-
+vances. This would allow impacted actors to coordinate to
+analyse the information sharing requirements between dif-
+ferent forms of regulatory learning, to efficiently allocate
+and schedule private and public resources to learning activi-
+ties and to minimise wasteful duplication of such activities.
+To this end, we propose a framework developed from the
+provisions of the Act and consisting of a taxonomy of ac-
+tors who will participate in learning activities that are or-
+ganised into a regulatory learning space where the specific
+learning activities are situated by classes of protections be-
+ing addressed, the types of AI systems involved and classes
+of learning activities.
+The classification of regulatory learning actors con-
+tains Value-chain Actors, Oversight Authorities and Affected
+Stakeholders. The class of Value-chain Actors consists of
+operators of AI systems (defined in Article 3(8) to encom-
+pass providers, deployers, product manufacturers and their
+authorised representatives, distributors and importers) as
+well as the suppliers of data, AI models and other compo-
+nents with compliance implications (Article 25). The class
+of Oversight Authorities consists of bodies and agencies that
+make decisions on the policy lifecycle for the Act. They are
+classified as EU bodies, Member State bodies and those op-
+erating independently of the EU and Member States, such
+as ESOs. It includes therefore those involved in investigating
+and making decisions on compliance and in the development
+of official guidelines, regulatory and legal opinions, delegat-
+ed/implementing acts, or harmonised standards. The class of
+Affected Stakeholders consists of natural persons who ben-
+efit or perceive they may benefit from the Act’s protections
+of their health, safety, fundamental rights including democ-
+racy, the rule of law and environmental protection. In this,
+we also include groups and non-governmental organisations
+advocating for collective interests on protections.
+The efficiency and legitimacy of the AI Act’s imple-
+mentation, given the complex array of the actors involved,
+
+Figure 1: Parameterised Learning Space for the AI Act
+will depend on the networks and patterns of information
+exchange, normative guidance and accountability mecha-
+nisms. We have identified that there are several uncertainties
+in play already that will affect not only what information
+needs to be communicated between actors, but also the in-
+volvement of actors in patterns and triggers for regulatory
+communications and the learnings they convey, which rep-
+resents a large complex network for regulatory interactions.
+Therefore, as visualised in Figure 1, we propose a struc-
+ture of three parametrised axes within which the regulatory
+learning space can be subdivided, actors’ involvement can
+be planned and resourced, and interplay between different
+forms of regulatory learning can be managed.
+The proposed axes, derived from the provisions of the
+Act, are:(1) the types of AI system, (2) the types of protec-
+tions offered and (3) the types of regulatory learning activ-
+ities in which actors may participate. The AI System Types
+breaks down as: prohibited; High Risk AI (HRAI) classified
+under any of the 20 vertical sectorial legislative acts in An-
+nex I; HRAI classified under the 8 areas and 24 sub-areas
+in Annex III; HRAI treated by MSA as non-high-risk (Arti-
+cle 80) under derogations of Article 6(3); deployed HRAI
+with substantial modifications; GPAI systems; GPAI sys-
+tems with systematic risks; AI subject to transparency obli-
+gations and those subject to voluntary codes of conduct.Pro-
+tections cover those for health, safety, fundamental rights,
+democracy and the environment. Finally, regulatory learn-
+ing activities are classified as: those undertaken by individ-
+uals, primarily related by AI literacy and regulatory compe-
+tences; organisational learning required of value-chain ac-
+tors prior to interactions with oversight authorities; regula-
+tory learning resulting from such enforcement interactions
+
+and meta-learning that results from observing the outcomes
+of other learning activities and applying it to developing or
+revising rules and recommendations to which those activi-
+ties are subject (Kooiman and Jentoft 2009).
+In Figure 1, we then map out the types of possible in-
+volvement by the different framework actors with different
+levels of learning activities, thereby laying out the make-up
+of the learning arenas where these activities will be under-
+taken and where different actor classes would be involved
+in learning activities as implied by the Act. This differen-
+tiates between actor classes that are merely participants in
+the activity and those that are responsible for the conduct of
+the activity, including the future adoption of its learning out-
+comes by that particular actor. The mapping also differenti-
+ates actors that observe that class of learning activity and use
+the collective learning outcomes to revise the governance ar-
+rangements for that class, i.e. to conduct meta-learning. In
+this way, the set of actors making up the arena in which spe-
+cific learning activities are undertaken can be identified in
+order to plan and efficiently support such activities. The are-
+nas for meta-learning are not directly elaborated in this way,
+since their make-up is more accurately informed by the or-
+ganisation and enforcement learning activities from which
+they learn. This mapping is therefore expanded separately in
+Table 1. By modelling the interactions between actors and
+activities involved in implementing the AI Act as classes of
+learners and learning activities, we illuminate how the Act’s
+extensive system of “smart regulation” mechanisms will ef-
+ficiently and legitimately address known uncertainties.
+However, two important issues arise as a result: first, re-
+sponsibility for defining learning goals for individuals is not
+well-defined. Though Article 4 of the Act requires AI liter-
+acy in personnel of AI operators, how this should be exe-
+cuted through formal courses, experiential learning (Madaio
+et al. 2024) and competency reviews is undefined. The pro-
+fessional competence of oversight authority personnel is al-
+ready generally defined under the NLF, e.g. as mentioned
+in the Act for national competent authorities (Article 70(3))
+and notifying bodies (Article 31(11)). However, the respon-
+sibility to specify these competences that must draw from
+vertical legislation of Annex I, horizontal AI provisions and
+standards and fundamental right concerns resides diffused
+across the EU and Member States (Recital 20). Further, there
+is no responsibility to promote AI literacy requirements to
+upstream suppliers. Independent competency definition ac-
+tivities are emerging, e.g. International Association of Pri-
+vacy Professions2 and at JTC21 in preliminary investigation
+into “competence requirements for AI ethicist profession-
+als” and “Guidance for upskilling organisations on AI ethics
+and social concerns”, but its integration with EU and Mem-
+ber States responsibilities is currently unclear.
+Second, regulatory sandboxes are primarily designed to
+support the learning by regulated parties in order to help
+manage the risk to their innovation and investment plans in
+cooperation with regulators (OECD 2023), and often also
+need to support Member States industrial policy to justify in-
+vestment. Therefore, the systematic gathering of evidence to
+2https://iapp.org/resources/topics/eu-ai-act/
+support consensus building for developing the required im-
+plementing and delegated acts (Novelli et al. 2024) and as-
+sessment and review of the Act (Article 112) in the long term
+will require coordination and integration outcomes from
+across the broad range of regulatory meta-learning identified
+in Table 1, based on the analysis in (kaizenner 2024). The
+table identifies where a useful information flow is likely be-
+tween instances of the organisational and enforcement learn-
+ing activities and the meta-learning activities listed. It also
+indicates where the outcome of those learning activities will
+place additional requirement on the other learning activities.
+It can be seen that there is a high chance of such useful
+information flow between organisational and enforcement
+learning activities and meta-learning. In particular, informa-
+tion flows to and from most type of enforcement learning to
+meta-learning activities are likely as there will be cross over
+where HRAI enforcement informed GPAI related activities
+and vice versa based on the increasing prevalence of GPAI
+use in areas treated as HRAI and HRAI oversight serving as
+a source of evidence on GPAI risks and thereby feedback
+on their classification. This dense pattern of bidirectional
+information exchange to and from meta-learning reinforces
+the need for systematic support for finding, exchanging and
+meaningfully consuming the outcome of different learning
+activities in an efficient manner.
+It can also be seen that involvement of affected stakehold-
+ers is a widespread expectation across activities, prompted
+by their importance in understanding rights protection and
+the legitimacy their involvement may offer. However, they
+are offered relatively little formal role in the Act beyond the
+right to lodge a complaint with an MSA on rights protection
+breach (Article 85), to request an explanation of an AI deci-
+sion (Article 86) and to benefit from whistle-blower protec-
+tions (Article 87). However, structuring their participation
+in the design of technical and governance measures is chal-
+lenging to implement (Groves et al. 2023).
+Learning via Information Exchange
+Any attempt to ground technology ethics in co-regulation
+with democratic legitimacy requires compliance to be
+achieved in a stable manner and implemented efficiently
+(Ferretti 2022). As we discussed earlier, the AI Act currently
+presents major legal uncertainties, especially in the effec-
+tiveness of protections across the broad range of fundamen-
+tal rights and in how its horizontal provisions will integrate
+with vertical enforcement practices of the NLF. While not
+addressing these uncertainties directly, the Act does already
+contain a wide range of measures to update its provision in
+response to technological advances and improved evidence
+on risks. We do not aim to predict changes arising from reg-
+ulatory learning, but instead offer a structured framework
+for considering the Act’s provisions as a system of interact-
+ing regulatory learning activities. In this way, we can con-
+sider how such learnings can be supported in a predictable
+and efficient manner. In particular, we now consider how in-
+formation exchange between different learning activities can
+support efficiency and legitimacy. Efficiency may be derived
+by improving the semantic and syntactic interoperability of
+information representing the context and outcomes of learn-
+
+Table 1: Information flow between organisational and enforcement learning activities and meta learning activities with signs
+indicating: ← as instance of learning activity informs meta-learning activity, → as outcome of meta-learning activity places
+requirements on instances of learning activities; ↔ as both these apply; . (dot) as no interactions; and acronyms as DA for
+Delegated Act; IA for Implementing Act; and [] (square brackets) indicating AI Act article
+I. Meta-learning activities II. Organisational learning activities III. Enforcement learning activities
+a b c d e f g a b c d e f g
+a: Develop harmonised standards [40] ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ← ←
+b: Revise Anx III derogations [6,97] DA ↔ ↔ ↔ . ← . ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔
+c: Revise Anx I and III [7,97] DA → ← ↔ . ← . ← ← ← ← ↔ ↔ ← ←
+d: Revise technical documentation spec
+Anx IV [6,97] DA ↔ ← ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ← ←
+e: Revise conformity assessment Anx VI
+and VII [43,97] DA ↔ ← ↔ ↔ ↔ . ← ↔ ↔ ↔ ↔ ↔ → ↔
+f: Revise declaration of conformity spec
+Anx V [47,97] DA ↔ ← ↔ ↔ ↔ ← . ↔ ↔ ↔ ↔ ↔ → →
+g: Revise GPAI threshold and criteria in
+Anx XIII [52,97] DA ↔ ↔ ← → . . ← ← ← ← ← ← ↔ ↔
+h: Revise GPAI tech document Anx XI and
+downstream in Anx XII [53,97] DA ↔ ← ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔
+i: Develop common specification [41,98]
+IA ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ← ←
+j: Develop spec for reg sandboxes [58,98]
+IA ← ← ← ← ← ← ← ← ← ← ↔ ← ← ←
+k: Develop spec for real-world testing
+[60,98] IA ← ← ← ← ← ↔ ↔ ← ← ← ← ↔ ← ←
+l: Develop template for post market moni-
+toring plans [72,98] IA ← ← ← ← ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ← ↔
+m: Develop rule for GPAI evaluation
+[92,98] IA ← ← ← ← ← ← ← ← ← ← ← ← ↔ ↔
+n: Develop criteria non-high-risk Anx III
+systems [6] ↔ ↔ ← . . . ← ↔ ↔ ↔ ↔ ↔ ↔ ↔
+o: Develop QMS guidelines for microen-
+terprises [63] ↔ ↔ ← ↔ ↔ → ↔ ↔ ↔ ↔ ↔ ↔ . .
+p: Develop guidelines HRAI compliance
+implementation [96] ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ← ←
+q: Develop template for tech document by
+small and micro enterprises [11] ↔ ← ↔ ↔ ↔ → ↔ ↔ ↔ ↔ ↔ ↔ ← ↔
+r: Develop model contract terms for AIP
+and suppliers [25] ↔ ← ← ↔ ↔ . ← ↔ ↔ ↔ ↔ ↔ ↔ ↔
+s: Encourage development of benchmarks
+and development methodologies [15(2)] ↔ ↔ ↔ ← ↔ → ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔
+t: Develop template for GPAI training
+copyright report [53(1d)] ↔ ↔ ← ↔ . → ← . ↔ ↔ ↔ ← ↔ ↔
+u: Develop objective and participative
+methodology for the evaluation of risk lev-
+els [112(11)]
+↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔
+v: Develop GPAI code of practice [56] ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔
+w: Revise AI Act [112] ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔ ↔
+ing activities. This not only supports exchange of such in-
+formation between AI operators and oversight authorities,
+but with suppliers upstream in the value chain. Legitimacy
+can be derived from adopting open standards for such infor-
+mation exchange and doing so via platforms that maximise
+transparency for affected stakeholders and other operators,
+with the necessary restrictions of commercial confidential-
+ity. Standardised information and structured information-
+sharing practices may enable affected stakeholders, their ad-
+vocates, and independent researchers to make public-interest
+comparisons—such as evaluating the outcomes of individ-
+ual AI training processes or assessing the appropriateness
+
+of thresholds used to measure specific types of harm during
+system testing.
+With this view, we consider the AI Act as also advocating
+the collection and use of specific knowledge to both deter-
+mine and ensure compliance, as well as to promote a culture
+of organisational oversight through the use of this informa-
+tion. An example of this is Articles 9 to 15 where specific
+categories of information are required to be maintained and
+used towards indicated processes. However, given that the
+AI Act ecosystem (or the AI value chain) will mostly con-
+sist of multiple entities who develop, provide, and use AI
+systems, and based on the application of the learning loops
+from before, we can see how the information required to be
+maintained by the AI Act will also be required to be shared
+with other stakeholders outside of the immediate organisa-
+tional context. At the same time, the specific nature of this
+information (e.g. technical or legal) also shows challenges
+in effectively utilising it within the organisation where there
+will be different levels of expertise and the decision-making
+person may not always be capable of understanding it.
+Thus, we point out that effective enforcement of the AI
+Act depends on the information sharing of relevant stake-
+holders, and that doing so efficiently is a necessary regula-
+tory learning in this space. However, the primary challenge
+in developed shared information modelling approaches is
+the divergence in use-cases and requirements, particularly
+across sectors. For addressing this, we require a common
+foundational ontologyaligned with the AI Act itself that pro-
+vides common terminology and basis for developing further
+approaches that can be provisional while the AI Act is being
+initially interpreted, and then progressively be extended as
+certainty of regulatory interpretation is achieved. For such
+approaches developed in parallel across use-cases, it would
+be desirable to share information by ‘aligning’ or ‘mapping’
+the information so that it can be ‘translated’ and utilised con-
+veniently.
+To achieve all of this, we believe the best solution is the
+use of standards-based information models and processes
+developed to share them – specifically semantic web stan-
+dards (World Wide Web Consortium 2024) and their use
+in data portals that enable cataloguing information and de-
+ploying a shared infrastructure that promotes data availabil-
+ity and leads to innovative solutions based on its reuse.
+The EU has successfully utilised this approach in its Open
+Data Portal which federates datasets from national and re-
+gional portals in Member States. The EU’s vision of data
+spaces is grounded in a similar argument which entirely re-
+lies on shared information and processes to achieve greater
+efficiency through consistency in shared contexts. The EU
+Commission’s European Interoperability Framework (EIF)
+was developed with a similar goal for creating interoperable
+digital public services. We posit that a similar approach for
+the AI value chain, based on a focus on achieving the nec-
+essary knowledge exchange for AI Act compliance, should
+be considered an essential part of regulatory learning in this
+space. Another example is the EU’s eProcurement Ontology
+(Publications Office 2024) which provides a standardised
+ontology of concepts for interoperable modelling of procure-
+ment data and processes based on EU regulations and direc-
+tives. The ontology caters to common terminology between
+stakeholders, and enables the development of common tool-
+ing, platforms, and services that function both before and af-
+ter the award. A similar effort for the implementation of the
+AI Act can be envisioned that functions ‘end-to-end’ across
+the value chain and assists in the definition of interopera-
+ble information for facilitating sharing between stakehold-
+ers, and to formalise the exchange of knowledge necessary
+for regulatory learning within and across the defined learn-
+ing loops. More importantly, it can function as the common
+technical foundation for the implementation of future regu-
+lations and directives which will build on top of the AI Act in
+both horizontal (general) and vertical (sectorial) directions.
+We point to examples of feasible and sustainable community
+efforts where such use of semantic web standards towards le-
+gal knowledge modelling has been successful in adapting to
+evolving regulations and standards (Pandit, Lindquist, and
+Krog 2024; Pandit et al. 2025).
+Thus, we argue that the development of an interoperable
+framework is an investment in the regulation and will aid
+regulatory learning processes for both organisations and pol-
+icy makers by giving them a common point of reference for
+developing further obligations and smoothing over report-
+ing obligations. This type of ‘harmonisation’ is critically re-
+quired given the recent Draghi report outlined reduction in
+regulatory reporting as one of the key factors essential to
+ensuring EU competitiveness, and where the Commission’s
+response agrees with this view as it has tabled an ‘omnibus
+regulation’ in its agenda for the 2025 work program that re-
+duces reporting and red-tape by 25%. We interpret this as the
+Commission aiming to make regulatory enforcement more
+efficient rather than diluting the regulatory obligations and
+protection of fundamental rights and freedoms. Thus, our ar-
+gument for using regulatory learning as a tool to systematise
+compliance processes across the ecosystem and across reg-
+ulations should be considered an important factor for such
+future policy-making decisions.
+To achieve this, we envision the reuse of existing stan-
+dardisation processes, such as in ISO/IEC, CEN/CENELEC,
+and W3C to develop appropriate agreements on information
+exchange formats and processes based on using them. This
+also provides a way for the integration of information re-
+quired or involved in the use of harmonised standards for
+the AI Act within the proposed interoperability framework.
+Discussion and Further Work
+We argue that the technology pacing problem coupled with
+uncertainties related to fundamental rights protections and
+integration of horizontal provisions and vertical enforcement
+requires a systematic approach to regulatory learning for the
+AI Act. We therefore proposed a conceptual, parametrised
+space for locating instances of learning activities to aim in
+their planning, resourcing, coordination and information ex-
+change. To ensure regulatory learning is timely, efficient and
+legitimate we recommend:
+1. The development of open, standards-based and machine
+readable information models for the exchange of the con-
+text and learning outcomes of learning activities;
+
+2. Maximising opportunities for sharing instance of such
+learning outcomes according to FAIR principles, e.g. ac-
+companying declaration of conformity used in public ad-
+ministration in an EU database;
+3. Where confidentiality restricts open sharing of learning
+outcomes, encourage the use of data spaces for controlled
+access to information sharing.
+Considering the AI Act as a learning framework in this
+way may portend a “regulatory turn” in the field of AI ethics,
+where questions focus on the efficient operation of such hor-
+izontal regulation and its effectiveness in protecting funda-
+mental rights. In the context of the Act, such a regulatory
+turn in AI ethics may refocus voluntary codes more specifi-
+cally on fundamental rights protections in order to leverage
+the learning and evidence that will arise from the compli-
+ance actions for high-risk and GPAI systems. Such a reg-
+ulatory turn may have import beyond the EU both due to
+the extraterritorial impact on international AI value chains
+known as the “Brussels effect”, and the widespread compa-
+rable legal protections in place across different jurisdictions
+for fundamental, or human, rights and corresponding legiti-
+macy in comparison to proposed ethical frameworks for AI
+(Lewis et al. 2020).
+While our analysis is limited to the scope of the AI Act,
+given the breadth of recent EU digital regulations, the next
+step is to explore regulatory learning systems that can ad-
+dress the interplay of the Act and related digital and prod-
+uct legislations. As discussed above, there is coordination
+of the interplay between the AI Act and GDPR and also
+some options for coordination with Annex I product legis-
+lation under NLF. However, there is potential interplay with
+other EU law where their interactions with the Act have not
+yet received close attention - such as on the cybersecurity
+of AI (Article 15) with the Cyber Resilience Act 2024/2847
+and the Network and Information Systems (NIS2) Directive
+2022/2555. Another avenue for exploring coordination in-
+volves the system for accrediting trusted research used in
+the Digital Services Act 2022/2065 to be mobilised for re-
+searchers to advance AI and data auditing techniques with
+HRAI and GPAI providers. More broadly, effective imple-
+mentation of AI quality management systems and risk as-
+sessments, especially for emerging impact on fundamen-
+tal rights can also feed in fruitfully for provider obliga-
+tions under liability legislation including the General Prod-
+uct Safety Regulation 2023/988, the Product Liability Di-
+rective 2024/2853, class actions via the Representative Ac-
+tion Directive 2020/1828, and Corporate Sustainability Re-
+porting Directive 2022/2464, as well as the Corporate Sus-
+tainability Due Diligence Directive 2024/1760 on environ-
+mental and social reporting. The European Data Protection
+Supervisor has recently proposed a digital clearing house
+to facilitate multilateral cooperation between authorities in-
+volved in enforcing the EU digital aquis (EPDS 2025). Ex-
+panding our learning space model as an open data resource
+may offer a useful resource for such coordination but also a
+mean for engaging affected stakeholder and civil society on
+these complex issues.
+The scope of the analysis of information exchange could
+be expanded further to include AI risk and compliance
+frameworks as they emerge outside of the EU jurisdiction
+such as the US, China, Canada, UK and Singapore. Sand-
+boxes are already being adopted internationally as these
+other jurisdictions grapple with similar AI risk uncertain-
+ties. Analysing the potential for learning interchange be-
+tween sandboxes across jurisdictions may help assess where
+enforcement of one measure already adequately offers out-
+comes intended by the other or where minor incompatibil-
+ities could be readily addressed by bodies tasked with ad-
+dressing issues raised as part of international trade agree-
+ments.
+Finally, the profound impacts AI seems likely to bring
+to many aspects of our lives may result in the enforcement
+of the AI Act exposing new vectors where different funda-
+mental rights come into conflict in unanticipated ways. In-
+sights may arise from cases brought before national courts
+or the CJEU, or where a MSA or the AI Office makes
+a ruling based on an identified fundamental rights breach.
+Here, learning could be facilitated by cataloguing AI funda-
+mental rights opinions from these different types of learn-
+ing together, contrasting with the more siloed public cata-
+logues related to existing rights protecting frameworks such
+as GDPR Supervisory Authorities and the ECtHR. This may
+support accelerated legal scholarship on topics such as clar-
+ification of circumstances under which the AI Act does or
+does not support fundamental rights protections and under-
+standing where different protections may come into conflict
+(including the freedom to conduct a business).
+Acknowledgments
+This project has received funding from the European Com-
+mission’s Horizon Europe Research and Innovation Pro-
+gramme under grant agreement No. 101177579 (FORSEE)
+and from the ADAPT Centre for Digital Media Technology,
+which is funded by Research Ireland and is co-funded under
+the European Regional Development Fund (ERDF) through
+Grant#13/RC/2106 P2.
+References
+Ahern, D. 2021. Regulatory Lag, Regulatory Friction and
+Regulatory Transition as FinTech Disenablers: Calibrating
+an EU Response to the Regulatory Sandbox Phenomenon.
+European Business Organization Law Review , 22(3): 395–
+432.
+AI Act. 2024. Regulation (EU) 2024/1689 of the European
+Parliament and of the Council of 13 June 2024 laying down
+harmonised rules on artificial intelligence and amending
+Regulations (EC) No 300/2008, (EU) No 167/2013, (EU)
+No 168/2013, (EU) 2018/858, (EU) 2018/1139 and (EU)
+2019/2144 and Directives 2014/90/EU, (EU) 2016/797 and
+(EU) 2020/1828 (Artificial Intelligence Act) (Text with EEA
+relevance). Legislative Body: CONSIL, EP.
+Buckley, R.; Arner, D.; Veidt, R.; and Zetzsche, D. 2020.
+Building Fintech Ecosystems: Regulatory Sandboxes, Inno-
+vation Hubs and Beyond. Washington University Journal of
+Law & Policy, 61(1): 055–098.
+
+Corrˆea, N. K.; Galv˜ao, C.; Santos, J. W.; Pino, C. D.; Pinto,
+E. P.; Barbosa, C.; Massmann, D.; Mambrini, R.; Galv˜ao, L.;
+Terem, E.; and Oliveira, N. d. 2023. Worldwide AI ethics: A
+review of 200 guidelines and recommendations for AI gov-
+ernance. Patterns, 4(10). Publisher: Elsevier.
+Cuccuru, P. 2019. Interest Representation in European Stan-
+dardisation: The Case of CEN and CENELEC.
+De Hert, P.; and Korenica, F. 2012. The doctrine of equiv-
+alent protection: Its life and legitimacy before and after the
+European Union’s accession to the European convention on
+human rights. German Law Journal, 13(7): 874–895.
+Engels, F.; Wentland, A.; and Pfotenhauer, S. M. 2019. Test-
+ing future societies? Developing a framework for test beds
+and living labs as instruments of innovation governance.Re-
+search Policy, 48: 103826.
+EPDS. 2025. Towards a Digital Clearinghouse 2.0 | Euro-
+pean Data Protection Supervisor.
+European Commission. 2010. Communication From The
+Commission To The European Parliament, The Council, The
+European Economic And Social Committee And The Com-
+mittee Of The Regions Smart Regulation In The European
+Union.
+European Commission. 2023. C(2023)3215 – Standardi-
+sation request M/593 Commission Implementing Decision
+of 22.5.2023 on a standardisation request to the European
+Committee for Standardisation and the European Commit-
+tee for Electrotechnical Standardisation in support of Union
+policy on artificial intelligence .
+European Commission, Directorate-General for Internal
+Market, Industry, Entrepreneurship and SMEs. 2022. Com-
+mission notice The ‘Blue Guide’ on the implementation of
+EU product rules 2022. 2022/C 247/01.
+Evers, C. 2024. Talking past each other? Navigating dis-
+course on ethical AI: Comparing the discourse on ethical AI
+policy by Big Tech companies and the European Commis-
+sion. In Proceedings of the 2024 ACM Conference on Fair-
+ness, Accountability, and Transparency, FAccT ’24, 1885–
+1896. New York, NY , USA: Association for Computing Ma-
+chinery. ISBN 9798400704505.
+Ferretti, T. 2022. An Institutionalist Approach to AI Ethics:
+Justifying the Priority of Government Regulation over Self-
+Regulation. Moral Philosophy and Politics, 9(2): 239–265.
+Publisher: De Gruyter.
+Fjeld, J.; Achten, N.; Hilligoss, H.; Nagy, A.; and Srikumar,
+M. 2020. Principled Artificial Intelligence: Mapping Con-
+sensus in Ethical and Rights-Based Approaches to Principles
+for AI.
+Fornasier, M. 2015. The impact of EU fundamental rights
+on private relationships: direct or indirect effect? European
+Review of Private Law, 23(1): 29.
+Frantziou, E. 2015. The horizontal effect of the charter of
+fundamental rights of the EU: rediscovering the reasons for
+horizontality. European Law Journal, 21(5): 657.
+Frantziou, E. 2019. The Horizontal Effect of Fundamental
+Rights in the European Union: A Constitutional Analysis .
+Oxford University Press.
+Golpayegani, D.; Hupont, I.; Panigutti, C.; Pandit, H. J.;
+Schade, S.; O’Sullivan, D.; and Lewis, D. 2024. AI Cards:
+Towards an Applied Framework for Machine-Readable AI
+and Risk Documentation Inspired by the EU AI Act. In
+Jensen, M.; Lauradoux, C.; and Rannenberg, K., eds.,
+Privacy Technologies and Policy , 48–72. Springer Nature
+Switzerland. ISBN 978-3-031-68024-3.
+Grace, K.; Stewart, H.; Sandk ¨uhler, J. F.; Thomas, S.;
+Weinstein-Raun, B.; and Brauner, J. 2024. Thousands of
+AI Authors on the Future of AI. ArXiv:2401.02843 [cs].
+Groves, L.; Peppin, A.; Strait, A.; and Brennan, J. 2023.
+Going public: the role of public participation approaches
+in commercial AI labs. In Proceedings of the 2023 ACM
+Conference on Fairness, Accountability, and Transparency,
+FAccT ’23, 1162–1173. New York, NY , USA: Association
+for Computing Machinery. ISBN 9798400701924.
+Hagendorff, T. 2020. The Ethics of AI Ethics: An Evaluation
+of Guidelines. Minds and Machines, 30(1): 99–120.
+ISO/IEC. 2022. ISO/IEC TR 24368:2022 Information tech-
+nology — Artificial intelligence — Overview of ethical and
+societal concerns.
+ISO/IEC. 2023a. ISO/IEC 23894:2023 Information technol-
+ogy — Artificial intelligence — Guidance on risk manage-
+ment.
+ISO/IEC. 2023b. ISO/IEC 24029-2:2023 Artificial intelli-
+gence (AI) — Assessment of the robustness of neural net-
+works — Part 2: Methodology for the use of formal meth-
+ods.
+ISO/IEC. 2024. ISO/IEC Directive Part 1, Consolidated ISO
+Supplement — Procedures for the technical work — Proce-
+dures specific to ISO, 12th Edition.
+Jobin, A.; Ienca, M.; and Vayena, E. 2019. The global land-
+scape of AI ethics guidelines. Nature Machine Intelligence,
+1(9): 389–399. Publisher: Nature Publishing Group.
+kaizenner. 2024. The AI Act: responsibilities of the EU
+Member States.
+Kamara, I. 2022. General Court EU: Commercial interests
+block the right to access European harmonised standards.
+Journal of Standardisation, 1.
+Keber, T.; Schwartmann, R.; and Zenner, K. 2024. The
+EU AI Act: A Practice-Oriented Interpretation: An initial
+overview. Computer Law Review International, 25(4): 114–
+120. Publisher: Verlag Dr. Otto Schmidt.
+Kert, K.; Vebrova, M.; and Schade, S. 2022. Regulatory
+learning in experimentation spaces.
+Kooiman, J.; and Jentoft, S. 2009. Meta-Governance:
+Values, Norms and Principles, and the Making of Hard
+Choices. Public Administration, 87(4): 818–836. eprint:
+https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1467-
+9299.2009.01780.x.
+Lenaerts, K. 2012. Exploring the limits of the EU charter of
+fundamental rights. European Constitutional Law Review ,
+8(3): 375–403.
+Lewis, D.; Hogan, L.; Filip, D.; and Wall, P. J. 2020. Global
+Challenges in the Standardization of Ethics for Trustworthy
+AI. Journal of ICT Standardization, 123–150.
+
+Madaio, M.; Kapania, S.; Qadri, R.; Wang, D.; Zaldivar, A.;
+Denton, R.; and Wilcox, L. 2024. Learning about Respon-
+sible AI On-The-Job: Learning Pathways, Orientations, and
+Aspirations. In Proceedings of the 2024 ACM Conference
+on Fairness, Accountability, and Transparency, FAccT ’24,
+1544–1558. New York, NY , USA: Association for Comput-
+ing Machinery. ISBN 9798400704505.
+Mazzini, G.; and Scalzo, S. 2023. The proposal for the Arti-
+ficial Intelligence Act: considerations around some key con-
+cepts. Camardi (a cura di), La via europea per l’Intelligenza
+artificiale.
+Medical Devices Regulation. 2017. Regulation (EU)
+2017/745 of the European Parliament and of the Council
+of 5 April 2017 on medical devices, amending Directive
+2001/83/EC, Regulation (EC) No 178/2002 and Regula-
+tion (EC) No 1223/2009 and repealing Council Directives
+90/385/EEC and 93/42/EEC.
+Novelli, C.; Hacker, P.; Morley, J.; Trondal, J.; and Floridi,
+L. 2024. A Robust Governance for the AI Act: AI Office, AI
+Board, Scientific Panel, and National Authorities. European
+Journal of Risk Regulation, 1–25.
+OECD. 2023. Regulatory sandboxes in artificial intelli-
+gence.
+Palladino, N. 2023. A ‘biased’ emerging governance regime
+for artificial intelligence? How AI ethics get skewed mov-
+ing from principles to practices.Telecommunications Policy,
+47(5): 102479.
+Pandit, H. J.; Esteves, B.; P. Krog, G.; Ryan, P.; Gol-
+payegani, D.; and Flake, J. 2025. Data Privacy V ocabulary
+(DPV) – Version 2.0. In Demartini, G.; Hose, K.; Acosta,
+M.; Palmonari, M.; Cheng, G.; Skaf-Molli, H.; Ferranti, N.;
+Hern´andez, D.; and Hogan, A., eds., The Semantic Web –
+ISWC 2024, 171–193. Cham: Springer Nature Switzerland.
+ISBN 978-3-031-77847-6.
+Pandit, H. J.; Lindquist, J.; and Krog, G. P. 2024. Imple-
+menting ISO/IEC TS 27560:2023 Consent Records and Re-
+ceipts for GDPR and DGA. In Jensen, M.; Lauradoux, C.;
+and Rannenberg, K., eds., Privacy Technologies and Policy,
+228–251. Cham: Springer Nature Switzerland. ISBN 978-
+3-031-68024-3.
+Prechal, S. 2020. Horizontal direct effect of the Charter of
+Fundamental Rights of the EU. Revista de Derecho Comu-
+nitario Europeo, 24(66): 407–426.
+Publications Office. 2024. The eProcurement Ontology.
+Schultz, M. D.; Conti, L. G.; and Seele, P. 2024. Dig-
+ital ethicswashing: a systematic review and a process-
+perception-outcome framework. AI and Ethics.
+Spaventa, E. 2018. Should we “harmonize” fundamental
+rights in the EU? Some reflections about minimum standards
+and fundamental rights protection in the EU composite con-
+stitutional system. Common Market Law Review, 55(4): 997.
+Tartaro, A. 2023. Towards European Standards Supporting
+the AI Act: Alignment Challenges on the Path to Trustwor-
+thy AI. In Proceedings of the AISB Convention, 98–106.
+Veale, M.; and Borgesius, F. Z. 2021. Demystifying the
+Draft EU Artificial Intelligence Act — Analysing the good,
+the bad, and the unclear elements of the proposed approach.
+Computer Law Review International , 22(4): 97–112. Pub-
+lisher: Verlag Dr. Otto Schmidt.
+Viljanen, M. 2023. A Horizontal Meta-effect? Theorising
+Human Rights in the AI Act and the Corporate Sustainabil-
+ity Due Diligence Directive. In YSEC Yearbook of Socio-
+Economic Constitutions 2023: Law and the Governance of
+Artificial Intelligence, 117. Springer.
+Wachter, S.; Mittelstadt, B.; and Russell, C. 2021. Why fair-
+ness cannot be automated: Bridging the gap between EU
+non-discrimination law and AI. Computer Law & Security
+Review, 41: 105567.
+World Wide Web Consortium, W. 2024. Data catalog vo-
+cabulary (DCAT).
+Xenidis, R.; and Senden, L. 2020. EU non-discrimination
+law in the era of artificial intelligence: Mapping the chal-
+lenges of algorithmic discrimination. Kluwer Law Interna-
+tional.
