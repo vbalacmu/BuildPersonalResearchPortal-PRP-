@@ -9,3 +9,6 @@ venv/
 .DS_Store
 .vscode/
 .idea/
+
+# Ignore Phase I for now (commit Phase II only)
+PhaseI/
