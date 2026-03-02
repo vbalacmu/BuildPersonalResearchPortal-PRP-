@@ -1,0 +1,37 @@
+{
+  "timestamp": "20260301T235705Z",
+  "query": "policies to combat ai automation job loss",
+  "retrieved_chunks": [
+    {
+      "chunk_id": "nigar_2025_chunk_022",
+      "source_id": "nigar_2025",
+      "score": 0.6615469455718994,
+      "text": "s is essential for recognizing \nknowledge deficiencies and formulating future research priorities. It \nexamines the adverse impacts of AI implementation on employment \ntrends, emphasizing the concerns linked to automation, workforce \ndisplacement, and evolving labor requirements. This study is crucial for \npoliticians and corporate leaders to foresee workforce difficulties and \nformulate ways to alleviate job losses. It also identifies and assesses \nexisting mitigation measures designed to safeguard employe"
+    },
+    {
+      "chunk_id": "nigar_2025_chunk_183",
+      "source_id": "nigar_2025",
+      "score": 0.6428654193878174,
+      "text": "the ethical \nissues associated with automation and provides insights into the long- \nterm effects of AI on employment. It supports extensive labor res -\nkilling initiatives and suggests regulations to guarantee that AI generates \nnew opportunities rather than escalating inequality ( L. Littman et al., \n2021 ). MIT\u2019s Work of the Future Initiative strongly emphasizes reima -\ngining professions to encourage cooperation between humans and AI. It \nsuggests automating monotonous jobs so employees can concentrate"
+    },
+    {
+      "chunk_id": "nigar_2025_chunk_039",
+      "source_id": "nigar_2025",
+      "score": 0.6417214274406433,
+      "text": "regionally focused, \nor relatively narrow, frequently concentrating solely on the economics \nof automation. In this study, we expand on that foundation but do so \nfrom a different angle by using the latest available research, empha -\nsizing sector-by-sector vulnerabilities and scrutinizing current mitiga -\ntion recommendations from governments, organizations, and entities. \nAdditionally, to put AI\u2019s impact into context, we use case studies to \nillustrate how AI is affecting specific professions and industr"
+    },
+    {
+      "chunk_id": "demirci_2023_chunk_205",
+      "source_id": "demirci_2023",
+      "score": 0.6280560493469238,
+      "text": "ity: Theory and evidence. Journal of Business &\nEconomic Statistics 37(2):187\u2013204.\n\nLiu et al.: \u201cGenerate\u201d the Future of Work\nArticle submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 39\nOusterhout JK (1998) Scripting: Higher level programming for the 21st century. Computer 31(3):23\u201330.\nPaolillo A, Colella F, Nosengo N, Schiano F, Stewart W, Zambrano D, Chappuis I, Lalive R, Floreano D\n(2022) How to compete with robots by assessing job automation risks and resilient alternatives."
+    },
+    {
+      "chunk_id": "nigar_2025_chunk_150",
+      "source_id": "nigar_2025",
+      "score": 0.6269930601119995,
+      "text": "understand how AI impacts \nvarious industries to predict the nature of work in the future and develop \nworkforce adaptation plans. Fig. 11 illustrates how AI can negatively \nimpact various traditional professions.\n5.2.1. AI in white-collar jobs\nOffice-based white-collar employment, like managerial, profes -\nsional, and administrative roles, is becoming more and more susceptible \nto automation ( Goyal and Aneja, 2020 ). Automating repetitive pro -\ncesses, such as data entry, scheduling, and analysis, can be"
+    }
+  ],
+  "answer": "Based on the provided context chunks, it appears that there are several policies being discussed or suggested to combat AI automation job loss.\n\nOne such policy is the suggestion of regulations to guarantee that AI generates new opportunities rather than escalating inequality (L. Littman et al., 2021) (nigar_2025_chunk_183). Additionally, automating monotonous jobs so employees can concentrate on more creative and high-value tasks is also being discussed as a way to mitigate the negative impacts of AI automation (MIT's Work of the Future Initiative, nigar_2025_chunk_183).\n\nFurthermore, assessing job automation risks and resilient alternatives is proposed as a strategy for workers to compete with robots (Paolillo et al., 2022) (demirci_2023_chunk_205). This approach involves understanding how AI impacts various industries to predict the nature of work in the future and develop workforce adaptation plans.\n\nFinally, automating repetitive processes such as data entry, scheduling, and analysis can be a way to reduce the impact of AI automation on certain professions (Goyal and Aneja, 2020) (nigar_2025_chunk_150).\n\nIt is worth noting that no specific policies are mentioned in the provided context chunks. However, these suggestions provide some ideas for policymakers and corporate leaders to consider when developing strategies to combat AI automation job loss.\n\nNo evidence in corpus for this: \"policies\" as a general term."
+}

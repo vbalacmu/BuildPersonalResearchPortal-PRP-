@@ -1,0 +1,2107 @@
+arXiv:2403.07904v3  [cs.CY]  19 Feb 2025
+Addressing the Regulatory Gap: Moving
+Towards an EU AI Audit Ecosystem Beyond the
+AIA by Including Civil Society
+David Hartmann 1,2[0000−0001−9745−5287], Jos´ e Renato Laranjeira de
+Pereira3,6[0000−0002−9605−8121], Chiara Streitb¨ orger4, and Bettina
+Berendt1,2,5[0000−0002−8003−3413]
+1 Faculty of Electrical Engineering and Computer Science, TU Berlin, Berlin,
+Germany
+2 Weizenbaum Institute for the Networked Society, Berlin, Ge rmany
+3 Laborat´ orio de Pol ´ ıticas P´ ublicas e Internet - LAPIN, Bras ´ ılia, DF, Brazil
+4 Kammergericht Berlin, Berlin, Germany
+5 Department of Computer Science, KU Leuven, Leuven, Belgium
+6 Bonn Sustainable AI Lab, University of Bonn, Bonn, Germany
+Abstract. The European legislature has proposed the Digital Services
+Act (DSA) and Artiﬁcial Intelligence Act (AIA) to regulate p latforms
+and Artiﬁcial Intelligence (AI) products. We review to what extent third-
+party audits are part of both laws and how is access to informa tion on
+models and the data provided. By considering the value of thi rd-party
+audits and third-party data access in an audit ecosystem, we identify a
+regulatory gap in that the AIA does not provide access to data for re-
+searchers and civil society. Our contributions to the liter ature include: (1)
+Deﬁning an AI audit ecosystem incorporating compliance and oversight.
+(2) Highlighting a regulatory gap within the DSA and AIA regu latory
+framework, preventing the establishment of an AI audit ecos ystem that
+has eﬀective oversight by civil society and academia. (3) Em phasizing
+that third-party audits by research and civil society must b e part of that
+ecosystem, we call for AIA amendments and delegated acts to i nclude
+data and model access for certain AI products. Furthermore, we call for
+the DSA to provide NGOs and investigative journalists with d ata access
+to platforms by delegated acts and for adaptions and amendme nts of the
+AIA to provide third-party audits and data and model access, at least for
+high-risk systems, to at least reduce the regulatory gap tha t exists in the
+EU. Regulations modeled after the bloc’s AI regulations sho uld enable
+data access and third-party audits, fostering an AI audit ec osystem that
+promotes compliance and oversight mechanisms.
+Keywords: Auditing, Accountability, Data Access, AI Act, DSA, Black-
+box Audits, AI
+1 Introduction
+Artiﬁcial intelligence (AI) technologies can be found in technologies a nd prod-
+ucts such as machine learning (ML)-based automated decision-mak ing (ADM)
+
+2 D. Hartmann et al.
+systems, such as social media recommendation systems, and gene ral-purpose
+AI, which includes generative AI models. These technologies have be en proven
+to cause severe harm to individuals, groups, and society, especially through their
+capacity to enable discriminatory practices and for their opaquene ss, such as in
+Rotterdam’s welfare fraud, whereby ADM systems deployed were b iased against
+immigrants, who were frequently labeled as fraudsters against the system [20].
+Scholars have also argued that YouTube’s algorithmic-based recom mender sys-
+tems [80] were more prone to recommend extreme content on the p latform,
+helping spread disinformation and harmful content. Furthermore , harmful bi-
+ases have been uncovered in ML models such as in the generative AI S table
+Diﬀusion [65], face recognition APIs [14], and ChatGPT [78].
+The European legislature has responded with diﬀerent regulatory a pproaches
+to address these risks. For example, it has proposed regulating ve ry large online
+platforms 7 (VLOPs) and very large online search engines (VLOSEs) via the
+Digital Services Act (DSA) [31], as well as AI-driven products, serv ices, and sys-
+tems in the territory of the European Union (EU) via the Artiﬁcial In telligence
+Act (AIA) [30].
+Among other regulatory tools, both the DSA and the AI Act have pr ovisions
+related to systematic evaluations of AI systems – denoted by the t erm audit
+– by agents that are both internal or external to the organisatio n developing
+or deploying these technologies and which aim at creating public accou ntability
+regarding these machine’s behavior [8, 74, 76]. These provisions inclu de self-
+assessments both before deployment of the system — as is the cas e in the AI
+Act for “high-risk” AI systems which have to undergo a conformity assessment
+prior to be place in the EU Market [24] — and after deployment — as ar e the
+annual independent audits that VLOPs and VLOSEs have to be subj ected to
+under Article 37 of the DSA [19].
+It has been argued by M¨ okander et al. [62] that the EU regulation t hereby
+sketches a de facto EU-wide ecosystem for auditing AI systems. However, Ed-
+wards [24] has argued that self-assessments before deployment and post-market
+monitoring – we go with M¨ okander et al. [62] to frame this as a form o f inter-
+nal auditing – do not provide suﬃcient oversight. Therefore, Edwa rds [24] has
+raised the question of the extent to which audits and assessments by third parties
+(regulator, research, and civil society) are necessary for suﬃc ient oversight.
+As this paper will demonstrate, access to elements such as the mod el and
+training data of the algorithmic system is crucial to facilitate extern al audit-
+ing. In this sense, we reiterate and strengthen, on the one hand, the argument
+of Casper et al. [16] that third-party black-box access — in which “a uditors
+can only query the system and observe its outputs”, as opposed t o “white-box
+access to the system’s inner workings” — is insuﬃcient and, on the ot her, Al-
+gorithmWatch’s concern that the fact that third-party access is lacking in the
+AIA is worrisome for the eﬃcacy of the regulation [4]. Moreover, while the DSA
+includes third-party access by vetted researchers, scholars ha ve argued that com-
+panies could leverage their market power against external auditor s (i.e. audit
+7 Not restricted to AI-driven algorithms
+
+Towards an EU AI Auditing Ecosystem 3
+capture) [50]. This is why we call for extended access for civil societ y and jour-
+nalists to strengthen auditors positions and oversight by civil socie ty during the
+implementation of both the DSA and for future regulations.
+In general, researchers wonder “who will audit internal auditors? ” [3, 22, 24].
+Therefore, we analyze whether the DSA and the AIA can create an eﬀective,
+diverse EU audit ecosystem that is capable to protect the rights th at they aim
+to protect. To do so, we examine the importance of third-party au dits by re-
+searchers and civil society. We ﬁnd that third-party audits are es sential for the
+establishment of an AI auditing ecosystem in the EU that ensures ac countabil-
+ity by compliance and oversight. We argue that the inclusion of such a udits
+must be strengthened by considering the existing provisions of the DSA and the
+provisions of the AIA, which comes into force in 2024. The question o f how au-
+dits conducted by the regulator should be included in an AI auditing ec osystem
+unfortunately goes beyond the scope of the paper, although res earchers have
+justiﬁably insisted on the importance of this issue (see e.g. [40]).
+We contribute to the existing literature concerning third-party au dits in three
+ways: (1) We deﬁne an AI audit ecosystem that accounts for comp liance and
+oversight. (2) We demonstrate the existence of a regulatory gap as the DSA and
+AIA will not lead to a diverse AI audit ecosystem that includes civil soc iety
+and, in the case of the AIA, even vetted researchers. (3) We emp hasize that
+external audits by vetted, independent research centres, jou rnalists and civil
+society organisations have to be part of that ecosystem. For this reason, we argue
+that the AI Act has lost an important opportunity to include should in clude
+broader access to AI systems, as it is provided in the case of the DS A, and that
+this gap should be addressed by future regulation and AIA amendme nts.
+First, we introduce the terms related to algorithmic audits and the d iﬀerent
+types of audits (section 2). We then analyze the current regulato ry framework
+on third-party audits (section 3). The following section addresses third-party
+audit case studies and deﬁnes an AI audit ecosystem that ensures compliance
+and oversight. Furthermore, we show that third-party audits by researchers and
+civil society are vital for an AI audit ecosystem (section 4). Finally, we argue
+that the current EU legislation – the DSA and AIA in combination – will no t
+be suﬃcient to create a diverse AI audit ecosystem that includes re searchers
+and civil society representatives. We then make concrete propos als for future
+regulation, as well as for delegated acts and potential amendment s for the DSA
+and the AIA (section 5).
+2 Algorithm Audits: Terminology and Key Properties
+In this section, our primary objective is to establish a robust found ation of
+terminology and key attributes inherent to algorithm audits. Conse quently, we
+will distinguish audit types, examine the scope of audit types, and un derline
+the role of sociotechnical system thinking in audits. These examinat ions are
+conducted in preparation for the analysis of the role of third partie s in the DSA
+
+4 D. Hartmann et al.
+and AIA. Additionally, we will revisit these audit types in the discussion of
+creating a diverse AI audit ecosystem.
+The term “audit” 8 is used in various ways. For algorithm audits 9, some (e.g.
+Koshiyama et al. [48]) have provided a more technical deﬁnition of an algorithm
+audit, which is related to veriﬁcation and compliance, and others (e.g . Sandvig
+et al. [82] and Metaxa et al. [59]) have used the term to describe a spe ciﬁc
+but still systematic targeted test of a particular aspect of a syst em (e.g., bias),
+originating from social science “audit studies.”
+Two examples demonstrate the various ways that the term has bee n used.
+Firstly, Bandy [8] identiﬁes a research gap in audits of Twitter. Twitt er is the
+most researched social media platform due to its formerly openly-a ccessible API
+[68]. This suggests a conceptual problem: What diﬀerentiates rese arch on Twitter
+from an audit conducted on Twitter? In the second example, Metax a et al. [59]
+deﬁnes audits as systematic external evaluations by third parties , serving as a
+form of activism with internal knowledge of the process or system b eing studied.
+We base our understanding of audits on Raji et al. [76] and Bandy [8 ] by
+deﬁning “audit” as an empirical study that investigates algorithmic s ystems
+and evaluates performance relative to expected behavior as part of a broader
+accountability process. The focus of an audit is to examine for pote ntial prob-
+lematic behavior, which refers to system behavior with the potentia l to cause
+harm to individuals, groups, or society [8]. “Empirical studies” refer s to quali-
+tative and quantitative studies, as system expectations can be ar ticulated and
+assessed in either mode [76]. We note that this deﬁnition is also agnost ic to the
+time of the audit (before or after the deployment).
+In a systematic review of algorithm audits, Bandy [8] points out that racial
+discrimination remains a central focus. Thus, Bias audits address a lgorithmic
+discrimination based on race and other protected attributes, suc h as age, gen-
+der, socioeconomic status, religion, and intersectional identities. However, apart
+from representational and allocative harms related to discriminatio n, AI sys-
+tems can pose other potential risks. Therefore, audits may need to have diﬀerent
+scopes to address quality of service harms, interpersonal harms , and social sys-
+tem harms [85]. To address these harm types, audits such as robus tness audits,
+interpretability and explainability audits, security audits, and privac y audits can
+be conducted [48].
+Based on Kak and West [43], the following deﬁnitions are used in this pa per:
+– ﬁrst-party audits: internal audits which are conducted within an o rganization
+that developed the AI system or product based on speciﬁc metrics , toolkits,
+and requirements.
+8 Sandvig et al. [82] have noted that “although the word ’audit ’ may evoke ﬁnancial
+accounting, the original audit studies were developed by go vernment economists to
+detect racial discrimination in housing.” Later, they were introduced in the social
+science as ﬁeld experiments to test for discriminatory beha vior [33].
+9 In the following, we will use the terms ”audit” and ”algorith m audit” interchange-
+ably.
+
+Towards an EU AI Auditing Ecosystem 5
+– second-party audits: conducted by contractors with the develo per (audits-
+as-a-service), including consulting companies as the “big four,” as w ell as
+companies that specialize in audits. While maintaining a degree of indepe n-
+dence from deployers, risk “audit washing” (see section 4.3) by pot entially
+catering to their clients’ interests.
+– third-party audits: are conducted by independent organizations which have
+no contractual relationship to the developing organization. Such o rganiza-
+tions include independent researchers, journalists, law ﬁrms, reg ulators, civil
+society, non-governmental organizations (NGOs), users, and a ﬀected com-
+munities.
+We adopt the audit design considerations that Raji et al. [76] has de veloped by
+analyzing various audit studies to account for the range of possible algorithmic
+audits. These considerations include (1) target identiﬁcation and a udit scope; (2)
+auditor independence; (3) auditor privileges; (4) auditor profess ionalization and
+conduct standards; and (5) when to audit and post-audit actions . Given these
+considerations, ﬁve audit types can be distinguished: algorithmic ris k assessment,
+conformity assessments, research and civil society audits, regu latory inspection
+and certiﬁcation, and sociotechnical audits. The characteristics of these audits
+and their assignment to ﬁrst-party, second-party, and third-p arty audits can be
+found in Table 1.
+Algorithms cannot be divorced from the contexts in which they are a pplied
+[97] and represent a complex network containing economic, environ mental, polit-
+ical, and social interests and outcomes aﬀecting their functioning. The entangle-
+ment of technical components and social elements leads to the typ ical acknowl-
+edgment of AI systems as sociotechnical systems 10 [83] And, despite the common
+perception of audits as predominantly technical (see e.g. Koshiyam a et al. [48]),
+internally conducted impact assessment as well as externally condu cted impact
+evaluations and sociotechnical audits encompass a broader spect rum. They eval-
+uate the impact of an algorithmic system on a population in a comprehe nsive
+framework that encompasses technical elements – most of the tim e limited tech-
+nical elements – and include the social elements of the system [2]. We will come
+back to the assessment of sociotechnical systems in section 4.4.
+Ethics-based or AI safety internal auditing and adversarial audit s by re-
+searchers and civil society have a more technical scope and tend t o focus on
+speciﬁc harms, e.g. bias audits. Nevertheless, drawing a clear line of demarca-
+tion between narrow and broad scope of audit is diﬃcult. While maintain ing a
+however central focus on sociotechnical systems, it is essential to consider the
+data that substantiate claims concerning speciﬁc harms attribute d to an AI sys-
+tem. An example of this diﬃcult distinction is that Stahl et al. [88] includ es bias
+mitigation assessments in the systematic review on impact assessme nts, which
+10 Due to a broader understanding of their ecological impacts i n recent years, [77]
+has added an “ecological” element to this notion, meaning th at AI systems are
+socioecological-technical systems. Thus, it may be necess ary to include ecological
+harms that AI causes in audits.
+
+6 D. Hartmann et al.
+First-party assessments and audits Second- and Third-party assessments and audits
+Algorithmic risk
+assessment, algo-
+rithmic impact
+assessment
+Ethic-based au-
+diting and AI
+safety auditing
+Internal confor-
+mity assessment
+and post-market
+monitoring
+Research and
+civil society al-
+gorithm audits,
+bias audits, ad-
+versarial audits
+Regulatory in-
+spection, external
+conformity as-
+sessments and
+certiﬁcation
+Algorithmic im-
+pact evaluations,
+sociotechnical
+audits, ecosystem
+audits
+Example(s) Case study algo-
+rithmic impact
+assessment for
+data access in
+a healthcare
+context [37], data
+protection im-
+pact assessment
+[11]
+End-to-end
+framework for
+internal algorith-
+mic auditing by
+Raji et al. [75]
+AIA conformity
+assessments, ex-
+ample procedure
+by [32]; Medical
+Device Regula-
+tion Application
+Procedure [18]
+Gender Shades
+[14], Audit of
+the Rotterdams’
+welfare fraud
+ADM [20, 21],
+Audit Austrian
+AMS algorithm
+[5]
+UK Information
+Commissioner’s
+Oﬃce’s ‘Guid-
+ance on the
+AI auditing
+framework’[45]
+Stanford’s Im-
+pact evaluation
+of a predictive
+risk modeling
+tool [35], so-
+ciotechnical audit
+that assess po-
+lice use of facial
+recognition[72]
+Auditors Creators or com-
+missioners of the
+algorithmic sys-
+tem, contractors
+such as consult-
+ing companies
+Creators or com-
+missioners of the
+algorithmic sys-
+tem, contractors
+such as consult-
+ing companies
+Creators or com-
+missioners of the
+algorithmic sys-
+tem, contractors
+such as consult-
+ing companies
+Researchers,
+investigative
+journalists, data
+scientists, NGOs,
+aﬀected commu-
+nities, or other
+stakeholders
+Regulator or
+other auditing
+and compliance
+professionals that
+have an institu-
+tional role
+Researchers,
+policymakers,
+investigative
+journalists, data
+scientists, NGOs,
+aﬀected commu-
+nities, or other
+stakeholders
+Target Identi-
+ﬁcation & Au-
+dit Scope
+Broad scope:
+focus on the risks
+and negative
+consequences of
+the deployment
+of an algorithmic
+system
+Narrow scope:
+focus predomi-
+nantly on tech-
+nical prevention
+and uncovering
+of speciﬁc harms
+(e.g. bias audit,
+safety audit)
+Broad scope:
+focus on an algo-
+rithmic system’s
+compliance with
+regulation and
+mostly non-
+technical and
+process-oriented
+Narrow scope:
+focus predomi-
+nantly on tech-
+nical prevention
+and uncovering
+of speciﬁc harms
+(e.g. bias audit)
+Broad scope: fo-
+cus on an algo-
+rithmic system’s
+compliance with
+regulation
+Broad scope:
+assessing possible
+societal impacts
+of an algorithmic
+system on the
+users or popu-
+lation it aﬀects
+after it is in use
+Auditor Inde-
+pendence
+Internal and thus
+no independence
+or contractual de-
+pendence
+Internal and thus
+no independence
+or contractual de-
+pendence
+Internal and thus
+no independence
+or contractual de-
+pendence
+External by in-
+dependent orga-
+nizations with no
+obligation
+External by inde-
+pendent institu-
+tion, non-genuine
+independence
+when auditing
+administrative
+state-run ADMs
+External by in-
+dependent orga-
+nizations with no
+obligation
+Auditor
+Professional-
+ization
+Formal: done by
+deployers, inter-
+nal teams or ac-
+credited second-
+parties
+Formal: Done by
+deployers, inter-
+nal teams or ac-
+credited second-
+parties
+Formal: done by
+deployers, inter-
+nal teams or ac-
+credited second-
+parties
+Mostly informal:
+accreditation and
+cooperation with
+company possible
+, although basic
+access could be
+possible without
+accreditation
+(’right to scrape’)
+Formal: Accredi-
+tation
+Mostly informal:
+accreditation
+and cooperation
+with company
+possible (vetted
+researchers in
+DSA)
+When to au-
+dit
+Before deploy-
+ment
+Before deploy-
+ment
+Before deploy-
+ment, post-
+market monitor-
+ing is possible
+After deployment After or before
+deployment, po-
+tentially an ongo-
+ing process
+After deployment
+Table 1. This table is inspired by and derived from [2, 59, 63, 76] and s hould give
+an overview of assessments and audits that we surveyed. The c onsiderations of Raji
+et al. [76] were used to display the diﬀerences of these asses sment and audit types.
+However, this table claims neither completeness nor comple te adequacy, as this topic
+is a relatively emerging one with respect to algorithmic sys tems. At the same time,
+a systematic presentation of assessments and audits diﬀere nces is not the focus of
+this paper, even though we conceptually argue and advocate a broad deployment of
+assessments and audits in the AI lifecycle within the AI audi t ecosystem.
+we have introduced as ethics-based audits or bias audits. Thus, th ese kind of
+audits could potentially be part of an impact assessment.
+Conformity assessments [62] and regulatory inspection [2] are sys tematic tests
+that evaluate if a system is compliant with a speciﬁcation, standards , or a reg-
+
+Towards an EU AI Auditing Ecosystem 7
+ulation. Regulatory inspections – conducted by an independent sta te-run body
+– are external to the deploying organization. Conformity assessm ents can be in-
+ternal or external. In contrast to third-party audits, conform ity assessments aim
+to achieve compliance, while third-party audits by researchers and civil society
+aim to prevent potential harm or uncover it by systematically evalua ting the
+systems and checking the documents.
+The vast number of actors and contexts in which AI systems funct ion pro-
+duces multiple complexities for their auditing, and this has aﬀected th e precision
+of related legal provisions. This applies especially when we try to answ er ques-
+tions such as, “What are we auditing for? Which harms count, and ho w are
+they deﬁned?” [43]. This situation shapes the information we need to assess the
+system’s compatibility with a legal regime or ethical parameter, cons idering the
+contextual character of transparency and access to informat ion [6].
+We focus on third-party audits, especially those by researchers, academics,
+and journalists, as well as broader sociotechnical audits. 11 Such audits are char-
+acterized by being conducted post-deployment through systema tic evaluations
+– mostly a combination of diﬀerent qualitative and quantitative metho ds – and
+reverse engineering of system behaviour, typically with little data an d model
+access and independent of the organization deploying the algorithm [12, 22, 59].
+Thus, they have no formal contractual relationship with the audit target [73].
+In recent years, there has been increasing public and academic con cern about
+the inﬂuence of social media on public discourse, democratic proces ses, and insti-
+tutions [7, 71]. Over the years, researchers have encountered signiﬁcant challenges
+when attempting to access online platforms’ data for the purpose of studying
+their operations, potential risks, and impacts [67, 68]. Moreover , access to AI
+technologies beyond ML-driven social media recommendation syste ms, such as
+ADMs or general-purpose AI, presents a signiﬁcant challenge [43]. S cientists and
+civil society are dependent on the voluntary granting of access, a nd sometimes
+only process access is granted, i.e. access to documentation (e.g A llhutter et al.
+[5]). Are we repeating the same mistake by granting large companies u nwarranted
+authority without enabling civil society to thoroughly examine and un derstand
+their products for potential harm?
+In response to these challenges, the DSA and the AIA have introdu ced dis-
+tinct frameworks for audits, third-party audits and access to th ese technologies
+by research and civil society. In the following section, we will introdu ce and ex-
+plore both of these frameworks, shedding light on how they addres s (third-party)
+audits of platforms and AI products.
+3 The Regulatory Framework Based on the DSA and
+AIA on Third-Party Audits and Data Access
+The objective of this chapter is to comprehend the regulations of t hird-party
+audits and third-party data and model access by the DSA and AIA. We will
+11 These broader types of audits are also referred to as “ecosys tem audits” by Birhane
+et al. [12].
+
+8 D. Hartmann et al.
+begin by examining the DSA’s provisions on audits and data access (se ction
+3.1). Then, we will do the same for the AIA based on the Corrigendum made
+public by the European Parliament (section 3.2).
+3.1 Digital Services Act
+The DSA aims to create a harmonized legal framework that is applicab le to all
+online intermediary services provided in the EU. The regulation helps p romote
+a safer digital space by regulating the distribution of (illegal) conten t. To in-
+crease accountability to the public, the regulation includes a number of speciﬁc
+obligations for providers of VLOPs and VLOSEs [26], including provision s such
+as speciﬁc transparency obligations on content moderation or the creation and
+publication of reports on risk assessments and mitigation procedur es.
+The Regulations on Independent Auditing in the DSA, Art. 37 D SA
+In order to ensure compliance with the DSA, a “novel institutional e cosystem”
+[50] will be established that involves independent third parties in an ad ditional
+oversight role.12 [31] Therefore, the oﬃcially published version of the DSA asserts
+that VLOPs and VLOSEs are legally required to undergo an independe nt audit
+at least once a year (“independent audit”) 13 The purpose of auditing is to de-
+termine whether the providers are following the obligations standar dized by the
+DSA.14 This is an important regulatory requirement, as it increases provide rs’
+accountability and enables regulators and the public to understand and regulate
+how VLOPs and VLOSEs moderate content. The Commission is empowe red
+to implement the requirements of Art. 37 DSA by legislative act. It ha s pub-
+lished a ﬁrst draft of a regulation to specify the requirements for in dependent
+audits (hereinafter referred to as the Delegated Regulation on ind ependent au-
+dits) [27]. The introduction of such guidelines is welcome as it will provide legal
+certainty for both audit ﬁrms and VLOPs and VLOSEs by providing gu idance
+that can improve transparency and accountability. An important a udit tool is
+the preparation of an audit report, which should comply with a compr ehensive
+set of obligations. The audit ﬁrm must describe the speciﬁc elements audited
+and the methodology used. 15 It must also provide a description and summary of
+the main audit ﬁndings. 16 In addition, an outcome statement must be given as
+to whether the audited provider has complied with the obligations and commit-
+ments referred to above. 17 The audit statement shall state the result, which can
+12 Cf. Recital No. 92 DSA.
+13 Art. 37 (1) DSA.
+14 It means the obligations set out in Chapter III (Art. 11-48 DS A), in particular the
+obligations arising from codes of conduct referred to in Art . 45 and 46 DSA and the
+crisis protocols referred to in Art. 48 DSA.
+15 Art. 37 (4)(2d) DSA.
+16 Art. 37 (4)(2e) DSA.
+17 Art. 37 (4)(2g) DSA.
+
+Towards an EU AI Auditing Ecosystem 9
+be “positive” 18, “positive with comments” 19 or “negative” 20 In the case of a
+negative remark, the audit ﬁrm must make operational recommend ations to be
+implemented within a recommended period of time to achieve compliance .21 If
+the audit company cannot conduct the auditing at all or can only do s o partially,
+this should be clariﬁed. 22 In such cases the Delegated Regulation on independent
+audits could specify how the systematic assessment of risks must b e conducted.
+It should also specify the factors to be taken into account in the ris k analysis. 23
+According to the current draft, the inherent risks 24, the control risk 25, and the
+detection risks 26 should be accounted for in the audit companies’ analysis. 27
+Providers should provide the necessary cooperation and assistan ce to organiza-
+tions conducting audits under this obligation so that they can under take their
+work in an eﬀective, eﬃcient, and timely manner. 28 They must, for example,
+grant access to all relevant data and premises. This includes the dis closure of
+data relating to algorithmic systems and answering written or oral q uestions.29
+The platform provider must then consider improvement suggestion s and take
+18 “Positive” means, where the auditing organisation conclud es with a reasonable level
+of assurance that the audited provider has complied with an a udited obligation or
+commitment, Art. 8 (1)(a) Delegated Regulation on Independ ent Audits [27].
+19 “Positive with comments” means, where the auditing organis ation concludes with
+a reasonable level of assurance that the audited provider ha s complied with an au-
+dited obligation or commitment, Art. 8 (1)(b) Delegated Reg ulation on Independent
+Audits.
+20 “Negative” means, where the auditing organisation conclud es with a reasonable level
+of assurance that the audited provider has not complied with an audited obligation
+or commitment, Art. 8 (1)(c) Delegated Regulation on Indepe ndent Audits.
+21 Art. 37 (4)(2h) DSA
+22 Art. 37 (5) DSA.
+23 Cf. Art. 9 (4) Delegated Regulation on independent audits.
+24 “Inherent risks” means the risk of non-compliance intrinsi cally related to the nature,
+the activity and the use of the audited service, as well as the context in which
+it operates, and the risk of non-compliance related to the na ture of the audited
+obligation or commitment, Art. 2 (10) Delegated Regulation on Independent Audits.
+25 “Control risks” means the risk that a misstatement is not pre vented, detected and
+corrected in a timely manner by means of the audited provider ’s internal controls,
+Art. 2 (11) Delegated Regulation on Independent Audits
+26 “Detection risk” means the threshold beyond which deviatio ns or misstatements
+by the audited provider, individually or aggregated, would reasonably aﬀect the
+audit ﬁndings, conclusions and statements, Art. 2 (12) Dele gated Regulation on
+Independent Audits.
+27 Art. 9 (3) Delegated Regulation on Independent Audits.
+28 Art. 37 (2)(1) DSA.
+29 Cf. Recital No. 92 DSA. In addition to this, the Delegated Reg ulation on independent
+audits could regulate which information the providers have to provide to the audit
+organisations, Art. 5 (1) Delegated Regulation on Independ ent Audits. The provider
+and the audit organisation must necessarily agree on condit ions - i.e. meaning duties
+and obligations - that are listed in the current draft to carr y out the audit, Art. 7
+(1)(a) Delegated Regulation on Independent Audits.
+
+10 D. Hartmann et al.
+action to enforce the recommendations within one month. 30 If the operational
+recommendations are not implemented, the VLOP or VLOSE provider must
+justify and specify alternative measures that will be taken to ﬁx th e identiﬁed
+cases of non-compliance. 31
+The Requirements for Audit Firms under the DSA The auditors should
+have no conﬂicts of interest with the provider. 32 Furthermore, they must have
+proven expertise in risk management as well as technical competen ce and capa-
+bility. 33 Providers are allowed to choose the audit ﬁrms themselves. Howeve r,
+it is important to note that the DSA introduced a rotation model acc ording to
+which the audit ﬁrms may only work for the providers if they have not performed
+an audit pursuant to Art. 37 DSA for a period of more than ten cons ecutive
+years.34
+Data Access for V etted Researchers, Art. 40 DSA Art. 40 DSA regu-
+lates access to the data of VLOPs and VLOSEs for “vetted resear chers.” The
+norm contains not only the obligation of providers to grant access, but also the
+right of researchers to access. 35 Researchers must make their research results
+publicly available free of charge 36. The results can thus be made available to
+the authorities, the Commission and the public. Classiﬁcation as an ap proved
+researcher is subject to strict conditions. In particular, resear chers must be aﬃl-
+iated to a research institution 37. It means a university, including its libraries, a
+research institute or any other entity, the primary goal of which is to conduct sci-
+entiﬁc research or to carry out educational activities involving also the conduct
+of scientiﬁc research. 38 Like the audit ﬁrms, the researchers and the institutions
+to which they belong must be independent of commercial interests 39. Another
+condition for access is that the data collection is necessary and pro portionate
+for the creation of the data work. 40 The classiﬁcation as vetted researcher is
+granted to the researcher only in relation to the intended researc h project. The
+30 Art. 37 (6)(2) DSA.
+31 Art. 37 (6)(3) DSA.
+32 Art. 37 (3a) DSA. In this respect, the European legislator cl ariﬁes that audit ﬁrms
+are organizationally independent from the interests of the provider and constitute
+an external audit structure. The additions were explicitly included to address con-
+cerns that audit ﬁrms are dependent on platform providers fo r auditing. Cf. critical
+comments on the preliminary draft [15].
+33 Art. 37 (3b) DSA. This requires that they must have the necess ary knowledge in
+the ﬁeld of risk management as well as the technical expertis e to test algorithms, cf.
+Recital No. 92 DSA.
+34 Cf. Art. 37 (3a)(ii) DSA.
+35 E. g. [42] and [98]
+36 Art. 40 (8)(1g) DSA.
+37 Art. 40 (8)(1a) DSA.
+38 Art. 2 (1) Directive (EU) 2019/790.
+39 Art. 40 (8)(1b) DSA.
+40 Art. 40 (8)(1e) DSA. Cf. Recital 97.
+
+Towards an EU AI Auditing Ecosystem 11
+research must relate to systemic risks and contribute to their iden tiﬁcation and
+understanding.41
+3.2 The Artiﬁcial Intelligence Act
+The AIA [25, 29] aims to regulate and harmonise the marketing, comm issioning
+and use of AI systems within the European Union. To this end, safe a nd trust-
+worthy AI is to be created by observing the fundamental values pr otected in the
+European Union, that is material and ethical values, during develop ment and
+use. For this reason, companies 42 should be subject to a far-reaching catalogue
+of obligations and ensure quality assurance throughout the entire AI value chain.
+The Regulations on the Conformity Assessment Procedure The AIA
+only regulates conformity assessment requirements for high-risk AI systems. For
+this purpose, the AIA deﬁnes “conformity assessment” as “the p rocess of demon-
+strating whether the requirements [...] to a high-risk AI system have been ful-
+ﬁlled.”43 The aim is thus to promote the accountability of AI providers. On the
+one hand, a so-called “embedded” AI system 44 is subject to conformity assess-
+ment by third parties. AI systems are already subject to other pr oduct safety
+regulations; the conformity assessments are carried out in accor dance with these
+diﬀerent European regulations. 45 In this case, however, the provider of the
+AI system must take into account some of the procedural require ments of the
+AIA.46 As these AI systems are already subject to detailed safety requir ements,
+which are assessed under a public authorisation procedure, the AI A is intended
+to complement these requirements. 47 For so-called stand-alone AI systems 48,
+the conformity assessment must generally be carried out internally , i.e. by the
+providers themselves. With regard to these systems, it is explicitly s tated that
+the involvement of a so-called notiﬁed body is not necessary for the assessment.49
+Due to the complexity of these AI systems and the involved risks, th e legislator
+assumes that the suppliers are best placed to evaluate them. This a lso means
+41 Art. 40 (4) and (8f) DSA.
+42 The regulation is addressed to all companies that place AI sy stems on the market
+or put them into operation in the European Union, cf. Art. 2 (1 ) AIA [25, 29]. In
+practice, this will include software developers, AI import ers and distributors, but
+also, for example, government authorities.
+43 Art. 3 (20) AIA.
+44 Art. 6 (1) AIA and Annex I. These are, for example, products fo r machines, medical
+devices, automobiles and aircraft, Rec. (50) AIA.
+45 Art. 43 (3)(1) AIA. Cf. Rec. (49),(51) AIA.
+46 Art. 43 (3) AIA.
+47 The regulation of the systems is based on the legal provision s of the New Legislative
+Framework. This means that the product safety requirements for a system should be
+based on an EU Directive, with the standardisation organisa tions CEN, CENELEC
+and ETSI providing more speciﬁc details.
+48 Art. 6 (2) AIA and Annex III.
+49 Art. 43 (2) AIA.
+
+12 D. Hartmann et al.
+that audits that potentially are part of such a conformity assessm ent can be
+conducted internally, thus implying ﬁrst-party auditing. However, this does not
+apply to AI systems that are used as ”remote biometric identiﬁcatio n systems”
+(Annex III No. 1(a) AIA.). For these, it is optional whether the co nformity
+assessment is carried out by the provider himself or by a notiﬁed bod y.50 Fur-
+thermore, the conformity assessment by external bodies is mand atory for a few
+cases, e.g. when the AI system is put into operation by law enforcem ent or immi-
+gration authorities or by institutions, bodies, oﬃces or agencies of the Union. 51
+Another requirement for speciﬁc ’high-risk’ AI systems 52 is the execution of a
+fundamental rights impact assessment, however, also conducte d by the deployers
+similar and an extension to data protection impact assessments [91 ].
+The Requirements for Audit Firms under the AIA A ’notiﬁed body’
+is deﬁned in the AIA as “a conformity assessment body notiﬁed in acc ordance
+with this Regulation and other relevant Union harmonisation legislation .”53 The
+procedure for their designation sets out requirements for their ( professional)
+qualiﬁcations as well as their independence and objectivity. As in the DSA, the
+AIA also clariﬁes that notiﬁed bodies should be independent of the pr ovider
+of the high-risk system. This includes both economic aspects, e.g. n o competi-
+tive relationship between the provider of the AI system and the not iﬁed body,
+and personnel aspects, e.g. no connection between the managem ent and the AI
+development project. 54 In order to ensure technical competence, they have to
+note speciﬁc organisational, quality management, personnel and p rocedural re-
+quirements.55 To this end, notiﬁed bodies should have procedures in place to
+guide their activities, taking into account the size of an undertaking , the sec-
+tor in which it operates its structure, and the degree of complexity of the AI
+system concerned. 56 In addition, it should be noted that the conformity assess-
+ment procedure for AI systems, that will be used by certain autho rities and
+related bodies (e.g. law enforcement, immigration or asylum authorit ies or EU
+bodies) is carried out by the market surveillance authority. 57 Unlike the DSA,
+the AIA ensures the cooperation between the developer, the not iﬁed body, and
+the notifying authority. The authority is enforced to certify the b odies. In ad-
+50 Art. 43 (1) AIA.
+51 Cf. Art. 43(1), (2) AIA. For general purpose AI systems, cf. R ec. (161) AIA.
+52 Cf. Art 27 (1) AIA. Mandatory for high-risk AI system as descr ibed in Article 6(2),
+with the exception of those intended for use in the areas list ed in point 2 of Annex
+III, deployers that are bodies governed by public law, or are private entities providing
+public services, and deployers of high-risk AI systems refe rred to in points 5 (b) and
+(c) of Annex III.
+53 Art. 3 (1)(22) AIA. For the term ’conformity assessment body ’, see Art. 3 (1)(21).
+Cf. for the term ’notifying authority’ Art. 3 (19) and Art. 28 (1) AIA. For the duties
+of the notifying authority, cf. Art. 3 (19) and 28-30 AIA.
+54 Art. 31(4) and (5) AIA.
+55 Art. 31(2), (3), (10) and Rec. (126) AIA.
+56 Cf. 31(8) AIA.
+57 Cf. Art. 43(1) AIA.
+
+Towards an EU AI Auditing Ecosystem 13
+dition, the certiﬁcated bodies are accountable to the notifying aut horities. To
+qualify as a notiﬁed body under the AIA, the potential audit ﬁrm mus t fulﬁll
+several requirements: The notiﬁcation application must be accomp anied by com-
+prehensive information, such as the conformity assessment activ ities, conformity
+assessment modules, and AI technologies for which the conformity assessment
+body claims competence, as well as - if available - an accreditation cer tiﬁcate.58
+The provider shall ensure that the conformity assessment proce ss takes place. 59
+An audit should also be carried out if the AI system has already under gone a
+conformity assessment procedure, but a signiﬁcant change has b een made to the
+system.60 In any case, they are obliged to document the assessment in order to
+provide evidence that the conformity assessment has been carrie d out properly.61
+The requirements for the conformity assessments by internal co ntrols are set out
+in Annex VI. It consists of the establishment and monitoring of the r elevant
+quality management system, 62 as well as the control of the obligations imposed
+on the suppliers regarding the technical documentation. 63 The providers of the
+AI system should assist the testing organisations in their investigat ions, e.g. by
+making available the technical documentation that provides all the in formation
+necessary to assess whether the AI system meets these require ments.64 Providers
+must give them full access to the training and test data sets used. This includes
+application programming interfaces and other means and tools suita ble for re-
+mote access. 65 For example, the audit ﬁrm may, upon request, be given access
+to the AI system’s training models and trained models, including the re levant
+parameters, and should be able to test the AI system independent ly.66 For this
+reason, it is appropriate for the notiﬁed body to maintain the conﬁd entiality
+of the information provided. 67 If the notiﬁed body can conﬁrm the conformity
+of the high-risk system, a certiﬁcate - similar to the audit statemen t under the
+DSA - is issued. 68 This certiﬁcate is valid for up to ﬁve years or is revoked or
+restricted if the AI system subsequently fails to comply with the req uirements
+of the AIA. 69 In order to adapt the legal framework, the Commission is empow-
+ered to adopt instruments amending the provisions on conformity a ssessment
+procedures.70
+58 Cf. Art. 29 (2)(3) AIA.
+59 Cf. Art. 6(f) AIA.
+60 Cf. Art. 43(4) AIA, for the deﬁnition in Art. 3(15) AIA.
+61 Art. 18 (1)(g), Art. 22 (3)(b) AIA.
+62 Annex VI No. 2, No. 4 AIA
+63 Annex VI No. 3 AIA
+64 Cf. Rec. (86) AIA.
+65 Annex VII No. 4.3 AIA.
+66 Annex VII No. 4.4 and 4.5 AIA.
+67 Cf. Art. 31(7) and Art. 78 AIA.
+68 Art. 44(1) and (2) AIA.
+69 Art. 44(3) AIA
+70 Art. 43(6) and Art. 97, Rec. (173) AIA.
+
+14 D. Hartmann et al.
+No Data Access for V etted Researchers The AIA does not contain a
+regulation comparable to Art. 40 DSA. This is surprising, as the regu lation
+aims to ensure that relevant entities, such as digital innovation hub s, testing
+experimentation facilities and researchers, should be able to acces s and use high
+quality datasets within their respective ﬁelds of activities for the de velopment
+and assessment of high-risk AI systems. 71 The European data space created
+by the AIA and the facilitated exchange of data should also provide t rustful,
+accountable and non-discriminatory access to high quality data for the training,
+validation and testing of AI systems. 72
+4 Creating a Diverse AI Audit Ecosystem for
+Accountability by Involving Research and Civil Society
+In this section, we describe an AI audit ecosystem that ensures tw o key account-
+ability components. For that, we draw on a deﬁnition of accountabilit y in the
+AI context. We look at three aspects which demonstrate why inter nal audits are
+not suﬃcient to create an audit ecosystem. In three additional as pects, we point
+out why third-party audits are valuable for an AI audit ecosystem . This will be
+the blueprint under which we will explore whether the analyzed EU legis lation
+can create an AI audit ecosystem.
+4.1 Third-Party Audits by Researchers and Civil Society
+Buolamwini and Gebru [14], Larson et al. [49], Nicoletti and Bass [65], Rib eiro
+et al. [80], Sweeney [89] are some examples of algorithm audits in the Un ited
+States that have uncovered problematic algorithmic behavior or alg orithm im-
+pacts that could potentially cause harm. Regarding algorithmic audit s in the EU,
+audits of the Austrian AMS algorithm [5], and Rotterdam’s welfare fr aud algo-
+rithm by the Wire [20], come to mind. These audits were third-party au dits, that
+is, audits by independent, external parties combining independent researchers,
+civil society, regulators, journalists, and other stakeholders. T hey were respon-
+sible for uncovering deeply-rooted sociotechnical harms in algorith mic systems
+related mainly to representational harms due to discriminatory des ign choices.
+As a result, they showed the extent of the potential harms broug ht by AI sys-
+tems’ biases.
+With respect to social media platforms, third-party audits uncove red social
+system harms due to the propagation of disinformation on social me dia, hate
+speech increase on Twitter [41] and uncovered bias with respect to right-winged
+content recommendation on YouTube [80]. It has to be noted that third-party
+audits by researchers and civil society are not conventionally cons idered audits
+per se due to their narrow target speciﬁcation [76], but they have repeatedly
+shown their signiﬁcance. Our argument, therefore, favors their integration in an
+AI audit ecosystem.
+71 Rec. (68) AIA.
+72 Recital No. 45 AIA.
+
+Towards an EU AI Auditing Ecosystem 15
+Third-party audits aim for a material change in the situation (e.g., a p roduct
+update, policy change, or recall) to minimize the harm experienced by those they
+represent [73]. In contrast, ﬁrst- and second-party audits tha t seek to validate
+procedural expectations, aim to minimize liability and solely test for co mpliance
+to AI principles and legal constraints [73]. Despite the important ove rsight of
+third-party audits in platform research and algorithmic systems, it has been dif-
+ﬁcult for them to audit these models formally and legally. Until now, ev aluations
+are usually done through the application developers’ voluntary pub lic disclosures
+of possibly incomplete transparency reports or by voluntarily prov iding certain
+data access through an API [3].
+Third-Party Platform Data Access Olteanu et al. [68] reports four obsta-
+cles with systematic platform research through third parties: (1) Many social
+platforms discourage data collection by third parties as some platfo rms such as
+Facebook block their API for researchers and other platforms th at block scrapers.
+Additionally, there is a shift toward APIs of major platforms and pro ducts being
+closed, a scenario described as the “post-API scenario” [93]. This le ads to more
+open-source products or products being audited by third parties by deployers,
+who are probably more concerned about the compliance of their pro ducts. This
+leads ultimately to an imbalance in oversight [76]. (2) Even API access c omes
+with limitations as they limit the quantity of data, increase the monthly costs
+and provide only query languages with limited expressiveness. (3) Ad ditionally,
+these platforms may not give access to all data as they safeguard privacy-related
+content although the platforms could anonymize them. (4) Finally, t he platform
+may revoke access every time.
+For example, access for researchers has changed recently for t he Twitter API
+[69] and the Reddit API, as both have raised the costs for third-pa rty API access
+[79]. Nevertheless, attempts by third parties such as NGOs, resea rch and inves-
+tigative journalists to expose these accountability concerns by da ta donations or
+scraping are thwarted by companies. For example, the NGO Algorith mWatch
+was prevented to conduct an audit of the Instagram algorithm via d ata do-
+nations. Facebook sued them for disregarding the terms of servic e [44]. Data
+donations are only necessary because the APIs for limited ’black-bo x’ access
+have been shut down or made considerably more expensive by many p latforms
+and services [69, 79, 93].
+The DSA will provide data access for vetted researchers. Howeve r, as demon-
+strated vetted researchers may not include NGOs and investigativ e journalists,
+although many of the case studies mentioned were conducted by ne wspapers
+and were accompanied by NGOs that were able to contribute with the ir domain
+knowledge to potential harms. We will discuss reasons for this being critical
+later.
+Third-Party ADM and ML-Model Access It appears to be just as chal-
+lenging with ADMs and ML-driven products. Many of the products do not have
+access for researchers and regulatory audits. Therefore, mos tly commercial APIs
+
+16 D. Hartmann et al.
+have to be used as in the Gender Shades case [14]. If there is no API , the data
+can only be scraped, which is mostly illegal or prevented by other mea ns. US
+Researchers are currently campaigning against the use of anti-ha cking laws in
+the US that prevent audit studies by scraping. At the same time, ac cording to
+Raji et al. [76], companies continue to seek to prevent audits by (1) paywalls,
+(2) prohibition laws through terms of services, and (3) structurin g the product
+to obscure any clear set of test points. Raji et al. [76] describes it as an extraor-
+dinary eﬀort for researchers, NGOs, investigative journalists to gain access and
+knowledge of ML and ADM systems.
+It was shown that the AIA does not encompass data or model acce ss provi-
+sions for third parties, even in the context of high-risk systems. N onetheless, in
+the subsequent discussion, we will explore the potential access lev els and, con-
+sequently, the knowledge accessible to third parties concerning AI technologies.
+Based on these ﬁndings, we will determine to what extent it is possible to make
+statements about a system even with limited access.
+T echnical Methods and Access Levels Third-party audit methods [8, 60,
+82, 90] – such as code audits, user audits, automated audits (inclu ding scraping
+audits, sock puppet audits and API audits), document audits, cro wdsourced
+audits, and experimental audits [90] – contribute various approa ches to auditing
+platforms and AI systems. Whether social media platform, ADM or M L model
+audits, the methods for third-party audits are similar.
+Document audits are often broad sets of information that can be a nalysed in
+diﬀerent ways [60] and ensure the possiblity for third-party impact evaluations
+or conformity assessments as intended by the AIA. However, only process-based
+compliance is feasible through document audits, there are no stand ards for most
+of these reports and they are impossible to verify if no other data a ccess is
+provided [60].
+Code audits entail direct access to a system’s code and involve the d ynamic
+execution of code with various inputs to observe corresponding ou tput behaviors
+[90]. While they are suitable for some audits, code audits might not be id eal for
+AI product audits because of the need for training data. Further more, potential
+complexities in reverse engineering system behavior - especially for d ynamically
+trained algorithms such as recommender systems - hamper code au dits’ feasibil-
+ity.
+Scraping audits, on the other hand, lack randomization and interve ntions.
+This limits their utility primarily to descriptive tasks [8]. They additionally la ck
+personalization for speciﬁc user accounts [60]. Furthermore, scr aping and sock
+puppet audits often violate terms of services of platforms [60]. API access limi-
+tations were already discussed.
+Experimental audits involve the change of the algorithm and can the reby
+establish causal evidence since interventions are feasible [33]. How ever, full access
+to the system is necessary for experimental audits, and experime nts with social
+platforms such as Facebook on emotional contagion exhibit ethical diﬃculties
+[84].
+
+Towards an EU AI Auditing Ecosystem 17
+Crowdsourced audits, including data donations, have two major ad vantages:
+They include users in the audit, and they transfer parts of the tra ining data
+so that more statements are possible. However, in the past, large platforms
+or companies have prevented such crowdsourcing audits as in the c ase of Algo-
+rithmWatch. Recognizing the inherent advantages and limitations ac ross various
+audit types, a comprehensive analysis of these factors would exte nd beyond the
+scope of this article 73. Consequently, our focus is conﬁned to examining access
+to AI systems.
+Technical access and the knowledge of a system can be categorize d on a
+continuum from “white-box” to “black-box” and is related to these audit types.
+Koshiyama et al. [48] have deﬁned seven levels of auditing access tha t range from
+“process-access,” where only indirect observation of a system is p ossible, and
+the system’s behavior in a sociotechnical system must be reverse- engineered, to
+“white-box,” where details of the encompassing model are disclosed . The latter
+is usually not applicable to third-party audits, as it would conceal all in formation
+about the model, which could have security, privacy, and trade sec ret issues [48].
+Thus, Koshiyama et al. [48] have described an “information concea led versus
+feedback detail trade-oﬀ.”
+Table 2 shows diﬀerent access levels that Koshiyama et al. [48] have proposed
+for ML algorithm audits. We matched them with third-party evaluatio n tools,
+feasible audit types, and case study third-party audits. This repr esentation is a
+simpliﬁcation because platforms and general-purpose AI consist of several models
+that interact with each other and ADMs can consist of several mod els and a
+complex decision function. Nevertheless, the presentation is usef ul to show three
+aspects. First, with more access, more knowledge about a system is possible
+and more audit types are available. Second, there is a trade-oﬀ bet ween trade
+secrets and model access. Third, case study third-party audits in the past that
+had only ’black-box’ access - mostly through an API, scraping, or s ock puppets
+- demonstrate that low-level access can contribute to accounta bility.
+Some audits, such as the Austrian AMS algorithm relied solely on proce ss
+access. The prediction model has not been made public [5]. Generally , releas-
+ing personal data relating to ADMs would obviously be dangerous. In this case,
+anonymization methods would have to be used to release the data fo r scien-
+tiﬁc purposes like it is planned by the DSA. These document audits hav e little
+expressiveness as they have to reverse engineer the whole syste m’s functioning
+without the knowledge or veriﬁcation that the documents are actu ally accurate.
+Others with at least ’black-box’ access could provide more informat ion.
+For example, Bloomberg’s stable diﬀusion audit [65], or in YouTube’s rad i-
+calization audit [80], the prediction model was accessed via the API. T hus, prob-
+lematic behaviour like biases could already be shown in both cases. The original
+Gender Shades study as well operated within the constraints of ac cessing their
+audit targets via a commercial API, mirroring the actions of a user w ithin these
+platforms and thus using a socket puppet [74]. Others had even mo re access. In
+73 For a comprehensive analysis of connections between audit t ypes and recommender
+system elements see [60].
+
+18 D. Hartmann et al.
+What is accessed Tools and possible evalua-
+tions
+Feasible audit types Case study third-
+party audit(s)
+Process
+access
+Frameworks, check-
+lists, model Cards,
+datasheets, method
+paper, technical
+reports
+Checklists for explainability,
+robustness, fairness and pri-
+vacy
+Document audits (al-
+gorithmic risk assess-
+ment and algorithmic
+impact evaluations)
+Audit Austrian AMS
+algorithm[5]
+Model
+access
+(’black-
+box’)
+Access to the predic-
+tor model f (·) using
+artiﬁcial data x∗
+Feature relevance plots, par-
+tial dependency plots, ad-
+versarial attacks, adversar-
+ial fairness, statistical disclo-
+sure
+Scraping, API, sock
+puppet audit and
+code Audit
+Bloomberg stable
+diﬀusion audit[65],
+discrimination in
+online ad delivery,
+[89], auditing radi-
+calization pathways
+on YouTube [80]
+Input ac-
+cess
+Access to the predic-
+tor model f (·) and
+training data x to
+predict f (x)
+Surrogate explanations, syn-
+thetic data, bias in outcome
+Crowdsourced Au-
+dit74, API audit with
+training data
+Cooperative audit
+of pymetrics’ can-
+didate screening
+software[100]
+Outcome
+access
+(’grey-
+box’)
+Access to the predic-
+tor model f (·), train-
+ing data x to predict
+f (x) = ˆy and the ac-
+tual outcome y
+Accuracy of explanations,
+concept drift analysis, bias
+in opportunity, inversion at-
+tacks
+API audit with train-
+ing data and history
+of actual outcomes
+ProRepublicas inves-
+tigation of North-
+pointe’s recidivism
+risk scoring system
+[49]
+Parameter
+control
+and learn-
+ing goal
+access
+Learning procedure
+and target L, param-
+eters φ, L(fφ(x)) can
+be retrained
+Stability of explanations,
+stability analysis, stability
+of bias metrics, function-
+ality stealing, model com-
+plexity, stress-testing, trade-
+oﬀ of bias and loss metric,
+model extraction
+Retraining of the ac-
+tual model with dif-
+ferent parameters
+Audit of the Rotter-
+dams’ welfare fraud
+ADM[20, 21]
+White-box
+access
+Access to the whole
+architecture f and all
+documents
+Documents and speciﬁc ex-
+planations, model selection
+and validation, model se-
+lection and development,
+model security evaluation
+Experimental audits
+(interventions)
+Accessible by ﬁrst-
+parties and possibly
+second-parties
+Table 2. The Table presents leveled access modes from ’process acces s’ to ’white-box
+access’. We connected access modes with ’what is accessed’, tools and feasible audit
+types. The table must be read so that in each access mode possi ble tools, audit types
+and accesses are added to those that were in the level before. This may not be the case
+only for process access, since documents are not available i n each access level. The table
+is inspired and derived from Koshiyama et al. [48], Koshiyam a et al. [47] and Brown
+et al. [13]. As in the case of table 1, this table should provid e only an overview. We
+derived the table via literature review and not via systemat ic methods. A systematic
+evaluation may not be feasible as the ﬁeld is still emerging. However, we aim to illustrate
+the connection between data access and audit methods and dem onstrate the trade-oﬀ
+between access and revealed information.
+
+Towards an EU AI Auditing Ecosystem 19
+the case of the cooperative audit of pymetrics’ candidate screen ing software the
+auditors had ‘grey-box’ access, as the outcome is not feasible 75 for recruitment
+algorithms76[101]. In the case of ProRepublicas investigation of the recidivism
+risk scoring system they had access to the model, the training data and the actual
+outcome [49]. In the case of Rotterdam’s welfare fraud audit, the a uditors had
+parameter control and learning goal access [20]. Model access alo ne has shown its
+eﬀectiveness through certain case study audits. Audits, including Bloomberg’s
+stable diﬀusion audit [65], examinations of discrimination in online ad delive ry
+[89], and the audit of radicalization pathways on YouTube [80], have ac hieved
+auditing outcomes with limited access, albeit frequently encounterin g challenges
+due to legal constraints. Especially in the case of Gender Shades, w here after
+the audit there was an improvement in several facial recognition to ols in terms
+of functionality for black women [74]. This proofs limited ’black-box’ ac cess for
+researchers can contribute to mitigating harm.
+While other levels of access might provide more comprehensive insight s into
+a system, the prevalence of reverse-engineering methods under scores the signif-
+icant inﬂuence of third-party audits. Admittedly, a system-tailore d approach is
+necessary, given the nuances involved, and model-agnostic audits , such as partial
+dependency plots and feature relevance plots, present challenge s [39]. Nonethe-
+less, it is evident that third-party audits, even with ’black-box’ acc ess, have
+managed to provide insights when combined with evaluations of the so ciotech-
+nical framework. Particularly because they contribute to a syste m for which the
+depth of knowledge acquired corresponds to the access level, aud its with even
+minimal access can generate momentum for obtaining greater acce ss. In some
+cases, this may involve collaborating with other auditors and stakeh olders. This
+concept is further explored in the next section (section 4.2) It is wo rth noting
+that substantial examination by sock puppets or API audits is ofte n feasible only
+for products that possess open APIs.
+4.2 An AI Audit Ecosystem
+Algorithmic accountability regards a networked account for an algo rithmic sys-
+tem, where several actors must explain and justify to a forum or s everal fora
+their use or design of an algorithmic system, as well as the decisions a nd the
+subsequent eﬀects concerning the system. The fora can be inter nal and external,
+as well as formal and informal [99]. Novelli et al. [66] have deﬁned th e goals of AI
+accountability as (1) compliance, (2) reporting, (3) oversight, an d (4) enforce-
+ment. Although audits interfere with reporting and enforcement, they primarily
+achieve compliance and oversight. Compliance concerns the binding o f the sys-
+tem to align with ethical, legal, or technical norms. For example, perf orming an
+75 As it’s unknowable if someone would have performed well that did not get the job.
+76 This audit was criticized as [103] claimed that the authors g ot funded by the com-
+pany for reducing the scope of the audit. If this claim is just iﬁed, this would mean
+that the audit would not been conducted by independent exter nal auditors, but de-
+pendent and thus internal auditors. The example again demon strates the power of
+tech companies.
+
+20 D. Hartmann et al.
+ethical assessment may constitute compliance. Typically, complianc e refers to
+compliance with the law. Oversight seeks to ﬁnd relevant facts abou t the sys-
+tem, such as performance, bias metrics, or other measures, thr ough an overseeing
+body that can be internal or external.
+In order to ensure oversight and compliance, Raji et al. [76] and A lbert [3]
+have proposed establishing an AI audit ecosystem that includes inte rnal and
+external auditors. Sambasivan et al. [81] have called for the estab lishment of
+an ecosystem for accountability in India that includes various stake holders and
+empowers oppressed communities. M¨ okander et al. [62], meanwhile, have argued
+that the AIA de facto proposes to establish an AI audit ecosystem . However,
+none of these authors have described what constitutes an audit e cosystem or
+why we need one. While following this line of reasoning about the importa nce
+of including diverse auditors, we deﬁne an audit ecosystem and argu e that the
+AIA does not establish an AI audit ecosystem.
+We deﬁne an AI audit ecosystem as an open dynamic partial self-org anizing
+community of hierarchically independent, yet interdependent hete rogeneous au-
+ditors and audit types 77. The characteristics are described by the following:
+– open, meaning that it interferes with other accountability process es, such as
+reporting, enforcement, and harm incident reporting
+– dynamic over time (and thereby adaptive to new forms of AI system s, which
+may have to be audited diﬀerently) and over stakeholders (it must in volve
+potentially aﬀected communities and users)
+– partial self-organization of auditors in an enabling environment 78 and a pro-
+motion of sharing audit information through interaction between au ditors
+(formal and informal)
+The audit ecosystem is needed to ensure compliance and oversight t hrough-
+out the AI lifecycle. We argue that for such an ecosystem, third-p arty audits by
+researchers and civil society are a vital component to fulﬁll the ch aracteristics
+of the ecosystem and thus also provide both oversight and complian ce through
+ﬁrst-party audits. Novelli et al. [66] have stated that “[o]verseer s may act at
+diﬀerent levels that may overlap, e.g., an internal audit is compatible w ith ju-
+dicial review accountability.” However, we argue that overseers should act at
+diﬀerent levels, as (1) internal audits are prone to audit-washing a s well as false
+assurances, and they may only ensure compliance (see section 4.3) and are (2)
+not adaptive to new technologies (see section 4.3). Additionally we ar gue that
+(3) NGOs and researchers possess valuable experience in incorpor ating a holistic
+perspective that encompasses socioecological-technical system s. They are able
+to draw from a background in conducting impact assessments and h uman rights
+considerations (see section 4.4) and (4) tend to include aﬀected co mmunities
+more than companies as they have other audience and incentives (s ee section
+4.4).
+77 Inspired by ecological, digital and innovation ecosystems : ”a community of hierar-
+chically independent, yet interdependent heterogeneous p articipants who collectively
+generate an ecosystem output”[92].
+78 See in anti-corruption social accountability ecosystems [ 38]
+
+Towards an EU AI Auditing Ecosystem 21
+4.3 Why Are Internal Audits Insuﬃcient?
+Internal audits and assessments have emerged as a prevalent fo cus in the aca-
+demic discourse. In alignment with this trend several regulations – t he Algorith-
+mic Accountability Act of 2022 in the US, the AIA, and GDPR enforcem ent
+– call for ﬁrst-party audits, underscoring their outsized focus in academia and
+governance [76]. Internal audits have the advantage that the de velopers know
+their system best and have “white-box” access [48]. This provides t hem the most
+technical knowledge about the system and they can intervene at a ny stage of
+the design process as well as throughout the AI lifecycle. It also pu ts the burden
+of responsibility for harm prevention on the shoulders of the develo pers and de-
+ployers 79 and thus on those who establish a business model with it. Nonetheles s,
+as demonstrated by precedent audit domains, the adequacy of int ernal audits
+in ensuring comprehensive oversight has been called into question, a s [76] has
+highlighted.
+“Audit Washing” and F alse Assurances Furthermore, the overreliance on
+internal audits could lead to unveriﬁable assertions that the AI sys tems has
+passed ethical and legal standards, leading to even more harm and less oversight
+[36]. There is an ongoing discussion within research communities on how to
+translate ethics into practice. The discussion evolves around which fairness met-
+rics should be used as fairness remains a contested term [61]. Gener al standards
+and norms for audits [22] are therefore absent. This leads to an en vironment
+conducive to the phenomenon of “audit-washing”. A ﬁrm’s business goals may
+not always align with harm-reduction through course-correction o r ethical design
+of their products. Developers and deployers may ignore audit reco mmendations
+that threaten their business interests [64].
+Empirical research substantiate these concerns. McNamara et a l. [58] have
+discovered that instructing developers to incorporate ethical co des yielded no
+notable change in their established practices. Moreover, studies in volving AI de-
+velopment companies [95] and startup-like environments[94] have s hown a dis-
+connect between acknowledging the signiﬁcance of ethics and integ rating them
+into AI practices, indicating a substantial gap between ethical res earch and prac-
+tical implementation and auditing.
+Such absence of standards and norms in corporate environments could lead
+to using tools and metrics that play down the risks of ones own produ ct [43].
+Statistically, through p-hacking or data dredging , and more generally through
+fairness gerrymandering , it may always be possible to suggest that your sys-
+tem is fair [8]. Issues concerning independence of second-party au ditors were
+discussed frequently in ﬁnancial audits. The opinion paper on this iss ue of Baz-
+erman et al. [9] highlights the the emerging bias towards the client in co ntractual
+relationship audits. In addition to intentional false assurances of t he absence of
+harm, audits may be performed incorrectly or issues may go unaddr essed. That
+is what happened in the Gender Shades audit [14]. It revealed ﬁrst as sessment
+79 If both parties are the same company.
+
+22 D. Hartmann et al.
+and benchmarks by the U.S. National Institute of Technology (NIS T) failed to
+measure demographic diﬀerences in their regular Facial Recognition Vendor’s
+Test [76].
+Several possible adjustments address for these issues. Costan za-Chock et al.
+[22] have proposed mandating (1) the publishing of (ﬁrst-party) a udit results, (2)
+harm incident reporting and other measures to detect and report harms, (3) the
+involvement of aﬀected parties, and (4) the consideration of accr editation and
+standards for evaluation. Although all points are valuable for an au dit ecosystem,
+we argue that the involvement of aﬀected parties and standards f or evaluation
+are only valuable if third-party audits support the ecosystem. (1) and (2) are par-
+ticularly important for an open and balanced ecosystem, as informa tion-sharing
+is promoted, and multiple self-organized auditors can immediately not e and re-
+view potential harm incidents. While (4) is especially important for fun ctioning
+enforcement, (3) is a basic condition for a dynamic audit ecosystem ; otherwise,
+possible harm remains unnoticed.
+Standards, Gaming the System and Goodhart’s Law The development of
+standards is vital for compliance and veriﬁcation. However, hard s tandards and
+technical targets (e.g. bias metrics) can also lead to decoupling fro m the intended
+purpose. In ﬁnancial audits, decoupling was described as an audit p rocess that
+becomes ”ceremonial” and rote. This can happen when the entity un dergoing
+auditing has internal control structures that ritualize and chann el outside audits
+[70].
+Gaming the system is connected to Goodhart’s law, which is usually par a-
+phrased as ”When a measure becomes a target, it ceases to be a go od measure.”
+Thus, behaviors are created to achieve the metrics while pursuing o ther business
+incentives simultaneously. It could encourage adherence to metric s while main-
+taining business. Methods to game the system emerge to avoid implem enting
+the desired behavior measured by the metrics [70]. For example, in th e ﬁnancial
+crisis, banks went bankrupt, which had been recently testiﬁed solv ent [86].
+The Wirecard scandal in Germany shows that hard standards do no t nec-
+essarily help to uncover harm. Even though the company was audite d several
+times by diﬀerent second-party auditors it was still not revealed th at the busi-
+ness model of Wirecard was a ﬁnancial fraud [54]. In both cases, t he companies
+learned to game the system, and game the standards. The Wirecar d scandal
+was ultimately uncovered by investigative journalists [56]. This examp le demon-
+strates once again that there should be external oversight by su ch institutions,
+which do not have to adhere to hard standards and entrenched au dit processes.
+This is all the more evident when it comes to new technologies that are devel-
+oping rapidly.
+Non-adaptivity to New AI T echnologies Through Hard Standar ds In-
+ternal audits and hard standards have several drawbacks. Firs t, social account-
+ability in the public sector has demonstrated that strict process-b ased evalu-
+ations often slow down government action and suppress creativity . Therefore
+
+Towards an EU AI Auditing Ecosystem 23
+performance-based evaluations in audits are preferable to proce ss-based ones.
+The role of civil society can be crucial in that regard, as it functions as a vig-
+ilant watchdog over both procedural integrity and performance o utcomes. The
+involvement of civil society can introduce innovative performance m etrics to
+supplement existing measures [1].
+Especially the AI standardization process, as currently envisaged under the
+AIA, has its challenges with respect to that. In this standardizatio n process, har-
+monized standards are adopted following a standardization reques t (mandate)
+from the Commission to the European Standardization Organization s (CEN,
+CENELEC, building the CEN-CENELEC JTC21 technical joint committe e) for
+the application of Union harmonization legislation to harmonize AI stan dards
+[57].
+This process was criticized several times [52, 57, 102]. First, the p rocess itself
+is non-participatory in nature [102]. Second, the imposition of hard s tandards
+on ethical questions that are inherently context-sensitive and dy namic with new
+technologies is problematic [52].
+Third, in an audit ecosystem of hard standards – like in the AIA case –
+‘gaming the system’ can occur from companies trying to exploit thos e standards
+and ﬁnd loopholes. At the same time, new technologies in particular ca n create
+standardization gaps. To create an adaptive and dynamic audit eco system infor-
+mal audits without hard standards and processes could help to exp ose potential
+harm.
+This becomes particularly evident if there is no external oversight f rom third
+parties capable of reproducing these evaluations. Novel AI produ cts and tech-
+nologies could necessitate the development of new evaluation metho ds. New
+ethical questions arise, which may have to include ethical trade-oﬀ s navigated
+by local and diverse stakeholder inclusion. For example, in the afore mentioned
+Gender Shades case [14] or in recent examples of LLMs and stable d iﬀusion [65].
+Although the relevant legislation and standards do not yet exist, it is diﬃcult
+to imagine that if evaluation standards had existed, they would have worked for
+these type of AI systems. Developing standards for evaluating te chnology will
+take a long time, which is why it is necessary that third parties with limite d
+access to the model engage in evaluating and understanding emerg ing systems.
+This happened with the stable diﬀusion audit by Bloomberg[65] 80 and with
+ChatGPT, which researchers extensively evaluated and which show ed biases [78].
+4.4 Why Should We Include Researchers and Civil Society in th e
+AI Audit Ecosystem?
+Third-party Domain Knowledge We emphasized the signiﬁcance of audit-
+ing both the visible external connections and the internal self-reg ulatory mech-
+anisms of algorithmic systems. NGOs, researchers, journalists, a nd members of
+civil society oﬀer domain expertise that is absent in the organization s deploying
+80 Reporters used stable diﬀusion to generate 5,100 images of p eople using a simple
+recurring prompt iterating through diﬀerent categories. T hrough data-labeling
+
+24 D. Hartmann et al.
+algorithms [1]. Identifying such contextualities involves a broad rang e of per-
+spectives about the impacts that such systems might entail. AI exp erts might
+not be capable of addressing this issue.
+According to Li et al. [53], AI auditors are not always aware of the wa y
+digital technologies aﬀect marginalized communities, and their tools f or investi-
+gating bias, for example, might not necessarily detect behavior tha t could not
+be reasonably predicted before its deployment. Instead, the aut hors write, “most
+expert-led auditing methods were developed to detect statistical disparities not,
+for example, if an algorithm is censuring or harmfully depicting a margin alized
+community in images or the provision of online services.” This is why we ar gue
+that researchers and civil society representatives potentially ha ve speciﬁc domain
+knowledge that include sociotechnical system thinking, as they hav e knowledge
+of the human rights impacts that might take place in speciﬁc domains e xactly
+for their proximity to marginalized or aﬀected communities. However , including
+also the communities impacted by the systems, and not those who re search or
+support them, may also prove fundamental for the advancement of systems that
+duly protect rights.
+Inclusion of Aﬀected Communities Pro-accountability endeavors that en-
+compass diverse interests and ideologies incorporate more legitimac y than those
+driven by a limited group of professionals [1]. This is why scholars (e.g. [22], [53])
+have recommended the inclusion of stakeholders who are or can be a ﬀected by
+AI technologies, or their representatives, in audits.
+We call this a participatory audit 81, as it consists of a framework that aims
+to promote the participation of aﬀected stakeholders in diﬀerent s tages of the
+design, development, and deployment of AI systems. Audits that c onsider indi-
+vidual or collective accounts of experiences related to algorithmic b ias, harm,
+or injustice through incident reporting are currently predominant ly third-party
+algorithmic audits [77].
+Some authors have cited similar approaches for AI auditing as user- engaged
+approaches; these would consist of the direct participation of use rs of AI-based
+applications in surfacing harmful algorithmic behaviors in activities su ch as those
+called “bias bounty” [34]. . In this sense, one can frame participator y audits as a
+set of diﬀerent methodologies to include users or aﬀected individuals and groups
+as a whole in AI auditing processes.
+81 At this point, it is important to note that the terminology su rrounding what we call
+participatory audits has not yet been consolidated. When aﬃ rming the relevance
+of participatory audits in the context of governments’ acco untability,[10] refers to
+“social audits” in a way that is very similar to what we descri be as participatory. Ac-
+cording to him, they diﬀer from other forms of audits because they are performed by
+nonexperts and rely on engagement from citizens and/or civi l society organizations.
+It is a mechanism of oversight, of exerting control on govern ment oﬃcials to ensure
+transparency, responsiveness, and eﬀectiveness by puttin g citizens in the position of
+active participants, not mere sources of information [10].
+
+Towards an EU AI Auditing Ecosystem 25
+Through methods such as workshops, bias bounty programs, and direct in-
+terviews, individuals potentially harmed by these systems can identif y problems
+and help ﬁnd solutions. That is why civil society organizations, resea rchers and
+investigative journalists could beneﬁt from involving aﬀected commu nities and
+users in their analysis of these technologies. Besides, AI developer s and providers
+should have the capability to do the same, so as to involve impacted gr oups from
+the early design of their systems. The same applies to auditors, who can have
+their assessments of algorithms from having access to other pers pectives in order
+to identify other impacts posed by these technologies. However, d espite the po-
+tential beneﬁts, there is lack of incentives for such participatory methodologies
+to be put into place. That is why regulation and incentives should lead d evel-
+opers, deployers and auditors to take this sort of action. Succes sful community
+engagement depends on the willingness of the audited organization t o genuinely
+listen, respond, and act on the concerns and recommendations ide ntiﬁed dur-
+ing the audit process [1]. Aﬀected communities may trust third-part y auditors
+more than internal audits conducted by the organization itself. Th is trust can
+encourage community members to openly share their perspectives , concerns, and
+experiences during the audit process.
+Information and Power Asymmetries In the past, understanding and evalu-
+ating platforms has encountered considerable challenges due to ins uﬃcient trans-
+parency in their operations despite their vast power and inﬂuence. For years,
+users and regulators were frequently unaware of these digital pla tforms’ internal
+functioning, inhibiting the eﬀective resolution of misinformation, dat a protec-
+tion, and content moderation. Although the DSA points in the right d irection
+by challenging information and power asymmetries, ’audit capture’ is possible.
+The risk is that large tech companies leverage their market power ag ainst their
+new mandatory auditors [50]. Because we have let the market power of large
+tech companies evolve for years without proper regulation.
+A comparable scenario is occurring with AI products with the focus o n con-
+formity assessments by the AIA. In general power asymmetries a re present in the
+standardization process, too. As the process of standardizing a udits is ongoing,
+and the extent of public involvement remains uncertain, standards are usually
+developed by standard-setting organizations in which industry rep resentatives
+exert signiﬁcant inﬂuence. In contrast, the voices of civil society and consumer
+advocates are often overheard [17]. Therefore, researchers [2 3] demand that poli-
+cymakers take the necessary steps to improve the overall stand ardization process,
+including the structural and organizational framework of standa rdization organi-
+zations, to facilitate an inclusive and democratic system that provid es for broad
+stakeholder engagement and dialogue and input on the development of technical
+standards. Third-party data access is one measure to involve civil society.
+In section 4.1, we learned that third-party audits can uncover har ms even
+with limited access. To understand possible harms, researchers mu st be able to
+access data. This understanding is crucial for developing new stan dards. Cur-
+rently, there is an imbalance where data is collected about both user s and non-
+
+26 D. Hartmann et al.
+users of platforms and algorithmic systems, but there is only limited a ccess for
+researchers to understand how this data is used [96]. Therefore, an audit ecosys-
+tem needs to provide leveled access to diﬀerent auditors who should publish and
+share their audit results. This leveled access can help reduce these information
+and power imbalances.
+4.5 Challenges Of Third-Party Audits
+Third-party audits have some drawbacks. These auditors may lack the techni-
+cal knowledge or capacity to thoroughly research a system. Ther e is also a risk
+of revealing secret information or company secrets, which can be p revented by
+including nondisclosure clauses. However, to protect the auditors , safe harbor
+clauses should be included as well to prevent them from intentional o r unknow-
+ingly leaking trade secrets. Companies may fear to share their mode l and data
+[22]. However, there are best-practices in the case of VLOPs via an API and a
+vetting process. Further, there are techniques available for ade quately protect-
+ing or anonymizing data while still providing access and other industrie s like the
+ﬁnance sector where there are legal ptrotections in the case of d ata leakage [16].
+At the same time, one could say that p-hacking [8] allows third partie s to
+select the metrics that indicate harm. However, this is not the same as the
+ﬁrst-party audit case, as other researchers could quickly verify the harm. Civil
+society and social organizations would have no interest in making a ba d name
+for themselves.
+Furthermore, the AI Now Institute argues that third-party aud its shift re-
+sponsibility to researchers and aﬀected communities. However, we cannot rely
+on these groups to have the resources to audit AI technologies [43 ] eﬀectively.
+We see it as one measure that can work alongside other measures, s uch as au-
+dits through regulators, internal audits, transparency, and th e aforementioned
+accountability processes.
+While solving these problems presents considerable challenges, it is wo rth
+noting that the absence of civil society oversight would yield even mo re unfa-
+vorable outcomes. Adequate funding is essential to alleviate the bu rdens on civil
+society and research. Without such audits, achieving comprehens ive accountabil-
+ity remains inadequate.
+Recognizing the diﬃculties inherent in civil society and researcher au dits, it
+is crucial to acknowledge that algorithm auditing represents only a s ingle facet
+within the broader algorithm accountability framework. To establish genuine
+algorithm accountability, it is imperative to consider that algorithm au diting
+operates with various other factors, forming an intricate ecosys tem [2]. This is
+why we demand the AI audit ecosystem to be open and interfere with other
+accountability processes. An essential component for that is act ual enforcement,
+that is, post-audit actions such as Raji and Buolamwini [74]’s demand s for harm
+reduction. This in turn requires European institutions that implemen t proper
+enforcement.
+
+Towards an EU AI Auditing Ecosystem 27
+5 Addressing the Regulatory Gap: An EU AI Audit
+Ecosystem
+Third-party audits by research and civil society are essential for an AI audit
+ecosystem. (1) Third parties can provide oversight as watchdogs against audit
+washing and false assurances. (2) Third-party audits can questio n standards,
+which could prevent the decoupling of audits, as in ﬁnancial audits. ( 3) Third-
+party audits are adaptive to new technologies. In the context of ( 2) and (3), con-
+ducting audits through third-party entities gains further signiﬁca nce, as they can
+scrutinize evolving standards and raise critical inquiries [51]. (4) Th ird parties
+promote sensitivity to the sociotechnical system and (5) aﬀected communities.
+(6) Last but not least, third-party audits and data access challen ge information
+and power asymmetries of the platform economy. At the same time, we have
+shown that the DSA and AIA refer diﬀerently to third-party audits and permit
+diﬀerent data access for third parties. We will assess these appro aches to third
+parties and propose policy recommendations.
+5.1 Evaluation of the Audit Status Quo in the DSA and the AIA
+The DSA and the draft delegated act do not specify any additional r equirements
+for the audit ﬁrm. 82 This should be viewed critically for the two reasons: Firstly,
+it does not specify the requirements to be met by each criterion. Fo r example,
+it does not explain in suﬃcient detail what level of “proven expertise ” or su-
+pervisory steps are required to ensure compliance. In addition, th e requirement
+of independence gives rise to discussion. 83 Secondly, it is unclear whether au-
+dit ﬁrms need to be reviewed by bodies other than the VLOPs and VLO Es to
+ensure their proper functioning. However, as a regulatory instru ment can only
+be as eﬀective as the institutions that enforce it, the ﬁnal version of the dele-
+gated regulation needs to set out more speciﬁc requirements. On t he one hand,
+it should give priority to independent checks on the competent selec tion of au-
+ditors by setting out basic independence requirements. On the oth er hand, the
+regulation should provide for additional (oﬃcial) supervision.
+As noted above, the EU AIA trilogue version relies primarily on interna l
+conformity assessment as a means of assurance. The fact that t he focus of the
+AIA is mainly on self-regulation is questionable because there is a lot at stake:
+82 The wording of Art. 37 DSA (“the organisations carrying out t he audits”, Art. 37
+(2) DSA) does not provide any further details on this. Thus, A rt. 4 (1) Delegated
+Regulation on Independent Audits refers to Art. 37 DSA, acco rding to which the
+provider must check whether the organisation to be selected meets the requirements
+of paragraph 3 before selecting the audit organisation. Fur thermore, the Commission
+deﬁnes the term audit organisation means an individual orga nisation, a consortium
+or other combination of organisations, including any sub-c ontractors, that the au-
+dited provider has contracted to perform an independent aud it in accordance with
+Article 37 DSA.
+83 For example, Spindler [87], who raises concerns, for exampl e, that this does not clar-
+ify constellations in which an aﬃliate of the auditing compa ny advises the provider
+
+28 D. Hartmann et al.
+high-risk AI systems covered by the AIA can violate numerous legal interests, e.
+g. people’s health and lives at risk, but also damage property or the e nvironment
+or violate legal interests such as the protection of privacy. Moreo ver, implement-
+ing the risk-based approach of the AIA requires taking preventive measures that
+should not solely rely on the assessment of the AI provider, especia lly for high-
+risk systems [46].
+Given the risks, whether a ﬁrst-party internal audit can provide t he neces-
+sary oversight of such potentially harmful high-risk AI systems is q uestionable.
+Despite regulatory requirements, enforcing internal conformity assessments is
+likely to be less stringent than it appears at ﬁrst glance. In addition, conformity
+assessments that the provider voluntarily has carried out by third parties are
+likely to be rare in practice. Indeed, providers of high-risk systems are usually
+in the best position to understand and assess the conformity of th e AI systems
+they develop. However, it is doubtful that ﬁrst parties will seek to ﬁnd all poten-
+tial harms and thus ﬁnd out their system does not comply with the AI A’s legal
+standards. We have laid out the issues of internal audits in the prev ious section.
+For the above reasons, the requirements for audit ﬁrms in both th e DSA and
+the AIA must be amended. The explicit inclusion of third parties would b e bene-
+ﬁcial under both acts. Under the current rules, there is a risk tha t providers will
+only engage second-party auditors to conduct mandatory annua l assessments.
+This focus can not create an open, dynamic, and self-organizing ec osystem in-
+cluding various stakeholders. We have established the value of third -party audits
+for an AI audit ecosystem and shown that AI regulation in the EU mus t include
+third-party audits and their data access to account for appropr iate oversight
+apart from compliance by ﬁrst-party audits.
+5.2 Advantages of Broader Data Access for (V etted) Research ers
+Purely relying on process access for third-party audits, as exemp liﬁed by the
+AMS algorithm in section 4.1, presents diﬃculties due to the inherent o pacity of
+the system’s workings. This is why there is a growing call for a gradua ted sys-
+tem of access levels among various groups [48]. Consequently, we ad vocate for a
+minimum requirement to enable ’black-box’ access, preferably exte nded to non-
+vetted researchers without the need for formal accreditation. Reddit, Facebook,
+and Twitter opted to discontinue their APIs, which had been the aut horized
+avenue for third parties to access and retrieve information regar ding user activi-
+ties on the platform. This situation exposes researchers to legal lia bilities due to
+potential breaches of, for example, Facebook’s Terms of Service , as previously
+elucidated in the context of AlgorithmWatch’s data donation case [55 ].
+The research eﬀorts undertaken in this context should be safegu arded by
+robust safe-harbor provisions that grant legal immunity to these researchers
+thereby shielding them from potential legal charges linked to hackin g or unau-
+thorized access, as the AI Now Institute demands [43]. This framew ork would
+oﬀer protection to those conducting audits that potentially expos e harm, thereby
+incentivizing such assessments. More widespread access to resea rch data can, to
+some extent, reduce this power imbalance through ”audit capture ” [50]. Broader
+
+Towards an EU AI Auditing Ecosystem 29
+access to data should prevent such scenarios of audit capture, s een when Face-
+book halted AlgorithmWatch’s research on Instagram; this emphas izes the role
+of third-party audits and other measures to reduce market powe r.
+Consequently, one fundamental proposition is the establishment o f a right
+to scrape, although an even more eﬀective approach could involve m andatory
+APIs. However, implementing the latter may pose challenges for non -vetted re-
+searchers, as it might inadvertently allow them to utilize the product without in-
+curring costs. For vetted researchers, broader access should be granted, enabling
+performance assessments akin to the approach taken in the Gend er Shades case
+and possibly allowing the measurement of facial recognition perform ance. We
+acknowledge that the DSA includes such access for vetted resear chers.
+We have seen that NGOs have can ensure social accountability and o versight
+trough domain knowledge and inclusion of aﬀected people. At the sam e time,
+journalists have already shown in the past how important they are a s an ac-
+countability component in ﬁnancial audits and also in algorithmic audits . It is
+for this reason that we believe that the extension of vetted resea rchers to include
+NGOs and journalists makes sense. This extension could be done in th e dele-
+gated acts by describing vetted researchers in a broad manner su ch that NGOs
+and journalists are included.
+As has been shown, the AIA does not contain any provisions compar able
+to the DSA that facilitate regulated access by researchers to dat a held by AI
+providers. This is surprising given that, according to the rationale f or its adop-
+tion, the AIA should in principle facilitate this. We recommend that this position
+be reconsidered and added to the ﬁnal document.
+5.3 Policy Recommendations
+Explicit Inclusion of Third Parties Future AI regulations should explicitly in-
+clude provisions for third-party audits and third-party access by researchers,
+civil society, and regulators. This ensures a more comprehensive a nd indepen-
+dent assessment of AI products and platform and moves towards establishing an
+EU AI audit ecosystem.
+Inclusion of NGOs and Investigative Journalists In the DSA delegated act on
+data access, we recommend including NGOs and investigative journa lists as
+vetted researchers who can perform third-party audits. Their in volvement can
+ensure social accountability through domain knowledge and special access to
+aﬀected communities. Additionally, journalists have demonstrated their impor-
+tance in ﬁnancial and algorithmic audits as an accountability compone nt in the
+past.
+Third-Party Access in AIA Incorporate provisions for third-party access in the
+AIA, particularly for “high-risk” AI systems. These provisions ens ure that criti-
+cal systems undergo rigorous scrutiny and that hard standards can be questioned
+in the light of new technologies.
+
+30 D. Hartmann et al.
+Incentivize Third-Party Audits Create incentives, such as funding or tax bene-
+ﬁts, to encourage organizations to undergo third-party audits v oluntarily. These
+incentives can be funded through companies managed by the gover nment or
+government funding. This promotes an enabling environment for an AI audit
+ecosystem and thus the promotion of algorithmic conformity asses sment proce-
+dures within the framework of all regulations. The government cou ld choose the
+researchers eligible for funding in the case of the DSA (should be tho ught of
+in the delegated acts) and through a multistakeholder board in the A IA which
+includes state-run ADMs.
+Publish Audit Results Nondisclosures of audit results should be an exception if
+sensitive information or trade secrets are undeniably part of the a udit results.
+Otherwise, mandate the publication of anonymized audit results, wh ether con-
+ducted by ﬁrst, second, or third parties. This can inform other au ditors and
+promote further knowledge sharing.
+Harm Incident Reporting and Detection Implement measures to detect and re-
+port AI-related harms. Establish a framework for reporting incide nts and ensure
+post-audit actions and enforcement are taken.
+Whistleblower Protections in AI Companies Whistleblower protections for em-
+ployees who expose violations of AI standards, legal and regulator y requirements,
+civil rights, and human rights should be strengthened. Whistleblowe rs should be
+shielded from retaliation. The EU Whistleblower Protection Directive [ 28] is a
+step in the right direction and will be welcomed. It will be compelling to se e how
+AIA and the EU Whistleblower Protection Directive interact.
+Safe Harbor Provisions for Auditing Entities Implement safe harbor provisions
+speciﬁcally for researchers, NGOs, and investigative journalists w ho conduct AI
+audits. These entities should be granted legal protection from ret aliatory ac-
+tions when conducting audits in good faith. Safe harbor provisions s hould apply
+when audits are conducted according to established standards an d guidelines
+and ﬁndings are reported accurately.
+Legalization of Web Scraping for AI Auditing Recognize the importance of web
+scraping as a valuable tool for researchers, NGOs, and investigat ive journalists
+engaged in AI auditing activities. Establish clear legal frameworks th at permit
+responsible web scraping when it is carried out for legitimate researc h and au-
+diting purposes. These frameworks should include safeguards to p rotect against
+misuse and ensure the ethical and responsible use of web scraping t echniques.
+6 Conclusion
+We deﬁned audit types – focusing on third-party audits – and analyz ed to which
+extent they are included in the EU regulatory framework, with a foc us on the
+DSA and the AIA.
+
+Towards an EU AI Auditing Ecosystem 31
+According to our analysis, the DSA will establish a novel institutional system
+that involves third-party audits, provides data access for vette d researchers as
+well as access to openly available data for non-vetted researcher s. However, the
+requirements for independence of auditors in the DSA still need to b e speciﬁed.
+The AIA, on its turn, relies primarily on internal conformity assessm ent with
+external assessments that can be mandated by the regulator. A t present, access
+for researchers or independent auditors is not explicitly intended.
+Based on this analysis, we deﬁne an AI audit ecosystem that accoun ts for
+compliance and oversight and demonstrate the existence of a regu latory gap.
+We emphasize that third-party audits by independent organisation s, researchers
+and civil society, as well as through inspection by regulators, must be part of
+that ecosystem. The AIA, in this sense, should have included data a nd model
+access for vetted researchers and civil society organisations to assess “high-risk”
+AI products, as is partially the case of the DSA’s provisions allowing fo r vet-
+ted researchers — although not civil society organisations — to hav e access to
+sensitive information on the AI systems.
+We hope to contribute to the emerging ﬁeld of audits as a means of ac count-
+ability. In doing so, we aim to sharpen the focus on aﬀected communit ies and
+incorporate past lessons from platform research and ﬁnancial au dits. We recom-
+mend establishing a diverse AI audit ecosystem to ensure compliance and over-
+sight. We concur with Raji et al. [76]’s demands for an “ecosystem in w hich third
+parties can not only survive in their role, but thrive in directly confro nting, ver-
+ifying, and subjecting to scrutiny the performance claims made by c orporations,
+while adequately addressing complaints of harm brought forth by th e impacted
+population.” Our policy proposals point to democratizing accountabilit y, and we
+hope future AI regulations and the EU directives mentioned here will address
+them.
+7 Compliance with Ethical Standards
+7.1 Conﬂict of Interest
+On behalf of all authors, the corresponding author states that t here is no conﬂict
+of interest.
+
+Bibliography
+[1] Ackerman, J.M.: Social accountability in the public sector. Social D evel-
+opment Papers (2005)
+[2] Ada Lovelace Institute: Examining the black box: Tools for
+assessing algorithmic systems. the Black Box (2020), URL
+https://www.adalovelaceinstitute.org/report/examining-the-black-box-tools-for-assessing 
+[3] Albert, J.: A diverse auditing ecosystem is
+needed to uncover algorithmic risks (2023), URL
+https://algorithmwatch.org/en/diverse-auditing-ecos ystem-for-algorithmic-risks/
+[4] Algorithmwatch: Draft ai act: EU needs to live up to its own
+ambitions in terms of governance and enforcement (2021), URL
+https://algorithmwatch.org/en/wp-content/uploads/20 21/08/EU-AI-Act-Consultation-Submis 
+accessed on August 3, 2023
+[5] Allhutter, D., Mager, A., Cech, F., Fischer, F., Grill, G.: Der ams algo-
+rithmus - eine soziotechnische analyse des arbeitsmarktchancen- assistenz-
+systems (amas). Tech. Rep. ITA 2020-02, Institut f¨ ur Technik folgen-
+Absch¨ atzung der ¨Osterreichischen Akademie der Wissenschaften, Wien
+(2020)
+[6] Asghari, H., Birner, N., Burchardt, A., Dicks, D., Faßbender, J., F eld-
+hus, N., Hewett, F., Hofmann, V., Kettemann, M.C., Schulz, W., Simon,
+J., Stolberg-Larsen, J., Z¨ uger, T.: What to explain when explaining is
+diﬃcult. An interdisciplinary primer on XAI and meaningful informa-
+tion in automated decision-making. Tech. rep., Zenodo (Mar 2022), URL
+https://zenodo.org/record/6375784
+[7] Bail, C.A., Argyle, L.P., Brown, T.W., Bumpus, J.P., Chen, H., Hunza-
+ker, M.B.F., Lee, J., Mann, M., Merhout, F., Volfovsky, A.: Exposure t o
+opposing views on social media can increase political polarization. Pro ceed-
+ings of the National Academy of Sciences of the United States of Am erica
+115(37), 9216–9221 (2018), ISSN 0027-8424
+[8] Bandy, J.: Problematic Machine Behavior: A Systematic Litera-
+ture Review of Algorithm Audits. Proceedings of the ACM on
+Human-Computer Interaction 5(CSCW1), 74:1–74:34 (Apr 2021), URL
+https://doi.org/10.1145/3449148
+[9] Bazerman, M.H., Morgan, K.P., Loewenstein, G.F., et al.: The impossib il-
+ity of auditor independence. Sloan management review 38, 89–94 (1997)
+[10] Berthin, G.: A practical guide to social audit as
+a participatory tool to strengthen democratic gover-
+nance, transparency, and accountability (09 2011), URL
+https://www.undp.org/sites/g/files/zskgke326/files/migration/latinamerica/Practical-Gui 
+[11] Bieker, F., Friedewald, M., Hansen, M., Obersteller, H., Rost, M.: A Pro-
+cess for Data Protection Impact Assessment Under the Europea n General
+Data Protection Regulation. In: Schiﬀner, S., Serna, J., Ikonomou , D.,
+
+Towards an EU AI Auditing Ecosystem 33
+Rannenberg, K. (eds.) Privacy Technologies and Policy, pp. 21–37, Lec-
+ture Notes in Computer Science, Springer International Publishing , Cham
+(2016), ISBN 978-3-319-44760-5
+[12] Birhane, A., Steed, R., Ojewale, V., Vecchione, B., Raji, I.D.: AI au dit-
+ing: The Broken Bus on the Road to AI Accountability (Jan 2024), UR L
+http://arxiv.org/abs/2401.14462, arXiv:2401.14462 [cs]
+[13] Brown, S., Davidovic, J., Hasan, A.: The algorithm audit: Scoring t he algo-
+rithms that score us. Big Data & Society 8(1), 2053951720983865 (2021),
+URL https://doi.org/10.1177/2053951720983865
+[14] Buolamwini, J., Gebru, T.: Gender shades: Intersectional accu racy dis-
+parities in commercial gender classiﬁcation. In: Conference on fair ness,
+accountability and transparency, pp. 77–91, PMLR (2018)
+[15] Buri, J., van Hoboken, J.: The digital services act (dsa) propos al: a critical
+overview – discussion paper. Discussion Paper 28 October 2021, Dig ital
+Services Act (DSA) Observatory (2021)
+[16] Casper, S., Ezell, C., Siegmann, C., Kolt, N., Curtis, T.L., Bucknall,
+B., Haupt, A., Wei, K., Scheurer, J., Hobbhahn, M., Sharkey, L., Kr-
+ishna, S., Von Hagen, M., Alberti, S., Chan, A., Sun, Q., Gerovitch,
+M., Bau, D., Tegmark, M., Krueger, D., Hadﬁeld-Menell, D.: Black-
+Box Access is Insuﬃcient for Rigorous AI Audits (Jan 2024), URL
+http://arxiv.org/abs/2401.14446, arXiv:2401.14446 [cs]
+[17] Castets-Renard, C., Besse, P.: Ex ante accountability of the a i act: Between
+certiﬁcation and standardization. Artiﬁcial Intelligence Law: Betw een Sec-
+toral Rules and Comprehensive Regime. Comparative Law Perspect ives
+(Forthcoming), URL https://ssrn.com/abstract=4203925
+[18] Chen, Y.J., Chiou, C.M., Huang, Y.W., Tu, P.W., Lee, Y.C., Chien, C.H.:
+A comparative study of medical device regulations:: Us, europe, ca nada,
+and taiwan. Therapeutic Innovation & Regulatory Science 52(1), 62–
+69 (2018), URL https://doi.org/10.1177/2168479017716712, pMID:
+29714608
+[19] Commission, E.: Draft for commission delegated regulation (eu) b y laying
+down rules on the performance of audits for very large online platfo rms
+and very large online search engines (2023), URL missing, 5 May 2023
+[20] Constantaras, E., Geiger, G., Braun, J.C., Mehrotra, D., Aung, H.:
+Inside the Suspicion Machine. Wired (2023), ISSN 1059-1028, URL
+https://www.wired.com/story/welfare-state-algorithm s/, section:
+tags
+[21] Constantaras, E., Geiger, G., Braun, J.C., Mehrotra, D., Aung, H.:
+Suspicion Machines Methodology - Lighthouse Reports (2023), URL
+https://www.lighthousereports.com/suspicion-machine s-methodology/
+[22] Costanza-Chock, S., Raji, I.D., Buolamwini, J.: Who Audits the Aud itors?
+Recommendations from a ﬁeld scan of the algorithmic auditing ecosys tem.
+In: 2022 ACM Conference on Fairness, Accountability, and Transp arency,
+pp. 1571–1583, ACM, Seoul Republic of Korea (Jun 2022), ISBN 97 8-1-
+4503-9352-2, URL https://dl.acm.org/doi/10.1145/3531146.3533213
+
+34 D. Hartmann et al.
+[23] Ebers, M., Hoch, V.R.S., Rosenkranz, F., Ruschemeier, H., Steinr ¨ otter,
+B.: The european commission’s proposal for an artiﬁcial intelli-
+gence act—a critical assessment by members of the robotics and a i
+law society (rails). J 4(4), 589–603 (2021), ISSN 2571-8800, URL
+https://www.mdpi.com/2571-8800/4/4/43
+[24] Edwards, L.: Regulating ai in europe: four
+problems and four solutions (2022), URL
+https://www.adalovelaceinstitute.org/report/regulating-ai-in-europe/
+[25] European Commision: Proposal for a regulation of the eu-
+ropean parliament and of the council laying down har-
+monised rules on artiﬁcial intelligence (artiﬁcial intelligence
+act) and amending certain union legislative acts (2021), URL
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri =celex%3A52021PC0206,
+18.08.23
+[26] European Commission: DSA: Very Large On-
+line Platforms and Search Engines (2022), URL
+https://ec.europa.eu/commission/presscorner/detail/en/IP_23_2413,
+press release No. IP/23/2413 from 25.04.23
+[27] European Commission: Commission delegated regulation (eu)
+. . . /. . . of 20.10.2023 supplementing regulation (eu) 2022/2065
+of the european parliament and of the council, by laying down
+rules on the performance of audits for very large online plat-
+forms and very large online search engines (October 20 2023), URL
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri =CELEX%3A32023R6807
+[28] European Parliament: Directive (eu) 2019/1937 of the europe an parlia-
+ment and of the council. Directive EU 2019/1937, European Parliame nt
+(October 2019)
+[29] European Parliament: Draft report on the proposal for a reg ulation of the
+european parliament and of the council on harmonised rules on artiﬁ cial in-
+telligence (artiﬁcial intelligence act) and amending certain union legisla tive
+acts. Draft Report COM2021/0206 – C9-0146/2021 – 2021/0106 (COD),
+Committee on the Internal Market and Consumer Protection, Com mittee
+on Civil Liberties, Justice and Home Aﬀairs (April 20 2022)
+[30] European Parliament: Corrigendum to the position of the euro-
+pean parliament adopted at ﬁrst reading on 13 march 2024 with
+a view to the adoption of regulation (eu) 2024/ ...... of the euro-
+pean parliament and of the council laying down harmonised rules
+on artiﬁcial intelligence and amending regulations (ec) no 300/2008,
+(eu) no 167/2013, (eu) no 168/2013, (eu) 2018/858, (eu) 2018 /1139
+and (eu) 2019/2144 and directives 2014/90/eu, (eu) 2016/797
+and (eu) 2020/1828 (artiﬁcial intelligence act). Available online:
+https://www.europarl.europa.eu/doceo/document/TA-9- 2024-0138-FNL-COR01_EN.pdf
+(2024), position of the European Parliament adopted at ﬁrst read ing on
+13 March 2024. P9
+TA(2024)0138 (COM(2021)0206 - C9-0146/2021 -
+2021/0106(COD))
+
+Towards an EU AI Auditing Ecosystem 35
+[31] European Parliament, Council of the European Union: Regulatio n
+(EU) 2022/2065 of the European Parliament and of the Council
+of 19 October 2022 on a Single Market For Digital Services and
+amending Directive 2000/31/EC (Digital Services Act) (2022), URL
+https://eur-lex.europa.eu/eli/reg/2022/2065/oj
+[32] Floridi, L., Holweg, M., Taddeo, M., Amaya Silva, J., M¨ okander, J., W en,
+Y.: capAI - A Procedure for Conducting Conformity Assessment of AI
+Systems in Line with the EU Artiﬁcial Intelligence Act (Mar 2022), URL
+https://papers.ssrn.com/abstract=4064091
+[33] Gaddis, S.M.: An Introduction to Audit Studies in the Social Scienc es
+(Aug 2017), URL https://papers.ssrn.com/abstract=3024262
+[34] Globus-Harris, I., Kearns, M., Roth, A.: An Algorithmic Framewor k for
+Bias Bounties (May 2022), URL http://arxiv.org/abs/2201.10408,
+arXiv:2201.10408 [cs]
+[35] Goldhaber-Fiebert, J.D., Prince, L.: Impact evalua-
+tion of a predictive risk modeling tool for allegheny
+county’s child welfare oﬃce (March 20 2019), URL
+https://www.alleghenycountyanalytics.us/wp-content/ uploads/2019/05/Impact-Evaluation-fro 
+[36] Goodman, E.P., Trehu, J.: AI Audit Washing and Accountability (Se p
+2022), URL https://papers.ssrn.com/abstract=4227350
+[37] Groves, L.: Algorithmic impact assessment:
+a case study in healthcare (2022), URL
+https://www.adalovelaceinstitute.org/report/algorithmic-impact-assessment-case-study-h 
+[38] Halloran, B.: Accountability ecosystems: The evolution of a keyw ord. Ac-
+countability Research Center (2021)
+[39] Hansen, S., Loftus, J.: Model-Agnostic Auditing: A Lost Cause? Proceed-
+ings of the EW AF’23: European Workshop on Algorithmic Fairness (20 23)
+[40] Heuer, H.: Audit, don’t explain – recommendations based on a soc io-
+technical understanding of ml-based systems. Mensch und Compu ter 2021
+- Workshopband (2021)
+[41] Hickey, D., Schmitz, M., Fessler, D., Smaldino, P.E., Muric, G., Burgh ardt,
+K.: Auditing elon musk’s impact on hate speech and bots. In: Proceed ings
+of the International AAAI Conference on Web and Social Media, vo l. 17,
+pp. 1133–1137 (2023)
+[42] Kaesling: Art. 40. In: Hofmann, Raue (eds.) Digital Service Act , p. 33,
+Nomos (2023)
+[43] Kak, A., West, S.M.: Algorithmic Accountability: Mov-
+ing Beyond Audits. AI Now Institute (Apr 2023), URL
+https://ainowinstitute.org/publication/algorithmic- accountability
+[44] Kayser-Bril, N.: AlgorithmWatch forced to shut down Instagra m
+monitoring project after threats from Facebook (2021), URL
+https://algorithmwatch.org/en/instagram-research-sh ut-down-by-facebook/
+[45] Kazim, E., Denny, D.M., Koshiyama, A.: Ai auditing and impact asses s-
+ment: According to the uk information commissioner’s oﬃce. AI Ethic s 1,
+301–310 (2021), URL https://doi.org/10.1007/s43681-021-00039-2
+
+36 D. Hartmann et al.
+[46] Kop, M.: EU Artiﬁcial Intelligence Act: The European Approach t o AI
+(Sep 2021), URL https://papers.ssrn.com/abstract=3930959
+[47] Koshiyama, A., Kazim, E., Treleaven, P.: Algorithm auditing: Manag -
+ing the legal, ethical, and technological risks of artiﬁcial intelligence, ma-
+chine learning, and associated algorithms. Computer 55(4), 40–50 (2022),
+https://doi.org/10.1109/MC.2021.3067225
+[48] Koshiyama, A., Kazim, E., Treleaven, P., Rai, P., Szpruch, L., Pave y,
+G., Ahamat, G., Leutner, F., Goebel, R., Knight, A., Adams, J.,
+Hitrova, C., Barnett, J., Nachev, P., Barber, D., Chamorro-Premu zic,
+T., Klemmer, K., Gregorovic, M., Khan, S., Lomas, E.: Towards Algo-
+rithm Auditing: A Survey on Managing Legal, Ethical and Technologi-
+cal Risks of AI, ML and Associated Algorithms. SSRN (Jan 2021), UR L
+https://papers.ssrn.com/abstract=3778998
+[49] Larson, J., Kirchner, L., Mattu, S., Angwin, J.: How We
+Analyzed the COMPAS Recidivism Algorithm (2016), URL
+https://www.propublica.org/article/how-we-analyzed- the-compas-recidivism-algorithm
+[50] Laux, J., Wachter, S., Mittelstadt, B.: Taming the Few:
+Platform Regulation, Independent Audits, and the Risks of
+Capture Created by the DMA and DSA (Sep 2021), URL
+https://papers.ssrn.com/abstract=4096655
+[51] Laux, J., Wachter, S., Mittelstadt, B.: Three Pathways for Sta ndardisation
+and Ethical Disclosure by Default under the European Union Artiﬁcia l
+Intelligence Act. SSRN Electronic Journal (2023), ISSN 1556-506 8, URL
+https://www.ssrn.com/abstract=4365079
+[52] Laux, J., Wachter, S., Mittelstadt, B.: Three pathways for sta n-
+dardisation and ethical disclosure by default under the Eu-
+ropean Union Artiﬁcial Intelligence Act. Computer Law &
+Security Review 53, 105957 (2024), ISSN 0267-3649, URL
+https://www.sciencedirect.com/science/article/pii/S0267364924000244
+[53] Li, R., Kingsley, S., Fan, C., Sinha, P., Wai, N., Lee, J., Shen, H., Eslam i,
+M., Hong, J.: Participation and division of labor in user-driven algorithm
+audits: How do everyday users work together to surface algorith mic harms?
+CHI ’23: Proceedings of the 2023 CHI Conference on Human Factor s in
+Computing Systems (2023)
+[54] L¨ ohlein, L., Huber, C.: The end of audit: Spectacle and love in the audit
+society. Qualitative Research in Accounting & Management (2022)
+[55] Mancosu, M., Vegetti, F.: What you can scrape and what is
+right to scrape: A proposal for a tool to collect public facebook
+data. Social Media + Society 6(3), 2056305120940703 (2020), URL
+https://doi.org/10.1177/2056305120940703
+[56] McCrum, D.: The house of wirecard (2015), URL
+https://www.ft.com/content/534e7c4d-3101-3f6a-abc8- dc70beab35b7,
+ﬁnancial Times, April 27, 2015
+[57] McFadden, M., Jones, K., Taylor, E., Osborn, G.: Harmonising Art iﬁcial
+Intelligence: the role of standards in the eu ai regulation. Oxford I nternet
+Institute (2021)
+
+Towards an EU AI Auditing Ecosystem 37
+[58] McNamara, A., Smith, J., Murphy-Hill, E.: Does ACM’s code of ethics
+change ethical decision making in software development? In: Proce edings
+of the 2018 26th ACM Joint Meeting on European Software Engineer ing
+Conference and Symposium on the Foundations of Software Engine ering,
+pp. 729–733, ACM, Lake Buena Vista FL USA (Oct 2018), ISBN 978- 1-
+4503-5573-5, URL https://dl.acm.org/doi/10.1145/3236024.3264833
+[59] Metaxa, D., Park, J.S., Robertson, R.E., Karahalios, K., Wilson, C.,
+Hancock, J., Sandvig, C.: Auditing algorithms: Understanding algorit h-
+mic systems from the outside in. Foundations and Trends ® in Hu-
+man–Computer Interaction 14(4), 272–344 (2021), ISSN 1551-3955, URL
+http://dx.doi.org/10.1561/1100000083
+[60] Meßmer, A.K., Degeling, M.: Auditing
+Recommender Systems (Jan 2023), URL
+https://www.stiftung-nv.de/de/publication/auditing- recommender-systems
+[61] Munn, L.: The uselessness of AI ethics. AI and Ethics
+3(3), 869–877 (Aug 2023), ISSN 2730-5953, 2730-5961, URL
+https://link.springer.com/10.1007/s43681-022-00209- w
+[62] M¨ okander, J., Axente, M., Casolari, F., Floridi, L.: Conformity
+Assessments and Post-market Monitoring: A Guide to the Role
+of Auditing in the Proposed European AI Regulation. Minds
+and Machines 32(2), 241–268 (Jun 2022), ISSN 1572-8641, URL
+https://doi.org/10.1007/s11023-021-09577-4
+[63] M¨ okander, J., Floridi, L.: Ethics-Based Auditing to Develop Trus tworthy
+AI. Minds and Machines 31(2), 323–327 (Jun 2021), ISSN 1572-8641, URL
+https://doi.org/10.1007/s11023-021-09557-8
+[64] M¨ okander, J., Schuett, J., Kirk, H.R., Floridi, L.: Auditing large
+language models: a three-layered approach (Feb 2023), URL
+http://arxiv.org/abs/2302.08500, arXiv:2302.08500 [cs]
+[65] Nicoletti, L., Bass, D.: Generative AI Takes Stereo-
+types and Bias From Bad to Worse (2023), URL
+https://www.bloomberg.com/graphics/2023-generative- ai-bias/
+[66] Novelli, C., Taddeo, M., Floridi, L.: Accountability in artiﬁcial intelligen ce:
+What it is and how it works. Ai and Society: Knowledge, Culture and
+Communication pp. 1–12 (forthcoming)
+[67] Ohme, J., Araujo, T., Boeschoten, L., Freelon, D., Ram,
+N., Reeves, B.B., Robinson, T.N.: Digital Trace Data Col-
+lection for Social Media Eﬀects Research: APIs, Data Dona-
+tion, and (Screen) Tracking. Communication Methods and Mea-
+sures pp. 1–18 (Feb 2023), ISSN 1931-2458, 1931-2466, URL
+https://www.tandfonline.com/doi/full/10.1080/19312458.2023.2181319
+[68] Olteanu, A., Castillo, C., Diaz, F., Kıcıman, E.: Social data: Biases,
+methodological pitfalls, and ethical boundaries. Frontiers in big dat a 2,
+13 (2019)
+[69] Platform, X.D.: Changelog | Twitter Developer Platform (2022), URL
+https://developer.twitter.com/en/updates/changelog
+
+38 D. Hartmann et al.
+[70] Power, M.: The audit society: Rituals of veriﬁcation. British Jour nal of
+Educational Studies 47(1), 92–94 (1999)
+[71] Quattrociocchi, W.: Social and political challenges: Western dem ocracy in
+crisis? In: Global Risks Report 2017 (2017)
+[72] Radiya-Dixit, E., Neﬀ, G.: A sociotechnical audit: Assessing police use
+of facial recognition. In: Proceedings of the 2023 ACM Conferenc e on
+Fairness, Accountability, and Transparency, p. 1334–1346, F AccT ’23, As-
+sociation for Computing Machinery, New York, NY, USA (2023), ISB N
+9798400701924, URL https://doi.org/10.1145/3593013.3594084
+[73] Raji, D.: Mozilla Open Source Audit Tooling (OAT) Project (2022), URL
+https://foundation.mozilla.org/en/what-we-fund/fell owships/oat/
+[74] Raji, I.D., Buolamwini, J.: Actionable Auditing: Investigating the Im pact
+of Publicly Naming Biased Performance Results of Commercial AI Prod -
+ucts. In: Proceedings of the 2019 AAAI/ACM Conference on AI, E thics,
+and Society, pp. 429–435, ACM, Honolulu HI USA (Jan 2019), ISBN 9 78-1-
+4503-6324-2, URL https://dl.acm.org/doi/10.1145/3306618.3314244
+[75] Raji, I.D., Smart, A., White, R.N., Mitchell, M., Gebru, T., Hutchinson ,
+B., Smith-Loud, J., Theron, D., Barnes, P.: Closing the ai accountab ility
+gap: Deﬁning an end-to-end framework for internal algorithmic au diting.
+In: Proceedings of the 2020 conference on fairness, accountab ility, and
+transparency, pp. 33–44 (2020)
+[76] Raji, I.D., Xu, P., Honigsberg, C., Ho, D.E.: Outsider Oversight: De sign-
+ing a Third Party Audit Ecosystem for AI Governance (Jun 2022), U RL
+http://arxiv.org/abs/2206.04737, arXiv:2206.04737 [cs]
+[77] Rakova, B., Dobbe, R.: Algorithms as Social-Ecological-Technolog ical Sys-
+tems: an Environmental Justice Lens on Algorithmic Audits. In: 202 3 ACM
+Conference on Fairness, Accountability, and Transparency, pp. 491–491
+(Jun 2023), URL http://arxiv.org/abs/2305.05733, arXiv:2305.05733
+[cs]
+[78] Ray, P.P.: ChatGPT: A comprehensive review on back-
+ground, applications, key challenges, bias, ethics, limita-
+tions and future scope. Internet of Things and Cyber-
+Physical Systems 3, 121–154 (2023), ISSN 26673452, URL
+https://linkinghub.elsevier.com/retrieve/pii/S266734522300024X
+[79] Reddit: Addressing the community about
+changes to our API : r/reddit (2023), URL
+https://www.reddit.com/r/reddit/comments/145bram/addressing_the_community_about_changes 
+[80] Ribeiro, M.H., Ottoni, R., West, R., Almeida, V.A.F., Meira, W.: Auditing
+radicalization pathways on youtube. In: Proceedings of the 2020 C onfer-
+ence on Fairness, Accountability, and Transparency, p. 131–141 , F AT* ’20,
+Association for Computing Machinery, New York, NY, USA (2020), I SBN
+9781450369367, URL https://doi.org/10.1145/3351095.3372879
+[81] Sambasivan, N., Arnesen, E., Hutchinson, B., Prabhakaran, V.:
+Non-portability of Algorithmic Fairness in India (Dec 2020), URL
+http://arxiv.org/abs/2012.03659, arXiv:2012.03659 [cs]
+
+Towards an EU AI Auditing Ecosystem 39
+[82] Sandvig, C., Hamilton, K., Karahalios, K., Langbort, C.: Auditing Alg o-
+rithms: Research Methods for Detecting Discrimination on Interne t Plat-
+forms. Data and Discrimination: Converting Critical Concerns into P ro-
+ductive Inquiry (2014)
+[83] Sartori, L., Theodorou, A.: A sociotechnical perspective
+for the future of ai: narratives, inequalities, and human
+control. Ethics and Information Technology 24(4), 315–
+328 (2022), https://doi.org/10.1007/s10676-022-09624-3, UR L
+https://doi.org/10.1007/s10676-022-09624-3
+[84] Selinger, E., Hartzog, W.: Facebook’s emotional conta-
+gion study and the ethical problem of co-opted identity
+in mediated environments where users lack control. Re-
+search Ethics 12(1), 35–43 (Jan 2016), ISSN 1747-0161, URL
+https://journals.sagepub.com/doi/full/10.1177/1747016115579531,
+publisher: SAGE Publications Ltd
+[85] Shelby, R., Rismani, S., Henne, K., Moon, A., Rostamzadeh, N., Nich olas,
+P., Yilla-Akbari, N., Gallegos, J., Smart, A., Garcia, E., Virk, G.: So-
+ciotechnical harms of algorithmic systems: Scoping a taxonomy for harm
+reduction. In: Proceedings of the 2023 AAAI/ACM Conference on AI,
+Ethics, and Society, p. 723–741, AIES ’23, Association for Comput -
+ing Machinery, New York, NY, USA (2023), ISBN 9798400702310, U RL
+https://doi.org/10.1145/3600211.3604673
+[86] Sikka, P.: Financial crisis and the silence of the auditors. Accoun ting, Or-
+ganizations and Society (2009), https://doi.org/10.1016/j.aos.20 09.01.004
+[87] Spindler, G.: Die vorschl¨ age der eu-kommission zu einer neuen pr oduk-
+thaftung und zur haftung von herstellern und betreibern k¨ unst licher
+intelligenz. Computer und Recht 38(11), 689–704 (2022), URL
+https://doi.org/10.9785/cr-2022-381106
+[88] Stahl, B.C., Antoniou, J., Bhalla, N., et al.: A systematic review of ar tiﬁcial
+intelligence impact assessments. Artiﬁcial Intelligence Review (2023 )
+[89] Sweeney, L.: Discrimination in Online Ad Delivery.
+SSRN Electronic Journal (2013), ISSN 1556-5068, URL
+http://www.ssrn.com/abstract=2208240
+[90] The Ada Lovelace Institute: Technical methods for regulator y inspection
+of algorithmic systems (2021)
+[91] Thelisson, E., Verma, H.: Conformity assessment under the EU A I act
+general approach. AI and Ethics 4(1), 113–121 (Feb 2024), ISSN 2730-
+5961, URL https://doi.org/10.1007/s43681-023-00402-5
+[92] Thomas, L.D.W., Autio, E.: Innovation Ecosystems (Oct 2019), U RL
+https://papers.ssrn.com/abstract=3476925
+[93] Trezza, D.: To scrape or not to scrape, this is dilemma.
+The post-API scenario and implications on digital research.
+Frontiers in Sociology 8 (2023), ISSN 2297-7775, URL
+https://www.frontiersin.org/articles/10.3389/fsoc.2023.1145038
+[94] Vakkuri, V., Kemell, K.K., Jantunen, M., Abrahamsson, P.: “This is J ust
+a Prototype”: How Ethics Are Ignored in Software Startup-Like E nviron-
+
+40 D. Hartmann et al.
+ments. In: Stray, V., Hoda, R., Paasivaara, M., Kruchten, P. (eds .) Agile
+Processes in Software Engineering and Extreme Programming, pp. 195–
+210, Lecture Notes in Business Information Processing, Springer Interna-
+tional Publishing, Cham (2020), ISBN 978-3-030-49392-9
+[95] Vakkuri, V., Kemell, K.K., Kultanen, J., Siponen, M., Abrahamsson, P.:
+Ethically Aligned Design of Autonomous Systems: Industry Viewpoint and
+an Empirical Study. EJBO Electronic Journal of Business Ethics and Or-
+ganization Studies 27(1) (2022)
+[96] van de Waerdt, P.J.: Information asymmetries: recognizing the
+limits of the gdpr on the data-driven market. Computer Law
+& Security Review 38, 105436 (2020), ISSN 0267-3649, URL
+https://www.sciencedirect.com/science/article/pii/S0267364920300418
+[97] Veale, M.: Governing Machine Learning that Matters. Ph.D. thes is, Uni-
+versity College London (UCL) (Aug 2019)
+[98] Wehde: Datenzugang ¨ uber art. 31 abs. 2 dsa-e. MMR pp. 827 –830 (2022)
+[99] Wieringa, M.: What to account for when accounting for algorithm s: a
+systematic literature review on algorithmic accountability. In: Proc eed-
+ings of the 2020 Conference on Fairness, Accountability, and Tran s-
+parency, pp. 1–18, F AT* ’20, Association for Computing Machin-
+ery, New York, NY, USA (Jan 2020), ISBN 978-1-4503-6936-7, U RL
+https://dl.acm.org/doi/10.1145/3351095.3372833
+[100] Wilson, C., Ghosh, A., Jiang, S., Mislove, A., Baker, L., Szary, J., T rindel,
+K., Polli, F.: Building and auditing fair algorithms: A case study in candi-
+date screening. In: Proceedings of the 2021 ACM Conference on F airness,
+Accountability, and Transparency, p. 666–677, F AccT ’21, Assoc iation for
+Computing Machinery, New York, NY, USA (2021), ISBN 978145038 3097,
+URL https://doi.org/10.1145/3442188.3445928
+[101] Wilson, C., Ghosh, A., Jiang, S., Mislove, A., Baker, L., Szary, J.,
+Trindel, K., Polli, F.: Building and Auditing Fair Algorithms: A Case
+Study in Candidate Screening. In: Proceedings of the 2021 ACM Con -
+ference on Fairness, Accountability, and Transparency, pp. 666 –677,
+ACM, Virtual Event Canada (Mar 2021), ISBN 978-1-4503-8309- 7, URL
+https://dl.acm.org/doi/10.1145/3442188.3445928
+[102] W¨ orsd¨ orfer, M.: The e.u.’s artiﬁcial intelligence act: An ordoliberal assess-
+ment. AI Ethics (2023)
+[103] Young, M., Katell, M., Kraﬀt, P.: Confronting power and corpor ate cap-
+ture at the facct conference. In: Proceedings of the 2022 ACM C onference
+on Fairness, Accountability, and Transparency, p. 1375–1386, F AccT ’22,
+Association for Computing Machinery, New York, NY, USA (2022), I SBN
+9781450393522, URL https://doi.org/10.1145/3531146.3533194
+
+Ϭ
+ϱ
+ϭϬ 
+ϭϱ 
+ϮϬ 
+Ϯϱ 
+ϯϬ 
+ϯϱ 
+ϰϬ 
+ϰϱ 
+ϱϬ 
+Ϭ ϱ ϭϬ ϭϱ ϮϬ Ϯϱ ϯϬ 
+ĂƚĂ 
+ĂƚĂ

@@ -1,0 +1,2464 @@
+arXiv:2308.05201v3  [cs.AI]  18 Jun 2025
+“Generate” the Future of Work through AI:
+Empirical Evidence from Online Labor Markets
+Jin Liu*
+School of Management, University of Science and Technology of China, liujin07@mail.ustc.edu.cn
+Xingchen (Cedric) Xu*
+Michael G. Foster School of Business, University of Washington, Seattle, WA 98195, xcxu21@uw.edu
+Xi Nan
+Michael G. Foster School of Business, University of Washington, Seattle, WA 98195, xinan02@uw.edu
+Yongjun Li
+School of Management, University of Science and Technology of China, lionli@ustc.edu.cn
+Yong Tan
+Michael G. Foster School of Business, University of Washington, Seattle, WA 98195, ytan@uw.edu
+Large Language Model (LLM)-based generative AI systems, such as ChatGPT, demonstrate zero-shot
+learning capabilities across a wide range of downstream tasks. Owing to their general-purpose nature and
+potential to augment or even automate job functions, these systems are poised to reshape labor market
+dynamics. However, predicting their precise impact a priori is challenging, given AI’s simultaneous effects
+on both demand and supply, as well as the strategic responses of market participants. Leveraging an exten-
+sive dataset from a leading online labor platform, we document a pronounced displacement effect and an
+overall contraction in submarkets where required skills closely align with core LLM functionalities. Although
+demand and supply both decline, the reduction in supply is comparatively smaller, thereby intensifying com-
+petition among freelancers. Notably, further analysis shows that this heightened competition is especially
+pronounced in programming-intensive submarkets. This pattern is attributed to skill-transition effects: by
+lowering the human-capital barrier to programming, ChatGPT enables incumbent freelancers to enter pro-
+gramming tasks. Moreover, these transitions are not homogeneous, with high-skilled freelancers contributing
+disproportionately to the shift. Our findings illuminate the multifaceted impacts of general-purpose AI on
+labor markets, highlighting not only the displacement of certain occupations but also the inducement of skill
+transitions within the labor supply. These insights offer practical implications for policymakers, platform
+operators, and workers.
+Key words : Generative AI, Large Language Models, General-Purpose Technology, ChatGPT, Online
+Labor Markets, Gig Economy, Labor Dynamics, Skill Transition
+1
+
+Liu et al.: “Generate” the Future of Work
+2 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+“It is not the most intellectual of the species that survives; it is not the strongest that survives; but
+the species that survives is the one that is able best to adapt and adjust to the changing environment
+in which it finds itself.” - Megginson (1963)
+1. Introduction
+Online labor markets, particularly gig work platforms, have emerged as a pivotal component of the
+global labor landscape. According to the World Bank, as of 2023, the gig economy constitutes up
+to 12% of the global labor market and holds particular promise for vulnerable groups in developing
+nations1. The work-from-home and work-from-anywhere trends have continued to proliferate during
+and after the pandemic. As per Upwork’s report, freelancers contributed $1.35 trillion to the U.S.
+economy in annual earnings in 2022, representing a$50 billion increase from the previous year, with
+60 million American freelancers participating in this burgeoning sector 2. Given their substantial
+impact on the economy, freelancer platforms have garnered significant attention from economic
+and information systems (IS) researchers (Stanton and Thomas 2025, Liang et al. 2024, 2022).
+Nevertheless, the dynamics of the online labor market may have experienced a significant shift
+following the public release of ChatGPT on November 30, 2022. ChatGPT, along with other LLM-
+based generative AI 3, exhibits distinct technical features that set it apart from previous technolo-
+gies. In particular, these models’ unprecedented scale confers zero-shot proficiency across a broad
+spectrum of tasks, prompting some scholars to regard them as the first generation of artificial gen-
+eral intelligence (AGI) (Morris et al. 2023, Kojima et al. 2022). Consequently, the advent of such
+tools holds the potential to directly automate certain tasks or to assist individuals in completing
+tasks more efficiently (Noy and Zhang 2023), thereby reducing the necessity to outsource work
+to others. This development is particularly consequential for online labor markets, where jobs are
+* These authors contributed equally to the manuscript and are listed alphabetically.
+1 Please refer to https://openknowledge.worldbank.org/handle/10986/40066 for additional details.
+2 Please refer to https://www.businesswire.com/news/home/20221213005068/en/ for additional details.
+3 We hereafter collectively refer to LLM-based generative AI as ChatGPT in most instances to maintain brevity,
+except in formal research questions and hypotheses.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 3
+predominantly on-demand and short-term, rendering them especially vulnerable to fluctuations in
+external demand (Guo et al. 2024, Sundararajan 2017).
+Given this potential demand shock, the resulting competitive landscape and dynamics on the
+platform are difficult to predict. On one hand, prior research suggests that freelancers are highly
+responsive to changes in earning opportunities on online labor markets and may exit the platform
+when conditions deteriorate (Chen and Horton 2016), thereby stabilizing the level of competition
+among remaining participants. On the other hand, because ChatGPT can reduce the time and
+effort required to complete tasks (Eloundou et al. 2024, Agrawal et al. 2019), it raises the net return
+per contract and may encourage freelancers to continue bidding even in a contracting market,
+thereby intensifying competition. These divergent perspectives motivate our first research question:
+(1) How does LLM-based generative AI affect the competitive landscape of online labor markets?
+To address this question, we utilize a comprehensive dataset comprising all job postings, bids,
+final transactions, and freelancer information from one of the leading freelancer platforms, covering
+the period from September 2021 to August 2023. We regard the launch of ChatGPT as an exogenous
+shock to the online labor market, given its sudden introduction and largely unexpected success. By
+applying natural language processing (NLP) techniques, we cluster jobs into distinct submarkets
+and determine their treatment status based on the Language Modeling AI Occupational Exposure
+Index (LM-AIOE) (Felten et al. 2023). Using a standard difference-in-differences (DiD) framework,
+we identify a substantial demand displacement effect within the treated submarkets. Although
+labor supply in these submarkets also declines, the reduction is comparatively smaller, leading to
+increased competition as measured by the average number of bids per job.
+Furthermore, the impact of ChatGPT may not be uniformly distributed across the treated sub-
+markets. Specifically, ChatGPT’s primary capabilities involve generating text and code responses
+(Achiam et al. 2023), which correspond to the most prevalent task categories (writing and pro-
+gramming) in many online labor markets (Yoganarasimhan 2013), including the platform under
+study. However, these two task types differ substantially: programming generally demands higher
+
+Liu et al.: “Generate” the Future of Work
+4 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+skill levels and commands higher compensation (Bresnahan et al. 2002). In fact, reflecting these
+distinctions, LLM developers usually curate specialized code datasets to train models for program-
+ming tasks and conduct separate benchmarking (Gu et al. 2024, Zhao et al. 2024, Liu et al. 2023).
+With the assistance of ChatGPT, freelancers may potentially transition their skills toward pro-
+gramming; yet, whether such a skill transition is feasible remains uncertain due to specific human
+capital requirements and switching costs (Kleiner and Xu 2025, Gathmann and Sch¨ onberg 2010,
+Neal 1995). Accordingly, we pose the second research question: (2) Does LLM-based generative AI
+induce skill transition toward programming in online labor markets?
+Building on the previously constructed dataset, we further classify submarkets into programming-
+intensive and non-programming-intensive categories and conduct difference-in-differences-in-
+differences (DDD) analyses. Our results indicate that programming-intensive submarkets expe-
+rience a significantly smaller contraction in labor supply compared to non-programming treated
+submarkets, a pattern that cannot be explained by heterogeneity in labor demand. Additionally, we
+investigate heterogeneity in new freelancer participation and rule out this alternative explanation.
+Consequently, the remaining plausible explanation is a skill transition toward programming among
+existing freelancers in online labor markets. To further substantiate this, we perform freelancer-
+level analyses and observe an overall tendency for freelancers to shift toward programming tasks.
+Moreover, freelancers with greater exposure to ChatGPT (measured by the proportion of treated
+jobs they apply for) exhibit a stronger transition, suggesting that the demand shock also incen-
+tivizes adaptive behavior. In addition, we also find that freelancers who transition realize significant
+economic benefits, further underscoring the strategic value of skill transitions.
+Underlying the overall tendency for skill transition, we aim to identify which freelancers pre-
+dominantly engage in this process. On one hand, it is plausible that ChatGPT primarily facilitates
+high-skilled freelancers in making this shift, as high-skilled labor typically adopts new technologies
+to enhance productivity more rapidly (Acemoglu and Autor 2011, Cohen and Levinthal 1990).
+On the other hand, ChatGPT’s considerable capabilities may lower the threshold for effective
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 5
+use, thereby reducing individual skill disparities and enabling lower-skilled freelancers to benefit
+disproportionately (Brynjolfsson et al. 2025, Noy and Zhang 2023). In light of these competing
+perspectives, we propose to empirically examine heterogeneity in skill transition and pose the fol-
+lowing research question: (3) Does the skill-transition effect vary across freelancers with different
+skill levels?
+To examine such heterogeneity, we construct moderators indicative of freelancers’ skill levels,
+including pre-treatment earning efficiency and review ratings. Using DDD analyses at the free-
+lancer level, we find that high-skilled freelancers predominantly drive the skill-transition process.
+Specifically, freelancers who achieve higher revenue per bid and possess superior market ratings
+are the primary participants in this transition.
+Figure 1 summarizes the key empirical evidence underpinning our analysis, and these results
+yield several significant implications. First, we contribute to the literature on online labor markets
+(Bai et al. 2025, Guo et al. 2024, Liang et al. 2024) by demonstrating that the emergence of powerful
+LLM-based generative AI generates a substantial external demand shock, and we provide compre-
+hensive empirical evidence on how this technical breakthrough alters the competitive landscape
+and elicits responses from freelancers. Second, our study informs theories concerning technology’s
+impact on the labor force. Human capital theory posits that some skills are occupation-specific and
+that mobility across occupations entails frictions (Kleiner and Xu 2025, Becker 1962); our find-
+ings provide evidence that ChatGPT can facilitate such occupational mobility. Furthermore, we
+extend the skill-biased technical change (SBTC) theory by moving beyond within-occupation pro-
+ductivity effects to show that skill transition across occupations can also be skill-biased (Guo et al.
+2024, Acemoglu and Autor 2011), disproportionately benefiting high-skilled workers. Finally, our
+research offers practical insights: policymakers and platform operators should closely monitor evolv-
+ing demand dynamics and the upskilling opportunities introduced by disruptive technologies like
+ChatGPT, implementing training programs and market designs to support workforce transitions.
+For freelancers, proactively adapting to changes in the competitive landscape and undertaking skill
+transitions can confer a competitive advantage.
+
+Liu et al.: “Generate” the Future of Work
+6 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Figure 1 The Impact of Generative AI on Online Labor Market.
+The subsequent sections of this paper are organized as follows. Section 2 reviews the relevant
+literature and develops the theoretical hypotheses. Section 3 describes the empirical context, data
+collection, and variable construction methods. Section 4 outlines the identification challenges and
+details the selection of econometric specifications. Section 5 presents the empirical results in relation
+to the hypotheses. Section 6 reports robustness checks to validate our findings. Finally, Section 7
+concludes by discussing detailed implications, as well as limitations and avenues for future research.
+2. Related Literature and Hypothesis Development
+2.1. Online Labor Markets
+Contextually, our paper is situated within the realm of online labor markets, which have demon-
+strated a remarkable ability to effectively reconcile labor supply and demand across time and space
+with unparalleled flexibility (Stanton and Thomas 2025, Chen et al. 2019). A wealth of scholarly
+inquiries has been conducted to elucidate the complex dynamics of these digital labor market-
+places. These investigations encompass the interplay between online labor markets and external
+socioeconomic fluctuations, the relationship between user behavior patterns and market design,
+and the advancements in matchmaking algorithms.
+The first line of inquiry examines how offline conditions, such as unemployment rates and stages
+of national development, drive individual participation in online labor markets (Laitenberger et al.
+2022, Huang et al. 2020, Kanat et al. 2018). Concurrently, related research investigates the recip-
+rocal effects of online labor markets on the external environment, such as local employment and
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 7
+entrepreneurship outcomes (Guo et al. 2024, Burtch et al. 2018). Second, some prior work has
+focused on modeling user behavior and developing improved market designs within online labor
+platforms. For example, several studies analyze how employers dynamically learn to optimize hiring
+strategies for suitable workers (Bai et al. 2025, Daviss and Leung 2025, Kokkodis and Ransbotham
+2023), while others explore the influence of factors such as betrayal aversion and real-effort incen-
+tives on workers’ labor supply decisions (Benndorf et al. 2024, Hashim and Bockstedt 2024). Addi-
+tional research examines the roles of reputation (Benson et al. 2020), monitoring systems (Liang
+et al. 2024), capacity constraints (Horton 2019), and wage regulations (Chen and Horton 2016) in
+shaping participant dynamics, market equilibrium, and social welfare, thereby informing the design
+and implementation of more effective market mechanisms (Garg and Johari 2021). Third, optimiza-
+tion algorithms have been refined to enhance job recommendations and streamline matchmaking
+processes within online labor markets (Aouad and Saban 2023, Kokkodis and Ipeirotis 2023).
+Nevertheless, the advent of LLM-based generative AI leaves open the question of how such
+disruptive general-purpose technology reshapes competitive dynamics in online labor markets and
+how freelancers adapt to it. By empirically examining ChatGPT’s impact, we contribute to the
+first two streams of the literature.
+2.2. Technology, Labor, and Human Capital
+This study contributes to the expanding literature on the technology–labor nexus and the role of
+human capital. A foundational concept is skill-biased technological change (SBTC), which posits
+that technological innovations disproportionately enhance the productivity and demand for skilled
+workers relative to their less-skilled counterparts (Acemoglu and Autor 2011, Autor et al. 2003).
+Task-based frameworks further suggest that technology complements workers engaged in abstract,
+non-routine cognitive tasks, while substituting for routine activities (Autor and Dorn 2013). Such
+dynamics can sometimes engender labor-market polarization: not only do high-skill roles benefit,
+but certain low-skill manual occupations (e.g., janitorial work) also exhibit lower susceptibility to
+automation, thereby expanding employment shares at both extremes of the skill distribution at
+the expense of middle-skill positions (Autor and Dorn 2013).
+
+Liu et al.: “Generate” the Future of Work
+8 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Beyond technology’s differential impact on the demand for jobs with varying skill requirements,
+the process of skill formation itself warrants attention, as indicated by the human capital theory
+(Becker 1962). According to this theory, general human capital is transferable across firms, giving
+workers an incentive to finance their own training, whereas firm-specific skills are valuable only to
+the current employer, prompting firms to share training costs (Becker 1962). Some general human
+capital, however, is occupation-specific; this specificity can constrain workers’ mobility (Neal 1995).
+Empirical evidence confirms that workers tend to switch to jobs requiring similar task profiles
+in order to leverage existing skills (Gathmann and Sch¨ onberg 2010). Although technology can
+enable workers to perform tasks beyond their original skill sets, successful adoption still (at both
+the organizational and individual levels) depends on absorptive capacity, defined as the ability to
+recognize the value of new knowledge, assimilate it, and apply it effectively (Hatch and Dyer 2004,
+Zahra and George 2002, Cohen and Levinthal 1990).
+Recent advances in AI have pushed the frontier in the technology-labor interplay, enabling sys-
+tems to accomplish tasks once thought beyond machine capability (Gallego and Kurer 2022, Paolillo
+et al. 2022, Agrawal et al. 2019). Previous AI applications, however, have remained purpose-built
+and narrow by design (Morris et al. 2023). In contrast, LLM-based generative AI constitutes a new
+class of powerful general-purpose technology capable of assisting with (or automating) a broad
+spectrum of activities (Eloundou et al. 2024, Morris et al. 2023). Initial evidence documents sizable
+productivity gains in specific settings, such as field studies in consulting (Dell’Acqua et al. 2023)
+and laboratory experiments in writing (Noy and Zhang 2023). These studies, however, focus on
+workers with well-defined roles; it remains unclear how freelancers, who confront all kinds of tasks
+and freely choose which projects to pursue, will adapt in the post-GPT era. We address this gap
+by empirically examining the skill-transition effects induced by AGI.
+2.3. Hypothesis Development
+In this section, we theorize the influence of LLM-based generative AI on market dynamics and
+freelancer behavior. Specifically, we develop hypotheses addressing (i) the overall impact of gen-
+erative AI on the competitive landscape of online labor markets, (ii) the potential for freelancers
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 9
+to engage in skill-transition behaviors, and (iii) the heterogeneity of these skill-transition effects
+across different freelancer groups.
+2.3.1. Demand Displacement Effect and Competition Change
+We begin our theoretical framework by formulating hypotheses regarding the overall impact of
+LLM-based generative AI on the competitive landscape of online labor markets. As a powerful
+general-purpose technology capable of fully automating or assisting with a wide range of tasks
+(Eloundou et al. 2024), generative AI has the potential to help satisfy employer demand, thereby
+generating a displacement effect on the online labor force (Acemoglu and Restrepo 2019). As a
+result, the advent of generative AI may lead to a reduction in demand and an overall contraction
+of online labor markets. Nonetheless, despite this potential contraction, the resulting competition
+dynamics remain ambiguous; accordingly, we present two opposing theoretical predictions.
+On the one hand, competition among freelancers may remain stable. A fundamental advantage
+of online labor markets lies in their flexibility for both sides. Consequently, a substantial body
+of literature documents freelancers’ rapid responses to changing economic conditions and their
+strategic behavior (Guo et al. 2024, Filippas et al. 2024, Huang et al. 2020). For instance, monitoring
+systems that mitigate the cold-start problem have been shown to significantly increase participation
+among less-experienced freelancers when expected benefits rise (Liang et al. 2024). Additionally,
+freelancers exhibit prompt reactions to wage reductions by exiting the market (Chen and Horton
+2016). Given freelancers’ sensitivity to earning opportunities, it is plausible that they may quickly
+respond to decreases in demand by exiting, thereby maintaining a stable level of competition for
+these short-term tasks. Based on this reasoning, we propose Hypothesis 1a for empirical testing.
+Hypothesis 1a. LLM-based Generative AI decreases demand for exposed jobs without increasing
+competition.
+On the other hand, despite a potential decline in demand due to the displacement effect, free-
+lancers may continue to participate in job bidding, thereby intensifying competition for several
+reasons. First, existing literature indicates that some freelancers are long-term participants in online
+
+Liu et al.: “Generate” the Future of Work
+10 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+labor markets, dedicating work hours comparable to full-time employment (Horton 2019, Abraham
+et al. 2017). Such freelancers tend to exhibit market stickiness, allowing them to endure heightened
+competition and reduced earning opportunities (Gussek and Wiesche 2024, Abraham et al. 2017).
+Second, generative AI can serve as a productivity-enhancing tool by assisting freelancers in task
+completion (Brynjolfsson et al. 2025, Noy and Zhang 2023, Agrawal et al. 2019), thereby increas-
+ing the marginal benefit of securing jobs and making higher competition levels more sustainable.
+Together, these factors may result in a smaller contraction in labor supply and elevate the equi-
+librium competition level among remaining jobs. Accordingly, we propose a competing hypothesis
+(Hypothesis 1b) for empirical evaluation.
+Hypothesis 1b. LLM-based Generative AI decreases demand for exposed jobs and heightens
+competition.
+2.3.2. Skill-Transition Effect
+Next, we establish the theoretical foundations underlying the potential for freelancers to engage
+in skill-transition behavior within online labor markets following the introduction of LLM-based
+generative AI. As outlined in the development of Hypothesis 1, freelancers are strategic actors
+who respond adaptively to changes in the competitive landscape (Liang et al. 2024, Chen and
+Horton 2016). For those who remain active in the market, it is plausible that they change their
+participation across different job types as a strategic response. Specifically, human capital theory
+posits that jobs vary considerably in their human capital intensity, which influences wages and
+productivity (Becker 1962). In the digital era, programming-related occupations, characterized by
+higher cognitive complexity, typically introduce a wage premium (Brynjolfsson and McAfee 2014,
+Autor and Dorn 2013, Autor et al. 2003). However, because some skills tend to be occupation-
+specific, acquiring the competencies necessary for programming entails significant human capital
+investment and creates entry barriers (Acemoglu and Autor 2011, Gathmann and Sch¨ onberg 2010).
+The introduction of ChatGPT, which demonstrates substantial capability in assisting with pro-
+gramming tasks (Eloundou et al. 2024, Poldrack et al. 2023), may reduce these investment costs,
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 11
+thereby facilitating freelancers’ skill transition. Based on this reasoning, we propose the following
+hypothesis.
+Hypothesis 2a. LLM-based Generative AI introduces skill transition towards programming.
+In contrast, the occurrence of such skill transition behavior is not guaranteed for several reasons.
+First, beyond the acquisition of technical skills, other forms of human capital, such as domain
+expertise and contextual knowledge, also entail substantial costs associated with learning through
+practice and accumulating work experience (Gathmann and Sch¨ onberg 2010, Polanyi 2009, Neal
+1995). Consequently, ChatGPT may not sufficiently reduce the overall transition costs to induce
+widespread skill shifts. Second, it is essential to recall that the displacement effect (Hypothesis 1)
+may also impact programming jobs (Eloundou et al. 2024, Acemoglu and Restrepo 2019), thereby
+diminishing the relative benefits of transitioning, particularly for freelancers who are primarily
+engaged in tasks less susceptible to demand decreases. Taken together, we propose an alternative
+hypothesis reflecting this possibility.
+Hypothesis 2b. LLM-based Generative AI does not introduce skill transition.
+2.3.3. Heterogeneous Skill-Transition Effect
+We further investigate the heterogeneity of skill-transition behavior, contingent upon the positive
+impact of ChatGPT on skill transition being sufficiently strong (Hypothesis 2a). Theoretically, this
+heterogeneity may unfold along two competing and plausible dimensions.
+On one hand, existing literature generally suggests that high-skilled freelancers are more capable
+of adopting new technologies and enhancing their productivity (Autor and Dorn 2013, Acemoglu
+and Autor 2011). Although our context involves cross-occupational skill transitions that require
+acquiring and leveraging new competencies, similar patterns may emerge due to the superior abil-
+ities of high-skilled freelancers in utilizing external tools (Hatch and Dyer 2004, Zahra and George
+2002, Cohen and Levinthal 1990). Consequently, ChatGPT may provide greater incentives for skill
+transition among these high-skilled freelancers. Accordingly, we propose the following hypothesis.
+Hypothesis 3a. The proposed skill-transition effect is stronger among skilled freelancers.
+
+Liu et al.: “Generate” the Future of Work
+12 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+On the other hand, given the considerable capabilities of ChatGPT, the performance gap between
+high- and low-skilled freelancers may narrow, particularly within the same occupation (Brynjolfsson
+et al. 2025, Noy and Zhang 2023). This dynamic may also apply to the skill-transition context,
+reducing the influence of ability differences on the transition cost (Hatch and Dyer 2004, Cohen and
+Levinthal 1990). Moreover, since lower-skilled freelancers start from a comparatively disadvantaged
+position in their original occupations, the relative returns from making a skill transition could be
+greater for them. Accordingly, this cost-benefit tradeoff may encourage less-skilled freelancers to
+engage in skill transitions more (Becker 1962), thereby motivating our final hypothesis.
+Hypothesis 3b. The proposed skill-transition effect is stronger among less-skilled freelancers.
+3. Research Context, Data, and Variables
+To empirically address our research questions, we collect data from a leading freelancer platform
+and construct variables for both market-level and freelancer-level analyses. Section 3.1 provides an
+overview of the platform, details the selection of the observation period, describes the raw dataset,
+outlines the job classification process based on clustering techniques, and explains the formation of
+submarkets. In Section 3.2, we define the treatment and control groups at both levels of analysis.
+Section 3.3 presents the development of the key variables used in our study.
+3.1. Research Context and Submarket Construction
+The focal online labor platform enables interactions between freelancers and clients across a diverse
+range of job categories. Clients post job listings (i.e., projects) that outline the specific requirements
+and essential skills necessary for successful completion. Freelancers evaluate these postings and sub-
+mit bids detailing their qualifications and proposed compensation. Clients then select from among
+the bidders, thereby finalizing transactions with their chosen freelancers. A detailed description of
+this process is provided in Appendix B.
+To investigate the impact of LLM-based generative AI, with a particular emphasis on ChatGPT,
+our observation window must encompass the launch date of ChatGPT, which occurred on Novem-
+ber 30, 2022. To ensure sufficiently long observation periods before and after the launch time, while
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 13
+mitigating the confounding end-of-year effects, we establish a two-year observation window span-
+ning from September 2021 to August 2023. Within this time period, we collect all job postings,
+associated job bids, and the data of freelancers who placed at least one bid on these projects.
+When a job listing is published on the platform, the client specifies relevant skill tags that denote
+the technical or domain-specific competencies required for the task. Across 1.6 million jobs, 2,719
+unique skill tags are observed, forming 485,370 distinct combinations of skill tags (hereafter referred
+to as skill sets). These tags facilitate efficient search and filtering, as similar tags correspond to
+comparable skill requirements and attract overlapping pools of freelancers with relevant expertise.
+Conversely, divergent skill configurations reflect heterogeneous client demands, enabling differentia-
+tion among job types and appealing to diverse segments of the freelancer workforce. It is important
+to note that during this period, publicly accessible versions of text-to-image generative AI systems
+such as Dall-E and Midjourney were also released. We exclude the effects of these text-to-image
+AIs from the main analyses and address their potential influence separately in Appendix L. After
+excluding skill sets containing any skill tags related to image output, 409,119 skill sets remain.
+For these skill sets, we define submarkets as clusters of job opportunities requiring similar skills,
+allowing us to assess the differential effects of ChatGPT on demand and competitive dynamics
+across various job categories to test our hypotheses.
+Specifically, based on the skill sets available for each job, we employ a multi-step clustering pro-
+cedure to uncover underlying job categories. Initially, each job’s set of skill tags is transformed into
+a fixed-length vector representation using embedding techniques, specifically BERT embeddings,
+which capture the job’s latent position within a multi-dimensional space (Wang et al. 2023, Devlin
+et al. 2019). Leveraging these embeddings, we apply the Hierarchical Density-Based Spatial Clus-
+tering of Applications with Noise (HDBSCAN) algorithm to group similar skill combinations into
+distinct clusters (McInnes et al. 2017). HDBSCAN is a density-based clustering method well-suited
+for high-dimensional, sparse, and unevenly distributed data and has been widely adopted in man-
+agement research (Mousavi and Gu 2024, Nguyen et al. 2024). Unlike centroid-based algorithms
+
+Liu et al.: “Generate” the Future of Work
+14 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+such as k-means, HDBSCAN accommodates clusters of varying densities and does not require pre-
+specification of the number of clusters, rendering it particularly appropriate for the data-driven
+identification of submarkets on the platform. Consequently, HDBSCAN facilitates the detection of
+cohesive job clusters characterized by similar skill requirements. Based on the clustering results,
+we identify 1,083 distinct submarkets. Each submarket corresponds to a cluster of similar skill sets.
+Since each job is associated with a specific skill set, which maps uniquely to a single cluster, we are
+able to assign every job to its corresponding submarket. A detailed description of this clustering
+procedure is provided in Appendix C.
+3.2. Treatment Group, Control Group, and Treatment Timing
+In the preceding subsection, we cluster the skill sets into 1,083 distinct submarkets and subsequently
+assign each job to one of these submarkets based on its associated skill set. Building on this
+submarket classification, we then define the treatment and control groups at both the market and
+freelancer levels.
+We operationalize treatment assignment by quantifying the degree to which job skills are related
+to the capabilities of language models. Specifically, we utilize LM-AIOE, a variant of the AIOE,
+which measures the extent to which various occupations are related to language modeling AI tools
+(Felten et al. 2023). Our approach begins by computing the semantic similarity between each skill
+tag and the 774 occupations for which LM-AIOE scores are available. This enables us to assign an
+LM-AIOE value to each skill tag based on its most semantically aligned occupation. Subsequently,
+we compute the weighted average LM-AIOE score for each submarket, where weights correspond
+to the relative prevalence of skill tags within the submarket. Submarkets exhibiting higher average
+LM-AIOE scores are thus considered to be more closely related to the broad functionalities of
+LLMs.
+However, directly using the continuous LM-AIOE score as the treatment variable entails assum-
+ing a parametric linear relationship between the LM-AIOE value and outcomes in the online labor
+market. This assumption is strong, as the LM-AIOE score reflects the relatedness between a skill
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 15
+and AI capabilities (Felten et al. 2023), yet the precise functional form linking this relatedness to
+labor market outcomes is not known a priori . Moreover, even in so-called “sharp” designs where
+treatment unambiguously corresponds to a continuous measure (e.g., dosage of a medication),
+estimating treatment effects at varying levels remains challenging and carries a high risk of bias
+(Callaway et al. 2024). Consequently, we adopt a more cautious approach, employing estimation
+methods with minimal parametric assumptions and conducting sensitivity analyses to evaluate
+robustness.
+Specifically, we partition submarkets into treatment and control groups using a median split
+of associated occupations’ LM-AIOE values: submarkets with LM-AIOE above the median are
+assigned to the treatment group (T reat = 1), while those below the median form the control group
+(T reat = 0). Consequently, our submarket-level DiD analyses compare labor market outcomes
+between submarkets whose required skills are more closely related to LLM core functionalities and
+those less related. Detailed procedures for LM-AIOE computation and treatment assignment are
+provided in Appendix C. To verify robustness, we also experiment with alternative thresholds by
+varying the cutoff to the median LM-AIOE ± 0.05. The results, reported in Appendix M, further
+confirm the stability of our findings.
+Regarding treatment timing, it is important to note that several models and their applications
+were released during the observation window. We designate November 30, 2022 as the treatment
+date, because this date corresponds to the public release of ChatGPT, the first LLM-based text
+generative AI and a milestone towards artificial general intelligence (Morris et al. 2023). Because
+this date falls at the end of November, we define December 2022 as the first post-treatment month
+in our month-level analyses. Accordingly, we set P ost = 1 for all months from December 2022
+onward and P ost= 0 for earlier months. For week-level analyses, we designate the week containing
+November 30, 2022, as the initial post-treatment period.
+Finally, we construct treatment indicators at the freelancer level to examine heterogeneous
+responses and transitional behaviors, thereby empirically testing Hypotheses 2 and 3. We limit
+
+Liu et al.: “Generate” the Future of Work
+16 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+our sample to freelancers who placed at least one bid both before and after the treatment month,
+as the skill-transition process can only be measured for individuals active in both pre- and post-
+treatment periods (Wooldridge 2010, Angrist and Pischke 2009). This restriction yields 132,260
+freelancers for our analysis, approximately 6.7% of the two million freelancers who bid during the
+observation window. Although this appears to be a small subset, it remains representative: most
+other freelancers bid only briefly after registration and then exit the market (Liang et al. 2024).
+Importantly, this cohort accounts for roughly 12 million bids, 60% of total bidding activity, making
+them the core contributors whose welfare and behavior underpin the platform’s viability.
+In the freelancer-level analysis, although freelancers may bid in multiple submarkets, most con-
+centrate on a limited set of skills. As a result, the proportion of each freelancer’s pre-treatment
+bids submitted in treated submarkets, which captures their initial skill relatedness to ChatGPT’s
+capabilities, is typically close to either 0 or 1. Because this proportion resembles a binary indicator,
+using it as a continuous measure yields similar results to a binary treatment variable. We therefore
+adopt this proportion directly as the freelancer-level treatment variable ( T reat).
+3.3. Variable Descriptions
+In this section, we define the primary variables used in our analysis and describe their construction.
+All market-level variables are aggregated at the submarket–month level. To assess labor demand
+and other facets of market dynamics, we compile several measures. Demand is proxied by the
+number of job postings in each submarket during a given month, denoted J obs. Supply is captured
+by the total number of bids submitted to those postings, denoted Bids. To characterize compet-
+itive intensity and transaction value, we employ two additional variables: T ransaction, the total
+monetary value of completed contracts, and Avg bids, the average number of bids per job. We
+also construct several alternative measures for robustness; the corresponding results are reported
+in Appendix W.
+Further, to evaluate potential transitions toward programming, we classify each submarket by
+its programming intensity. We first label every skill tag using the occupation mappings in Felten
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 17
+et al. (2023); tags linked to occupations whose descriptions primarily involve programming are
+marked as programming-related. A submarket, which comprises multiple skill tags, is considered
+programming-intensive (P rogramming = 1) if more than 50% of its tags are programming-related;
+otherwise, it is classified as non-programming-intensive ( P rogramming = 0).
+At the freelancer level, our primary interest is their transition toward programming. For each
+job a freelancer bids on, we compute its programming intensity, defined as the proportion of
+aforementioned programming-related tags among all tags. When constructing the panel data, we
+average this intensity across all jobs a freelancer bids on within a given month; this measure is
+denoted P rogramming%. To complement the panel, we calculate additional monthly variables for
+each freelancer that capture participation and earnings: the total number of bids submitted (Bids),
+the total value of completed transactions ( T ransaction), and the average revenue generated per
+bid ( Avg Earn Bid). Several supplemental freelancer-level moderators are introduced in Section
+5.3 and detailed in Appendix D.
+Due to the left-skewed nature of the data distribution, we apply a log transformation to all the
+outcome variables in the subsequent analysis, with the exception of P rogramming%, which ranges
+between 0 and 1. The descriptive statistics of all these variables are presented in Appendix D and
+Appendix W.
+4. Identification Challenges and Econometric Specifications
+To rigorously investigate the impact of LLM-based generative AI on online labor markets, we
+discuss several identification challenges prior to conducting formal analyses.
+The primary challenge arises from the potential interactions among market participants. As is
+common in research involving markets, units can influence each other through various mechanisms,
+such as competition and selection (Jensen and Miller 2018). In online labor markets, freelancers
+have the autonomy to select jobs and compete with one another (Liang et al. 2022), rendering the
+comprehensive capture of market dynamics a methodological conundrum, even with randomized
+experiments (Barach et al. 2020). Developing innovative statistical methods for analyzing matching
+
+Liu et al.: “Generate” the Future of Work
+18 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+markets is a promising avenue for future methodological research. However, given the currently
+available tools and the aspiration to expand the frontiers of our knowledge, we employ the following
+strategies: i) Rather than solely focusing on freelancer-level final transactional outcomes, we con-
+struct a series of submarkets to elucidate temporal dynamics in online labor markets, as detailed
+in Sections 5. By utilizing market-level data, we can directly examine heterogeneous changes on
+the demand side, which is mainly on-demand and suffers less from cross-unit interactions (Hong
+et al. 2016). ii) However, the presence of freelancers who are active for relatively long periods and
+can transition across different submarkets raises concerns regarding the labor supply side analyses.
+Consequently, we exercise meticulous care in interpreting the effects. It is crucial to emphasize
+that our objective is not to capture the hypothetical labor change in the absence of freelancers’
+transition. Instead, at the market level, we capture the relative changes between submarkets whose
+required skills closely align with ChatGPT’s capabilities and those less related, thereby allowing
+for freelancer transitions as a potential mechanism. (iii) To further elucidate the detailed transition
+processes on the supply side, we conduct freelancer-level analyses characterizing skill transition
+dynamics in Sections 5.2 and 5.3.
+Another concern stems from the fact that all time-variant observables are potentially influenced
+by LLM-based generative AI, regardless of whether they exist within or outside the online labor
+markets. The inclusion of such post-treatment variables as controls can obstruct certain mechanisms
+and bias the overall effect estimation (Tafti and Shmueli 2020), a phenomenon known as the bad
+control problem (Cinelli et al. 2022). Therefore, we treat all observables as outcome variables and
+examine their changes, instead of presuming some to be exogenous control variables. In alignment
+with established practices (Braghieri et al. 2022), our primary specification incorporate two-way
+fixed effects without the introduction of control variables and presuming some to be exogenous:
+Outcomeit = β0 + β1 ∗ T reati ∗ P ostt + ui + Tt + ϵit (1)
+Here, Outcomeit denote the outcome of interest for unit i (either a submarket or a freelancer)
+during month t. The coefficientβ1 captures the treatment effect, with the treatment variable at both
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 19
+levels defined in Section 3.2. The term ui represents the unit-level fixed effect, while Tt accounts
+for the year-month fixed effect. The error term ϵit encompasses unobserved factors influencing the
+outcome.
+While the inclusion of certain post-treatment control variables can underestimate the treatment
+effects substantially, we perform robustness and sensitivity analyses to mitigate concerns regarding
+omitted variable bias and to provide more conservative interpretations of the coefficients. Further
+details are provided in Appendix S.
+5. Main Analyses
+In this section, we address our research questions and test the proposed hypotheses using a series
+of DiD analyses at both the market and freelancer levels. We first evaluate the overall impact of
+LLM-based generative AI on the competitive landscape of online labor markets (Hypothesis 1).
+We then examine freelancers’ responses to this evolving landscape, assessing whether the intro-
+duction of ChatGPT has encouraged strategic skill transitions (Hypothesis 2). Finally, we analyze
+heterogeneity in these transitions, comparing the behavior of skilled and less-skilled freelancers
+(Hypothesis 3).
+5.1. Empirical Results of Demand Displacement Effect and Competition Change
+(Hypothesis 1)
+To assess the displacement effect of LLM-based generative AI and the resulting shifts in the online
+labor market, we employ the DiD framework outlined in Section 4 and estimate ChatGPT’s influ-
+ence on labor demand, labor supply, transaction values, and competition levels. Column (1) of
+Table 1 shows a pronounced, statistically significant 22% decline in labor demand (measured by job
+postings) in treated submarkets relative to control submarkets following ChatGPT’s introduction
+(β1 = −0.2210, p < 0.01). This contraction is consistent with a displacement mechanism: genera-
+tive AI, as a powerful general-purpose technology, can automate or assist a wide array of tasks
+(Eloundou et al. 2024), thereby reducing people’s reliance on online freelancers.
+Columns (2) of Table 1 show that the sharp decrease in demand is accompanied by a significant
+reduction in labor supply, reflected in a 16.8% decline in the total number of bids (β1 = −0.1680, p <
+
+Liu et al.: “Generate” the Future of Work
+20 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+0.01). Contraction on both sides of the market, in turn, translates into a decline in overall market
+value (Column (3)): total transaction volume falls by 34.6% ( β1 = −0.3460, p < 0.01). Notably,
+the decline in total transaction volume is not only statistically significant but also economically
+meaningful. Given an average monthly transaction volume of $3,175 in treated submarkets in
+the pretreatment period, a 34.6% decrease implies an annual loss of approximately $9,400 per
+submarket. Aggregated across the 917 treated submarkets in our sample, this represents a platform-
+wide reduction in transaction value of roughly $8.6 million.
+Beyond the aggregate displacement effect, the reductions in jobs and bids are not proportional:
+job postings decline by 22.1%, whereas bids fall by 16.8%. This asymmetry manifests in the average
+number of bids per job ( Avg Bids job). Column (4) of Table 1 reports a significant increase in
+this metric for treated submarkets ( β1 = 0.138, p < 0.01). Accordingly, competition within these
+submarkets intensifies after ChatGPT’s introduction, lending support to Hypothesis 1b.
+Table 1 The Impact of Generative AI at the Market Level
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reat ∗ P ost -0.2210*** -0.1680*** -0.3150*** 0.1380***
+(0.0318) (0.0476) (0.0896) (0.0357)
+Constant 3.0190*** 5.4060*** 5.6250*** 2.0880***
+(0.0101) (0.0152) (0.0286) (0.0114)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 25,833 25,833 25,833 25,833
+R2 0.8910 0.8410 0.6120 0.5410
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+As posited in Hypothesis 1b, the observed intensification of competition may arise from the
+strategic, long-term engagement of core freelancers and from the productivity gains that generative
+AI confers. A freelancer’s bidding decision can be modeled as a utility-maximization problem that
+balances the expected probability of winning a contract against the expected benefit of completing
+it. Although increased competition can reduce the likelihood of winning, generative AI lowers the
+time and effort required to execute the work, thereby mitigating the decline in expected utility.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 21
+As a result, some freelancers remain willing to participate even in a more competitive market.
+In other words, while the displacement effect reduces the number of available jobs, freelancers’
+participation diminishes less sharply because AI-driven productivity gains raise their expected
+utility and increase their tolerance for intensified competition.
+5.2. Empirical Results of Skill-Transition Effect (Hypothesis 2)
+As documented in Section 5.1, labor demand declines sharply, whereas labor supply contracts more
+modestly, thereby intensifying competition among remaining freelancers. To offset the lower prob-
+ability of winning a contract under heightened competition, remaining freelancers are incentivized
+to increase the expected payoff conditional on winning. LLM-based generative AI can achieve this
+goal in two complementary ways: first, by reducing job completion costs through task assistance,
+and second, by enabling freelancers to upskill and bid for higher-value positions.
+In the digital era, programming jobs entail greater cognitive complexity and command higher
+wages (Brynjolfsson and McAfee 2014, Autor and Dorn 2013). This premium is also salient in
+online labor markets, where programming posts constitute a substantial share of total listings and
+pay, on average, roughly 40% more than other jobs. Given ChatGPT’s demonstrated effectiveness
+in coding assistance (Eloundou et al. 2024, Poldrack et al. 2023), we now empirically examine
+whether freelancers undertake skill transitions toward programming.
+We first analyze evidence at the market level. As described in Section 3.3, we construct a
+binary indicator, P rogramming, that classifies submarkets as programming-intensive or non-
+programming-intensive based on their skill requirements. We then estimate a triple-difference
+(DDD) model (Equation 2), detailed in Appendix E, to assess how market outcomes vary across
+these two submarket types. Using control submarkets as the baseline, the coefficient β1 captures
+the post-ChatGPT change in non-programming-intensive submarkets, whereas β2 measures the
+additional change observed in programming-intensive submarkets relative to β1. The results are
+reported in Table 2.
+Outcomeit = β0 + β1 ∗ T reati ∗ P ostt + β2 ∗ T reati ∗ P ostt ∗ P rogrammingi + ui + Tt + ϵit (2)
+
+Liu et al.: “Generate” the Future of Work
+22 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Interestingly, while we find no significant differential effect on labor demand between
+programming-intensive and non-programming-intensive submarkets ( β2 = −0.0313, p > 0.1),
+programming-intensive submarkets experience a markedly smaller decline in labor supply ( β2 =
+0.153, p < 0.01). Consistent with this pattern, the average number of bids per job ( Avg Bids job)
+increases more sharply in programming-related submarkets ( β2 = 0.116, p < 0.01). Taken together,
+these results provide preliminary support for Hypothesis 2a, suggesting that incumbent freelancers
+gravitate toward programming jobs and are willing to tolerate the heightened competition there.
+Table 2 The Heterogeneous Impact of Generative AI at the Market Level
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reat ∗ P ost -0.2350*** -0.2390*** -0.3460*** 0.0847**
+(0.0344) (0.0518) (0.0964) (0.0385)
+T reat ∗ P ost ∗ P rogramming 0.0313 0.1530*** 0.0662 0.1160***
+(0.0226) (0.0348) (0.0674) (0.0270)
+Constant 3.0190*** 5.4060*** 5.6250*** 2.0880***
+(0.0101) (0.0152) (0.0286) (0.0114)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 25,833 25,833 25,833 25,833
+R2 0.8910 0.8410 0.6120 0.5410
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+However, it is important to note that the observed heterogeneity in programming-intensive sub-
+markets may not be entirely attributable to skill transition behavior within the platform. An
+alternative explanation is that generative AI reduces entry barriers and enhances efficiency for
+individuals outside the online labor markets to engage in programming work, potentially attracting
+new market entrants. To assess whether the observed supply-side heterogeneity in programming-
+related submarkets is driven by the entry of new freelancers, we introduce a new outcome variable,
+N ew F reelancer, defined as the monthly count of freelancers who newly register and submit at
+least one bid within a given submarket. Using the same econometric specifications as in Equa-
+tions (1) and (2), we conduct both DiD and DDD analyses. The results, presented in Appendix I,
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 23
+reveal no significant difference in the number of new freelancers between programming-related and
+non-programming-related submarkets ( β2 = −0.0430, p > 0.1), effectively ruling out new entrants
+as the explanation for the observed heterogeneity. Consequently, the aggregate shift of incumbent
+freelancers toward programming stands out as the sole plausible explanation for the market-level
+heterogeneity documented in Table 2.
+Next, we extend our inquiry to a more granular freelancer-level analysis of skill transition.
+As explained in Section 3.3, we construct the outcome variable P rogramming%, defined as the
+monthly average programming intensity of the jobs each freelancer bids on. Because this measure
+is observed only when a freelancer submits at least one bid in a given month, we restrict the
+sample to freelancers who are active at least once in both the pre- and post-treatment periods;
+otherwise their time series cannot capture ChatGPT’s influence. Using this balanced panel, we
+estimate an Interrupted Time Series Analysis (ITSA) to trace changes in programming emphasis
+following ChatGPT’s release. The results, shown in Appendix F, reveal a significant post-treatment
+increase in P rogramming%, indicating that incumbent freelancers have, on average, redirected
+their bidding toward programming jobs. This evidence further supports Hypothesis 2b.
+Hypothesis 2 posits that a freelancer’s decision to transition depends on the relative expected
+benefit of switching versus the cost incurred. Because ChatGPT induces a displacement effect,
+freelancers whose pre-treatment bids are less connected to ChatGPT’s capabilities may face weaker
+incentives to transition. Consider an extreme case: if a freelancer bids exclusively on job types
+whose demand remains stable, when demand for programming jobs declines sharply, the relative
+benefit of shifting to programming diminishes, making continued bidding on original job types more
+attractive. By contrast, freelancers more heavily affected by displacement have stronger incentives
+to pivot toward programming to recoup lost earnings.
+To test this mechanism, we estimate freelancer-level DiD models using Equation 1 with
+P rogramming% as the dependent variable. The treatment variable, T reat, equals the share of
+pre-treatment bids a freelancer placed in treated submarkets and thus proxies exposure to Chat-
+GPT’s displacement effect. Column (1) of Table 3 shows that freelancers with greater exposure
+
+Liu et al.: “Generate” the Future of Work
+24 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+are significantly more likely to shift their bidding activity toward programming work ( β1 = 0.0229,
+p < 0.01).
+Finally, we assess the economic consequences of skill transition to further corroborate Hypoth-
+esis 2a. Using the same DiD specification as in Equation 1, we compare ChatGPT’s impact on
+transaction volume, bidding activity, and earning efficiency across different freelancer segments.
+Appendix G reports that freelancers who earned income in the pre-treatment period and relied
+exclusively on treated submarkets experienced an 11.6% decline in monthly transaction value rel-
+ative to those who bid only in control submarkets. More strikingly, freelancers who continued to
+depend on treated submarkets after ChatGPT’s introduction without transitioning saw a 20.8%
+reduction. Given that actively earning freelancers generate an average monthly transaction value
+of $493, the average annual earnings for these freelancers would be roughly $5,916, close to the
+average GDP per capita ( $6,800) in the developing economies from which 92% of freelancers orig-
+inate4. The observed decline translates into a loss of approximately $1,230 per year, or about 18%
+of GDP per capita, posing a substantial threat to their livelihoods. By contrast, treated freelancers
+who undertake a skill transition realize an 11.75% increase in earnings per bid and avoid the loss
+in total earnings (a modest 6.95%, which is positive but not significant).
+Taken together, these findings support Hypothesis 2a and illuminate the underlying mechanism:
+LLM-based generative AI reduces the human-capital barriers to programming, enabling freelancers
+to transition into higher-paying roles while preserving their earning efficiency despite intensified
+competition.
+5.3. Empirical Results of Heterogeneous Skill-Transition Effect (Hypothesis 3)
+Section 5.2 demonstrates that LLM-based generative AI encourages freelancers to shift their skills
+toward programming. Hypothesis 3, however, posits that this transition may not be uniform: the
+propensity to move may vary with freelancers’ skill levels. High-skilled freelancers could be more
+4 Please refer to https://www.imf.org/external/datamapper/NGDPDPC@WEO/OEMDC/ADVEC/WEOWORLD for more
+details.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 25
+Table 3 Freelancer-Level Skill-Transition Effects
+P rogramming%
+(1) (2) (3) (4) (5)
+T reat × P ost 0.0229*** 0.0697*** 0.0138*** 0.1079*** -0.0072***
+(0.0015) (0.0036) (0.0017) (0.0025) (0.0019)
+Constant 0.3121*** 0.3596*** 0.2998*** 0.3779*** 0.2820***
+(0.0005) (0.0012) (0.0006) (0.0008) (0.0007)
+Rating Both High Low - -
+Earning Bid P re Both - - High Low
+Freelancer FE Yes Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes Yes
+Observations 711,738 140,079 571,659 218,791 492,947
+R2 0.8576 0.8636 0.8545 0.8924 0.8347
+Note: Cluster-robust standard errors are reported at the freelancer level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+inclined to switch occupations because their stronger absorptive capacity allows them to adopt and
+exploit new technologies more effectively. Conversely, ChatGPT’s powerful capabilities can lower
+the barriers to programming, thereby reducing the skill gap and offering larger relative gains to
+low-skilled freelancers, whose lower starting point leaves greater room for improvement. These two
+mechanisms operate in opposite directions, making it unclear ex ante which group will exhibit the
+stronger tendency to transition.
+To adjudicate between these competing perspectives and test Hypothesis 3, we employ two
+proxies for freelancer skill level: (i) reputation, measured by the average rating received ( Rating),
+and (ii) pre-treatment earning efficiency, calculated as total transaction value divided by total bids
+(Avg Earn Bid P re). Both measures enter freelancer-level DDD regressions reported in Appendix
+F. For interpretability, we report four subsample analyses (two proxies × two skill strata) here,
+which yield consistent results.
+Reputation is highly skewed. Because of the cold-start problem (Liang et al. 2024), 75% of free-
+lancers receive no reviews, whereas those who do are almost always rated at the maximum (median
+= 5). This bimodal pattern (missing vs. 5) leads us to classify freelancers with Rating = 5 as
+high-skill and all others ( Rating < 5 or unrated) as low-skill. A similar distribution characterizes
+earning efficiency: many freelancers earn nothing prior to treatment, leaving Avg Earn Bid P re =
+
+Liu et al.: “Generate” the Future of Work
+26 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+0 for a sizable share of the sample. A median split, therefore, assigns freelancers with posi-
+tive pre-treatment earnings to the high-skill group and those with zero earnings to the low-skill
+group. For each subgroup, we replicate the DiD specification used in Section 5.2 (Equation 1) to
+estimate the treatment effect on freelancers’ programming participation intensity, measured by
+P rogramming%.
+Columns (2) and (3) of Table 3 report the estimates that use Rating as a skill proxy. High-rated
+freelancers exhibit a significant post-treatment rise in the share of programming jobs ( β1 = 0.0697,
+p < 0.01), an increase of roughly 19% relative to their pre-treatment mean of 0.359. By contrast,
+low-rated freelancers show only a modest gain ( β1 = 0.0138, p < 0.01), or about 4.9% above their
+baseline mean of 0.284, indicating a far weaker propensity to transition. Columns (4) and (5) use
+pre-treatment earning efficiency (Avg Earn Bid P re) as an alternative skill measure. Freelancers
+with higher earning efficiency experience a sizable increase in programming intensity ( β1 = 0.1079,
+p < 0.01), representing a 28% uptick over their pre-treatment average of 0.386. In contrast, low
+earners even register a small decline ( β1 = −0.0072, p < 0.01), underscoring their difficulty in
+shifting toward programming work.
+Taken together, these findings support Hypothesis 3a: freelancers with higher overall skill levels
+account for most of the observed transitions. Their superior prior skills signal greater individual
+absorptive capacity, which remains important for cross-occupational moves even though ChatGPT
+is easy to use and aids skill acquisition.
+6. Robustness Checks
+To further strengthen causal inference, we implement a series of robustness analyses addressing
+potential threats to identification. The key concerns and associated empirical tests are summarized
+below, and a summary table is provided in Appendix A.
+First, to ensure our results are not driven by the specific threshold used to define treatment and
+control groups, we test alternative cutoff values and find consistent results across specifications
+(Appendix M). Second, to mitigate potential seasonal biases, we conduct a placebo test by assign-
+ing November 30, 2021, the same calendar day in the prior year, as a pseudo treatment date and
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 27
+reestimate the DiD specification. The resulting coefficients are statistically insignificant, thereby
+ruling out year end or seasonal confounders (Appendix N). Third, to assess whether our results
+could simply reflect random fluctuations, we randomly reassign treatment status across observa-
+tions and repeat the DiD estimation for each permutation. The distribution of placebo estimates is
+centered on zero, and the observed treatment effects lie in the tails of this distribution, indicating
+they are unlikely to be driven by random variation (Appendix O). To address concerns about group
+comparability, we estimate a relative time model confirming parallel pre-treatment trends between
+treated and control submarkets (Appendix P). We further enhance comparability using propensity
+score matching, which yields consistent results (Appendix Q). In addition, we apply ITSA to the
+treated submarkets, with results that align closely with our main estimates (Appendix R). To mit-
+igate omitted variable bias from unobserved external or internal factors, we add relevant controls
+and conduct a sensitivity analysis following Altonji et al. (2005). The similarity of coefficients with
+and without these controls indicates robustness to unobserved confounders (Appendix S). We also
+test robustness through alternative modeling and data structures. Specifically, we use a Negative
+Binomial specification to account for count outcomes (Appendix T), apply weekly data aggrega-
+tion (Appendix U), and include separate year and month fixed effects (Appendix V). Moreover,
+we examine three additional outcome variables to assess market dynamics from different angles
+(Appendix W). Lastly, excluding extreme submarkets at both ends of the distribution yields consis-
+tent results (Appendix X). Taken together, all these comprehensive checks reinforce the robustness
+of our findings.
+To further strengthen our conclusions, we conduct a series of extended analyses. First, given the
+rise of text-to-image generative AI tools during the observation period, we examine their impact
+on image-related submarkets. To capture both direct effects and potential publicity spillovers from
+ChatGPT’s launch, we run two complementary analyses (Appendix L). Neither yields significant
+results, suggesting that current text-to-image models lack the general-purpose capabilities needed
+to influence online labor markets. Further, while our main analysis shows a smaller decline in
+
+Liu et al.: “Generate” the Future of Work
+28 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+labor supply within programming-related occupations, heterogeneity may exist within program-
+ming jobs. To explore this, we categorize programming languages into scripting and compiled
+types. Results indicate that scripting-language-dominated submarkets do not experience significant
+decline relative to the control group, further illustrating the direction of skill transition (Appendix
+H). Additionally, we examine other demand-side dynamics in treated submarkets over the obser-
+vation period, focusing on budget, required skills, and the share of jobs related to programming.
+These results are presented in Appendices J and K.
+7. Implications and Conclusion
+7.1. Summary of Key Findings
+In this study, we conduct a comprehensive analysis of the impact of LLM-based generative AI
+on the online labor market. Leveraging rich data from a leading freelancer platform and a DiD
+framework, we uncover key shifts in market dynamics. Specifically, we find a significant demand-
+side displacement effect in submarkets closely aligned with ChatGPT’s core capabilities. While
+labor supply in these submarkets also declines, the reduction is smaller, intensifying competition
+among freelancers. More interestingly, we identify a notable skill-transition effect, with freelancers
+increasingly shifting their focus toward programming. Moreover, this transition exhibits substantial
+heterogeneity, revealing that it is primarily driven by high-skilled freelancers.
+7.2. Theoretical Contributions
+Our study contributes to the literature on online labor markets and the interplay among technology,
+labor markets, and human capital.
+First, it expands the body of research examining how offline socioeconomic conditions influ-
+ence online labor markets, such as the impact of local unemployment on freelancers’ participation
+(Laitenberger et al. 2022, Huang et al. 2020, Kanat et al. 2018). While existing literature typi-
+cally focuses on large-scale external socioeconomic shifts, our research highlights that technological
+innovations can also exert significant effects. Specifically, we empirically investigate how the advent
+of LLM-based generative AI substantially disrupts online labor demand and, notably, motivates
+supply-side dynamics and intensifies market competition.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 29
+Second, our research also contributes to the literature on the strategic behaviors of participants
+in online markets. For instance, clients may deliberately avoid high-quality yet overly popular
+freelancers due to capacity constraint concerns (Horton 2019). Further, the implementation of
+monitoring systems influences freelancers to adjust their bidding strategies, particularly affecting
+inexperienced workers (Liang et al. 2024). Our work extends this line of inquiry by identifying an
+additional type of strategic behavior, specifically freelancers’ skill transition toward different job
+categories triggered by the introduction of ChatGPT.
+Third, our study extends the SBTC theory by examining the effects of a general-purpose tech-
+nology (GPT) on cross-occupation transitions. SBTC theory traditionally emphasizes how tech-
+nological advances disproportionately enhance productivity and demand for high-skilled labor,
+potentially raising wages and attracting additional workers (Acemoglu and Autor 2011, Autor et al.
+2003). In contrast, we document a novel mechanism whereby even a uniformly negative demand
+impact from GPT across certain related job categories can induce skill-transition behavior among
+workers toward occupations requiring higher skills. This transition aligns with human capital the-
+ory, which models workers’ skill acquisition decisions as a strategic trade-off between benefits and
+associated costs (Becker 1962). As GPT reduces the skill acquisition costs for higher-skilled and
+higher-paying jobs, workers become more likely to transition into these roles. Consequently, our
+research identifies a GPT-enabled cross-occupation transition towards more skill-intensive jobs on
+the supply side, a phenomenon distinct from the demand-driven effects commonly highlighted in
+SBTC literature (Autor and Dorn 2013).
+Finally, building on the observed skill-transition effects, we further demonstrate that this tran-
+sition is itself skill-biased. Specifically, our findings indicate that freelancers with higher general
+abilities on the platform contribute disproportionately to the skill transition. This observation
+aligns with absorptive capacity theory, which underscores the critical role of an individual’s ability
+to efficiently assimilate and utilize new technologies (Zahra and George 2002, Cohen and Levinthal
+1990). While SBTC traditionally highlights heterogeneous productivity gains within occupations
+
+Liu et al.: “Generate” the Future of Work
+30 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+as the primary consequence of technological advancements, we extend this perspective by show-
+ing that cross-occupation transitions are also skill-biased, favoring higher-skilled workers. These
+theoretical insights hold significant implications for future advancements in general-purpose tech-
+nologies, particularly in the trajectory towards AGI, where powerful AI could potentially both
+displace and augment human labor across diverse occupational contexts.
+7.3. Managerial Implications
+Our findings yield several practical implications for policymakers, platform operators, and free-
+lancers. First, the centrality of individual absorptive capacity in enabling skill transitions implies
+that platforms should extend their training offerings beyond tool-specific and task-oriented com-
+petencies to include meta-learning strategies that help freelancers assimilate new knowledge amid
+rapid technological change. This emphasis parallels organizational absorptive capacity develop-
+ment: the long-term competitiveness of online labor platforms depends on the collective adaptability
+of their workforce to continuously attract demand. Second, in the AI era, fostering foundational
+AI literacy—that is, the ability to understand, evaluate, and leverage diverse AI applications—can
+convert emerging technologies from potential risks into strategic opportunities. Realizing these
+outcomes requires a coordinated effort: platforms must design targeted programs to strengthen
+freelancers’ absorptive capacity and AI literacy, while freelancers themselves must engage in ongo-
+ing, proactive skill development. Third, policymakers may also incorporate these insights into
+public upskilling and reskilling initiatives. Although the specific occupations affected may vary
+across broader labor markets, the underlying technology-enabled skill-transition dynamics remain
+relevant, making absorptive capacity and AI literacy critical considerations for effective workforce
+policy.
+Further, AI’s impact on freelancers is bidirectional: while powerful AI can enable workers to
+perform tasks previously beyond their capabilities, it also carries the risk of substantial demand
+displacement, as clients may deploy the same tools to meet their needs. Consequently, a lower
+strategic transition barrier does not necessarily constitute a favorable opportunity; freelancers
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 31
+must closely monitor shifts in demand to select appropriate skill-transition pathways, rather than
+blindly acquiring easily attainable skills. Furthermore, because peers are simultaneously adjusting
+their skill portfolios, the competitive landscape is in constant flux; freelancers should evaluate
+their relative positioning within the marketplace and plan transitions with strategic foresight.
+Platforms can also capitalize on this dynamism through targeted market and information designs.
+For example, by analyzing demand data, a platform might identify specific freelancer cohorts
+and nudge them toward alternative skills when reallocating labor would be welfare-enhancing and
+transitions are feasible with AI assistance.
+7.4. Limitations and Future Directions
+Several limitations of this study point to promising directions for future inquiry. First, the two-
+year observation window yields a relatively brief post-treatment period of only nine months, which
+may not fully capture longer-term market adjustments or the gradual adaptation of freelancers.
+Although we observe temporal dynamics within this interval, effects may evolve differently over
+an extended horizon. To address this limitation, future research should broaden the observation
+period and even apply network-analytic techniques alongside dynamic, game-theoretic models to
+more precisely trace how freelancer–client interactions unfold and adapt over time.
+Second, this study focuses exclusively on a single online labor platform. Although our theoretical
+framework enhances the potential for generalization, alternative platform architectures and tradi-
+tional labor markets exhibit unique institutional and operational characteristics that may produce
+context-specific outcomes. Accordingly, future research should conduct more analysis across a vari-
+ety of settings, such as gig platforms with different governance models or offline labor exchanges,
+to develop a more holistic understanding of generative AI’s impact on labor markets.
+Third, our dataset does not include detailed measures of ChatGPT usage by individual free-
+lancers or clients. Consequently, we analyze the overall changes following ChatGPT’s introduction,
+rather than isolating the direct effects of adoption. Future research could obtain granular usage
+data to revisit these dynamics with deeper mechanism explorations. For example, it would be inter-
+esting to implement a field experiment that provisionally grants a random sample of freelancers
+access to specific tools and tracks subsequent shifts in their bidding strategies over time.
+
+Liu et al.: “Generate” the Future of Work
+32 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Furthermore, over the two-year observation window, macroeconomic fluctuations and other
+exogenous shocks may have influenced overall market dynamics. To mitigate these concerns, we
+exclude text-to-image generative AI from our primary analyses (see Appendix L) and incorporate
+a set of internal and external control variables in robustness checks (see Appendix S). We also
+conduct sensitivity analyses to assess the potential impact of unobserved confounders (Appendix
+S). Nonetheless, fully isolating every external influence remains a limitation of this study.
+In addition, client participation on the platform is highly sporadic, rendering the construction of a
+reliable client-side panel infeasible. Moreover, we lack data on clients’ trade-offs between alternative
+sourcing options and platform engagement, which precludes a comprehensive understanding of
+demand-side dynamics. Future research could address this gap by examining demand-side behavior
+at a more granular level to complement our supply-focused analysis. For example, scholars might
+investigate how employers’ hiring decisions evolve after they begin integrating generative AI tools
+into their working processes.
+Finally, our outcome measures have room for refinement. We infer work quality solely from
+client ratings, which are both intermittently recorded and prone to inflation—a bias noted in prior
+research (Filippas et al. 2018). Moreover, our analysis of skill-transition effects focuses on movement
+into programming roles, constrained by the platform’s predefined skill tags. Future studies should
+develop more nuanced measures of transition pathways and examine the corresponding quality
+outcomes to capture the full spectrum of skill-upgrading dynamics.
+In summary, ongoing advances in technology, particularly in AI, are continually reshaping labor
+markets and open a wealth of avenues for future research and practical innovation for both scholars
+and practitioners.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 33
+References
+Abraham K, Haltiwanger J, Sandusky K, Spletzer J (2017) Measuring the gig economy: Current knowledge
+and open issues. Measuring and Accounting for Innovation in the 21st Century .
+Acemoglu D, Autor D (2011) Skills, tasks and technologies: Implications for employment and earnings.
+Handbook of labor economics, volume 4, 1043–1171 (Elsevier).
+Acemoglu D, Restrepo P (2019) Automation and new tasks: How technology displaces and reinstates labor.
+Journal of economic perspectives 33(2):3–30.
+Achiam J, Adler S, Agarwal S, Ahmad L, Akkaya I, Aleman FL, Almeida D, Altenschmidt J, Altman S,
+Anadkat S, et al. (2023) Gpt-4 technical report. arXiv preprint arXiv:2303.08774 .
+Agrawal A, Gans J, Goldfarb A (2019) The economics of artificial intelligence: an agenda (University of
+Chicago Press).
+Al Balawi R, Hu Y, Qiu L (2023) Brand crisis and customer relationship management on social media:
+Evidence from a natural experiment from the airline industry.Information Systems Research 34(2):442–
+462.
+Altonji JG, Elder TE, Taber CR (2005) Selection on observed and unobserved variables: Assessing the
+effectiveness of catholic schools. Journal of political economy 113(1):151–184.
+Ananthakrishnan UM, Xu X, Mitkina M, Tan Y (2025) Political consumerism and the emergence of rare
+information on user-generated content platforms. Management Science, Forthcoming .
+Angrist JD, Pischke JS (2009) Mostly harmless econometrics: An empiricist’s companion (Princeton univer-
+sity press).
+Aouad A, Saban D (2023) Online assortment optimization for two-sided matching platforms. Management
+Science 69(4):2069–2087.
+Autor DH, Dorn D (2013) The growth of low-skill service jobs and the polarization of the us labor market.
+American economic review 103(5):1553–1597.
+Autor DH, Levy F, Murnane RJ (2003) The skill content of recent technological change: An empirical
+exploration. The Quarterly journal of economics 118(4):1279–1333.
+
+Liu et al.: “Generate” the Future of Work
+34 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Bai J, Gao Q, Goes P, Lin M (2025) All that glitters is not gold: The impact of certification test costs in
+online labor markets. Information Systems Research .
+Barach MA, Golden JM, Horton JJ (2020) Steering in online markets: the role of platform incentives and
+credibility. Management Science 66(9):4047–4070.
+Becker GS (1962) Investment in human capital: A theoretical analysis. Journal of political economy 70(5,
+Part 2):9–49.
+Benndorf V, M¨ uller S, Rau HA (2024) The effects of betrayal aversion on effort provision when incentives
+are fragile. Management Science 70(11):7750–7769.
+Benson A, Sojourner A, Umyarov A (2020) Can reputation discipline the gig economy? experimental evidence
+from an online labor market. Management Science 66(5):1802–1825.
+Braghieri L, Levy R, Makarin A (2022) Social media and mental health. American Economic Review
+112(11):3660–3693.
+Bresnahan TF, Brynjolfsson E, Hitt LM (2002) Information technology, workplace organization, and the
+demand for skilled labor: Firm-level evidence. The quarterly journal of economics 117(1):339–376.
+Brynjolfsson E, Li D, Raymond L (2025) Generative ai at work.The Quarterly Journal of Economics qjae044.
+Brynjolfsson E, McAfee A (2014) The second machine age: Work, progress, and prosperity in a time of
+brilliant technologies (WW Norton & company).
+Burtch G, Carnahan S, Greenwood BN (2018) Can you gig it? an empirical examination of the gig economy
+and entrepreneurial activity. Management Science 64(12):5497–5520.
+Callaway B, Goodman-Bacon A, Sant’Anna PH (2024) Difference-in-differences with a continuous treatment.
+Technical report, National Bureau of Economic Research.
+Campbell DT, Stanley JC (2015) Experimental and quasi-experimental designs for research (Ravenio books).
+Chan J, Mojumder P, Ghose A (2019) The digital sin city: An empirical study of craigslist’s impact on
+prostitution trends. Information systems research 30(1):219–238.
+Chen DL, Horton JJ (2016) Research note—are online labor markets spot markets for tasks? a field experi-
+ment on the behavioral response to wage cuts. Information Systems Research 27(2):403–423.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 35
+Chen FF, Saffar W, Shang L (2024a) Local agglomeration and household mortgage debt. Management
+Science .
+Chen L, Guo Q, Jia H, Zeng Z, Wang X, Xu Y, Wu J, Wang Y, Gao Q, Wang J, et al. (2024b) A survey on
+evaluating large language models in code generation tasks. arXiv preprint arXiv:2408.16498 .
+Chen MK, Rossi PE, Chevalier JA, Oehlsen E (2019) The value of flexible work: Evidence from uber drivers.
+Journal of political economy 127(6):2735–2794.
+Cinelli C, Forney A, Pearl J (2022) A crash course in good and bad controls.Sociological Methods & Research
+00491241221099552.
+Cohen WM, Levinthal DA (1990) Absorptive capacity: A new perspective on learning and innovation.Admin-
+istrative science quarterly 35(1):128–152.
+Daviss C, Leung MD (2025) Reactions, revisions, and rehiring: Changes in employers’ gendered preferences
+in online labor markets. Organization Science .
+Dell’Acqua F, McFowland III E, Mollick ER, Lifshitz-Assaf H, Kellogg K, Rajendran S, Krayer L, Candelon
+F, Lakhani KR (2023) Navigating the jagged technological frontier: Field experimental evidence of
+the effects of ai on knowledge worker productivity and quality. Harvard Business School Technology &
+Operations Mgt. Unit Working Paper (24-013).
+Devlin J, Chang MW, Lee K, Toutanova K (2019) Bert: Pre-training of deep bidirectional transformers
+for language understanding. Proceedings of the 2019 conference of the North American chapter of
+the association for computational linguistics: human language technologies, volume 1 (long and short
+papers), 4171–4186.
+Eloundou T, Manning S, Mishkin P, Rock D (2024) Gpts are gpts: Labor market impact potential of llms.
+Science 384(6702):1306–1308.
+Faccio M, O’Brien WJ (2021) Business groups and employment. Management Science 67(6):3468–3491.
+Felten E, Raj M, Seamans R (2021) Occupational, industry, and geographic exposure to artificial intelligence:
+A novel dataset and its potential uses. Strategic Management Journal 42(12):2195–2217.
+Felten EW, Raj M, Seamans R (2023) Occupational heterogeneity in exposure to generative ai. Available at
+SSRN 4414065 .
+
+Liu et al.: “Generate” the Future of Work
+36 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Filippas A, Horton J, Parasurama P, Urraca D (2024) Costly capacity signaling increases matching effi-
+ciency: Evidence from a field experiment. Proceedings of the 25th ACM Conference on Economics and
+Computation, 414–415.
+Filippas A, Horton JJ, Golden J (2018) Reputation inflation. Proceedings of the 2018 ACM Conference on
+Economics and Computation , 483–484.
+Gallego A, Kurer T (2022) Automation, digitalization, and artificial intelligence in the workplace: implica-
+tions for political behavior. Annual Review of Political Science 25:463–484.
+Galor O, ¨Ozak ¨O (2016) The agricultural origins of time preference.American economic review 106(10):3064–
+3103.
+Garg N, Johari R (2021) Designing informative rating systems: Evidence from an online labor market.
+Manufacturing & Service Operations Management 23(3):589–605.
+Gathmann C, Sch¨ onberg U (2010) How general is human capital? a task-based approach. Journal of Labor
+Economics 28(1):1–49.
+Gong J, Greenwood BN, Song Y (2023) An empirical investigation of ridesharing and new vehicle purchase.
+Manufacturing & Service Operations Management 25(3):884–902.
+Gu A, Rozi` ere B, Leather H, Solar-Lezama A, Synnaeve G, Wang SI (2024) Cruxeval: A benchmark for code
+reasoning, understanding and execution. arXiv preprint arXiv:2401.03065 .
+Guo X, Cheng Z, Pavlou PA (2024) Skill-biased technical change, again? online gig platforms and local
+employment. Information Systems Research .
+Gussek L, Wiesche M (2024) Understanding the careers of freelancers on digital labor platforms: The case
+of it work. Information Systems Journal 34(5):1664–1702.
+Hashim MJ, Bockstedt JC (2024) Real-effort incentives in online labor markets: Punishments and rewards
+for individuals and groups. MIS Quarterly 48(1).
+Hatch NW, Dyer JH (2004) Human capital and learning as a source of sustainable competitive advantage.
+Strategic management journal 25(12):1155–1178.
+Hong Y, Wang C, Pavlou PA (2016) Comparing open and sealed bid auctions: Evidence from online labor
+markets. Information Systems Research 27(1):49–69.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 37
+Horton JJ (2019) Buyer uncertainty about seller capacity: Causes, consequences, and a partial solution.
+Management Science 65(8):3518–3540.
+Huang N, Burtch G, Hong Y, Pavlou PA (2020) Unemployment and worker participation in the gig economy:
+Evidence from an online labor market. Information Systems Research 31(2):431–448.
+Jensen R, Miller NH (2018) Market integration, demand, and the growth of firms: Evidence from a natural
+experiment in india. American Economic Review 108(12):3583–3625.
+Jiang DL, Ye S, Zhao L, Gu B (2025) Do reductions in search costs for partial information on online platforms
+lead to better consumer decisions? evidence of cognitive miser behavior from a natural experiment.
+Information Systems Research .
+Kanat I, Hong Y, Raghu T (2018) Surviving in global online labor markets for it services: A geo-economic
+analysis. Information systems research 29(4):893–909.
+Kleiner M, Xu M (2025) Occupational licensing and labor market fluidity. Journal of Labor Economics .
+Kocetkov D, Li R, Allal LB, Li J, Mou C, Ferrandis CM, Jernite Y, Mitchell M, Hughes S, Wolf T, et al.
+(2022) The stack: 3 tb of permissively licensed source code. arXiv preprint arXiv:2211.15533 .
+Kojima T, Gu SS, Reid M, Matsuo Y, Iwasawa Y (2022) Large language models are zero-shot reasoners.
+Advances in neural information processing systems 35:22199–22213.
+Kokkodis M, Ipeirotis PG (2023) The good, the bad, and the unhirable: Recommending job applicants in
+online labor markets. Management Science .
+Kokkodis M, Ransbotham S (2023) Learning to successfully hire in online labor markets. Management
+Science 69(3):1597–1614.
+Kontopantelis E, Doran T, Springate DA, Buchan I, Reeves D (2015) Regression based quasi-experimental
+approach when randomisation is not an option: interrupted time series analysis. bmj 350.
+Laitenberger U, Viete S, Slivko O, Kummer ME, Borchert K, Hirth M (2022) Unemployment and online
+labor: evidence from microtasking. ZEW Discussion Papers 18.
+Li S, Zhan X (2019) Product market threats and stock crash risk. Management Science 65(9):4011–4031.
+Liang C, Hong Y, Chen PY, Shao BB (2022) The screening role of design parameters for service procurement
+auctions in online service outsourcing platforms. Information Systems Research 33(4):1324–1343.
+
+Liu et al.: “Generate” the Future of Work
+38 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Liang C, Hong Y, Gu B (2024) Monitoring and the cold start problem in digital platforms: Theory and
+evidence from online labor markets. Information Systems Research .
+Liu Z, Qiao A, Neiswanger W, Wang H, Tan B, Tao T, Li J, Wang Y, Sun S, Pangarkar O, et al. (2023)
+Llm360: Towards fully transparent open-source llms. arXiv preprint arXiv:2312.06550 .
+Lokkila E, Christopoulos A, Laakso MJ (2023) A data-driven approach to compare the syntactic difficulty
+of programming languages. Journal of Information Systems Education 34(1):84–93.
+Lu Y, Yu L (2015) Trade liberalization and markup dispersion: evidence from china’s wto accession.American
+Economic Journal: Applied Economics 7(4):221–253.
+Manh DN, Hai NL, Dau AT, Nguyen AM, Nghiem K, Guo J, Bui ND (2023) The vault: A comprehensive
+multilingual dataset for advancing code understanding and generation.arXiv preprint arXiv:2305.06156
+.
+McInnes L, Healy J, Astels S, et al. (2017) hdbscan: Hierarchical density based clustering. J. Open Source
+Softw. 2(11):205.
+Megginson LC (1963) Lessons from europe for american business. The Southwestern Social Science Quarterly
+3–13.
+Morris MR, Sohl-dickstein J, Fiedel N, Warkentin T, Dafoe A, Faust A, Farabet C, Legg S (2023) Levels of
+agi: Operationalizing progress on the path to agi. arXiv preprint arXiv:2311.02462 .
+Mousavi R, Gu B (2024) Resilience messaging: The effect of governors’ social media communications on
+community compliance during a public health crisis. Information Systems Research 35(2):505–527.
+Neal D (1995) Industry-specific human capital: Evidence from displaced workers. Journal of labor Economics
+13(4):653–677.
+Nguyen N, Johnson J, Tsiros M (2024) Unlimited testing: Let’s test your emails with ai. Marketing Science
+43(2):419–439.
+Noy S, Zhang W (2023) Experimental evidence on the productivity effects of generative artificial intelligence.
+Available at SSRN 4375283 .
+Oster E (2019) Unobservable selection and coefficient stability: Theory and evidence. Journal of Business &
+Economic Statistics 37(2):187–204.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 39
+Ousterhout JK (1998) Scripting: Higher level programming for the 21st century. Computer 31(3):23–30.
+Paolillo A, Colella F, Nosengo N, Schiano F, Stewart W, Zambrano D, Chappuis I, Lalive R, Floreano D
+(2022) How to compete with robots by assessing job automation risks and resilient alternatives. Science
+Robotics 7(65):eabg5561.
+Perez-Truglia R (2020) The effects of income transparency on well-being: Evidence from a natural experiment.
+American Economic Review 110(4):1019–1054.
+Petrova M, Sen A, Yildirim P (2023) New technologies and political competition: the impact of social
+media communication on political contributions. Petrova, M., Sen, A., Yildirim, P. New technologies
+and political competition: The impact of social media communication on political contributions in’The
+Political Economy of Social Media,’Campante, F, R Durante and A Tesei (eds)(2023). CEPR Press,
+Paris, London. https://cepr. org/publications/boo .
+Polanyi M (2009) The tacit dimension. Knowledge in organisations , 135–146 (Routledge).
+Poldrack RA, Lu T, Beguˇ s G (2023) Ai-assisted coding: Experiments with gpt-4. arXiv preprint
+arXiv:2304.13187 .
+Prechelt L (2000) An empirical comparison of seven programming languages. Computer 33(10):23–29.
+Ran Z, Rau PR, Ziegler T (2025) Sometimes, always, never: Regulatory clarity and the development of
+digital financing. Management Science .
+Reimers N, Gurevych I (2019) Sentence-bert: Sentence embeddings using siamese bert-networks. arXiv
+preprint arXiv:1908.10084 .
+Schmidheiny K, Siegloch S (2023) On event studies and distributed-lags in two-way fixed effects models:
+Identification, equivalence, and generalization. Journal of Applied Econometrics 38(5):695–713.
+Sen A, Grad T, Ferreira P, Claussen J (2024) (how) does user-generated content impact content generated
+by professionals? evidence from local news. Management Science 70(9):6045–6068.
+Stanton CT, Thomas C (2025) Who benefits from online gig economy platforms?American Economic Review
+115(6):1857–1895.
+Stone JV (2013) Bayes’ rule: a tutorial introduction to bayesian analysis .
+
+Liu et al.: “Generate” the Future of Work
+40 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Sundararajan A (2017) The sharing economy: The end of employment and the rise of crowd-based capitalism
+(MIT press).
+Tafti A, Shmueli G (2020) Beyond overall treatment effects: Leveraging covariates in randomized experiments
+guided by causal structure. Information Systems Research 31(4):1183–1199.
+Wang H, Fu T, Du Y, Gao W, Huang K, Liu Z, Chandak P, Liu S, Van Katwyk P, Deac A, et al. (2023)
+Scientific discovery in the age of artificial intelligence. Nature 620(7972):47–60.
+Wang H, Overby E (2023) Do political differences inhibit market transactions? an investigation in the context
+of online lending. Management Science 69(8):4685–4706.
+Wooldridge JM (2010) Econometric analysis of cross section and panel data (MIT press).
+Ye T, Shankar V (2024) Close a store to open a pandora’s box? the effects of store closure on sales, omnichan-
+nel shopping, and mobile app usage. Marketing Science .
+Yoganarasimhan H (2013) The value of reputation in an online freelance marketplace. Marketing Science
+32(6):860–891.
+Zahra SA, George G (2002) Absorptive capacity: A review, reconceptualization, and extension. Academy of
+management review 27(2):185–203.
+Zhang Y, Zheng Z, Gu B (2024) Omnificence or differentiation? an empirical study of knowledge structure
+and career development of it workers. Information Systems Research .
+Zhao P, Shen X, Kong Z, Shen Y, Chang SE, Rupprecht T, Lu L, Nan E, Yang C, He Y, et al. (2024) Fully
+open source moxin-7b technical report. arXiv preprint arXiv:2412.06845 .
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 41
+Appendix A: Summary of Challenges and Robustness Checks
+Table A1: Summary of Challenges and Analyses
+Challenges Solutions - Reasoning and Analyses Related Literature Related Section
+Treatment and Control Group Definition:
+Our findings may be sensitive to the
+parametric assumptions underlying the
+treatment assignment.
+1. Rather than imposing a specific functional form for the
+relationship between LM-AIOE (a skill-relatedness measure)
+and labor-market outcomes, we partition submarkets at the
+median LM-AIOE value and then vary this cutoff in
+robustness checks to confirm that our results do not hinge on
+any particular threshold.
+(Callaway et al. 2024, Lu and
+Yu 2015)
+Section 3.2 and Appendix
+M
+Potential Seasonal Effects: Since the launch
+of ChatGPT occurred at the end of the year,
+holidays and seasonal effects might influence
+the observed post-shock difference.
+2. We conduct a placebo test using November 30, 2021, the
+same day in the previous year, as a fake shock date. The
+resulting insignificant coefficients suggest that our findings
+are not driven by year-end effects or seasonal fluctuations,
+thereby reinforcing the robustness of the main results.
+(Gong et al. 2023) Appendix N
+The observed effect could plausibly arise from
+random fluctuations in the data rather than
+reflecting a genuine treatment impact.
+3. Placebo Tests – Treatment Reassignment: We conduct a
+placebo test by randomly reassigning the treatment status
+(T reat × P ost) within the sample and estimate the
+distribution of placebo treatment effects. The resulting
+distribution approximates a normal distribution centered
+around zero, indicating that the observed treatment effects
+are unlikely to be driven by random chance. This further
+reinforces the robustness of our findings.
+(Zhang et al. 2024, Ye and
+Shankar 2024)
+Appendix O
+Treatment and Control Group Comparability:
+Lack of comparability between treatment and
+control groups may undermine the validity of
+the analysis.
+4. Parallel Trends: We estimate a relative time model to
+verify that treated and control groups exhibit similar trends
+prior to treatment. The results show no significant
+pre-treatment differences between the groups, suggesting
+that the treatment and control groups are comparable.
+(Ananthakrishnan et al. 2025,
+Angrist and Pischke 2009)
+Appendix P
+5. Propensity Score Matching: We re-estimate the analysis
+using a propensity score–matched sample of treated and
+control submarkets to enhance group comparability and
+further validate our findings.
+(Ran et al. 2025, Ye and
+Shankar 2024, Faccio and
+O’Brien 2021)
+Appendix Q
+6. Interrupted Time Series (ITS) Analysis: We employ an
+Interrupted Time Series Analysis (ITSA) to examine the
+impact exclusively within the treated submarkets, which
+yields consistent findings.
+(Jiang et al. 2025, Al Balawi
+et al. 2023)
+Appendix R
+Omitted Variable Bias: Some unobservables
+might affect both the treatment and outcome
+variables.
+7. Fixed Effects: If unobservable factors are either
+unit-invariant or time-specific, our two-way fixed effects in
+the model account for these influences.
+(Chan et al. 2019, Angrist and
+Pischke 2009)
+Section 4
+Continued on next page
+
+Liu et al.: “Generate” the Future of Work
+42 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Table A1 continued
+Challenges Solutions - Reasoning and Analyses Related Literature Related Section
+8. Sensitivity Analyses: We conduct sensitivity analyses by
+incorporating additional control variables that capture both
+external environmental conditions and internal market
+characteristics, demonstrating that our main estimates
+remain robust and reinforcing the validity of our findings.
+(Sen et al. 2024, Petrova et al.
+2023, Altonji et al. 2005)
+Appendix S
+Model Specification: All model specifications
+rest on particular assumptions, and relying
+on a single specification may inadvertently
+introduce bias arising from model selection.
+9. Alternative Model for Count Variables: Several of our
+outcome variables are count data, taking non-negative
+integer values. To account for their distributional
+characteristics, we re-estimate the models using a Negative
+Binomial specification. The consistent results further confirm
+the robustness of our findings.
+(Gong et al. 2023) Appendix T
+10. Alternative Aggregation Level: We aggregate all variables
+at the weekly level and re-estimate the models. The results
+remain qualitatively consistent with the main findings,
+confirming the robustness and reliability of our conclusions
+across different levels of data granularity.
+(Ran et al. 2025) Appendix U
+11. Alternative Fixed Effect: We adopt an alternative model
+specification with separate fixed effects for year and month
+to better account for seasonal effects, enabling control over
+both annual fluctuations and recurring monthly patterns.
+(Li and Zhan 2019) Appendix V
+12. Alternative Outcomes: To further validate our findings,
+we introduce three additional outcome variables to examine
+market dynamics from different perspectives, thereby
+demonstrating the robustness of our results.
+(Wang and Overby 2023) Appendix W
+Influence of Outliers: Some submarkets with
+extremely large or small sizes may bias the
+estimates.
+13. Removing Outliers: We exclude the top 1% of
+submarkets and those with an average job post count below
+one. The re-estimated results remain consistent with our
+main findings.
+(Chen et al. 2024a) Appendix X
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 43
+Appendix B: Platform Information and Matching Process
+The focal platform, a publicly traded entity, stands as one of the preeminent online labor marketplaces,
+boasting millions of visits each month. As of the close of 2023, it had amassed over 70 million registered
+users and hosted upwards of 20 million job postings. The platform primarily utilizes a client-driven matching
+mechanism, which can be elucidated through the accompanying flowchart:
+1. Project Posting: A client (denoted as u) posts a job (project) on the platform.
+2. Bid Submission: Freelancers can browse the available project list and potentially bid on this project.
+Should no bids be submitted, the process for this project terminates.
+3. Freelancer Selection: In cases where one or more freelancers place bids, the client u evaluates these
+bids and may select a freelancer (denoted as v) for the project.
+4. Project Execution: The chosen freelancer v undertakes the project. If v does not complete the project,
+the procedure concludes prematurely.
+5. Payment and Conclusion: Upon successful project completion, the client compensates the freelancer,
+effectively finalizing the transaction.
+
+Liu et al.: “Generate” the Future of Work
+44 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Figure B1 Matching Process
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 45
+Appendix C: Detailed Job Classification, Submarket Construction Process, and
+LM-AIOE-Based Treatment Definition
+In this appendix, we provide a detailed description of the job classification procedure and the construction
+of submarkets. Our raw dataset includes all job postings along with their associated skill tags ( J T), with
+many jobs sharing identical sets of skill tags. Jobs that share the same skill set are assumed to belong to a
+common demand pool and therefore compete for the same group of freelancers. Furthermore, many skill sets
+exhibit hierarchical or subset relationships. For example, Skill Set A may include [skill tag 1, skill tag 2, skill
+tag 3, . . . , skill tag 7], while Skill Set B consists of only [skill tag 1, skill tag 2, skill tag 3]. Since Skill Set B
+is a subset of Skill Set A, both are considered part of the same demand pool and are presumed to compete
+for a similar pool of freelance labor. Building on this logic, we also treat skill tag sets that exhibit a high
+degree of overlap or semantic similarity as belonging to the same demand pool, assuming they compete for
+comparable freelancer resources. These skill sets, which share a common demand pool and freelancer pool,
+can be collectively regarded as a group that we define as a single submarket on the platform.
+To classify all jobs based on their associated skill tag sets and subsequently construct submarkets, we
+first implement a multi-step clustering procedure to aggregate similar skill sets into distinct groups. Each
+job is then assigned to a specific group based on its associated skill set. Each resulting group represents
+a collection of jobs that require similar skill sets, thereby reflecting a common type of labor demand and
+forming the basis of a submarket. The relationships among jobs, skill sets, skill tag clusters, and submarkets
+are illustrated in Figure C1.
+After clustering, we identify 1,083 distinct submarkets from 485,370 unique skill sets, which serve as the
+units of our market-level analysis. Since each job is associated with a specific skill set, and each skill set is
+mapped to a single cluster, we are able to assign every job to a corresponding submarket. This mapping
+provides us with a complete classification of jobs into submarkets. Using these submarkets, we proceed to
+define treatment and control groups at both the market and freelancer levels. Specifically, we leverage the
+LM-AIOE, a variant of the AI Occupational Exposure (AIOE) Index developed by Felten et al. (2023, 2021),
+which quantifies the degree to which various occupations are exposed to AI tools based on large language
+models. We begin by calculating the semantic similarity between each of the platform’s 2,719 skill tags and
+the 774 occupations for which LM-AIOE scores are available. Each skill tag is then assigned an exposure
+score (LM-AIOE value) based on the most semantically aligned occupation. Next, we compute a weighted
+
+Liu et al.: “Generate” the Future of Work
+46 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+average LM-AIOE score for each submarket, where the weights reflect the distribution of skill tags within
+the submarket. We then adopt a conservative method by seting a threshold to define a binary treatment
+variable, classifying submarkets into treated and control groups. The details of this process are summarized
+in the pseudocode presented in Algorithm 1, and the complete procedure for the multi-step clustering and
+the construction of treatment and control submarkets is outlined below:
+1. Skill Set Embedding: We use the Sentence Transformer model (SBERT) 5 to generate vector repre-
+sentations for each skill tag set ST .
+2. Clustering of Skill Tag Sets Based on Embedding Representations : We cluster the skill tag
+sets ST based on their embedding representations using the Hierarchical Density-Based Spatial Clustering
+of Applications with Noise (HDBSCAN) algorithm.
+3. LM-AIOE Value Assignment for Skill Tags: We leverage the 774 occupationsOT in the LM-AIOE
+data, each associated with a specific LM-AIOE score, to assign exposure values to skill tags. Specifically, we
+compute the cosine similarity between each of the platform’s 2,719 skill tags ST and each occupation.Then
+each skill tag is matched to the most semantically similar occupation, and its corresponding LM-AIOE value
+is assigned as the LM-AIOE value of this skill tag.
+4. Submarket LM-AIOE Values Calculation: We use the LM-AIOE values of skill tags to compute
+the weighted LM-AIOE score for each submarket. Specifically, each submarket consists of multiple skill
+sets, and each skill set is composed of multiple skill tags. Within each submarket, skill tags occur with
+different frequencies. We define the frequency of a skill tag as
+ntag STP nall tags
+and use this value as its weight. The
+submarket’s LM-AIOE score is then calculated as the weighted average of the LM-AIOE values of its skill
+tags.
+5. Submarket Classification Based on a Defined LM-AIOE Threshold: We define a binary treat-
+ment variable T reat for each submarket based on a predefined LM-AIOE threshold T H. A submarket is
+assigned T reat = 1 if its LM-AIOE value exceeds the threshold T H, and T reat = 0 otherwise.
+5 The Sentence Transformer model (SBERT) is a state-of-the-art neural architecture that generates semantically
+meaningful sentence or text embeddings. Reimers and Gurevych (2019)
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 47
+Figure C1 The Relationship between Jobs, Skill Sets, Skill Tags Clusters, and Submarkets.
+
+Liu et al.: “Generate” the Future of Work
+48 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Algorithm 1 Submarket Construction and LM-AIOE-Based Treatment Definition
+Require: Skill Tag Sets ST , LM-AIOE Dataset Occupations OT , Skill Tags List
+1. Skill Set Embedding Generation
+for each skill tag set st ∈ ST do
+Compute embedding Est using Sentence Transformer (SBERT)6.
+end for
+2. Skill Tag Set Clustering
+Cluster all embedding vectors Est using HDBSCAN algorithm.
+Obtain clusters as distinct submarkets.
+3. Assign LM-AIOE Values to Skill Tags
+for each skill tag t ∈ Skill Tags List do
+for each occupation ot ∈ OT do
+Compute cosine similarity sim(t, ot)
+end for
+Assign the LM-AIOE value of the most similar occupation to tag t
+end for
+4. Calculate Submarket LM-AIOE Values
+for each submarket s do
+Initialize submarket LM-AIOE score LM-AIOE s
+Count frequency of each skill tag STs within submarket s
+for each skill tag t ∈ STs do
+Calculate tag frequency weight wt = ntP
+t′∈STs nt′
+Update submarket LM-AIOE: LM-AIOE s += wt × LM-AIOE t
+end for
+end for
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 49
+Algorithm 1 Submarket Construction and AIOE-Based Treatment Definition (Continued)
+5. Define Treatment Variable for Submarkets
+for each submarket s do
+if LM-AIOE s > T H then
+Set T reats = 1
+else
+Set T reats = 0
+end if
+end for
+
+Liu et al.: “Generate” the Future of Work
+50 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Appendix D: Variable Summary Statistics
+This section reports summary statistics for the primary variables of interest. Because each submarket appears
+on the platform at different times, the number of observations varies by submarket. We define a submarket’s
+inception as the month of its first job posting; for example, if the first posting occurs in January 2022,
+we set January 2022 as the submarket’s start date. In each subsequent month, we record the count of job
+postings, assigning zero to months with no activity. Prior to January 2022, there are no observations for that
+submarket. As for freelancers, we treat their registration time as the moment they first enter the market.
+It is notable that the variables exhibit substantial positive skewness. After applying the natural loga-
+rithm, the means and standard deviations become comparable in scale, rendering conventional count models
+unsuitable. The same pattern arises in the freelancer-level data: while some active freelancers submit bids
+to hundreds of jobs, many place only a few bids due to the cold-start problem. Accordingly, we apply log
+transformations to all variables except P rogramming%, Rating, and Developed, whose limited ranges obvi-
+ate the need for transformation. It is noteworthy that 301 occupations in our dataset are associated with at
+least one skill tag, and that the median LM-AIOE score for these occupations is 0.4. Using this value as a
+threshold, approximately 85% of submarkets qualify as “treated.” This result accords with our theoretical
+framework and empirical observations: a substantial share of online labor–market tasks produce text or code
+as their primary outputs, and are therefore highly related to the capabilities of LLM.
+Additionally, several data imbalances warrant attention. For the freelancer-month dataset, both
+P rogramming% and ln(Avg Bids job + 1) are defined as ratios with Bids in the denominator, and Bids
+may be zero. Moreover, Rating values are missing for freelancers who have not yet received client reviews;
+in our DDD analyses, we impute these missing ratings as zero. Finally, T enure has some small number of
+missing data and these points are omitted from the DDD analyses. For those with a missing value inT enure,
+we will regard their first bidding time as the beginning of the panel data.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 51
+Table D1 Variable Summary Statistics
+Variable Observation Mean Std Min Max
+Submarket-Month-Level
+ln(J obs+ 1) 25,833 2.9487 1.2439 0 6.9256
+ln(Bids + 1) 25,833 5.3525 1.8577 0 10.6361
+ln(T ransaction+ 1) 25,833 5.5241 3.0187 0 12.3863
+ln(Avg Bids job + 1) 25,833 2.1322 0.9989 0 5.1180
+Freelancer-Month-Level
+P rogramming% 711,738 0.3201 0.3410 0 1
+ln(Bids + 1) 1,705,081 0.6631 1.1072 0 7.8399
+ln(T ransaction+ 1) 1,705,081 0.1920 0.9962 0 11.7073
+ln(Avg Earn Bid + 1) 711,738 0.2129 0.8279 0 11.7073
+Freelancer-Level
+T reat 132,260 0.8790 0.2752 0 1
+Developed 132,260 0.0850 0.2788 0 1
+ln(Avg Earn Bid P re+ 1) 132,260 0.2219 0.7734 0 11.0141
+ln(T enure+ 1) 130,686 5.9539 1.5158 0.0029 8.4988
+Rating 34,325 4.8158 0.6950 0 5
+Submarket-Level
+T reat 1,082 0.8475 0.3597 0 1
+P rogramming 1,082 0.3900 0.4880 0 1
+
+Liu et al.: “Generate” the Future of Work
+52 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Appendix E: Notes on Difference-in-difference-in-differences Specification
+In Section 5.2, we employ a Triple Difference (DDD) specification that includes interactions among T reat,
+P ost, and P rogramming. However, upon incorporating two-way fixed effects, we are left with only two
+coefficients to examine, as shown in Equation (3). This phenomenon arises because, in our analysis, any
+submarket categorized under P rogramming = 1 is simultaneously considered a treated submarket ( T reat =
+1), due to its high relatedness to large language models and correspondingly elevated LM-AIOE. In other
+words, programming-intensive submarkets are a subset of the treated submarkets. Consequently, the inter-
+action term T reat ∗ P rogramming is equivalent to P rogramming and is also absorbed by the unit fixed
+effect. Similarly, P rogramming ∗ P ost is indistinguishable from T reat∗ P rogramming ∗ P ost, leading to the
+omission of one variable. After omitting these two interaction terms, Equation (3) is formulated, wherein
+T reat ∗ P ost captures the post-ChatGPT changes in non-programming-intensive treated submarkets rela-
+tive to the control submarkets. Meanwhile, T reat ∗ P rogramming ∗ P ost captures additional differences in
+programming-intensive submarkets compared to non-programming-intensive submarkets, highlighting the
+heterogeneity of interest.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 53
+Appendix F: Additional Details on Freelancer-level Skill-Transition Effects
+As a supplement to Section 5.2, we further examined skill-transition effects at the freelancer level using an
+Interrupted Time Series Analysis (ITSA). Additionally, to complement the analysis in Section 5.3, we inves-
+tigated the heterogeneity in freelancers’ skill-transition behavior by estimating a difference-in-differences-in-
+differences (DDD) model.
+First, we estimate the ITSA model using the specification described below, with the results presented in
+Table R1.
+P rogramming%it = β0 + β1 ∗ T imet + β2 ∗ P ostt + β3 ∗ P ostT imet + ui + ϵit (3)
+Here, P rogramming%it denotes the average programming intensity of bids submitted by freelancer i in
+month t. T imet represents the number of months elapsed since the start of the observation period. P ostt
+is a binary indicator equal to 0 during the pre-treatment period and 1 during the post-treatment period.
+P ostT imet equals 0 before the treatment and increases by one in each subsequent post-treatment month.
+We also include ui to control for freelancer-level fixed effects, while the error term ϵit captures unobserved
+factors that may influence the outcome. To ensure that the skill-transition process is observable, we restrict
+the sample to freelancers who submitted at least one bid in both the pre- and post-treatment periods. We
+find a statistically significant post-treatment increase in P rogramming% (β2 = 0.0500, p < 0.01), indicating
+that freelancers indeed transitioned toward programming jobs following the introduction of ChatGPT.
+Second, to assess heterogeneity in freelancers’ skill-transition behavior, we estimate the following DDD
+model, with the results reported in Table F2:
+P rogramming%it = β0 + β1 ∗ T reati ∗ P ostt ∗ M oderatori + β2 ∗ T reati ∗ P ostt
++ β3 ∗ P ostt ∗ M oderatori + ui + Tt + ϵit (4)
+In this specification, T reati is a continuous variable ranging from 0 to 1, representing the proportion of each
+freelancer’s pre-treatment bids submitted in treated submarkets. This variable captures the degree of initial
+skill relatedness to ChatGPT’s capabilities. M oderatori reflects freelancer characteristics, operationalized
+in three ways across the columns: freelancer rating (Column (1)), the logarithm of pre-treatment earning
+efficiency (Column (2)), and a binary indicator for whether the freelancer is located in a developed country
+(Column (3)).
+
+Liu et al.: “Generate” the Future of Work
+54 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+The estimates in Columns (1) and (2) are consistent with those from the main analysis: higher-skilled
+freelancers—proxied by higher ratings or by greater earning efficiency—are significantly more likely to shift
+into programming work ( β1 = 0.0256 and 0 .0328, respectively; p < 0.01). Column (3) reveals no statistically
+significant difference in transition behaviour between freelancers in developed and developing countries (β1 =
+0.0049; p > 0.10). Finally, Column (4) indicates that freelancers with longer platform tenure are more inclined
+to move into programming-related jobs ( β1 = 0.027; p < 0.01).
+Furthermore, we estimate an event-study (relative-time) specification to test the parallel-trends assump-
+tion. As shown in Figure F1, the pre-treatment coefficients cluster around zero and are statistically insignif-
+icant, indicating no violation of the parallel-trends assumption.
+Outcomeit =
+X
+k̸=−1
+βk ∗ Di,t=k + ui + Tt + ϵit (5)
+Table F1 Results for Interrupted Time Series Analysis
+P rogramming%
+T ime 0.0010***
+(0.0001)
+P ost 0.0500***
+(0.0009)
+P ost T ime -0.0001***
+(0.0003)
+Freelancer FE Yes
+Observations 432,558
+Note: Robust standard errors are reported at the freelancer level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+Table F2 DDD Analyses about Skill-Transition Effects
+Programming%
+(1) (2) (3) (4)
+T reat×P ost×M oderator 0.0256*** 0.0328*** 0.0040 0.0271***
+(0.0006) (0.0013) (0.0045) (0.0010)
+T reat×P ost -0.0366*** 0.0084*** 0.0226*** -0.1530***
+(0.0022) (0.0017) (0.0016) (0.0068)
+P ost×M oderator -0.0165*** -0.0212*** -0.0193*** -0.0155***
+(0.0005) (0.0012) (0.0043) (0.0009)
+Constant 0.3275*** 0.3158*** 0.3127*** 0.3482***
+(0.0008) (0.0006) (0.0006) (0.0024)
+Moderator Rating ln (Earning Bid P re+ 1) Developed ln (T enure+ 1)
+Freelancer FE Yes Yes Yes Yes
+Year–Month FE Yes Yes Yes Yes
+Observations 711,738 711,738 711,738 697,908
+R-squared 0.8584 0.8578 0.8576 0.8572
+Note: Cluster-robust standard errors are reported at the freelancer level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 55
+Figure F1 Pre-Trends and Temporal Dynamics of Freelancer’s Programming Proportion
+
+Liu et al.: “Generate” the Future of Work
+56 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Appendix G: Additional Details on Freelancer-Level Earnings
+Similar to our market-level analysis, we examine the effect of ChatGPT on freelancer-level earnings. Using
+the specification in Equation 1, we estimate the impact on freelancer’s total transaction value and the
+mechanisms driving the changes, including changes in bidding behavior and earning efficiency.
+Since freelancers who did not receive any payment during their pre-treatment period had no potential
+for income loss, we first focus on freelancers who were awarded at least one job and had prior earning
+activity, as shown in Table G1. We examine how the magnitude of change in transactions is affected by
+ChatGPT, which varies across different freelancers. Here, T reat is a continuous variable ranging from 0 to 1,
+representing the proportion of bids submitted to treated submarkets. A higher value of T reat indicates that
+the freelancer is more likely to be affected by ChatGPT’s demand displacement effect. We find a significant
+decline in transaction value ( β1 = −0.1162, p < 0.05), which is primarily driven by a substantial reduction
+in the number of bids submitted ( β1 = −0.0870, p < 0.01) and a small, statistically insignificant decrease in
+earning efficiency (β1 = −0.0041, p > 0.1).
+In Tables G2 and G3, we separately analyze freelancers who made a skill transition and those who did
+not. Freelancers who transitioned exhibit no significant decline in transaction value; their bidding activity
+remains stable, and their earning efficiency significantly improves. In contrast, those who did not transition
+experience substantial reductions in both transaction value and bid volume, along with a significant decline
+in earning efficiency.
+For completeness, Tables G4, G5 and G6 replicate these analyses including all freelancers (even those with
+zero pre-treatment earnings). Unsurprisingly, the estimated effects are attenuated because most freelancers
+report zero earnings before treatment, which precludes substantial further reduction, but the qualitative
+patterns are consistent.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 57
+Table G1 Impact on Freelancers’ Earnings
+ln(y + 1)
+T ransaction Bids Avg Earn Bid
+(1) (2) (3)
+T reat × P ost -0.1162** -0.0870*** -0.0041
+(0.0467) (0.0265) (0.0351)
+Constant 1.0045*** 1.7269*** 0.6292***
+(0.0152) (0.0086) (0.0110)
+Freelancer FE Yes Yes Yes
+Year–Month FE Yes Yes Yes
+Observations 310,771 310,771 218,716
+R2 0.2787 0.6704 0.2437
+Note: Cluster-robust standard errors are reported at the freelancer level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+Table G2 Impact on Freelancers’ Earnings (Transition)
+ln(y + 1)
+T ransaction Bids Avg Earn Bid
+(1) (2) (3)
+T reat × P ost 0.0695 0.0483 0.1175***
+(0.0523) (0.0322) (0.0452)
+Constant 1.0545*** 1.8877*** 0.5926***
+(0.0175) (0.0108) (0.0149)
+Freelancer FE Yes Yes Yes
+Year–Month FE Yes Yes Yes
+Observations 217,637 217,637 160,571
+R2 0.2903 0.6704 0.2458
+Note: Cluster-robust standard errors are reported at the freelancer level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+Table G3 Impact on Freelancers’ Earnings (Non-Transition)
+ln(y + 1)
+T ransaction Bids Avg Earn Bid
+(1) (2) (3)
+T reat × P ost -0.2081*** -0.1460*** -0.1555***
+(0.0540) (0.0340) (0.0496)
+Constant 0.7619*** 1.2117*** 0.6828***
+(0.0157) (0.0099) (0.0131)
+Freelancer FE Yes Yes Yes
+Year–Month FE Yes Yes Yes
+Observations 98,504 98,504 60,573
+R2 0.2299 0.6089 0.2647
+Note: Cluster-robust standard errors are reported at the freelancer level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+58 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Table G4 Impact on Freelancers’ Earnings, Including Those with Zero Pre-Treatment Earnings
+ln(y + 1)
+T ransaction Bids Avg Earn Bid
+(1) (2) (3)
+T reat × P ost -0.0228*** -0.0425*** -0.0140
+(0.0072) (0.0057) (0.0094)
+Constant 0.2000*** 0.6779*** 0.2177***
+(0.0025) (0.0020) (0.0033)
+Freelancer FE Yes Yes Yes
+Year–Month FE Yes Yes Yes
+Observations 1,705,081 1,705,081 711,738
+R2 0.3608 0.6710 0.3215
+Note: Cluster-robust standard errors are reported at the freelancer level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+Table G5 Impact on Freelancers’ Earnings, Including Those with Zero Pre-Treatment Earnings (Transition)
+ln(y + 1)
+T ransaction Bids Avg Earn Bid
+(1) (2) (3)
+T reat × P ost 0.0109 0.0229*** 0.0084
+(0.0087) (0.0073) (0.0121)
+Constant 0.2678*** 0.8227*** 0.2542***
+(0.0030) (0.0025) (0.0043)
+Freelancer FE Yes Yes Yes
+Year–Month FE Yes Yes Yes
+Observations 932,942 932,942 430,712
+R2 0.3763 0.6990 0.3178
+Note: Cluster-robust standard errors are reported at the freelancer level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+Table G6 Impact on Freelancers’ Earnings, Including Those with Zero Pre-Treatment Earnings
+(Non-Transition)
+ln(y + 1)
+T ransaction Bids Avg Earn Bid
+(1) (2) (3)
+T reat × P ost -0.0117 0.0033 -0.0179
+(0.0077) (0.0067) (0.0118)
+Constant 0.0984*** 0.4487*** 0.1542***
+(0.0026) (0.0023) (0.0039)
+Freelancer FE Yes Yes Yes
+Year–Month FE Yes Yes Yes
+Observations 814,668 814,668 294,952
+R2 0.2908 0.5388 0.3407
+Note: Cluster-robust standard errors are reported at the freelancer level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 59
+Appendix H: The Heterogeneous Effects of Generative AI Across Programming
+Domains
+In our market-level analysis, we find that although programming-intensive and non-programming-intensive
+submarkets exhibit no consistent differences in labor demand, the contraction in labor supply is significantly
+smaller in programming-intensive submarkets. We aim to take one step further in exploring whether any
+heterogeneity exists among programming jobs. Large language models support numerous programming lan-
+guages since they have been trained on multi-language code corpora (Manh et al. 2023, Kocetkov et al. 2022)
+and evaluated on benchmarks spanning a wide range of programming languages (Chen et al. 2024b). Broadly,
+programming languages can be categorized into two distinct types: scripting languages and compiled lan-
+guages (Prechelt 2000, Ousterhout 1998). These categories differ in syntactic complexity and learning cost:
+scripting languages typically feature simpler syntax and lower learning barriers, while compiled languages are
+generally more complex and demanding (Lokkila et al. 2023), potentially influencing how different languages
+mediate the impact of generative AI.
+In light of this, we further divide the programming-intensive submarkets into two segments based on the
+predominant type of programming language, in order to examine the heterogeneous impact on scripting-
+language-dominated versus compiled-language-dominated submarkets. Specifically, we classify each submar-
+ket according to the relative proportions of scripting and compiled languages used. If the proportion of
+scripting languages exceeds that of compiled languages within a submarket, it is categorized as scripting-
+language-dominated; otherwise, it is considered compiled-language-dominated. A small number of submar-
+kets, however, do not predominantly feature either language type and instead rely on alternative paradigms,
+such as the declarative language SQL. As there are only four such submarkets, we exclude them from the
+analysis.
+Subsequently, following the model specifications in Section 4, we separately compare the demand, supply,
+transaction, and competition in scripting-language-dominated and compiled-language-dominated submar-
+kets with those in the control submarkets. The estimation results are reported in Table H1. Panel A com-
+pares scripting-language-dominated submarkets with the control group, while Panel B compares compiled-
+language-dominated submarkets with the control group. Consistent with the main results, both types of
+submarkets show a notable decline in labor demand ( β1 = −0.1880 or −0.2340, p < 0.01) and total transac-
+tion volume ( β1 = −0.2830 or −0.2680, p < 0.01) relative to the control group. However, it is worth noting
+
+Liu et al.: “Generate” the Future of Work
+60 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+that on the supply side, measured by the total number of bids, scripting-language-dominated submarkets do
+not exhibit a significant decline relative to the control group ( β1 = −0.0640, p > 0.1). In contrast, compiled-
+language-dominated submarkets still experience a significant reduction in labor supply ( β1 = −0.1310, p <
+0.01). This result may reflect the lower barrier to entry associated with scripting languages compared to
+compiled languages, which generally require more formal training. Such suggestive evidence indicates that
+the skill-transition effect is inherently constrained: freelancers cannot move freely into every role without
+encountering substantive limitations.
+Table H1 The Heterogeneous Effects of Generative AI Across Different Types of Programming Submarkets
+Panel A
+Programming Type: Scripting Language VS Control
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reat ∗ P ost -0.1880*** -0.0640 -0.2830*** 0.2130***
+(0.0348) (0.0524) (0.1050) (0.0408)
+Constant 2.8630*** 5.1990*** 5.4670*** 2.0950***
+(0.0082) (0.0123) (0.0246) (0.0096)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 10,268 10,268 10,268 10,268
+R2 0.8950 0.8480 0.6360 0.5440
+Panel B
+Programming Type: Compiled Language VS Control
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reat ∗ P ost -0.2340*** -0.1310** -0.2680** 0.1810***
+(0.0371) (0.0560) (0.1030) (0.0421)
+Constant 2.7590*** 4.8870*** 5.1510*** 1.9330***
+(0.0067) (0.0102) (0.0187) (0.0076)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 7,496 7,496 7,496 7,496
+R2 0.8980 0.8470 0.6450 0.5240
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 61
+Appendix I: The Impact of Generative AI on Market Entry Decisions of New
+Freelancers
+Given that some freelancers can be active in online labor markets for an extended period and work for diverse
+jobs, several potential mechanisms may explain the average and heterogeneous impacts on the labor supply
+side, as documented in Sections 5.1 and 5.2. Utilizing the market-level data, we explore the influx of new
+freelancers as one such mechanism. To this end, we introduce a new outcome variable, N ew F reelancer,
+defined as the monthly count of freelancers who newly register and submit at least one bid within specific
+submarkets. We employ the same econometric specifications to perform DiD and DDD analyses, with the
+results presented in Table I1. The estimates suggest that the decline in new participants is one contributing
+mechanism to the observed decrease in average labor supply across treatment submarkets (β1 = −0.1450, p <
+0.01). However, there is no significant heterogeneity in the number of new freelancers between programming-
+related and non-programming-related submarkets ( β2 = −0.0430, p > 0.1), effectively ruling out differences
+in new participation as the driving mechanism for heterogeneous effects on labor supply. We also test the
+parallel trend assumption and examine whether any differential trends existed prior to the introduction
+of ChatGPT. The results show that the confidence intervals for all pre-treatment periods encompass zero,
+suggesting an absence of systematic differences before the intervention.
+
+Liu et al.: “Generate” the Future of Work
+62 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Table I1 The Impact of Generative AI on Market Entry Decisions of New Freelancers
+ln(N ew F reelancer + 1)
+(1) (2)
+T reat ∗ P ost -0.1450*** -0.1250***
+(0.0371) (0.0411)
+T reat ∗ P ost∗ P rogramming -0.0430
+(0.0283)
+Constant 3.5910*** 3.5910***
+(0.0119) (0.0119)
+Submarket FE Yes Yes
+Year-Month FE Yes Yes
+Observations 25,833 25,833
+R2 0.9000 0.9010
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+Figure I1 Pre-Trends and Temporal Dynamics of New Freelancers
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 63
+Appendix J: The Impacts on Project Budgets
+To better understand the underlying motivations behind freelancers’ transitions, we further examine how
+the introduction of ChatGPT affects job budgets. As demonstrated in Sections 5.2, freelancers shift toward
+bidding on programming-related jobs. While these jobs have traditionally commanded higher wages than
+text-related ones, ChatGPT may have further widened this wage gap. This widening gap likely strengthens
+freelancers’ motivations to transit to programming-related submarkets as a way to mitigate Chatgpt’s neg-
+ative impact. Therefore, we examine the wages clients are willing to offer for completing a given task, as
+reflected in job budgets, and analyze how these budgets have changed differentially between programming-
+related and text-based submarkets following the introduction of ChatGPT.
+Specifically, we define a new dependent variable, Budget, as the average project budget of all jobs posted
+within a submarket during a given month. We then follow the DDD model specification outlined in Section
+5.2 to investigate the heterogeneous treatment effects (HTE) on job budgets. The corresponding estimation
+results are presented in Table J1. The negative and statistically insignificant coefficients of the interaction
+term T reat × P ost × P rogramming suggest that the wage gap was not widened by the introduction of
+ChatGPT. Therefore, the absence of a significant widening in the wage gap allows us to rule out this
+explanation.
+Table J1 The Impact of Generative AI on Project Budgets
+ln(Budget + 1)
+(1) (2)
+T reat ∗ P ost 0.0575* 0.0727**
+(0.0327) (0.0349)
+T reat ∗ P ost∗ P rogramming -0.0327
+(0.0223)
+Constant 5.6690*** 5.6690***
+(0.0105) (0.0105)
+Submarket FE Yes Yes
+Year-Month FE Yes Yes
+Observations 25,086 25,086
+R2 0.3810 0.3810
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+64 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Appendix K: Additional Evidence on Demand-Side Market Dynamics
+To provide additional insight into market demand dynamics, we visualize the temporal evolution of three key
+indicators within the treated submarkets: the proportion of programming-related jobs, the average number
+of required skills per job, and the average job budget. Specifically, we calculate the monthly proportion of
+programming-related jobs in the overall market and plot its trend over time. The results are presented in
+Figure K1, where the horizontal axis represents the number of months relative to the treatment point, and
+the vertical axis indicates the proportion of programming-related jobs. The blue dots show the observed
+monthly values, while the red line illustrates the fitted trend estimated through linear regression. Similarly,
+we calculate the monthly average number of required skills per job and average job budget across the entire
+market and plot its changes over time in Figure K2 and Figure K2.
+Based on the results presented in Figure K1, the proportion of programming-related jobs remains largely
+stable over the observation period, exhibiting only a slight decline. The overall variation is minimal, and the
+fitted trend line is nearly flat. This suggests that, on the demand side, clients have not demonstrated any
+notable shift in preference or a growing tendency toward programming-related tasks. Figure K2 presents the
+temporal trend in the number of required skills per job. The fitted trend line appears relatively flat with
+a slight upward slope, indicating a gradual increase in the number of skills requested by clients. Figure K3
+illustrates the monthly evolution of the average job budget, revealing a modest upward trend over time,
+particularly following the introduction of ChatGPT. This pattern suggests a gradual rise in job budgets
+within the treated submarkets and aligns with the observed increase in skill requirements. We re-estimate
+the DiD model separately to compare high- and low-budget submarkets with the control group. The results
+show a higher demand displacement effect in low-budget submarkets.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 65
+Figure K1 Temporal Trends in Proportion of Programming Jobs
+Figure K2 Temporal Trends in Average Skill Count
+
+Liu et al.: “Generate” the Future of Work
+66 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Figure K3 Temporal Trends in Average Budget
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 67
+Table K1 The Heterogeneous Effects of Generative AI Across Sub-markets with Different Budget Levels
+Panel A
+High-Budget Sub-market
+ln(y+1)
+Jobs Bids Transaction Avg Bids job
+(1) (2) (3) (4)
+Treat × Post –0.1850*** –0.1560*** –0.2330** 0.0886**
+(0.0381) (0.0566) (0.1100) (0.0400)
+Constant 3.0780*** 5.6150*** 5.7130*** 2.2720***
+(0.0121) (0.0181) (0.0351) (0.0128)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 17,421 17,421 17,421 17,421
+R2 0.8890 0.8360 0.5970 0.5010
+Panel B
+Low-Budget Sub-market
+ln(y+1)
+Jobs Bids Transaction Avg Bids job
+(1) (2) (3) (4)
+Treat × Post –0.2950*** –0.1920** –0.4890*** 0.2430***
+(0.0574) (0.0873) (0.1540) (0.0713)
+Constant 2.8970*** 4.9720*** 5.4430*** 1.7070***
+(0.0183) (0.0279) (0.0493) (0.0228)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 8,412 8,412 8,412 8,412
+R2 0.8950 0.8380 0.6430 0.5320
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+68 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Appendix L: The Impacts on Image-Related Jobs
+We further investigate how image-related work is affected by the emergence of generative AI. Specifically, we
+consider two key events: the release of the first publicly available text-to-image AI model, and the subsequent
+launch of ChatGPT. To analyze their respective impacts on the image-related submarket, we estimate two
+regression specifications. Consistent with our earlier submarket construction procedure, we apply the same
+clustering approach to the skill sets of image-related jobs to define the corresponding submarkets. In this
+setup, control submarkets serve as the baseline, while the treatment group comprises the image-related
+submarkets.
+For the first specification, we use P ost image to denote the the first publicly available version as the
+treatment time, set at July 2022 on a monthly level. For the second specification, we adopt the same P ost
+variable from our main analyses, using the ChatGPT launch date as the start of the treatment period. We
+define T reatimage,i as an indicator variable equal to 1 if unit i corresponds to an image-related submarket
+and 0 otherwise.
+Outcomeit = β0 + β1 ∗ T reatimage,i ∗ P ostimage,t + ui + Tt + ϵit (6)
+Outcomeit = β0 + β1 ∗ T reatimage,i ∗ P ostt + ui + Tt + ϵit (7)
+Equation 6 examines changes in demand, supply, and matching outcomes in image-related submarkets
+relative to control submarkets, in response to the introduction of text-to-image generative AI. This analysis
+includes data only up to November 2022, thereby excluding the post-ChatGPT period, with the corresponding
+results reported in Table L1. In the second analysis, we explore whether the widespread attention generated
+by ChatGPT led to increased interest in text-to-image AI applications, potentially encouraging broader
+adoption and influencing labor market outcomes. For this purpose, we extend the observation window to
+include the post-ChatGPT period and estimate relative changes in image-related submarkets. The results of
+this spillover analysis are presented in Table L2.
+Both sets of analyses show insignificant results across all measurements. This suggests that current text-
+to-image generative AI may not be general-purpose or powerful enough to influence a wide range of jobs in
+online labor markets.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 69
+Table L1 The Effect of Generative AI on Image-related Labor Market
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reatimage ∗ P ostimage -0.0021 0.0854 -0.1500 0.0233
+(0.0402) (0.0571) (0.1390) (0.0600)
+Constant 3.0470*** 5.4600*** 5.1680*** 2.1920***
+(0.0075) (0.0107) (0.0261) (0.0113)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 5,461 5,461 5,461 5,461
+R2 0.9250 0.9130 0.6600 0.5740
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+Table L2 The Spillover Effect of ChatGPT’s Success on Image-related Labor Market
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reatimage ∗ P ost -0.0536 -0.0619 -0.0775 0.0683
+(0.0337) (0.0470) (0.0959) (0.0421)
+Constant 2.9830*** 5.5100*** 5.0150*** 2.3030***
+(0.0071) (0.0099) (0.0201) (0.0088)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 8,792 8,792 8,792 8,792
+R2 0.9190 0.9040 0.6600 0.5730
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+70 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Appendix M: Robustness Check - Alternative Treatment/Control Group
+Definition Thresholds
+Given that our submarket classification is based on a conservative approach using the median value of LM-
+AIOE to distinguish between submarkets with relatively high and low LM-AIOE levels, we acknowledge that
+observations near the threshold may introduce sensitivity into the estimation. Varying the threshold can
+alter submarket classifications, particularly for those with LM-AIOE values close to the cutoff. For example,
+lowering the threshold may lead to some submarkets that were previously assigned to the control group being
+reclassified into the treatment group.
+To address this concern and enhance the robustness of our findings, we implement an alternative thresh-
+olding strategy to ensure that the results are not driven by the specific choice of cutoff. Specifically, we
+assess the sensitivity of our results by adjusting the original median-based threshold by ±0.05 units. The
+lower threshold is defined as the median minus 0.05, while the higher threshold is defined as the median plus
+0.05. This approach enables us to assess whether submarkets classified as high or low LM-AIOE continue to
+exhibit consistent patterns that are not influenced by the classification criteria. The estimation results based
+on these alternative thresholds are presented in Table M1 and Table M2. Table M1 reports the results using
+the lower threshold, while Table M2 presents the results using the higher threshold.
+Interestingly, we find that although the estimated coefficients exhibit slight fluctuations compared to those
+reported in Table 2, they remain statistically significant. Specifically, the outcomes for demand, supply, trans-
+action value consistently show a moderate decline, indicating stable and coherent patterns of heterogeneous
+treatment effects. These results confirm the robustness and consistency of our findings under alternative
+threshold specifications.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 71
+Table M1 Main Effects Replication with Low Threshold
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reat ∗ P ost -0.2200*** -0.1830*** -0.3320*** 0.1300***
+(0.0359) (0.0535) (0.1010) (0.0397)
+T reat ∗ P ost ∗ P rogramming 0.0207 0.1330*** 0.0523 0.1090***
+(0.0224) (0.0346) (0.0667) (0.0267)
+Constant 3.0180*** 5.3930*** 5.6250*** 2.0740***
+(0.0109) (0.0162) (0.0311) (0.0121)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 25,833 25,833 25,833 25,833
+R2 0.8900 0.8410 0.6120 0.5410
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+Table M2 Main Effects Replication with High Threshold
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reat ∗ P ost -0.1980*** -0.1950*** -0.2990*** 0.0862**
+(0.0339) (0.0513) (0.0946) (0.0372)
+T reat ∗ P ost ∗ P rogramming 0.0294 0.1490*** 0.0657 0.1120***
+(0.0229) (0.0352) (0.0680) (0.0273)
+Constant 3.0060*** 5.3910*** 5.6080*** 2.0890***
+(0.0096) (0.0145) (0.0272) (0.0106)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 25,833 25,833 25,833 25,833
+R2 0.8900 0.8410 0.6120 0.5410
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+72 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Appendix N: Robustness Check - Fake Treatment Timing (Placebo Test)
+Since the launch of ChatGPT occurred at the end of the year, holidays and seasonal effects might influence
+the observed post-shock differences. For instance, these differences could be attributed to an alternative
+mechanism where treated submarkets naturally experience a more pronounced downward trend around the
+end of the year compared to control submarkets. To address this concern, we conduct another placebo test
+using November 30, 2021, the same day in the previous year, as a fake shock date. We maintain the time
+period from September 2021 to August 2022 and rerun all regressions. As shown in Table N1, our main
+findings remain robust, suggesting that they are not driven by end-of-year effects or seasonal factors.
+Table N1 Placebo Test with a Fake Shock Time
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reat ∗ P ost -0.0203 0.0229 0.2020 0.0706
+(0.0315) (0.0540) (0.1280) (0.0476)
+Constant 3.1200*** 5.3450*** 5.6140*** 1.9060***
+(0.0196) (0.0336) (0.0796) (0.0296)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 11,769 11,769 11,769 11,769
+R2 0.9280 0.8730 0.6660 0.6060
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 73
+Appendix O: Robustness Check - Treatment Reassignment (Placebo Tests)
+Statistically, there is a possibility that the observed effects are driven by random variations across obser-
+vations. To address this, we conduct a placebo test by randomly reassigning the treatment ( T reat ∗ P ost)
+within our sample. We simulate this permutation procedure 1,000 times and capture the distribution of the
+placebo treatment effects for all six main outcome variables based on random treatment assignment. The
+distribution of placebo treatment effects resembles a normal distribution, as shown in Figure O1, and our
+estimated coefficient lies far in the tail of this distribution. This placebo test indicates that the treatment
+effects are not driven by chance, further reinforcing the robustness of our findings.
+(a) Jobs
+ (b) Bids
+(c) Transaction
+ (d) Average job bids
+Figure O1 Placebo Tests
+
+Liu et al.: “Generate” the Future of Work
+74 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Appendix P: Robustness Check - Pretrends and Temporal Dynamics
+We use a DiD specification for most analyses to uncover how generative AI introduces different trends for
+treated submarkets versus control submarkets. To attribute post-shock differences to the shock itself, we
+first need to examine whether these two sets of submarkets follow similar trends before the shock (parallel
+trend assumption). Additionally, we are interested in whether the observed effects appear primarily at the
+beginning of the shock (due to novelty effects, etc.) and attenuate over time, or whether these differences
+strengthen over time. With these objectives in mind, we employ the relative time model to obtain per-period
+effect estimates, following previous scholarly investigations (Braghieri et al. 2022, Perez-Truglia 2020).
+Outcomeit =
+X
+k̸=−1
+βk ∗ Di,t=k + ui + Tt + ϵit (8)
+where Di,t=k is an indicator equal to 1 if unit i is k periods relative to treatment at time t, and 0 otherwise.
+The baseline period k = −1 is omitted. ui and Tt denote unit and time fixed effects, respectively.
+To estimate the relative time model, we utilize the full panel of data. Following common practice in event
+study analyses (Schmidheiny and Siegloch 2023), we merge all periods prior to event time k = −8 into a
+single bin at k = −8, and here k = +8 is the final time period. This binning approach reduces noise and
+ensures a more balanced panel. Importantly, our main findings remain robust without this binning: even
+when all relative time periods are included without aggregation, we continue to find no evidence of differential
+pre-trends.
+The results are shown in Figures P1 and P2. First, the confidence intervals for the periods leading up to
+the launch of ChatGPT all include zero, indicating no significant pre-existing trend differences. This finding
+strengthens the credibility of attributing the observed post-shock differences to the launch of LLM-based
+generative AI. Second, the figure reveals an increasing impact over time in the post-treatment periods,
+suggesting that the influence of these technologies is not a one-time event but deepens with increasing
+adoption.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 75
+(a) Jobs
+(b) Bids
+Figure P1 Pretrends and Temporal Dynamics in Demand and Supply
+
+Liu et al.: “Generate” the Future of Work
+76 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+h
+(a) Transaction
+(b) Avg Bids job
+Figure P2 Pretrends and Temporal Dynamics in Matching Outcomes
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 77
+Appendix Q: Robustness Check - Propensity Score Matching
+Although the treated and control submarkets follow similar pre-shock trends, as demonstrated in Appendix
+P, they may still differ across various dimensions such as market size prior to the treatment. To address
+this concern and enhance the comparability between the two sets of submarkets, we re-estimate our analysis
+using a propensity score matched sample of treated and control submarkets. Specifically, we estimate a
+probit selection model for each submarket to predict the probability of receiving treatment. To improve the
+comparability of the matched submarkets, we include all relevant pre-treatment variables ( J obs, Clients,
+Bids, Bidders, T ransaction, M atches, and Avg Bids job) as covariates in the matching process. Based on
+the predicted propensity scores, we apply a nearest-neighbor matching procedure following standard practices
+in the literature (Ran et al. 2025, Ye and Shankar 2024, Faccio and O’Brien 2021) to identify the closest
+control submarket for each treated submarket. The resulting matched sample consists of 952 submarkets.
+Next, we evaluate the quality of the matches by comparing the treated and control submarkets in terms of
+the covariates used in the matching procedure. Table Q1 presents the mean values of the matching variables.
+In contrast to the full sample results shown in columns (2)–(4), columns (5)–(7) reveal no statistically
+significant differences between the treated and control submarkets. This indicates that the propensity score
+matching procedure effectively mitigates key pre-treatment differences between the two groups. Additionally,
+Figures Q1 and Q2 illustrates the distribution of propensity scores before and after matching, demonstrating
+that the matched sample is substantially more balanced.
+In Table Q2, we re-estimate our main regression model using the matched submarket sample. Following
+the specification outlined in Section 4, the coefficient on the interaction term T reat × P ost (β1) remains
+negative and statistically significant. These results are consistent with our baseline findings. Overall, the
+robustness checks suggest that our main results are not driven by insufficient matching quality.
+
+Liu et al.: “Generate” the Future of Work
+78 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Table Q1 Statistical Validation of Pre- and Post-Matching Balance
+Before-Matching After-Matching
+Variables Control Treat P-Value Control Treat P-Value
+J obs 24.38 47.49 0.000 28.65 35.68 0.112
+Clients 21.30 41.17 0.000 25.03 31.04 0.110
+Bids 406.14 774.44 0.002 490.80 591.41 0.349
+Bidders 234.65 443.35 0.001 281.71 363.47 0.189
+M atches 3.28 6.35 0.000 3.85 4.71 0.199
+T ransaction 1677.13 3175.91 0.000 1995.10 2366.75 0.286
+Avg Bids job 8.30 10.00 0.004 9.42 10.00 0.375
+Table Q2 Effects of Generative AI on Labor Market Outcomes (After PSM)
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reat ∗ P ost -0.213*** -0.159** -0.362*** 0.112**
+(0.0471) (0.0694) (0.1170) (0.0443)
+Constant 2.8070*** 5.1620*** 5.2750*** 2.1290***
+(0.0089) (0.0131) (0.0221) (0.0084)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 38,962 38,962 38,962 38,962
+R2 0.8710 0.7990 0.5840 0.4740
+Note: Cluster-robust standard errors are reported at the freelancer level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+Figure Q1 Propensity Score Distribution Pre- and Post-Matching
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 79
+Figure Q2 Comparison Between Matched and Unmatched Units in Propensity Score Matching
+
+Liu et al.: “Generate” the Future of Work
+80 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Appendix R: Robustness Check - Interrupted Time Series (ITS) Analysis
+We further validate our main results with an Interrupted Time-Series Analysis (ITSA), which is a quasi-
+experimental approach that projects the pre-intervention trend forward to form a counterfactual baseline,
+and then measures the intervention’s effect as the deviation of actual post-intervention outcomes from that
+projected path (Kontopantelis et al. 2015, Campbell and Stanley 2015). ITSA offers an additional robustness
+check because it operates on a single series: treatment effects are identified from the structural break itself
+rather than from cross-group comparisons. Accordingly, this method is well suited to our empirical context,
+as it allows us to focus exclusively on the treated submarkets without having to account for pre-treatment
+differences between treated and control groups. By relying on within-series dynamics, ITSA also relaxes the
+stringent parallel-trends requirement inherent in our earlier difference-in-differences design. We estimate the
+following regression model using a sample restricted to treated submarkets:
+Outcomeit = β0 + β1 ∗ T imet + β2 ∗ P ostt + β3 ∗ P ostT imet + ui + ϵit (9)
+Here, Outcomeit denotes the dependent variable (J obs, Bids, T ransaction, or Avg Bids job) for submar-
+ket i in month t. T imet represents the time elapsed since the beginning of the observation period. P ostt
+is a binary indicator equal to 0 during the pre-treatment period and 1 during the post-treatment period.
+P ostT imet equals 0 prior to the treatment (i.e., the emergence of ChatGPT) and increases by one for each
+subsequent time period following the treatment. Furthermore, we incorporateui for the unit-level fixed effect.
+The error term ϵit encapsulates unobserved factors that influence the outcome. Our primary interest lies
+in estimating the coefficient on P ostt. A statistically significant coefficient indicates a level change in the
+outcome variable attributable to the treatment, namely, the emergence of ChatGPT. We are also interested
+in the post-treatment trend, captured by the coefficient on P ostT imet, which reflects changes in the slope
+of the outcome trajectory following the intervention.
+We estimate the model specified in Equation 9 using only observations from the treated submarkets
+and report the results in Table R1. The findings are closely aligned with those from the DID estimation.
+Specifically, demand (measured by J obs) and market transaction volume ( T ransaction) show a significant
+immediate decline following the treatment (β2 = −0.101 and −0.287, respectively; p < 0.01), while the supply
+side exhibits no statistically significant immediate response ( β2 = −0.0055, p > 0.1). As a result, competition
+within the submarket intensifies, as indicated by a notable increase in the average number of bids per
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 81
+job ( Avg Bids job; β2 = 0.0726, p < 0.01). This shift persists into the post-treatment period, as reflected
+in the trend coefficients. Notably, the supply side begins to show a significant downward trend over time
+following the intervention (β3 = −0.0361, p < 0.01), suggesting a sustained and dynamic adjustment in market
+dynamics. Figures R1 and R2 provide a more detailed and visually intuitive representation of these trends.
+To further validate our findings, we also implement a regression discontinuity design (RDD) to estimate the
+immediate effect at the shock point, the results, are consistent with those from the ITS analysis.
+Table R1 Results for Interrupted Time Series Analysis
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T ime 0.0049* 0.0143*** -0.0193 0.0132**
+(0.0028) (0.0055) (0.0144) (0.0053)
+P ost -0.1010*** -0.0055 -0.2870*** 0.0726***
+(0.0128) (0.0248) (0.0715) (0.0240)
+P ostT ime -0.0490*** -0.0361*** -0.0177 0.0456***
+(0.0040) (0.0075) (0.0184) (0.0076)
+Constant 3.0950*** 5.5530*** 5.9970*** 2.0840***
+(0.0356) (0.0496) (0.0795) (0.0282)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 11,921 11,921 11,921 11,921
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+82 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+(a) Jobs
+(b) Bids
+Figure R1 Interrupted Time Series (ITS) Analysis
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 83
+(a) Transaction
+(b) Average job bids
+Figure R2 Interrupted Time Series (ITS) Analysis
+
+Liu et al.: “Generate” the Future of Work
+84 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Appendix S: Robustness Check - More Details on Control Variable Inclusion and
+Omitted Variable Sensitivity Analyses
+In this section, we incorporate control variables that capture both external conditions and internal market
+characteristics to obtain a conservative estimate of ChatGPT’s impact and to conduct a sensitivity analysis.
+Since online labor markets may be affected by external factors such as trends in the broader employment
+landscape, we account for these influences by collecting monthly Google Trends data for each skill, which
+reflects the relative popularity of each skill in a given month. Using the skill composition of each submarket, we
+construct a weighted monthly Google Trends index for each submarket to capture and control for fluctuations
+in the external environment. In addition, within the labor market, demand and supply interact dynamically.
+Demand in one period may influence supply in the subsequent period, while supply may, in turn, affect future
+demand. These two forces jointly determine the market transaction value and competition in the periods
+that follow. Therefore, when estimating the effect on demand ( J obs), we include lagged supply ( Lag Bids)
+as a control variable. Similarly, when estimating the effect on supply ( Bids), we control for lagged demand
+(Lag J obs). In the estimation of transaction value and competition, both lagged demand and lagged supply
+(Lag J obs and Lag Bids) are included as control variables to account for their joint influence. The estimation
+results are presented in Table S1 and remain consistent with our main findings.
+After incorporating these observable controls, the estimated coefficients β1 change from -0.221 to -0.222
+for J obs, from -0.168 to -0.141 for Bids, from -0.315 to -0.267 for T ransaction, and from 0.138 to 0.111 for
+Avg Bids job.
+Including post-treatment covariates is likely to attenuate the estimated treatment effect. A consistent
+estimator should capture the total influence of ChatGPT on the outcome, that is, it should capture the cumu-
+lative effect of all underlying mechanisms. In practice, ChatGPT may first alter demand and subsequently
+affect labor supply and transaction volume. Competition, in particular, can rise both because the number
+of available jobs falls and because changes in job mix propagate through bidding behavior before they are
+reflected in competitive metrics. Variables such as J obs or Bids therefore lie on the causal pathway from
+the treatment to the final outcome, making them endogenous to ChatGPT adoption. Conditioning on such
+mediators severs part of the causal chain and introduces the classic “bad-control” problem, which mechan-
+ically biases the treatment coefficient toward zero. Hence, our reported estimates should be interpreted as
+conservative lower bounds; even so, they remain both economically meaningful and statistically significant.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 85
+Furthermore, to evaluate the risk of omitted variable bias, we conduct a sensitivity analysis following the
+approach proposed by Altonji et al. (2005), which has been widely applied in prior empirical studies (Sen
+et al. 2024, Petrova et al. 2023, Galor and ¨Ozak 2016). Specifically, we assess the relative sensitivity of
+unobserved factors by incorporating these additional control variables, thereby generating an alternative set
+of estimates. We then compare the new coefficient to that obtained from the regression without the additional
+controls, using the ratio defined as βoriginal
+βoriginal − βcontrol
+. The rationale behind this ratio is straightforward: a
+smaller difference between the uncontrolled and controlled estimates suggests that the parameter of interest
+is less affected by selection on observables, thus requiring a stronger degree of selection on unobservables
+relative to observables to fully explain the observed effect. In contrast, a larger numerator implies that a
+greater portion of the effect may be driven by selection on unobservables, resulting in a higher value of
+the ratio. In our estimated result, the similarity of the coefficients, suggests that selection on unobservables
+would need to be at least 5 times (Oster 2019) stronger than selection on observables to fully account for
+the observed effect. This substantially alleviates concerns about omitted variable bias.
+Table S1 Effects of Generative AI on Demand, Supply, and Matching Outcomes
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reat ∗ P ost -0.2220*** -0.1410*** -0.2670*** 0.1110***
+(0.0316) (0.0469) (0.0886) (0.0355)
+Constant 2.2340*** 3.9580*** 2.9720*** 1.9040***
+(0.1810) (0.3090) (0.6510) (0.2250)
+External Confounder Controls Yes Yes Yes Yes
+Internal Confounder Controls Yes Yes Yes Yes
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 25,833 25,833 25,833 25,833
+R2 0.8920 0.8420 0.6140 0.5450
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+86 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Appendix T: Robustness Check - Alternative Model for Count Variables
+It is noteworthy that several of our variables, including J obs and Bids, are count variables, taking on
+non-negative integer values. As shown in Appendix D, the variables exhibit substantial skewness, rendering
+count models not perfectly appropriate. Since the Negative Binomial model is relatively better suited for
+fitting such data distributions compared to the Poisson model (Stone 2013), we employ it to re-estimate the
+impact on these count variables. Tables T1 present the results of this analysis. The estimation results are
+qualitatively aligned with our main findings, corroborating the robustness of our conclusions. Specifically,
+we observe a significant decrease in labor demand in programming-related or text-related submarkets, with
+no heterogeneity observed between these two types of treated submarkets. On the labor supply side, we still
+observe a significant decrease in text-related submarkets, while the programming-related submarkets incur
+a significantly smaller supply loss, particularly in terms of the number of bids. The estimation results are
+still consistent with our main findings.
+Table T1 Alternative Model for Count Variables
+N egative Binominal Regressions
+J obs Bids
+(1) (2)
+T reat ∗ P ost -0.1890*** -0.2070***
+(0.0437) (0.0500)
+T reat ∗ P ost ∗ P rogramming 0.0070 0.1430***
+(0.0332) (0.0391)
+Constant 3.7520*** 5.9370***
+(0.0106) (0.0173)
+Submarket FE Yes Yes
+Year-Month FE Yes Yes
+Observations 25,833 25,833
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 87
+Appendix U: Robustness Check - Alternative Aggregation Level (Week)
+Leveraging the two-year dataset, our primary analyses use variables aggregated at the monthly level to
+smooth trends, particularly for smaller submarkets. In this section, we aggregate all variables to the weekly
+level and rerun the estimations. The outcomes of this analysis are presented in Table U1. The estimation
+results remain qualitatively consistent with the main findings, confirming the robustness and reliability of
+our conclusions across different levels of data granularity. However, it is important to note that at the weekly
+level, there will be a substantial number of zero observations, which makes it less appropriate to directly
+interpret the coefficients as proportional changes.
+Table U1 Effects of Generative AI on Labor Market Outcomes (Week-level)
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reat ∗ P ost -0.1810*** -0.1270*** -0.2940*** 0.1060***
+(0.0225) (0.0388) (0.0520) (0.0281)
+Constant 1.7300*** 3.7060*** 3.1770*** 1.8950***
+(0.0073) (0.0126) (0.0169) (0.0091)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 112,744 112,744 112,744 112,744
+R2 0.7990 0.7250 0.4850 0.3740
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+88 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Appendix V: Robustness Check - Alternative Fixed Effect
+To more effectively account for seasonal effects, we also adopt an alternative specification that includes
+separate fixed effects for year ( Yt) and month ( Mt), allowing us to control for both annual variations and
+recurring monthly patterns. This approach enhances interpretability by decomposing temporal variation into
+distinct components. The definitions and constructions of the remaining variables remain consistent with
+those outlined in Section 4. The model specification is presented as follows:
+Outcomeit = β0 + β1 ∗ T reati ∗ P ostt + β2 ∗ P ostt + ui + Yt + Mt + ϵit (10)
+Using this model specification, we re-estimate the market-level outcomes, with the results reported in
+Table V1. The findings suggest that the alternative fixed effects structure yields results that are broadly
+consistent with those of the main specification.
+Table V1 Effects of Generative AI on Demand, Supply, and Matching Outcomes (Alternative Fixed Effects)
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reat ∗ P ost -0.2200*** -0.1680*** -0.3140*** 0.1370***
+(0.0318) (0.0476) (0.0896) (0.0356)
+P ost 0.1470*** 0.2110*** -0.1080 0.0343
+(0.0327) (0.0557) (0.1210) (0.0467)
+Constant 2.9640*** 5.3270*** 5.6650*** 2.0750***
+(0.0065) (0.0129) (0.0358) (0.0120)
+Submarket FE Yes Yes Yes Yes
+Year FE Yes Yes Yes Yes
+Month FE Yes Yes Yes Yes
+Observations 25,833 25,833 25,833 25,833
+R2 0.8900 0.8400 0.6100 0.5380
+Note: Cluster-robust standard errors are reported at the freelancer level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 89
+Appendix W: Robustness Check - Alternative Outcomes
+In Section 5, we have analyzed the average post-ChatGPT changes in labor demand, supply, and matching
+outcomes for treated submarkets relative to control submarkets, with a primary focus on changes in the
+overall volume of demand, supply, and transactions. To further substantiate these findings, we introduce
+three additional count variables corresponding to the demand side, supply side, and matching outcomes.
+These variables serve to both complement and validate the aggregate analysis by capturing changes in the
+number of platform participants and successfully matched jobs. Similar to other market-level variables used
+in our analysis, these are constructed at the submarket-month level to ensure consistency in temporal and
+unit resolution across all outcome measures. Specifically, on the demand side, we introduce the variable
+Clients, denoting the number of unique clients who post jobs within the submarket in a given month. On
+the supply side, we adopt the variable F reelancers, representing the number of distinct freelancers who have
+placed at least one bid within a particular submarket during a month. To complement the analysis of market
+matching outcomes, we construct the variable M atches, epitomizing the number of successful matches made
+(i.e., successfully completed jobs) within a submarket in a given month.
+Following the same procedure as in the main analysis presented in Section 5, we estimate the results using
+Equation 1, as specified in Section 4. The findings further confirm the observed contractions in demand,
+supply, and matching outcomes in the online labor market. Specifically, The results indicate a marginal
+decrease in the number of participating clients ( β1 = −0.1990, p < 0.01), active freelancers ( β1 = −0.1410,
+p < 0.01), and successful matches (β1 = −0.1020, p < 0.01) in the treatment submarkets relative to the control
+submarkets following the launch of ChatGPT. These additional analyses provide further support for the
+validity of our findings.
+Summary statistics for these additional variables are reported in Table W1. The corresponding estimation
+results, based on our empirical specification, are presented in Tables W2 and W3. These results provide addi-
+tional support for the robustness of our findings. Furthermore, the parallel trends assumption is supported
+for these variables, as illustrated in Figure W1.
+
+Liu et al.: “Generate” the Future of Work
+90 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Table W1 Variable Summary Statistics
+Variable Observation Mean Std Min Max
+ln(Clients + 1) 25,833 34.1596 53.2254 0 989
+ln(F reelancers + 1) 25,833 444.1588 968.2870 0 31,185
+ln(M atches+ 1) 25,833 5.7911 10.6712 0 195
+Table W2 Effects of Generative AI on Other Market Outcomes
+Clients F reelancers M atches
+(1) (2) (3)
+T reat ∗ P ost -0.1990*** -0.1410*** -0.1020***
+(0.0292) (0.0456) (0.0252)
+Constant 2.9120*** 5.1310*** 1.3190***
+(0.0093) (0.0146) (0.0081)
+Submarket FE Yes Yes Yes
+Year-Month FE Yes Yes Yes
+Observations 25,833 25,833 25,833
+R2 0.8990 0.8200 0.7860
+Robust standard errors in parentheses *** p < 0.01, ** p < 0.05, * p < 0.1
+Table W3 Effects of Generative AI on Other Market Outcomes
+Clients F reelancers M atches
+(1) (2) (3)
+T reat ∗ P ost -0.2070*** -0.1940*** -0.1010***
+(0.0317) (0.0495) (0.0278)
+T reat ∗ P ost ∗ P rogramming 0.0183 0.1170*** -0.0007
+(0.0210) (0.0325) (0.0216)
+Constant 2.9120*** 5.1310*** 1.3190***
+(0.0093) (0.0146) (0.0081)
+Submarket FE Yes Yes Yes
+Year-Month FE Yes Yes Yes
+Observations 25,833 25,833 25,833
+R2 0.8990 0.8200 0.7860
+Robust standard errors in parentheses *** p < 0.01, ** p < 0.05, * p < 0.1
+
+Liu et al.: “Generate” the Future of Work
+Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00 91
+(a) Clients
+(b) Freelancers
+(c) Matches
+Figure W1 Pretrends and Temporal Dynamics
+
+Liu et al.: “Generate” the Future of Work
+92 Article submitted to Information Systems Research ; manuscript no. ISRE-0000-0000.00
+Appendix X: Robustness Check - Removing Outliers
+Given that submarkets can vary significantly in size, one might question whether the estimates are dispro-
+portionately affected by the largest and the smallest submarkets. To address this concern, we first exclude
+the top 1% of submarkets, followed by the removal of submarkets with an average job post count of less
+than one. The re-estimated model results, as presented in Table X1 and X2, remain consistent with our main
+findings. This indicates that our conclusions are not driven by a few large submarkets.
+Table X1 The Impact of Generative AI after Excluding Outliers (Drop Top Submarkets)
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reat ∗ P ost -0.2220*** -0.1730*** -0.3180*** 0.1350***
+(0.0319) (0.0479) (0.0902) (0.0358)
+Constant 2.9890*** 5.3710*** 5.5800*** 2.0860***
+(0.0102) (0.0153) (0.0288) (0.0114)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 25,569 25,569 25,569 25,569
+R2 0.8840 0.8350 0.6030 0.5400
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.
+Table X2 The Impact of Generative AI after Excluding Outliers (Drop Bottom Submarkets)
+ln(y + 1)
+J obs Bids T ransaction Avg Bids job
+(1) (2) (3) (4)
+T reat ∗ P ost -0.2190*** -0.1600*** -0.2990*** 0.1370***
+(0.0339) (0.0480) (0.0960) (0.0348)
+Constant 3.0740*** 5.4950*** 5.7270*** 2.1150***
+(0.0110) (0.0155) (0.0310) (0.0112)
+Submarket FE Yes Yes Yes Yes
+Year-Month FE Yes Yes Yes Yes
+Observations 25,306 25,306 25,306 25,306
+R2 0.8820 0.8290 0.5890 0.5400
+Note: Cluster-robust standard errors are reported at the submarket level. *** p < 0.01, ** p < 0.05, * p < 0.1.

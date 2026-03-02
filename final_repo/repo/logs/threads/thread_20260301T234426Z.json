@@ -1,0 +1,37 @@
+{
+  "timestamp": "20260301T234426Z",
+  "query": "\u201cWhat arguments are made for Universal Basic Income as a response to AI-driven automation?\u201d",
+  "retrieved_chunks": [
+    {
+      "chunk_id": "tan_2025_chunk_000",
+      "source_id": "tan_2025",
+      "score": 0.7982049584388733,
+      "text": "Dr Tan Kwan Hong \n 1 \n Universal Basic Income in the Age of Automation: A Critical Exploration and Policy Framework  Dr Tan Kwan Hong Faculty, School of Business Singapore University of Social Sciences khtan055@suss.edu.sg  16 May 2025  Abstract  The increasing sophistication of artificial intelligence (AI) and automation technologies has precipitated significant debate regarding their potential to cause widespread job displacement. This paper critically examines the proposition that Universal Basic Income"
+    },
+    {
+      "chunk_id": "park_2025_chunk_112",
+      "source_id": "park_2025",
+      "score": 0.7856837511062622,
+      "text": "In this environment, Universal Basic \nIncome (UBI) warrants reconsideration not simply as a redistributive policy, but as an institutional \nmechanism capable of absorbing the impact of a volatile AI-driven economy. The empirical literature \non UBI from Section 2.3 outlines classical Keynesian, post-work, and ethical arguments for UBI, but \nthe implications of UBI in the era of agentic AI diverge from earlier automation debates in several \nimportant ways. \nFirst, UBI directly targets the variability and unp"
+    },
+    {
+      "chunk_id": "tan_2025_chunk_034",
+      "source_id": "tan_2025",
+      "score": 0.7785080671310425,
+      "text": "Analysis of Evidence For and Against Basic Income as a Solution to Automation-Induced Job Loss  This document outlines the critical analysis of evidence regarding the efficacy of basic income (BI) or universal basic income (UBI) as a response to job displacement caused by automation and artificial intelligence (AI).  Arguments Supporting Basic Income  1. Addressing Technological Unemployment:  o Evidence from sources like Subaveerapandiyan & Shimray (2024), Georgieff & Hyee (2022), and Wang & Lu (2025) indi"
+    },
+    {
+      "chunk_id": "park_2025_chunk_110",
+      "source_id": "park_2025",
+      "score": 0.7674230337142944,
+      "text": "lity in AI usage is both a current and future driver \nof economic fragility. As automation accelerates, disparities in access, confidence, and organisational \nvisibility threaten to create a divided labour market: one group capable of collaborating with AI ef-\nfectively and another structurally excluded from digital transformation. These dynamics directly mo-\ntivate the examination of Universal Basic Income in Section 4.3, not simply as a welfare policy but \nas a stabilising mechanism that buffers individua"
+    },
+    {
+      "chunk_id": "tan_2025_chunk_001",
+      "source_id": "tan_2025",
+      "score": 0.7548136711120605,
+      "text": "critically examines the proposition that Universal Basic Income (UBI) or other forms of guaranteed basic income (GBI) could serve as a comprehensive solution to the challenges posed by such technological unemployment. Through a synthesis of existing empirical evidence from BI/GBI pilot programs, qualitative analyses of automation's impact on labour markets, and quantitative data, a nuanced perspective is presented. It is argued that while basic income demonstrates considerable promise in alleviating poverty"
+    }
+  ],
+  "answer": "According to the provided context, the following arguments are made for Universal Basic Income as a response to AI-driven automation:\n\n1. Addressing Technological Unemployment: The evidence from sources like Subaveerapandiyan & Shimray (2024), Georgieff & Hyee (2022), and Wang & Lu (2025) indicates that UBI can address technological unemployment caused by AI usage, which is both a current and future driver of economic fragility. (tan_2025, tan_2025_chunk_034)\n2. Universal Basic Income as a stabilising mechanism: The examination of UBI in Section 4.3 is motivated by the need to buffer individuals from the negative impacts of AI-driven automation on the labour market, which threatens to create a divided labour market between those who can collaborate with AI effectively and those structurally excluded. (park_2025, park_2025_chunk_110)\n3. UBI as a comprehensive solution: The paper argues that UBI demonstrates considerable promise in alleviating poverty caused by technological unemployment, making it a potential comprehensive solution to the challenges posed by such automation. (tan_2025, tan_2025_chunk_001)"
+}

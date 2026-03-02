@@ -1,5 +1,6 @@
 import json
 import re
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List
@@ -7,11 +8,12 @@ from typing import Any, Dict, List
 import pandas as pd
 import streamlit as st
 
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
 from src.rag.retrieve import retrieve
 from src.rag.generate import generate
-
-
-REPO_ROOT = Path(__file__).resolve().parents[2]
 DATA_MANIFEST_PATH = REPO_ROOT / "data" / "data_manifest.csv"
 THREADS_DIR = REPO_ROOT / "logs" / "threads"
 OUTPUTS_DIR = REPO_ROOT / "outputs"

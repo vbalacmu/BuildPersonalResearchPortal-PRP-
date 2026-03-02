@@ -1,0 +1,1929 @@
+arXiv:2306.15509v2  [math.DS]  7 Jul 2023
+V ARIATIONAL PRINCIPLE FOR WEIGHTED
+AMENABLE TOPOLOGICAL PRESSURE
+JIAO YANG, ERCAI CHEN, RUI YANG* AND XIAOYI YANG
+Abstract. This paper aims to investigate the thermodynamic
+formalism of weighted amenable topological pressure for factor
+maps of amenable group actions. Following the approach of Tsukamo to
+[Ergodic Theory Dynam. Syst. 43(2023), 1004-1034.], we introduce
+the notion of weighted amenable topological pressure for factor
+maps of amenable group actions, and establish a variational prin-
+ciple for it. As the application of variational principle, we show
+weighted amenable measure-theoretic entropy can be determined
+by weighted amenable topological pressure. Equilibrium states of
+weighted topological pressure are also involved.
+1. Introduction
+For measure-preserving systems, measure-theoretic entropy of invari-
+ant measures was introduced by Kolmogorov [
+Kol58] and Sinal [ S59].
+The topological entropy was ﬁrst introduced by Adler, Konheim and
+McAndrew [
+AKM65] for topological dynamical system to capture the
+topological complexity of systems. The classical variational princip le
+[Goodw69, Din70, Goodm71, Mis75] provides the bridge between er-
+godic theory and topological dynamics:
+htop(X,T ) = sup
+µ ∈M (X,T )
+hµ (T ),
+wherehtop(X,T ),h µ (T ) and M(X,T ) respectively denote the topolog-
+ical entropy of X, the measure-theoretic entropy of µ, the set of T -
+invariant Borel probability measure on X. Inspired by statistical me-
+chanics, Ruelle [Rue73] introduced the notion of topological pressure for
+expansive topological dynamical systems. Later, Walters extend ed this
+notion to general dynamical systems and proved a variational prin ciple
+for topological pressure, which states that for any continuous f unction
+f on X
+P (T,f ) = sup
+µ ∈M (X,T )
+{hµ (T ) +
+∫
+fdµ },
+where P (T,f ) denotes the topological pressure of f . It turns out that
+topological pressure plays a vital role in dimension theory and becom es
+2020 Mathematics Subject Classiﬁcation : 37A05, 37A35, 37B40, 94A34.
+Key words and phrases : Weighted amenable topological pressure; Weighted
+amenable measure-theoretic entropy; Variational principle;Equilibr ium states
+*corresponding author
+1
+
+a fundamental tool in other ﬁelds of dynamical systems. Moreove r,
+topological pressure, the associated variational principle and equ ilib-
+rium measures are the hardcore part of thermodynamic formalism.
+Since then, looking for proper variational principles for topological
+entropy in terms of general group action has gained abundant att en-
+tions. Especially for (countable) amenable group actions, entropie s in
+both topological and measure-theoretical settings were given in [
+OP82,
+OW87]. The variational principle for amenable topological entropy was
+established in [ OP82, ST80, O85, KL16]. Later, Yan [ Y15] established
+conditional variational principle for amenable conditional entropy. The
+variational principles on compact subsets for amenable Bowen and
+packing topological entropies were established by the authors [
+ZC16,
+HLZ20], [ DZZ20], respectively. The authors [ HYZ11, LY12, DZ15] ob-
+tained the local variational principles for topological entropy of op en
+covers under amenable group actions. Besides, a Ledrappier’s typ e vari-
+ational principle for relative topological tail entropy for factor ma ps of
+amenable group actions was established by Zhang and Zhu [ ZZ23].
+In 2016, for Z-actions Feng and Huang posed the following question
+[FW16, Question 1.1]:
+Question: How can one deﬁne a meaningful term P (a1,a 2)(T,f ) such
+that the following variational principle holds?
+P (a1,a 2)(T,f ) = sup
+µ ∈M (X,T )
+{a1hµ (T ) +a2hπ ∗µ (S) +
+∫
+fdµ },
+whereπ is the factor map between the systems ( X,T ) and (Y,S ),a1,a 2
+are two real number with a1 > 0 and a2 ≥ 0. π∗µ is the push-forward
+of µ.
+For early exploration toward this question, the authors [ F11, BF12]
+deﬁned such a quantity P (a1,a 2)(T,f ) for relative and sub-additive ther-
+modynamic formalisms for factor maps between subshifts over ﬁnit e
+alphabets. Their method highly relies on certain special property
+of subshifts and fails to extend to general topological dynamical s ys-
+tems. Inspired by fractal geometry of self-aﬃne carpets and sp onges
+[
+Bed84, Mc84, KP96], Feng and Huang deﬁned the weighted topologi-
+cal pressure by means of Carath´ eodory-Pesin structures [Bow73, Pes97]
+and proved a variational principle for it [ FW16, Theorem 1.4]. The ran-
+dom case was considered by Yang et al. [ YCLZ22]. Later, Zhu [ Z22]
+introduced weighted topological entropy for a given open cover an d
+weighted measure-theoretic entropy of invariant measures for a given
+open cover. The two kinds of diﬀerent entropies are related by a loc al
+variational principle [ Z22, Theorem 2.9]. Moreover, Zhu showed the
+weighted topological entropy(taking supremum for the weighted t opo-
+logical entropy over open covers) coincides with the entropy deﬁn ed
+by Feng and Huang. Motivated by the study of mean Hausdorﬀ di-
+mension, a quantity introduced by Lindenstrauss and Tsukamoto b y
+2
+
+dynamicalizing the deﬁnition of Hausdorﬀ dimension[ LT19], of certain
+inﬁnite dimensional fractals [ Tsu22], Tsukamoto [ Tsu23] gave a new
+approach for weighted topological pressure Pω (π,T,f ) whose deﬁni-
+tion is analogous to the spanning sets for classical topological pres sure.
+Compared with [ FW16], Tsukamoto’s approach has more advantages
+in calculating, see [ Tsu23, Example 1.6]. Furthermore, Tsukamoto ver-
+iﬁed the equivalence of the two types of weighted topological entro py
+and established the following variational principle: for any 0 ≤ ω ≤ 1
+and f ∈ C(X, R)
+Pω (π,T,f ) = sup
+µ ∈M (X,T )
+{ωhµ (T ) + (1 − ω )hπ ∗µ (S) +ω
+∫
+fdµ }.
+The other topics involved weighted topological entropy can be foun d
+in [ ZCZZ18, WH19, SXZ20].
+An natural question is whether we can establish variational prin-
+ciple for weighted amenable topological pressure. To this end, we
+deﬁne so-called weighted amenable topological pressure by following
+Tsukamoto’s approach, and a variational principle is established for
+it. Analogous to the standard ampliﬁcation trick used in the classi-
+cal variational principle for topological entropy [
+Mis75], for Z-actions
+Tsukamoto vanished the “small quantity” by power property of weighted
+topological pressure. However, it may fail to obtain such power pr op-
+erty for amenable group action. Diﬀerent from the proof of [ Tsu23,
+Proposition 4.1], we overcome this diﬃculty by employing the local
+entropy theory of amenable group developed in [
+HYZ11, LY12, DZ15].
+We came up with this method inspired the work of Gutman and ´Spiewak
+[GS21] who have used local variational principle for metric mean di-
+mension. For the upper bound, we borrow the tool called the princip le
+extension of amenable group [ Dow11, DH13, Huc21] developed by Dow-
+narowicz and Huczek and reduce the proof to zero-dimensional ca se,
+then following some arguments[ Mis75, Tsu23] we produce a desired in-
+variant measure. Now, we state the main result of this paper as follo ws:
+Theorem 1.1. LetG be a countable, discrete amenable group. Suppose
+that π : X → Y is a factor map between two G-systems and f ∈
+C(X, R). Then for each 0 ≤ ω ≤ 1,
+Pω (π,f,G ) = sup
+µ ∈M (X,G )
+{
+ωhµ (G,X ) + (1 − ω )hπ ∗µ (G,Y ) +ω
+∫
+X
+fdµ
+}
+,
+wherePω (π,f,G ) denotes the ω -weighted amenable topological pressure
+of f .
+The rest of this paper is organized as follows. In section 2, we give
+the precise deﬁnition of weighted amenable topological pressure an d
+prepare some ingredients for the proof of Theorem 1.1. In section 3,
+we prove Theorem 1.1.
+3
+
+2. Preliminary
+2.1. Some backgrounds of amenable group. LetG be a countable
+discrete inﬁnite group and F (G) denote the set of all ﬁnite non-empty
+subsets of G. A group G is said to an amenable group if there exists
+{Fn}n≥ 1 ⊂ F (G) such that for any g ∈ G,
+lim
+n→∞
+|gFn△ Fn|
+|Fn| = 0,
+where |E|is counting measure ofE andgFn△ Fn = (gFn\Fn)∪ (Fn\gFn).
+Such sequence is called Følner sequence. For instances, all ﬁnite gr oups
+and Abelian groups, all ﬁnitely generated groups of subexponentia l
+growth are amenable group. A example of nonamenable groups is the
+free group of rank 2.
+Let K, Ω ∈ F (G). The K-boundary of Ω is
+∂K(Ω) = {g ∈ G :Kg ∩ Ω ̸= ∅ and Kg ∩ (G \Ω) ̸= ∅}.
+It is readily to show for any F φlner sequence of G, one has
+lim
+n→∞
+|∂K(Fn)|
+|Fn| = 0
+for any K ∈ F (G).
+A set function h : F (G) → R is
+(1) monotone if h(E) ≤ h(F ) for ∀E,F ∈ F (G) with E ⊂ F ;
+(2) G-invariant if h(Eg ) = h(E) for ∀g ∈ G, ∀E ∈ F (G);
+(3) sub-additive if h(E ∪ F ) ≤ h(E) +h(F ) for E,F ∈ F (G) with
+E ∩ F = ∅.
+The following well-known Ornstein-Weiss theorem plays a vital role in
+the deﬁnitions of some entropy-like quantities.
+Lemma 2.1. [
+OW87, Gro99, L W00] Let G be a countable amenable
+group. Let h : F (G) → R be a monotone G-invariant sub-additive set
+function. Then there exists λ ∈ [−∞ , ∞ )(only depending on G and h)
+so that
+lim
+n→∞
+h(Fn)
+|Fn| =λ
+for all Følner sequences {Fn}n≥ 1 of G.
+2.2. Weighted topological pressure. By a pair ( X,G ) we mean a
+G-system, where X is a compact metric space and Γ : G × X → X is
+a continuous mapping satisfying:
+(1) Γ(eG,x ) = x for every x ∈ X;
+(2) Γ(g1, Γ(g2,x ) = Γ(g1g2,x ) for every g1,g 2 ∈ G and x ∈ X.
+4
+
+We sometimes write gx := Γ(g,x ) when g is ﬁxed. From now on, the
+groupG is always assumed to be a countable discrete amenable group.
+Let (X,G ) and (Y,G ) be two G-systems. X is said to be a extension of
+Y (equivalently,Y is a factor ofX) if there exists a continuous surjective
+mappingπ :X → Y such that gπ (x) = π(gx) for all g ∈ G andx ∈ X.
+Let C(X, R) denote the Banach space consisting of all continuous
+functions on X endowed with supremum norm. Given E ∈ F (G), we
+set SEf (x) = ∑
+g∈Ef (gx). Let ( X,d ), (Y,d
+′
+) be two compact metric
+spaces and π : (X,G ) → (Y,G ) be the factor map between two G-
+systems. Put
+dE(x1,x 2) = max
+g∈E
+d(gx1,gx 2), d
+′
+E(y1,y 2) = max
+g∈E
+d
+′
+(gy1,gy 2)
+for any x1,x 2 ∈ X and y1,y 2 ∈ Y .
+Deﬁnition 2.2. Let π : (X,G ) → (Y,G ) be a factor map between
+two G-systems and f ∈ C(X, R). For ǫ >0, ω ∈ [0, 1], F ∈ F (G),
+∅ ̸= Ω ⊂ X, we deﬁne
+P (Ω,f,F,ǫ )
+= inf
+
+
+
+k∑
+i=1
+esupUiSFf :
+there exist open subsets U1, · · ·,U kof Xwith
+Ω ⊂ U1 ∪ · · · ∪Uk and diam(Ui,d F )<ǫ for
+all 1 ≤ i ≤ k
+
+
+ .
+and
+Pω (π,f,F,ǫ )
+= inf
+
+
+
+k∑
+i=1
+(P (π − 1(Vi),f,F,ǫ ))ω :
+Y =V1 ∪ · · · ∪Vk is an open
+cover with diam(Vi,d
+′
+F )<ǫ
+for all 1 ≤ i ≤ k
+
+
+ .
+It’s readily to check that F ∈ F (G) ↦→ logPω (π,f,F,ǫ ) is sub-
+additive. By Ornstein-Weiss theorem (see Lemma
+2.1), the limit
+lim
+n→∞
+logPω (π,f,F n,ǫ )
+|Fn|
+exists and is independent of the choice of Følner sequences {Fn}n≥ 1 of
+G.
+We deﬁne ω -weighted amenable topological pressure of f as
+Pω (π,f,G ) = lim
+ǫ→ 0
+lim
+n→∞
+logPω (π,f,F n,ǫ )
+|Fn| .
+Whenf = 0, we call hω
+top(π,G ) := Pω (π, 0,G ) theω -weighted amenable
+topological entropy of X. Since integral group Z is amenable group,
+so our deﬁnition is exactly a generalization of Tsukamoto’s weighted
+topological pressure[
+Tsu23]. Moreover, if Y is a singleton and ω = 1,
+5
+
+Pω (π,f,G ) is reduced to the amenable topological pressure (or en-
+tropy):
+P (f,G ) = lim
+ǫ→ 0
+lim
+n→∞
+logP (X,f,F n,ǫ )
+|Fn| ,
+htop(X,G ) = lim
+ǫ→ 0
+lim
+n→∞
+log #(X,F n,ǫ )
+|Fn| ,
+where #(X,F,ǫ ) = P (X, 0,F,ǫ ).
+2.3. Measure-theoretical entropy of amenable group. To prove
+the lower bound of Theorem 1.1, in this subsection, we collect some
+ingredients concerning measure-theoretic entropy of amenable g roup
+deﬁned by open covers and partitions.
+Denote by M(X),M(X,G ) and E(X,G ) the sets of all Borel proba-
+bility measures on X endowed with the weak*-topology, all G-invariant
+Borel probability measures on X and all G-invariant ergodic Borel
+probability measures on X, respectively. The amenability of G en-
+sures that E(X,G ) ̸= ∅ and M(X,G ) is a compact convex subset of
+M(X).
+Let PX denote the set of all ﬁnite Borel partitions on X. For α,β ∈
+PX , the join of α and β is α ∨ β = {A ∩ B : A ∈ α, B ∈ β }. Given
+F ∈ F (G), we set αF = ∨g∈Fg− 1α , where g− 1α = {g− 1A : A ∈ α }.
+One says that α reﬁnes β , denoted by α ≻ β , if for every A ∈ α
+there exists B ∈ β such that A ⊂ B. Given µ ∈ M(X,G ), recall that
+the partition entropy of α , and the condition entropy of α w.r.t β are
+respectively given by
+Hµ (α ) = −
+∑
+A∈α
+µ(A) logµ(A).
+Hµ (α |β ) = −
+∑
+B∈β
+µ(B)
+∑
+A∈α
+µB(A) logµB(A),
+where µB(·) = µ (·∩B)
+µ (B) is the conditional measure deﬁned on B, and we
+use the convention that 0 ·log 0 = 0.
+The measure-theoreticµ-entropy of α is deﬁned by
+hµ (G,α ) = lim
+n→∞
+1
+|Fn|Hµ (αFn),
+where the limit exists since Hµ (αF ) is sub-additive in F . The measure-
+theoreticµ-entropy of (X,G ) is given by
+hµ (G,X ) = sup
+α ∈P X
+hµ (G,α ).
+Next, we recall the equivalent deﬁnition of measure-theoretic ent ropy
+deﬁned by open covers. Let Co
+X denote the set of all ﬁnite open covers
+of X. The Lebesgue number of U, denoted by Leb( U), is the largest
+6
+
+positive numberδ >0 such that every open ball of radius δ is contained
+in some element of U. Given µ ∈ M(X,G ) and U ∈ C o
+X , set
+Hµ (U) = inf
+α ∈P X,α ⪰U
+Hµ (α ).
+SinceHµ (UF ) is sub-additive in F , then we deﬁne the measure-theoretic
+µ-entropy of U as
+hµ (G, U) = lim
+n→∞
+1
+|Fn|Hµ (UFn).
+Huang and Ye [ HYZ11, Theorem 3.5] proved that for all µ ∈ M(X,G )
+hµ (G,X ) = sup
+U ∈C o
+X
+hµ (G, U).
+Using above fact, one can easily get the following:
+Lemma 2.3. Let (X,G ) be a G-system. Then for every µ ∈ M(X,G ),
+hµ (G,X ) = lim
+diamU → 0
+hµ (G, U).
+2.4. Zero-dimensional extensions of amenable group actions.
+In this subsection, we recall the theory of principle extension of am enable
+group [
+Dow11, DH13, Huc21], which is used to prove the upper bound
+of Theorem 1.1.
+Let π : (X,G ) → (Y,G ) be a factor map and µ ∈ M(X,G ). For
+α,β ∈ P X, we deﬁne
+hµ (G,α |β ) = lim
+n→∞
+1
+|Fn|Hµ (αFn|βFn).
+Everyβ ∈ P Y can be lifted to a partition of X via π. Put
+hµ (G,α |Y ) = inf
+β ∈P Y
+h(µ,α |π − 1(β )).
+The conditional measure-theoretic entropy of µ w.r.t. π is deﬁned by
+hµ (G,X |Y ) = sup
+α ∈P X
+hµ (G,α |Y ).
+Deﬁnition 2.4. [Huc21, Deﬁnition 2.8] The system (X,G ) is a prin-
+ciple extension of (Y,G ) via the factor map π if hµ (G,X |Y ) = 0 for
+every µ ∈ M(X,G ).
+As a direct consequence of Deﬁnition 2.4, the measure-theoretic en-
+tropy is preserved under principle extension.
+Theorem 2.5. Letπ : (X,G ) → (Y,G ) be a principle factor extension
+of (Y,G ). Then
+hµ (G,X ) = hπ ∗µ (G,Y )
+for every µ ∈ M(X,G ).
+Proof. It is clear that if hπ ∗µ (G,Y ) = ∞ . If hπ ∗µ (G,Y )< ∞ , one can
+show that hµ (G,X |Y ) = hµ (G,X ) − hπ ∗µ (G,Y ). This implies that
+desired result. □
+7
+
+As mentioned above,hµ (G,X |Y ) = hµ (G,X )−hπ ∗µ (G,Y ) ifhπ ∗µ (G,Y )<
+∞ . This allows us to extend [ Dow11, Corollary 6.8.9] to the following:
+Theorem 2.6. Let (Y,G ) be aG-system with ﬁnite topological entropy.
+Then (X,G ) is a principle extension of (Y,G ) via the factor map π if
+and only if hµ (G,X ) = hπ ∗µ (G,Y ) for every µ ∈ M(X,G ).
+To verify that π is principle factor, sometimes it is more convenient
+to show the conditional entropy htop(G,X |Y ) = 0 rather than checking
+the condition hµ (G,X ) = hπ ∗µ (G,Y ).
+Recall that the topological conditional entropy ofπ [Y15] is given by
+htop(G,X |Y ) = lim
+ǫ→ 0
+lim
+n→∞
+supy∈Y log #(π − 1(y),F n,ǫ )
+|Fn| ,
+where inner limit exists since sup y∈Y log #(π − 1(y),F,ǫ ) is sub-additive
+in F .
+Theorem 2.7. Let (Y,G ) be aG-system with ﬁnite topological entropy.
+Then (X,G ) is a principle extension of (Y,G ) via the factor map π if
+and only if htop(G,X |Y ) = 0 .
+Proof. By Theorem 2.6, it suﬃces to show
+htop(G,X |Y ) = sup
+µ ∈M (X,G )
+{hµ (G,X ) − hπ ∗µ (G,Y )}.
+By [ Y15, Theorem 5.9, Corollary 5.15], one has
+htop(G,X |Y ) = sup
+ν∈M (Y,G )
+sup
+µ ∈M (X,G ),π ∗µ =ν
+{hµ (G,X ) − hv(G,Y )}.
+Using the fact π∗(M(X,G )) = M(Y,G ), see [Appenix, Theorem A],
+one can get the desired result. □
+A compact metrizable space is said to be zero-dimensional if clopen
+subsets form an open basis of the topology. The following powerful tool
+developed by Huczek [ Huc21, Theorem 3.2] says that any G-system
+admits a zero-dimensional principle extension.
+Theorem 2.8. Let (Y,G ) be a G-system. Then there exists a zero-
+dimensional compact metric space X such that (X,G ) is a principle
+extension of (Y,G ).
+3. Proofs of main result
+In this section, we divide the proof of Theorem
+1.1 into two parts.
+3.1. Proof of lower bound.
+Lemma 3.1. Letp1, · · ·,p n be non-negative numbers with ∑n
+i=1pi = 1.
+Then for any real numbers x1, · · ·,x n,
+n∑
+i=1
+(−pi logpi +pixi) ≤ log
+n∑
+i=1
+exi.
+8
+
+Proof of lower bound. Fix 0 ≤ ω ≤ 1. It suﬃces to show for every
+µ ∈ M(X,G ),
+ωhµ (G,X ) + (1 − ω )hπ ∗µ (G,Y ) +ω
+∫
+X
+fdµ ≤ Pω (π,f,G ).
+Fix µ ∈ M(X,G ) and let ǫ > 0. Since compact metric spaces X
+and Y admits the ﬁnite ǫ
+4-nets, one can choose an open cover U ∈ C o
+X
+with diam( U,d ) ≤ ǫ, Leb( U) ≥ ǫ
+4, and an open cover V ∈ C o
+Y with
+diam(V,d
+′
+) ≤ ǫ, Leb( V) ≥ ǫ
+4. Assume that α ∈ P X with α ⪰ U Fn,
+β ∈ P Y with β ⪰ VFn. Let {Fn}n≥ 1 be a Følner sequence of G. One
+has
+ωHµ (UFn) + (1 − ω )Hπ ∗µ (VFn) +ω
+∫
+X
+SFnfdµ
+≤ωHµ (α ) + (1 − ω )Hπ ∗µ (β ) +ω
+∫
+X
+SFnfdµ
+=Hπ ∗µ (β ) +ω (Hµ (α ) − Hπ ∗µ (β )) +ω
+∫
+X
+SFnfdµ
+≤Hπ ∗µ (β ) +ωHµ (α |π − 1β ) +ω
+∫
+X
+SFnfdµ.
+(3·1)
+For every B ∈ β , we set
+αB = {A ∈ α :A ∩ π − 1(B) ̸= ∅}.
+Then π − 1(B) = ∪A∈α B (A ∩ π − 1(B)). Notice that
+∫
+X
+SFnfdµ =
+∑
+B∈β
+∫
+π − 1(B)
+SFnfdµ
+=
+∑
+B∈β
+∑
+A∈α B
+∫
+A∩π − 1(B)
+SFnfdµ
+≤
+∑
+B∈β
+∑
+A∈α B
+µ(A ∩ π − 1(B)) sup
+x∈A∩π − 1(B)
+SFnf (x)
+=
+∑
+B∈β
+µ(π − 1(B))
+∑
+A∈α B
+µ(A ∩ π − 1(B))
+µ(π − 1(B)) sup
+x∈A∩π − 1(B)
+SFnf (x),
+(3·2)
+and
+Hµ (α |π − 1β ) = −
+∑
+B∈β
+µ(π − 1(B))
+∑
+A∈α
+µ(A ∩ π − 1(B))
+µ(π − 1(B)) logµ(A ∩ π − 1(B))
+µ(π − 1(B))
+= −
+∑
+B∈β
+µ(π − 1(B))
+∑
+A∈α B
+µ(A ∩ π − 1(B))
+µ(π − 1(B)) logµ(A ∩ π − 1(B))
+µ(π − 1(B)) .
+(3·3)
+9
+
+Hence, we get
+Hµ (α |π − 1β ) +
+∫
+X
+SFnfdµ
+≤
+∑
+B∈β
+µ(π − 1(B))
+{ ∑
+A∈α B
+µ(A ∩ π − 1(B))
+µ(π − 1(B)) (− logµ(A ∩ π − 1(B))
+µ(π − 1(B)) + sup
+x∈A∩π − 1(B)
+SFnf (x))
+}
+≤
+∑
+B∈β
+π∗µ(B) log
+∑
+A∈α B
+esupx∈ A∩ π− 1(B)SFnf (x), by Lemma 3.1.
+(3·4)
+This implies that
+Hπ ∗µ (β ) +ωHµ (α |π − 1β ) +ω
+∫
+X
+SFnfdµ
+≤ −
+∑
+B∈β
+π∗µ(B) logπ∗µ(B) +
+∑
+B∈β
+π∗µ(B) log(
+∑
+A∈α B
+esupx∈ A∩ π− 1(B)SFnf (x))ω
+≤ log
+∑
+B∈β
+(
+∑
+A∈α B
+esupx∈ A∩ π− 1(B)SFnf (x))ω, by Lemma 3.1 again.
+(3·5)
+Taking inﬁmums on α , β for ( 3·1),
+ωHµ (UFn) + (1 − ω )Hπ ∗µ (VFn) +ω
+∫
+X
+SFnfdµ
+≤ log inf
+α∈P X ,α⪰U Fn ,
+β∈P Y ,β⪰VFn .
+{
+∑
+B∈β
+(
+∑
+A∈α B
+esupx∈ A∩ π− 1(B)SFnf (x))ω }
+≤ log inf
+α∈P X ,α⪰U Fn ,
+β∈P Y ,β⪰VFn ,α⪰π− 1β.
+{
+∑
+B∈β
+(
+∑
+A∈α B
+esupx∈ A∩ π− 1(B)SFnf (x))ω }.
+(3·6)
+Let γ >0. There exists V0 = {Vi}k
+i=1 ∈ C o
+Y with diam( V0,d
+′
+Fn) < ǫ
+8
+such that
+k∑
+i=1
+(P (π − 1(Vi),f,F n, ǫ
+8))ω <P ω (π,f,F n, ǫ
+8 ) + γ
+2.(3·7)
+LetB1 =V1,Bi =Vi \ ∪i− 1
+t=1Vt fori = 2, · · ·,k . Then β = {Bi}k
+i=1 ∈ P Y
+with diam(β,d
+′
+Fn)< ǫ
+8. Since Leb( V)> ǫ
+4, we have β ⪰ VFn and
+k∑
+i=1
+(P (π − 1(Bi),f,F n, ǫ
+8 ))ω ≤
+k∑
+i=1
+(P (π − 1(Vi),f,F n, ǫ
+8))ω
+<
+k∑
+i=1
+(P (π − 1(Vi),f,F n, ǫ
+8))ω + γ
+2.
+(3·8)
+10
+
+So there exists θ >0 such that
+k∑
+i=1
+(P (π − 1(Bi),f,F n, ǫ
+8) +θ)ω <P ω (π,f,F n, ǫ
+8 ) +γ.(3·9)
+For each i ∈ { 1, · · ·,k }, we can choose open cover Ui = {Ui
+j }mi
+j=1 of X
+with diam( Ui,d Fn)< ǫ
+8 so that
+π − 1(Bi) ⊂ Ui
+1 ∪ · · · ∪Ui
+mi
+and
+mi∑
+j=1
+e
+supU i
+j
+SFnf
+<P (π − 1(Bi),f,F n, ǫ
+8 ) +θ.(3·10)
+SetAi
+1 =Ui
+1 ∩π − 1(Bi),Ai
+j = (Ui
+j \ ∪j− 1
+t=1Ui
+t ) ∩π − 1(Bi) for j = 2, · · ·,m i.
+Then for every 1 ≤ i ≤ k, αi = {Ai
+j}mi
+j=1 is a ﬁnite partition of π − 1(Bi)
+with diam(αi,d Fn)< ǫ
+8. Since Leb( U)> ǫ
+4 , we have αi ⪰ UFn and
+mi∑
+j=1
+e
+supAi
+j
+SFnf
+≤
+mi∑
+j=1
+e
+supU i
+j
+SFnf
+(3·11)
+Thus, by inequalities (
+3·9), ( 3·10), ( 3·11), we get
+k∑
+i=1
+(
+mi∑
+j=1
+e
+supAi
+j
+SFnf
+)ω <P ω (π,f,F n, ǫ8) +γ(3·12)
+Put α = {Ai
+j :j = 1, · · ·,m i,i = 1, · · ·,k } ∈ P X . Then α ⪰ UFn and
+α ⪰π − 1β . It follows from inequality (
+3·6) that
+ωHµ (UFn) + (1 − ω )Hπ ∗µ (VFn) +ω
+∫
+X
+SFnfdµ ≤ log(Pω (π,f,F n, ǫ
+8 ).
+(3·13)
+by letting γ → 0. Noticing that
+∫
+XSFnfdµ = |Fn|f and then dividing
+|Fn| in both side of the inequality ( 3·13), we have
+ωhµ (G, U) + (1 − ω )hπ ∗µ (G, U) +ω
+∫
+X
+fdµ ≤ lim
+n→∞
+log(Pω (π,f,F n, ǫ
+8))
+|Fn| .
+Since ǫ> 0 is arbitrary, by Lemma 2.3 we get desired result.
+□
+3.2. Proof of upper bound. In this subsection, we are devoted to
+proving converse inequality
+Pω (π,f,G ) ≤ sup
+µ ∈M (X,G )
+{ωhµ (G,X ) + (1 − ω )hπµ (G,Y ) +ω
+∫
+X
+fdµ }
+:=Pω
+var(π,f,G ).
+The next several lemmas majors the relations of weighted amenable
+topological pressure in terms of diﬀerent factor maps.
+11
+
+Lemma 3.2. Let π : (X,G ) → (Y,G ),ϕ : (X
+′
+,G ) → (X,G ) be two
+factor maps between G-systems. Let f ∈ C(X, R).
+(X ′,G )
+ϕ →→
+π ◦ϕ
+↘↘❏❏❏❏❏❏❏❏❏ (X,G )
+π
+↓↓
+(Y,G )
+Then for each 0 ≤ ω ≤ 1,
+Pω (π,f,G ) ≤ Pω (π ◦ϕ,f ◦ϕ,G ).
+Proof. Let ˜d be a metric on X
+′
+. Let {Fn}n≥ 1 be a Følner sequence of
+G. For any ǫ> 0, there exists 0 <δ <ǫ such that for any x1,x 2 ∈ X
+′
+,
+one has
+˜d(x1,x 2)<δ =⇒ d(ϕ (x1),ϕ (x2))<ǫ.
+Then for every F ∈ F (G),
+˜dF (x1,x 2)<δ =⇒ dF (ϕ (x1),ϕ (x2))<ǫ.
+This implies that for any Ω ⊂ X
+′
+,
+P (ϕ (Ω),f,F n,ǫ ) ≤ P (Ω,f ◦ϕ,F n,δ ).
+Notice that for any V ⊂ Y , ϕ ((π ◦ϕ )− 1(V )) = π − 1(V ). Therefore,
+P (π − 1(V ),f,F n,ǫ ) ≤ P ((π ◦ϕ )− 1(V ),f ◦ϕ,F n,δ ).
+Let V = {V1, · · ·,V k} be an open cover of Y with diam( V,d
+′
+Fn) < δ.
+Then
+Pω (π,f,F n,ǫ ) ≤
+k∑
+i=1
+(P (π − 1(Vi),f,F n,ǫ ))ω
+≤
+k∑
+i=1
+P ((π ◦ϕ )− 1(Vi),f ◦ϕ,F n,δ )ω,
+which implies that
+Pω (π,f,F n,ǫ ) ≤ Pω (π ◦ϕ,f ◦ϕ,F n,δ ).
+This completes the proof.
+□
+Lemma 3.3. Let π : (X,G ) → (Y,G ),φ : (Y
+′
+,G ) → (Y,G ) be two
+factor maps between G-systems. Deﬁne the ﬁber product
+X × Y Y
+′
+= {(x,y ) ∈ X × Y
+′
+:π(x) = φ(y)},
+and (X × Y Y
+′
+,G ) is a G-system deﬁned by g(x,y ) = ( gx,gy ). We
+deﬁne factor maps: ϕ :X × Y Y
+′
+→ X and Π : X × Y Y
+′
+→ Y
+′
+by
+ϕ (x,y ) = x, Π(x,y ) = y.
+12
+
+(X × Y Y ′,G )
+ϕ →→
+Π
+↓↓
+(X,G )
+π
+↓↓
+(Y ′,G )
+φ →→ (Y,G )
+Then for every f ∈ C(X, R),
+Pω (π,f,G ) ≤ Pω (Π,f ◦ϕ,G ).
+Proof. Let ˜d be a metric on Y
+′
+. We deﬁne a metric ρ on X × Y Y
+′
+by
+ρ((x1,y 1), (x2,y 2)) = max {d(x1,x 2), ˜d(y1,y 2)}.
+Then
+ρ((x1,y 1), (x2,y 2))<ǫ =⇒ d(x1,x 2)<ǫ.
+Let {Fn}n≥ 1 be a Følner sequence of G and Ω ⊂ X × Y Y
+′
+. We have
+P (ϕ (Ω),f,F n,ǫ ) ≤ P (Ω,f ◦ϕ,F n,ǫ ).
+For each A ⊂ Y
+′
+, π − 1(φ(A)) = ϕ (Π− 1(A)). It follows that
+P (π − 1(φ(A)),f,F n,ǫ ) = P (ϕ (Π− 1(A)),f,F n,ǫ )(3·14)
+≤ P (Π− 1(A),f ◦ϕ,F n,ǫ ).
+Choose 0 <δ <ǫ such that for any y1,y 2 ∈ Y
+′
+satisfying
+˜d(y1,y 2)<δ =⇒ d
+′
+(φ(y1),φ (y2))<ǫ.
+Then by ( 3·14)
+P (π − 1(φ(A)),f,F n,ǫ ) ≤ P (Π− 1(A),f ◦ϕ,F n,δ ).(3·15)
+Let s > Pω (Π,f ◦ϕ,F n,δ ). Then there exists an open cover Y
+′
+=
+V1 ∪ · · · ∪Vk satisfying diam(Vi, ˜dFn)<δ for each 1 ≤ i ≤ k and
+k∑
+i=1
+(Π− 1(Vi),f ◦ϕ,F n,δ )ω <s.
+We can take compact subset Ai ⊂ Vi so that Y
+′
+=A1 ∪ · · · ∪Ak. Then
+k∑
+i=1
+(π − 1(φ(Ai)),f,F n,ǫ )ω ≤
+k∑
+i=1
+(Π− 1(Ai),f ◦ϕ,F n,δ )ω
+≤
+k∑
+i=1
+(Π− 1(Vi),f ◦ϕ,F n,δ )ω <s.
+Eachφ(Ai) is a closed subset of Y (since Y is a Hausdorﬀ space) with
+diam(φ(Ai),d
+′
+Fn)<ǫ . Then there exist open subsets Wi ⊃ φ(Ai) of Y
+for 1 ≤ i ≤ k such that diam(Wi,d
+′
+Fn) ≤ ǫ and ∑k
+i=1(π − 1(Wi),f,F n,ǫ )ω <
+s. This shows that Pω (π,f,F n,ǫ )<s. Letting s → Pω (Π,f ◦ϕ,F n,δ )
+and then dividing |Fn|, we get
+Pω (π,f,G ) ≤ Pω (Π,f ◦ϕ,G ).
+13
+
+□
+Lemma 3.4. Under the setting of Lemma 3.3, suppose thathtop(X,G )<
+∞ . if φ :Y
+′
+→ Y is a principal factor map,
+(X × Y Y ′,G )
+ϕ →→
+Π
+↓↓
+(X,G )
+π
+↓↓
+(Y ′,G )
+φ :principal→→ (Y,G )
+then ϕ is also a principal factor map.
+Proof. Let {Fn}n≥ 1 be a Følner sequence of G. For each x ∈ X and
+n ∈ N, clearly Π is an isometric mapping between ( ϕ − 1(x),ρ Fn) and
+(φ − 1(π(x), ˜dFn). This shows for any ǫ> 0,
+#(ϕ − 1(x),F n,ǫ ) = #(φ − 1(π(x)),F n,ǫ ).
+Notice that sup x∈X #(φ − 1(π(x)),F n,ǫ ) = supy∈Y #(φ − 1(y),F n,ǫ ). So
+sup
+x∈X
+#(ϕ − 1(x),F n,ǫ ) = sup
+y∈Y
+#(φ − 1(y),F n,ǫ ).
+Sinceφ is a principal map andhtop(G,Y )< ∞ , we know thathtop(G,X × Y
+Y
+′
+|X) = 0 by Theorem 2.7. So ϕ is principal by using Theorem 2.7
+again.
+□
+Lemma 3.5. Let π : (X,G ) → (Y,G ) be a factor map between two
+G-systems, htop(X,G ) < ∞ and let f ∈ C(X, R). Then there exist
+G-systems (X
+′
+,G ), (Y
+′
+,G ) with the factor map π
+′
+: (X
+′
+,G ) → (Y
+′
+,G )
+and f
+′
+∈ C(X
+′
+, R) so that
+(1) Both X
+′
+and Y
+′
+are zero dimensional;
+(2) For each 0 ≤ ω ≤ 1, one has
+Pω (π,f,G ) ≤ Pω (π
+′
+,f
+′
+,G )
+and
+Pω
+var(π
+′
+,f
+′
+,G ) ≤ Pω
+var(π,f,G ).
+Proof. By Theorem 2.8, there exists a zero-dimensional principal exten-
+sion via factor map φ : (Y
+′
+,G ) → (Y,G ). We deﬁne the ﬁber product
+X × Y Y
+′
+, the projections ϕ :X × Y Y
+′
+→ X and Π : X × Y Y
+′
+→ Y
+′
+as
+Lemma 3.3.
+(X × Y Y ′,G )
+ϕ →→
+Π
+↓↓
+(X,G )
+π
+↓↓
+(Y ′,G )
+φ :principal→→ (Y,G )
+Then ϕ is a principal factor map by Lemma 3.4.
+14
+
+By Lemma 3.3, for any 0 <ω < 1
+Pω (π,f,G ) ≤ Pω (Π,f ◦ϕ,G ).(3·16)
+Then by Theorem 2.5, for every µ ∈ M(X × Y Y
+′
+,G ),
+hµ (G,X × Y Y
+′
+) = hϕ ∗µ (X,G )
+and
+hΠ∗µ (G,Y
+′
+) = hφ ∗ (Π∗µ )(G,Y ) = hπ ∗ (ϕ ∗µ )(G,Y ).
+Then
+Pω
+var(Π,f ◦ϕ,G )
+= sup{ωhµ (G,X × Y Y
+′
+) + (1 − ω )hΠ∗µ (G,Y
+′
+)
++ω
+∫
+X× YY ′
+f ◦ϕdµ :µ ∈ M(X × Y Y
+′
+,G )}
+= sup{ωhϕ ∗µ (G,X ) + (1 − ω )hπ ∗ (ϕ ∗µ )(G,Y )
++ω
+∫
+X
+fdϕ ∗µ :µ ∈ M(X × Y Y
+′
+,G )}
+≤Pω
+var(π,f,G ).
+(3·17)
+Applying Theorem 2.8 again to the system ( X × Y Y
+′
+,G ), we get
+a zero-dimension principal extension via factor map ψ : (X
+′
+,G ) →
+(X × Y Y
+′
+,G ).
+(X ′,G )
+ψ →→
+Π◦ψ →→❖❖❖❖❖❖❖❖❖❖❖ (X × Y Y ′,G )
+ϕ →→
+Π
+↓↓
+(X,G )
+π
+↓↓
+(Y ′,G )
+φ →→ (Y,G )
+By Lemma 3.2,
+Pω (Π,f ◦ϕ,G ) ≤ Pω (Π ◦ψ,f ◦ϕ ◦ψ,G ).(3·18)
+Moreover, we have
+Pω
+var(Π ◦ψ,f ◦ϕ ◦ψ,G )
+= sup{ωhµ (G,X
+′
+) + (1 − ω )hΠ∗ (ψ ∗µ )(G,Y
+′
+)
++ω
+∫
+X ′
+f ◦ϕ ◦ψdµ :µ ∈ M(X
+′
+,G )}
+= sup{ωhψ ∗µ (G,X × Y Y
+′
+) + (1 − ω )hΠ∗ (ψ ∗µ )(G,Y
+′
+)
++ω
+∫
+X× YY ′
+f ◦ϕdψ ∗µ :µ ∈ M(X
+′
+,G )}
+≤Pω
+var(Π,f ◦ϕ,G ).
+(3·19)
+It follows from ( 3·16), ( 3·18) that
+Pω (π,f,G ) ≤ Pω (Π ◦ψ,f ◦ϕ ◦ψ,G )
+15
+
+and ( 3·17), ( 3·19) that
+Pω
+var(Π ◦ψ,f ◦ϕ ◦ψ,G ) ≤ Pω
+var(π,f,G ).
+Then π
+′
+= Π ◦ψ : (X
+′
+,G ) → (Y
+′
+,G ) and f
+′
+=f ◦ϕ ◦ψ :X
+′
+→ R are
+what we need.
+□
+If htop(X,G ) = ∞ , then the maximal entropy measure of X is not
+empty (i.e. there exists µ ∈ M(X,G ) so that hµ (G,X ) = ∞ ) by
+variational principle for topological entropy[ KL16, Theorem 9.48]). In
+this case,
+Pω (π,f,G ) ≤ Pω
+var(π,f,G ) = ∞
+naturally holds. Hence we only need to show
+Pω (π,f,G ) ≤ sup
+µ ∈M (X,G )
+{ωhµ (G,X ) + (1 − ω )hπµ (G,Y ) +ω
+∫
+X
+fdµ }.
+for the case htop(X,G ) < ∞ . However, by Lemma 3.5 the proof is
+reduced to the zero dimensional case.
+Proposition 3.6. Let π : (X,G ) → (Y,G ) be the factor map between
+two zero dimensional G-systems. Let f ∈ C(X, R). Then for each
+0 ≤ ω ≤ 1,
+Pω (π,f,G ) ≤ Pω
+var(π,f,G ).
+Proof. We show that for eachǫ> 0 there exists µ ∈ M(X,G ) satisfying
+lim
+n→∞
+logPω (π,f,F n,ǫ )
+|Fn| ≤ ωhµ (G,X ) + (1 − ω )hπ ∗µ (G,Y ) +ω
+∫
+X
+fdµ.
+Let Y = A1 ∪ · · · ∪Aα be a clopen partition with diam( Aa,d
+′
+) < ǫ
+for all 1 ≤ a ≤ α . From dim X = 0, for each 1 ≤ a ≤ α , we can choose
+a clopen partition so that
+π − 1(Aa) = ∪β a
+b=1Bab
+with diam(Bab,d ) < ǫfor all 1 ≤ b ≤ βa. Set A = {A1, · · ·,A α } and
+B = {Bab : 1 ≤ a ≤ α, 1 ≤ b ≤ βa}. Then B ≻ π − 1(A).
+Let {Fn}n≥ 1 be a Følner sequence of G. For each n ≥ 1, BFn ≻
+π − 1(AFn). For ∅ ̸=A ∈ A Fn, put
+BFn
+A := {B ∈ B Fn :B∩π − 1(A) ̸= ∅} = {B ∈ B Fn :B ⊂ π − 1(A),B ̸= ∅}.
+Namely,π − 1(A) = ∪B∈B Fn
+A
+B. We set
+ZFn,A =
+∑
+B∈B Fn
+A
+esupBSFnf
+and
+ZFn =
+∑
+∅̸=A∈A Fn
+(ZFn,A )ω.
+16
+
+This shows that Pω (π,f,F n,ǫ ) ≤ ZFn. For each ∅ ̸ = B ∈ B Fn, by
+AFn(B) we denote the unique element of AFn containing π(B). Then
+for each ∅ ̸ = A ∈ A Fn, AFn(B) = A for all B ∈ B Fn
+A . For each
+∅ ̸ = B ∈ B Fn, noticing that B is closed, we take a point xB ∈ B
+satisfying SFnf (xB) = sup x∈BSFnf (x). Deﬁne a probability measure
+on X by
+δn = 1
+ZFn
+∑
+B∈B Fn
+(ZFn, AFn (B))ω − 1eSFnf (xB ) ·δxB
+= 1
+ZFn
+∑
+A∈A Fn
+∑
+B∈B Fn
+A
+(ZFn,A )ω − 1eSFnf (xB ) ·δxB,
+where δx is the delta probability measure at the point x. We set
+µn = 1
+|Fn|
+∑
+g∈Fn
+δn ◦g− 1.
+Without loss of generality, we assume that µn → µ ∈ M(X,G ) in the
+weak* topology. Next, we show
+lim
+n→∞
+logZFn
+|Fn| ≤ ωhµ (G,X ) + (1 − ω )hπ ∗µ (G,Y ) +ω
+∫
+X
+fdµ.
+Claim 3.7.
+ωHδn(BFn) + (1 − ω )Hπ ∗δn(AFn) +ω
+∫
+X
+SFnfdδn = logZFn.
+Proof of Claim 3.7. Since
+π∗δn = 1
+ZFn
+∑
+B∈B Fn
+(ZFn, AFn (B))ω − 1eSFnf (xB ) ·δπ (xB ),
+then for each ∅ ̸=A ∈ A Fn,
+π∗δn(A) = 1
+ZFn
+∑
+B∈B Fn
+(ZFn, AFn (B))ω − 1eSFnf (xB )
+= 1
+ZFn
+(ZFn,A )ω.
+Then
+Hπ ∗δn(AFn) = log ZFn − ω
+∑
+A∈A Fn
+(ZFn,A )ω
+ZFn
+logZFn,A.(3·20)
+For each ∅ ̸=B ∈ B Fn,
+δn(B) = (ZFn, AFn (B))ω − 1
+ZFn
+eSFnf (xB )
+17
+
+Then
+Hδn(BFn) = −
+∑
+B∈B Fn
+(ZFn, AFn (B))ω − 1
+ZFn
+eSFnf (xB ) ·log (ZFn, AFn (B))ω
+ZFn
+eSFnf (xB )
+= logZFn
+ZFn
+∑
+B∈B Fn
+(ZFn, AFn (B))ω − 1eSFnf (xB )
+  
+(I)
+− ω − 1
+ZFn
+∑
+B∈B Fn
+(ZFn, AFn (B))ω − 1eSFnf (xB ) logZFn, AFn (B)
+  
+(II )
+−
+∑
+B∈B Fn
+(ZFn, AFn (B))ω − 1
+ZFn
+eSFnf (xB )SFnf (xB)
+  
+(III )
+For the term (I),
+(I) =
+∑
+A∈A Fn
+∑
+B∈B Fn
+A
+(ZFn, AFn (B))ω − 1eSFnf (xB )
+=
+∑
+A∈A Fn
+(ZFn,A )ω − 1ZFn,A
+=ZFn.
+For the term (II ),
+(II ) =
+∑
+A∈A Fn
+∑
+B∈B Fn
+A
+(ZFn,A )ω − 1eSFnf (xB ) logZFn,A
+=
+∑
+A∈A Fn
+(ZFn,A )ω logZFn,A.
+For the term (III ),
+∫
+X
+SFnfdδn = 1
+ZFn
+∑
+B∈B Fn
+(ZFn, AFn (B))ω − 1eSFnf (xB )SFnf (xB) = (III ).
+Thus
+Hδn(BFn) +
+∫
+X
+SFnfdδn = logZFn − ω − 1
+ZFn
+∑
+A∈A Fn
+(ZFn,A )ω logZFn,A.
+(3·21)
+Combining ( 3·20) with ( 3·21), this yields that
+ωHδn(BFn) + (1 − ω )Hπ ∗δn(AFn) +ω
+∫
+X
+SFnfdδn = logZFn.
+□
+18
+
+By [ HYZ11, Lemma 3.1, (3)], for any H ∈ F (G),
+Hδn(BFn) ≤ 1
+|H|
+∑
+g∈Fn
+Hδn◦g− 1(BH) + |Fn \ {g ∈ G :H − 1g ∈ Fn}| ·log #B
+(3·22)
+and
+Hπ ∗δn(AFn) ≤ 1
+|H|
+∑
+g∈Fn
+Hπ ∗δn◦g− 1(AFn) + |Fn \ {g ∈ G :H − 1g ∈ Fn}| ·log #A.
+(3·23)
+Notice that Fn \ {g ∈ G :H − 1g ∈ Fn} ⊂ ∂ ˜H (Fn), where ˜H =H ∪ {eG}.
+Thus by Claim 3.7, we get
+1
+|Fn|logZFn = ω
+|Fn|Hδn(BFn) + (1 − ω )
+|Fn| Hπ ∗δn(AFn) + ω
+|Fn|
+∫
+X
+SFnfdδn
+≤ ω
+|H|Hµ n(BH ) + 1 − ω
+|H| Hπ ∗µ n(AH) +ω
+∫
+X
+fdµn
++ ω
+|Fn||∂ ˜H (Fn)| ·log #B + 1 − ω
+|Fn| |∂ ˜H (Fn)| ·log #A, by (3·22) and ( 3·23).
+Since the partitions A and B have empty boundary, letting n → ∞ ,
+we have
+lim
+n→∞
+ω
+|Fn||α ˜H(Fn)| ·log #B + 1 − ω
+|Fn| |α ˜H(Fn)| ·log #A = 0
+and hence
+lim
+n→∞
+logPω (π,f,F n,ǫ )
+|Fn| ≤ lim sup
+n→∞
+logZFn
+|Fn|
+≤ ω
+|H|Hµ (BH ) + 1 − ω
+|H| Hπ ∗µ (AH) +ω
+∫
+X
+fdµ.
+By the arbitrariness of the H ∈ F (G), we complete the proof. □
+4. Topological pressure determines invariant measures
+In this section, we show how weighted amenable topological pressur e
+determines the invariant measures and its measure-theoretic ent ropies.
+Proposition 4.1. Let π : (X,G ) → (Y,G ) be a factor map between
+two G-systems. Let f,h ∈ C(X, R), and ω ∈ (0, 1]. Then the following
+statements hold.
+(1) Pω (π, 0,G ) = hω
+top(π,G ).
+(2) Iff ≤ h, then Pω (π,f,G ) ≤ Pω (π,h,G ). Particularly, hω
+top(π,G )+
+ω inff ≤ Pω (π,f,G ) ≤ hω
+top(π,G ) +ω supf .
+(3) Pω (π, ·,G ) is either ﬁnite or constantly ∞ .
+(4) If Pω (π, ·,G ) ∈ R for all f ∈ C(X, R, then |Pω (π,f,G ) −
+Pω (π,h,G )| ≤ ω ||f − g||∞ and Pω (π, ·,G ) is convex.
+(5) Pω (π,f +c,G ) = Pω (π,f,G ) +ωc for any c ∈ R.
+19
+
+(6) Pω (π,f +h ◦g − h,G ) = Pω (π,f,G ).
+(7) Pω (π,f +h,G ) ≤ Pω (π,f,G ) +Pω (π,h,G ).
+Proof. It can be proved by using the variational principle for weighted
+amenable topological pressure established in Theorem 1.1. □
+For simplifying the notations, we call hω
+µ (π,G ) := ωhµ (G,X ) + (1 −
+ω )hπ ∗µ (G,Y ) weighted amenable measure-theoretic entropy. Recall that
+a ﬁnite signed measure on X is a set function µ : B(X) → R which is
+countably additive.
+Theorem 4.2. Let π : (X,G ) → (Y,G ) be a factor map between two
+G-systems with hω
+top(π,G ) < ∞ . Let ω ∈ (0, 1] and µ : B(X) → R be
+a ﬁnite signed measure. Then µ ∈ M(X,G ) if and only if ω
+∫
+fdµ ≤
+Pω (π,f,G ) for all f ∈ C(X, R).
+Proof. If µ ∈ M(X,G ), then one has ω
+∫
+fdµ ≤ Pω (π,f,G ) by Theo-
+rem
+1.1.
+Assume thatµ is a ﬁnite signed measure so that ω
+∫
+fdµ ≤ Pω (π,f,G )
+for all f ∈ C(X, R). Let f ≥ 0. For ǫ> 0 and n> 0, we have
+ω
+∫
+n(f +ǫ)dµ = −ω
+∫
+−n(f +ǫ)dµ ≥ − Pω (π, −n(f +ǫ),G )
+≥ −
+{
+hω
+top(π,G ) +ω sup(−n(f +ǫ))
+}
+= −hω
+top(π,G ) +ωn inf(f +ǫ)> 0
+for suﬃciently large n. This implies that
+∫
+(f +ǫ)dµ > 0 and hence∫
+fdµ ≥ 0. Hence, µ is a measure. If n ∈ Z, then ω
+∫
+ndµ ≤
+Pω (π,n,G ) = hω
+top(π,G ) +ωn . One has µ(X) ≤ 1 +
+hω
+top(π,G )
+ωn if n >0
+and hence µ(X) ≤ 1, and µ(X) ≥ 1 +
+hω
+top(π,G )
+ωn if n < 0 and hence
+µ(X) ≥ 1. This shows µ ∈ M(X). If n ∈ Z and f ∈ C(X, R), then
+ωn
+∫
+(f ◦g − f )dµ ≤ Pω (π,n (f ◦g − f ),G ) = hω
+top(π,G ) for all g ∈ G.
+Ifn ≥ 1, then
+∫
+(f ◦g − f )dµ ≤ 0. If n ≤ − 1, then
+∫
+(f ◦g − f )dµ ≥ 0.
+This implies that µ ∈ M(X,G ).
+□
+The following lemma is the well-known separation theorem of convex
+sets given in [
+DS58].
+Lemma 4.3. If K1,K 2 are disjoint closed convex subsets of a locally
+convex linear topological spaceV andK1 is compact, then there exists a
+continuous real-valued linear functional F onV such that F (x)<F (y)
+for all x ∈ K1,y ∈ K2.
+Theorem 4.4. Let π : (X,G ) → (Y,G ) be a factor map between two
+G-systems with hω
+top(π,G )< ∞ and µ 0 ∈ M(X,G ). Then
+hω
+µ 0(π,G ) = inf {Pω (π,f,G ) − ω
+∫
+fdµ 0 :f ∈ C(X, R)}
+20
+
+if and only if the entropy map µ ∈ M(X,G ) ↦→ hω
+µ (π,G ) is upper
+semi-continuous at µ 0.
+Proof. Suppose thathω
+µ 0(π,G ) = inf {Pω (π,f,G )−ω
+∫
+fdµ 0|f ∈ C(X, R)}.
+Given ε >0, choose h ∈ C(X, R) such that Pω (π,h,G ) − ω
+∫
+hdµ 0 <
+hω
+µ 0(π,G )+ ε
+2 . Let Vµ 0(h, ε
+2) = {µ ∈ M(X,G ) : |
+∫
+hdµ −
+∫
+hdµ 0| ≤ ǫ
+2ω }.
+If µ ∈ Vµ 0(h, ε
+2), then
+hω
+µ (π,G ) ≤ Pω (π,h,G ) − ω
+∫
+hdµ, by Theorem
+1.1
+<P ω (π,h,G ) − ω
+∫
+hdµ 0 + ε
+2
+<h ω
+µ 0(π,G ) +ε,
+which shows that the entropy map is upper semi-continuous at µ 0.
+Assume that the entropy map is upper semi-continuous at µ 0. Fol-
+lowing [
+Wal82, Theorem 8.1], one has hµ (G,X ) is aﬃne in µ and so is
+hω
+µ (π,G ). By Theorem
+1.1, we have
+hω
+µ 0(π,G ) ≤ inf{Pω (π,f,G ) − ω
+∫
+fdµ 0 :f ∈ C(X, R)}.
+Let b > hω
+µ 0(π,G ) and let C = {(µ,t ) ∈ M(X,G ) × R : 0 ≤ t ≤
+hω
+µ (π,G )}. Then C is a convex set since the entropy function µ ∈
+M(X,G ) ↦→ hω
+µ (π,G ) is aﬃne. Regard C as a subset of C(X, R)∗ × R,
+whereC(X, R)∗ is endowed with weak star topology. Then ( µ 0,b ) /∈
+C
+by the upper semi-continuity of the entropy map at µ 0. Applying
+Lemma 4.3 to the disjoint convex sets C and (µ 0,b ), there is a contin-
+uous linear functional F : C(X, R)∗ × R → R such that F ((µ,t )) <
+F ((µ 0,b )) for all ( µ,t ) ∈ C. We know that F must have the form
+F (µ,t ) = ω
+∫
+fdµ +td for some f ∈ C(X, R) and some d ∈ R. So
+ω
+∫
+fdµ 0 +dhw
+µ 0(π,T )<ω
+∫
+fdµ 0 +db. This shows that d> 0. Hence
+hω
+µ (π,G ) +ω
+∫ f
+ddµ<b +ω
+∫ f
+ddµ 0
+for all µ ∈ M(X,G ). By Theorem 1.1, we have Pω (π, f
+d,G ) < b +
+ω
+∫ f
+ddµ 0. This gives us
+b>P ω (π, f
+d,G ) − ω
+∫ f
+ddµ 0 ≥ inf{Pω (π,h,G ) − ω
+∫
+hdµ 0|h ∈ C(X, R)}.
+This competes the proof.
+□
+21
+
+5. Equilibrium states
+The classical variational principle for topological entropy provides a
+natural way of selecting the maximal entropy measures whose mea sure-
+theoretic entropy is equal to topological entropy. In statistical mechan-
+ics, a corresponding role called thermodynamic equilibrium states is
+considered to characterize the minimum of a thermodynamic poten-
+tial(such as pressure, temperature). In this section, we gives so me ele-
+mentary properties and characterizations about the equilibrium st ates
+of weighted amenable topological pressure.
+Deﬁnition 5.1. Letπ : (X,G ) → (Y,G ) be a factor map between two
+G-systems, ω ∈ (0, 1] and f ∈ C(X, R). A measure µ ∈ M(X,G ) is
+called an equilibrium state for f if
+Pω (π,f,G ) = hω
+µ (π,G ) +ω
+∫
+fdµ.
+LetMf (X,G ) denote the collection of all equilibrium states for f .
+Theorem 5.2. Let π : (X,G ) → (Y,G ) be a factor map between two
+G-systems, ω ∈ (0, 1] and f ∈ C(X, R). Then
+(1) Mf (X,G ) is convex.
+(2) If hω
+top(π,G ) < ∞ , then the extreme points of Mf (X,G ) are
+precisely the ergodic members of Mf (X,G ).
+(3) If hω
+top(π,G )< ∞ and Mf (X,G ) ̸= ∅, then Mf (X,G ) contains
+an ergodic measure.
+(4) If the entropy map is upper semi-continuous, then Mf (X,G ) is
+compact and non-empty.
+(5) If f,h ∈ C(X, R) and if there exists c ∈ R such that f − h − c
+belongs to the closure of the set {b ◦g − b|b ∈ C(X, R),g ∈ G}
+in C(X, R), then Mf (X,G ) = Mh(X,G ).
+Proof. Let µ ∈ M(X,G ) and µ =
+∫
+E(X,G )mdτ(m) be the ergodic
+decomposition of µ and U ∈ Co
+X . Then by [
+HYZ11, Theorem 3.13]
+hµ (G, U) =
+∫
+E(X,G )hm(G, U)dτ(m). Choose a sequence of ﬁnite open
+covers {Un}n≥ 1 of X with Un+1 ≻ U n and diam Un → 0 as n tends
+∞ . Then by Lemma 2.3 limn→∞ hµ (G, Un) = hµ (G,X ) for all µ ∈
+M(X,G ). Using the monotone convergence theorem, we have hµ (G,X ) =∫
+E(X,G )hm(G,X )dτ(m). Since π∗µ =
+∫
+E(Y,G )θdπ∗τ(θ) by [Appendix,
+Theorem A], so
+hω
+µ (π,G ) = ω
+∫
+E(X,G )
+hm(G,X )dτ(m) + (1 − ω )
+∫
+E(Y,G )
+hθ(G,Y )dπ∗τ(θ)
+=ω
+∫
+E(X,G )
+hm(G,X )dτ(m) + (1 − ω )
+∫
+E(X,G )
+hπ ∗m(G,Y )dτ(m)
+=
+∫
+hω
+m(π,G )dτ(m).
+22
+
+Then the proof can be proved by using Theorem 1.1, Proposition 4.1
+and ergodic decomposition for hω
+µ (π,G ). □
+Deﬁnition 5.3. Letπ : (X,G ) → (Y,G ) be a factor map between two
+G-systems with hω
+top(π,G )< ∞ ,ω ∈ (0, 1] andf ∈ C(X, R). A tangent
+functional to Pω (π, ·,G ) at f is a ﬁnite signed measure µ : B(X) → R
+such that
+Pω (π,f +h,G ) − Pω (π,f,G ) ≥ ω
+∫
+hdµ
+for all h ∈ C(X, R). Let tf (X,G ) denote the collection of all tangent
+functionals to Pw(π, ·,G ) at f .
+Remark 5.4. (1) Riesz representation states that eachL ∈ C(X, R)∗
+is the form of L(f ) =
+∫
+fdµ for any f ∈ C(X, R). Then
+C(X, R)∗ can be identiﬁed with the set of all ﬁnite signed mea-
+sures on (X, B(X)). Hence the tangent functionals to Pw(π, ·,G )
+at f can be regarded as the elements of C(X, R)∗ satisfying
+ωL (h) ≤ Pω (π,f +h,G ) − Pω (π,f,G ) for all h ∈ C(X, R).
+(2) tf (X,G ) is not empty. Let the constant linear function space
+C := {c : c ∈ R} on X. Then we have γ(c) := ω
+∫
+fdµ ≤
+Pω (π,f +c,G ) − Pω (π,f,G ) for all c ∈ C. Using Hahn-Banach
+theorem, one can extendγ onC to an element of C(X, R)∗ dom-
+inated by the convex function h ↦→ Pω (π,f +h,G )− Pω (π,f,G ).
+Theorem 5.5. Let π : (X,G ) → (Y,G ) be a factor map between two
+G-systems with hω
+top(π,G )< ∞ , ω ∈ (0, 1] and f ∈ C(X, R). Then
+(1) Mf (X,G ) ⊂ tf (X,G ) ⊂ M(X,G ).
+(2) If the entropy map µ ∈ M(X,G ) ↦→ hω
+µ (π,G ) is upper semi-
+continuous on tf (X,G ), then Mf (X,G ) = tf (X,G ).
+(3) If the entropy map µ ∈ M(X,G ) ↦→ hω
+µ (π,G ) is upper semi-
+continuous onM(X,G ), then there is a dense subset S ofC(X, R)
+such that Mf (X,G ) is a singleton for each f ∈ S .
+Proof. (1) Let µ ∈ Mf (X,G ). If h ∈ C(X, R), then by Theorem
+1.1
+Pω (π,f +h,G ) − Pω (π,f,G ) ≥ hω
+µ (π,G ) +ω
+∫
+f +hdµ
+− hω
+µ (π,G ) − ω
+∫
+fdµ
+=ω
+∫
+hdµ.
+So Mf (X,G ) ⊂ tf (X,G ).
+23
+
+We show tf (X,G ) ⊂ M(X,G ). Let µ ∈ tf (X,G ). Let h ≥ 0 and
+ǫ> 0. We have
+∫
+(h +ε)dµ = −
+∫
+− (h +ε)dµ
+≥ − Pω (π,f − (h +ε)) +Pω (π,T,f )
+≥ − { Pω (π,T,f ) − ω inf(h +ε)} +Pω (π,T,f )
+=ω inf(h +ε)> 0.
+Then
+∫
+hdµ ≥ 0 and hence µ takes non-negative values.
+We show µ(X) = 1. If n ∈ Z, then ω
+∫
+ndµ ≤ Pω (π,f +n,G ) −
+Pω (π,f,G ) = ωn . This shows that if n ≥ 1 then µ(X) ≤ 1 and if
+n ≤ − 1 then µ(X) ≥ 1.
+We show µ ∈ M(X,G ). If n ∈ Z, h ∈ C(X, R) and for all g ∈ G
+ωn
+∫
+(h ◦g − h)dµ ≤ Pω (π,f +n(h ◦g − h),G ) − Pω (π,f,G )) = 0.
+If n >0, then
+∫
+h ◦gdµ ≤
+∫
+hdµ. If n <0, then
+∫
+h ◦gdµ ≥
+∫
+hdµ.
+This shows that
+∫
+h ◦gdµ =
+∫
+hdµ and hence µ ∈ M(X,G ).
+(2) We show Mf (X,G ) = tf (X,G ). It suﬃces to show tf (X,G ) ⊂
+Mf (X,G ). Let µ ∈ tf (X,G ). Then
+Pω (π,f +h,G ) − ω
+∫
+(f +h)dµ ≥ Pω (π,f,G ) − ω
+∫
+fdµ
+for all h ∈ C(X, R). Notice that h is arbitrary. By Theorem 4.4, we
+havehω
+µ (π,G ) ≥ Pω (π,f,G )− ω
+∫
+fdµ and hence ω
+∫
+fdµ +hω
+µ (π,G ) ≥
+Pω (π,f,G ). Together with Theoroem
+1.1, µ ∈ Mf (X,G ).
+(3) By (2), we know that Mf (X,G ) = tf (X,G ). Then (3) holds
+by the fact that [ DS58] the convex function Pω (π, ·,G ) on a separable
+space Banach space C(X, R) has a unique tangent functional at a dense
+set of points. □
+Appendix
+Recall that a µ ∈ M(X) is said to be a G-invariant Borel probability
+measure if µ(A) = µ(gA) for all A ∈ B X and g ∈ G. A measure µ ∈
+M(X,G ) is said to be G-ergodic ifG-invariant Borel set B (i.e gB =B
+for all g ∈ G) has measure 0 or 1. It is well-known that E(X,G )
+is exactly the extreme points of M(X,G ). Although the following
+theorem is well-known for Z-actions, the proof seems to to be absent
+for amenable group actions. Here, we provide a proof for completio n.
+Theorem A. Let π : (X,G ) → (Y,G ) be a factor map between two
+G-systems. Then
+π∗(M(X,G )) = M(Y,G ),π ∗(E(X,G )) = E(Y,G )
+24
+
+Proof. It is clear that π∗(M(X,G )) ⊂ M(Y,G ) by deﬁnition. Let ν ∈
+M(Y,G ). We deﬁne a linear functional Lν on the subspace {f ◦π :f ∈
+C(Y, R)} of C(X, R) by
+Lν (f ◦π) =
+∫
+fdν.
+Then Lν(1) = 1 and ||Lν||= 1. By Hahn-Banach theorem, there
+exists a continuous linear functional L on C(X, R) so that ||L||= 1
+and L(f ◦ π) = Lν(f ◦ π). Let f ∈ C(X, R) with f ≥ 0 and put
+a := ||f ||∞ + 1. Notice that f ≥ 0. Then |L(a − f )| ≤ ||a − f ||∞ ≤ a
+and hence
+L(f ) = L(f − a +a) ≥ a − |L(a − f )| ≥ 0.
+By Riesz’s representation theorem, there exists µ 0 ∈ M(X) such
+that L(f ) =
+∫
+fdµ for all f ∈ C(X, R). This yields that for each
+f ∈ C(Y, R),
+∫
+fdπ ∗µ 0 =
+∫
+f ◦πdµ 0 =L(f ◦π) = Lν(f ◦π) =
+∫
+fdν.
+Hence, π∗µ 0 =ν.
+Let {Fn}n≥ 1 be a Følner sequence of G and deﬁne
+µn = 1
+|Fn|
+∑
+g∈Fn
+µ 0 ◦g− 1.
+Without loss of generality, we assume that µn ↦→ µ ∈ M(X,G ) in
+weak∗ topology. Then for each f ∈ C(Y, R),
+∫
+fdπ ∗µ =
+∫
+f ◦πdµ = lim
+n→∞
+∫
+f ◦πdµn = lim
+n→∞
+1
+|Fn|
+∑
+g∈Fn
+∫
+f ◦π ◦gdµ 0
+= lim
+n→∞
+1
+|Fn|
+∑
+g∈Fn
+∫
+f ◦g ◦πdµ 0 =
+∫
+fdν.
+This shows that M(Y,G ) ⊂ π∗(M(X,G )).
+The left for us is to show E(Y,G ) ⊂ π∗(E(X,G )). Let ν ∈ M(Y,G ).
+Then π − 1(ν) is a non-empty closed convex set. Moreover, the extreme
+point of π − 1(ν) is also the extreme point of M(X,T ). Otherwise, there
+is a extreme point µ ∈ π − 1(ν) such that µ = pµ 1 + (1 − p)µ 2, where
+0<p< 1 and µ 1,µ 2 ∈ M(X,T ) do not belong to π − 1(ν). Then
+ν =π∗µ =pπ∗µ 1 + (1 − p)π∗µ 2,
+a contradiction.
+□
+25
+
+Acknowledgement
+The work was supported by the National Natural Science Foundat ion of
+China (Nos.12071222 and 11971236). The third author was also sup -
+ported by Postgraduate Research & Practice Innovation Progra m of
+Jiangsu Province (No. KYCX23 1665). The work was also funded by
+the Priority Academic Program Development of Jiangsu Higher Educa -
+tion Institutions. We would like to express our gratitude to Tianyuan
+Mathematical Center in Southwest China(No.11826102), Sichuan U ni-
+versity and Southwest Jiaotong University for their support and h os-
+pitality.
+References
+[AKM65] R. Adler, A. Konheim, and M. McAndrew, Topological en-
+tropy, Trans. Amer. Math. Soc. 114 (1965), 309-319.
+[BF12] J. Barral and D. Feng, Weighted thermodynamic formalism on
+subshifts and applications, Asian J. Math. 16 (2012), 319-352.
+[Bed84] T. Bedford, Crinkly curves, Markov partitions and box di-
+mension in self-similar sets. PhD Thesis, University of Warwick,
+1984.
+[Bow73] R. Bowen, Topological entropy for noncompact sets, Trans.
+Amer. Math. Soc. 184 (1973), 125-136.
+[Din70] E. Dinaburg, A correlation between topological entropy and
+metric entropy, Dokl. Akad. Nauk SSSR 190 (1970), 19-22.
+[DZ15] A. Dooley and G. Zhang, Local entropy theory of a random d y-
+namical system, Mem. Amer. Math. Soc. 233 (2015), no. 1099,
+vi+106 pp.
+[DZZ20] D. Dou, D. Zheng and X. Zhou, Packing topological en-
+tropy for amenable group actions, Erg. Theory Dynam. Syst.
+43 (2023), 480-514.
+[Dow11] T. Downarowicz. Entropy in Dynamical Systems, Cambridge
+University Press , 2011.
+[DH13] T. Downarowicz and D. Huczek, Zero-dimensional principal
+extensions, Acta Appl. Math. 126 (2013), 117-129.
+[DS58] N. Dunford and J. Schwartz, Linear operator, Part I. gen eral
+theory, Interscience, New York , 1958.
+[F11] D. Feng , Equilibrium states for factor maps between subshift s,
+Adv. Math. 226 (2011), 2470-2502.
+[FW16] D. Feng and W. Huang, Variational principle for weighted
+topological pressure, J. Math. Pures Appl. 106 (2016), 411-452.
+[Goodm71] T. Goodman, Relating topological entropy and measure
+entropy, Bull. London Math. Soc. 3(1971), 176-180.
+26
+
+[Goodw69] L. W. Goodwyn, Topological entropy bounds measure-
+theoretic entropy, Proc. Amer. Math. Soc. 3(1969), 679-688.
+[Gro99] M. Gromov, Topological invariants of dynamical systems an d
+spaces of holomorphic maps: I, Math. Phys, Anal. Geom. 4
+(1999), 323-415.
+[GS21] Y. Gutman and A. ´Spiewak, Around the variational principle
+for metric mean dimension, Studia Math. 261 (2021), 345-360.
+[HLZ20] X. Huang, Z. Li and Y. Zhou A variational principle of topo-
+logical pressure on subsets for amenable group actions, Discrete
+Contin. Dyn. Syst. 40 (2020), 2687-2703.
+[Huc21] D. Huczek, Zero-dimensional extensions of amenable grou p ac-
+tions, Studia Math. 256 (2021), 121-145.
+[HYZ11] W. Huang, X. Ye and G. Zhang, Local entropy theory for
+a countable discrete amenable group action. J. Funct. Anal.
+261(2011), 1028-1082.
+[KP96] R. Kenyon and Y. Peres, Measures of full dimension on aﬃne-
+invariant sets, Ergod. Th. Dynam. Sys. 16 (1996), 307-323.
+[KL16] D. Kerr and H. Li, Ergodic theory, Independence and di-
+chotomies, Springer Monographs in Mathematics. Springer,
+Cham., 2016.
+[Kol58] A. Kolmogorov, A new metric invariant of transient dynamical
+systems and automorphisms of Lebesgue spaces, Dokl. Akad.
+Sci. SSSR 119 (1958), 861-864.
+[LY12] B. Liang and K. Yan, Topological pressure for sub-additive p o-
+tentials of amenable group actions, J. Funct. Anal. 262 (2012),
+584-601.
+[LT19] E. Lindenstrauss and M. Tsukamoto, Double variational prin -
+ciple for mean dimension, Geom. Funct. Anal. 29 (2019), 1048-
+1109.
+[L W00] E. Lindenstrauss and B. Weiss, Mean topological dimension,
+Isr. J. Math. 115 (2000), 1-24.
+[Mc84] C. McMullen, The Hausdorﬀ dimension of general Sierpinski
+carpets, Nagoya Math. J. 96 (1984), 1-9.
+[Mis75] M. Misiurewicz, A short proof of the variational principle for
+a ZN
++ action on a compact space, Publications math´ ematiques et
+informatique de Rennes S4 (1975), 1-10.
+[O85] J. Ollagnier, Ergodic theory and statistical mechanics, Lecture
+Notes in Math. Springer-Verlag, Berlin, 1985.
+[OP82] J. Ollagnier and D. Pinchon, The variational principle, Studia
+Math. 72 (1982), 151-159.
+[OW87] D. Ornstein and B. Weiss, Entropy and isomorphism theorems
+for actions of amenable groups, J. Anal. Math. 48 (1987), 1-141.
+27
+
+[Pes97] Y.B. Pesin, Dimension theory in dynamical systems, Universit y
+of Chicago Press, 1997.
+[Rue73] D. Ruelle, Statistical mechanics on a compact set with Zν
+action satisfying expansiveness and speciﬁcation, Trans. Amer.
+Math. Soc. 185 (1973), 237-251.
+[SXZ20] J. Shen, L. Xu and X. Zhou, Weighted entropy of a ﬂow on
+non-compact sets, J. Dynam. Diﬀer. Equ. 32 (2020), 181-203.
+[S59] Y. Sinai, On the concept of entropy for a dynamical system,
+Dokl. Akad. Nauk SSSR 124 (1959), 768-771.
+[ST80] A. Stepin, and A.Tagi-Zade, Variational characterization of
+topological pressure of the amenable groups of transformations ,
+Dokl. Akad. Nauk SSSR 254 (1980), 545-549.
+[Tsu22] M. Tsukamoto, Mean Hausdorﬀ dimension of some inﬁnite di-
+mensional fractals, arXiv:2209.00512.
+[Tsu23] M. Tsukamoto, New approach to weighted topological entr opy
+and pressure, Ergodic Theory Dynam. Syst. 43 (2023), 1004-
+1034.
+[Wal82] P. Walters, An introduction to ergodic theory, Springer-Verlag,
+New York, 1982.
+[WH19] T. Wang and Y. Huang, Weighted topological and measure-
+theoretic entropy, Discrete Contin. Dyn. Syst. 39 (2019), 3941-
+3967.
+[Y15] K. Yan, Conditional entropy and ﬁber entropy for amenable
+group actions, J. Diﬀer. Equ. 259 (2015), 3004-3031.
+[YCLZ22] K. Yang, E. Chen, Z. Lin and X. Zhou, Weighted topological
+entropy of random dynamical systems, arXiv:2207.09719.
+[ZZ23] G. Zhang and L. Zhu, Entropies for factor maps of amenable
+group actions, Nonlinearity 36 (2023), 2909-2922.
+[ZCZZ18] C. Zhao, E. Chen, X. Zhou and Y. Zheng, Weighted topolog -
+ical entropy of the set of generic points in topological dynamical
+systems, J. Dynam. Diﬀer. Equ. 30 (2018), 937-955.
+[ZC16] D. Zheng and E. Chen, Bowen entropy for actions of amenab le
+groups, Israel J. Math. 212 (2016), 895-911.
+[Z22] C. Zhu, The local variational principle of weighted entropy and
+Its applications, to appear in J. Dynam. Diﬀer. Equ.
+1.School of Mathematical Sciences and Institute of Mathema tics,
+Nanjing Normal University, Nanjing 210023, Jiangsu, P.R.C hina
+Email address: jiaoyang6667@126.com;ecchen@njnu.edu.cn;zkyangrui2015@163.com;
+1197380824@qq.com
+28
