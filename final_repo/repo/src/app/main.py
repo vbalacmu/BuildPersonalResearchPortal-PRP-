@@ -272,16 +272,12 @@ def main() -> None:
     st.set_page_config(page_title="Personal Research Portal", layout="wide")
     st.title("Personal Research Portal")
 
-    tab = st.sidebar.radio(
-        "Navigation",
-        options=["Ask / Search", "Threads & Artifacts", "Evaluation"],
-    )
-
-    if tab == "Ask / Search":
+    tab1, tab2, tab3 = st.tabs(["Ask / Search", "Threads & Artifacts", "Evaluation"])
+    with tab1:
         page_ask()
-    elif tab == "Threads & Artifacts":
+    with tab2:
         page_threads()
-    else:
+    with tab3:
         page_eval()
 
 

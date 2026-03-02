@@ -1,11 +1,5 @@
 ## Personal Research Portal
 
-This `repo/` directory contains the code, data manifest, evaluation scripts, reports, and artifacts for the Personal Research Portal (PRP). It bundles:
-
-- The Phase 2 ingestion pipeline and RAG system (under `src/ingest` and `src/rag`)
-- The Phase 3 portal UI implemented in Streamlit (under `src/app`)
-- Evaluation scripts, query set, and results (under `src/eval`)
-- Generated research artifacts, run logs, and written reports
 
 ### Layout
 
@@ -38,12 +32,7 @@ pip install -r requirements.txt
 
 Prerequisites:
 - Python 3.10+ recommended
-- Ollama running locally with the `llama3.2` model pulled:
-
-```bash
-ollama serve           # in another terminal
-ollama pull llama3.2   # one-time
-```
+- Ollama (optional): for LLM-backed answers, run `ollama serve` and `ollama pull llama3.2`. If Ollama is not running, use **Generation mode: template** in the portal for an extractive fallback (no LLM needed).
 
 ### 1. Ingest + Index (Phase 2)
 
@@ -65,6 +54,8 @@ Launch the Streamlit portal:
 cd final_repo/repo
 streamlit run src/app/main.py
 ```
+
+**Demo tip:** The first query may take 15–20 seconds while the embedding model loads. Use "template" mode for a quick demo without Ollama.
 
 Portal capabilities:
 - Ask/search questions over the corpus

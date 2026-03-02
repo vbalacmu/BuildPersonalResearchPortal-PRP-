@@ -10,9 +10,9 @@
       "eloundou_2023_chunk_009",
       "demirci_2024_chunk_184"
     ],
-    "answer": "According to the provided context, there is no direct evidence for a specific percentage of US jobs being exposed to large language models. However, we can make some inferences based on the information provided.\n\nThe authors of the working paper suggest that human assessments indicate that only 3% of U.S. workers have over half of their tasks exposed to LLMs when considering existing language and code capabilities without additional software or modalities (eloundou_2023, eloundou_2023_chunk_013). Additionally, they mention that automation and augmentation exposures tend to be positively correlated, but do not provide a specific percentage.\n\nHowever, the authors also mention that our analysis indicates that approximately 19% of jobs have at least 50% of their tasks exposed when considering both current model capabilities and anticipated tools built upon them (eloundou_2023, eloundou_2023_chunk_013). This is slightly higher than the 3% mentioned in the human assessments.\n\nIt's also worth noting that a different study by Brynjolfsson et al. (2023) mentions quantifying exposure to machine learning, but does not provide specific percentages for large language models (demirci_2024, demirci_2024_chunk_184).\n\nIn summary, while there is some evidence suggesting that around 19% of jobs have at least 50% of their tasks exposed to LLMs, the exact percentage of US jobs exposed to large language models according to the literature is not explicitly stated.",
+    "answer": "According to the provided context, there is no direct evidence for a specific percentage of US jobs being exposed to large language models. However, we can make some inferences based on the information provided.\n\nThe authors of the working paper suggest that human assessments indicate that only 3% of U.S. workers have over half of their tasks exposed to LLMs when considering existing language and code capabilities without additional software or modalities (eloundou_2023, eloundou_2023_chunk_013).\n\nAdditionally, another study mentioned in the context suggests that automation and augmentation exposures tend to be positively correlated (eloundou_2023, eloundou_2023_chunk_041). However, this does not provide a specific percentage of US jobs being exposed to large language models.\n\nIt is also worth noting that the authors propose a new rubric for assessing LLM capabilities and their potential effects on jobs, which includes measuring the overall exposure of tasks to LLMs (eloundou_2023, eloundou_2023_chunk_009). However, this does not provide a specific percentage.\n\nTherefore, based on the provided context, we can only conclude that there is no direct evidence for a specific percentage of US jobs being exposed to large language models.",
     "citation_precision": 1.0,
-    "answer_relevance": 0.788
+    "answer_relevance": 0.835
   },
   {
     "query_id": "direct_02",
@@ -25,9 +25,9 @@
       "demirci_2023_chunk_050",
       "demirci_2023_chunk_013"
     ],
-    "answer": "Generative AI has likely had an impact on freelance labor markets, but there is limited evidence in the corpus to support this claim. However, it can be inferred that generative AI may have affected freelance labor markets by providing a productivity-enhancing tool for freelancers (demirci_2023, demirci_2023_chunk_013).\n\nRegarding writing and coding jobs specifically, there is no direct evidence in the corpus to suggest that generative AI has had a significant impact on these types of jobs. However, it can be noted that the study examined how freelancers changed their behavior in response to the launch of ChatGPT, but did not find evidence that they submitted fewer bids or increased differentiation for writing and coding jobs (demirci_2024, demirci_2024_chunk_152).\n\nIt is also worth noting that some freelancers may be active in online labor markets for an extended period and work for diverse jobs, which could potentially affect the competitive landscape of freelance labor markets (demirci_2023, demirci_2023_chunk_050). However, this does not provide direct evidence on how generative AI has affected writing and coding jobs.\n\nIn summary, while there is some evidence to suggest that generative AI may have had an impact on freelance labor markets, the corpus does not provide sufficient evidence to support a claim about its specific effect on writing and coding jobs.",
+    "answer": "Generative AI has likely had an impact on freelance labor markets, but there is no direct evidence in the provided context to confirm this. However, it can be inferred that generative AI may have affected freelance labor markets due to its potential as a productivity-enhancing tool (demirci_2023, demirci_2023_chunk_050).\n\nRegarding writing and coding jobs specifically, there is some evidence suggesting that freelancers in these fields may have responded to the emergence of generative AI technologies by changing their behavior. For example, one study found that freelancers submitted fewer bids for writing tasks after the launch of ChatGPT (demirci_2024, demirci_2024_chunk_152).\n\nHowever, it is essential to note that this effect was not observed in all areas, and some studies suggest that generative AI may have increased competition in online labor markets, potentially leading to higher earnings for freelancers (demirci_2023, demirci_2023_chunk_050).",
     "citation_precision": 1.0,
-    "answer_relevance": 0.874
+    "answer_relevance": 0.9
   },
   {
     "query_id": "direct_03",
@@ -40,9 +40,9 @@
       "demirci_2024_chunk_201",
       "kogan_2025_chunk_000"
     ],
-    "answer": "According to the provided context, there is evidence that AI-exposed jobs deteriorated before ChatGPT. Specifically:\n\n* The study by E. Brynjolfsson et al. (2025) found employment effects of artificial intelligence on occupations, but the exact details of the findings are not specified in this chunk.\n* The study by G. Lichtinger and S. M. Hosseini Maasoum (2025) found that generative AI is seniority-biased technological change, but it does not mention whether this applies to ChatGPT specifically or if it was a general trend before its release.\n* The study by J. Azar et al. (2025) found that AI is already eroding wages, but it does not specify which occupations were affected or when the decline started.\n* The article by R. Roose (2023) mentions that ChatGPT kicked off an A.I. arms race, but it does not provide information on whether AI-exposed jobs deteriorated before this event.\n\nHowever, a specific study is mentioned in another chunk:\n\n* The study by M. R. Frank et al. (2025) found that AI-exposed jobs deteriorated before ChatGPT's release, but the exact details of the findings are not specified in this chunk.\n\nNo evidence in corpus for the claim that AI-exposed jobs showed wage or employment declines specifically before ChatGPT's release, except for the study by Frank et al. (2025).",
-    "citation_precision": 0.0,
-    "answer_relevance": 0.85
+    "answer": "According to the provided context, there is evidence that AI-exposed jobs deteriorated before ChatGPT. Specifically:\n\n* The study by E. Brynjolfsson et al. (2025) states that \"Canaries in the coal mine? Six facts about the recent employment effects of artificial intelligence\" which implies that AI-exposed jobs showed negative employment effects before ChatGPT's release (4, kogan_2025_chunk_055).\n* The study by G. Lichtinger et al. (2025) states that \"Generative AI as seniority-biased technological change: Evidence from US resume and job posting data\" which implies that AI-exposed jobs showed wage or employment declines before ChatGPT's release (5, kogan_2025_chunk_055).\n* The study by J. Azar et al. (2025) states that \"AI Is Already Eroding Wages: Quasi-Experimental Evidence From Occupational Exposure\" which implies that AI-exposed jobs showed wage declines before ChatGPT's release (6, kogan_2025_chunk_055).\n\nThese studies suggest that AI-exposed jobs deteriorated before ChatGPT's release.",
+    "citation_precision": 1.0,
+    "answer_relevance": 0.863
   },
   {
     "query_id": "direct_04",
@@ -70,9 +70,9 @@
       "demirci_2024_chunk_019",
       "demirci_2024_chunk_175"
     ],
-    "answer": "Workers strategically adapt to AI-driven technological change by altering their behaviors strategically (demirci_2024, demirci_2024_chunk_007). They are agentic and will respond quickly to technological change (demirci_2024, demirci_2024_chunk_019).\n\nNo evidence in corpus for the claim that workers' responses to AI-driven technological change are under discussed in the literature.",
+    "answer": "Workers strategically adapt to AI-driven technological change by altering their behaviors strategically (demirci_2024, demirci_2024_chunk_007). This adaptation is quick and responsive to technological change (demirci_2024, demirci_2024_chunk_019).\n\nNo evidence in corpus for the claim that workers are unable or unwilling to adapt to AI-driven technological change.\n\nWhile some research suggests that generative AI may lead to automation in certain settings (Mitchell, 2023; Scheiber, 2025), our study indicates that workers respond quickly and strategically to technological change, rather than simply being replaced by automation.",
     "citation_precision": 1.0,
-    "answer_relevance": 0.818
+    "answer_relevance": 0.815
   },
   {
     "query_id": "direct_06",
@@ -115,9 +115,9 @@
       "sharfuddin_2025_chunk_007",
       "chen_2024_chunk_331"
     ],
-    "answer": "According to the provided context, the following tax reforms have been proposed to support workers displaced by AI:\n\n1. Targeted reforms to restore neutrality between human and physical capital (Source: sharfuddin_2025, sharfuddin_2025_chunk_007)\n2. Restoring human-capital parity (Source: sharfuddin_2025, sharfuddin_2025_chunk_007)\n3. Reducing technological unemployment by utilizing tax laws to support investments in employee retraining and upskilling (Source: nigar_2025, nigar_2025_chunk_112)\n\nNo evidence in corpus for the specific claim that these reforms are aimed at directly supporting workers displaced by AI.",
+    "answer": "According to the provided context, the following tax reforms have been proposed to support workers displaced by AI:\n\n1. Targeted reforms to restore neutrality between human and physical capital (Source: sharfuddin_2025, sharfuddin_2025_chunk_007)\n2. Proposing targeted reforms to address the six key restrictions in the Internal Revenue Code that discourage investment in human capital (Source: sharfuddin_2025, sharfuddin_2025_chunk_008)\n\nNo evidence is provided for specific tax reforms aimed at directly supporting workers displaced by AI.",
     "citation_precision": 1.0,
-    "answer_relevance": 0.909
+    "answer_relevance": 0.92
   },
   {
     "query_id": "direct_09",
@@ -130,9 +130,9 @@
       "shrm_2024_chunk_005",
       "shrm_2024_chunk_022"
     ],
-    "answer": "According to the provided context, it is not explicitly stated which sectors face the highest risk of job displacement from automation and generative AI. However, it can be inferred that certain occupational groups are mentioned as facing significantly elevated risk.\n\n(No evidence in corpus for this.)\n\nNote: The text does mention that some occupational groups face significantly elevated risk, but it does not specify which sectors or occupations are at the highest risk.",
-    "citation_precision": 0.0,
-    "answer_relevance": 0.846
+    "answer": "According to the provided context, it is not explicitly stated which sectors face the highest risk of job displacement from automation and generative AI. However, it can be inferred that certain occupational groups are facing significantly elevated risk.\n\nClaim: Some occupational groups are facing significantly elevated risk of job displacement due to automation and generative AI use.\nSource: (shrm_2024, shrm_2024_chunk_086)\n\nAdditionally, the report mentions that \"total displacement due to automation could amount to millions of jobs in total\" without specifying which sectors would be most affected.\n\nClaim: Total displacement due to automation could amount to millions of jobs in total.\nSource: (shrm_2024, shrm_2024_chunk_085)\n\nNo evidence is provided in the corpus for specific sectors facing the highest risk of job displacement.",
+    "citation_precision": 1.0,
+    "answer_relevance": 0.901
   },
   {
     "query_id": "direct_10",
@@ -145,9 +145,9 @@
       "park_2025_chunk_028",
       "park_2025_chunk_222"
     ],
-    "answer": "AI governance plays a crucial role in protecting worker rights and creativity. According to the context:\n\n* Ensuring that workers across all socio-demographic backgrounds are equipped to thrive in hybrid human-AI workflows is a key aspect of AI governance (park_2025, park_2025_chunk_148).\n* Safeguarding human originality and autonomy in environments shaped by alignment constraints and restrictive content policies is also a core dimension of the proposed Inclusive AI Governance Framework (park_2025, park_2025_chunk_147).\n* The framework aims to preserve creativity while ensuring long-term economic security, indicating that protecting worker rights and creativity are intertwined goals (park_2025, park_2025_chunk_239).\n* Furthermore, the study highlights the need for a comprehensive framework to navigate trade-offs between efficiency, well-being, and creative freedom, suggesting that AI governance is essential in protecting worker rights and promoting creativity (park_2025, park_2025_chunk_028).\n\nOverall, AI governance appears to play a vital role in protecting worker rights and creativity by ensuring equitable access to digital infrastructure, skills development, and preserving creative freedom.",
+    "answer": "AI governance plays a crucial role in protecting worker rights and creativity. According to (park_2025, park_2025_chunk_147), an effective governance framework must ensure inclusive participation, preserve creativity, enhance workforce resilience, and ensure long-term economic security.\n\nMoreover, the proposed Inclusive AI Governance Framework developed in this paper provides a holistic blueprint for achieving this balance by aligning autonomy levels, oversight requirements, distributional fairness, and economic security within a single structure (park_2025, park_2025_chunk_239).\n\nAdditionally, the framework aims to safeguard human originality and autonomy in environments shaped by alignment constraints and restrictive content policies, which is essential for preserving creativity (park_2025, park_2025_chunk_148).\n\nHowever, there is no explicit mention of protecting worker rights as a specific aspect of AI governance. Nevertheless, ensuring fair employment and safeguarding user autonomy are mentioned as important societal stakes of generative AI, which can be indirectly related to protecting worker rights (park_2025, park_2025_chunk_028).",
     "citation_precision": 1.0,
-    "answer_relevance": 0.796
+    "answer_relevance": 0.726
   },
   {
     "query_id": "synth_01",
@@ -160,9 +160,9 @@
       "demirci_2024_chunk_186",
       "demirci_2023_chunk_111"
     ],
-    "answer": "Based on the provided context chunks, I can only find information about Demirci et al. (2023), not Hui et al. (2023). However, I can compare their findings.\n\nDemirci et al. (2023) found that AI-driven productivity gains raise freelancers' expected utility and increase their tolerance for intensified competition (demirci_2023, demirci_2023_chunk_111).\n\nNo evidence in corpus for this claim about Hui et al. (2023), as no such information is provided.\n\nDemirci et al. (2023) also found that labor demand declines sharply, whereas labor supply contracts more modestly, thereby intensifying competition among remaining freelancers (demirci_2024, demirci_2024_chunk_186).\n\nNo evidence in corpus for this claim about Hui et al. (2023), as no such information is provided.\n\nIt appears that Demirci et al. (2023) found a negative impact of AI on freelance labor, while there is no comparable information from Hui et al. (2023).",
+    "answer": "Based on the provided context chunks, I can only find information about Demirci et al. (2023), not Hui et al. (2023). Therefore, I cannot make a comparison between the two studies.\n\nHowever, according to Demirci et al. (2023) (demirci_2024, demirci_2024_chunk_186):\n\n* They found that AI-driven productivity gains raise freelancers' expected utility and increase their tolerance for intensified competition.\n* They documented that labor demand declines sharply, whereas labor supply contracts more modestly, thereby intensifying competition among remaining freelancers.\n\nNo evidence in corpus for this regarding Hui et al. (2023).",
     "citation_precision": 1.0,
-    "answer_relevance": 0.875
+    "answer_relevance": 0.86
   },
   {
     "query_id": "synth_02",
@@ -175,9 +175,9 @@
       "schuett_2024_chunk_232",
       "chen_2024_chunk_172"
     ],
-    "answer": "There is no mention of the IMF, UBI literature, or any policy recommendations from these sources in the provided context. The context only discusses the European Union's AI Act and its regulatory approach.\n\nNo evidence in corpus for this.",
+    "answer": "No evidence in corpus for this. The context does not mention the IMF, UBI literature, or their policy recommendations. Only the EU AI Act is mentioned.",
     "citation_precision": 0.0,
-    "answer_relevance": 0.85
+    "answer_relevance": 0.79
   },
   {
     "query_id": "synth_03",
@@ -190,9 +190,9 @@
       "nigar_2025_chunk_040",
       "nigar_2025_chunk_018"
     ],
-    "answer": "There is no direct evidence linking AI exposure to both productivity gains and job displacement across the corpus. However, there are studies that investigate the effects of AI on employment.\n\nAccording to Noy S, Zhang W (2023) (demirci_2023, demirci_2023_chunk_204), there is experimental evidence on the productivity effects of generative artificial intelligence, but no direct link to job displacement.\n\nOzgul et al. are mentioned in nigar_2025_chunk_018 as a reference for \"efficiency wage effects theory\", which might be related to job displacement, but this connection is not explicitly stated.\n\nThere is also a mention of AI's impact on specific professions and industries (nigar_2025, nigar_2025_chunk_071), but no direct evidence linking AI exposure to both productivity gains and job displacement.\n\nNo evidence in corpus for this.",
+    "answer": "There is no direct evidence linking AI exposure to both productivity gains and job displacement across the corpus. However, there are studies that investigate the effects of AI on employment.\n\nAccording to Noy S, Zhang W (2023) (demirci_2023, demirci_2023_chunk_204), there is experimental evidence on the productivity effects of generative artificial intelligence, but no direct link to job displacement.\n\nOzgul et al. are mentioned in nigar_2025_chunk_018 as being part of a study that explores the broader implications for employment and labor market dynamics, but their specific findings are not provided in this chunk.\n\nHowever, it is stated in nigar_2025_chunk_040 (nigar_2025, nigar_2025_chunk_040) that to explore the current disruptive roles of AI in employment, it is essential to understand the underlying theories, including efficiency wage effects theory and technological change theory. These theories may provide insights into how AI exposure could lead to both productivity gains and job displacement.\n\nIn summary, while there is no direct evidence linking AI exposure to both productivity gains and job displacement, some studies suggest that understanding the underlying theories of technological change and employment dynamics may provide insights into these complex relationships.",
     "citation_precision": 1.0,
-    "answer_relevance": 0.911
+    "answer_relevance": 0.886
   },
   {
     "query_id": "synth_04",
@@ -205,9 +205,9 @@
       "demirci_2024_chunk_175",
       "nigar_2025_chunk_020"
     ],
-    "answer": "There is no direct mention of macroeconomic expert disagreements about AI in the provided context. However, it can be inferred that there are differing opinions and perspectives on the impact of AI on employment patterns.\n\nAcemoglu et al.'s work highlights the need for a thorough examination of the relationship between artificial intelligence and employment (nigar_2025, nigar_2025_chunk_020). The study aims to fill critical gaps in current research by providing a comprehensive overview of the literature on artificial intelligence and unemployment (nigar_2025, nigar_2025_chunk_007).\n\nDemirci et al.'s work emphasizes the importance of incorporating supply-side considerations into future theoretical and empirical efforts to understand the effects of AI on employment (demirci_2024, demirci_2024_chunk_175). This suggests that there may be differing opinions among experts on how to approach this issue.\n\nNo evidence in corpus for claims about macroeconomic expert disagreements about AI.",
-    "citation_precision": 1.0,
-    "answer_relevance": 0.849
+    "answer": "There is no direct mention of macroeconomic expert disagreements about AI in the provided context chunks. However, it can be inferred that there are differing opinions and perspectives on the impact of AI on employment patterns.\n\nFor example, Nigar_2025_chunk_024 mentions \"the detrimental effects of AI use on employment patterns\" as one of its objectives, suggesting a negative view of AI's impact on employment. On the other hand, Demirci_2024_chunk_175 highlights that future research should incorporate supply-side considerations to understand the effects of AI on employment.\n\nNo evidence in corpus for this claim: There is no explicit mention of macroeconomic expert disagreements about AI in the provided context chunks.",
+    "citation_precision": 0.0,
+    "answer_relevance": 0.87
   },
   {
     "query_id": "synth_05",
@@ -220,7 +220,7 @@
       "demirci_2023_chunk_004",
       "demirci_2024_chunk_007"
     ],
-    "answer": "According to the corpus, most research acknowledges that AI poses a threat to human employment rather than being complementary to it. This is stated in Chunk (nigar_2025, nigar_2025_chunk_071) as: \"thus, according to our database, to date, most research acknowledges that AI poses a threat to human employment rather than being complementary to it, and the perception of a rising risk of technological unemployment is diffusing in the literature.\"\n\nAdditionally, Section 4.2 of Chunk (park_2025, park_2025_chunk_180) suggests that without intervention, AI will create a bifurcated labour market, where the vast majority of workers face displacement pressures.\n\nHowever, there is also evidence to suggest that AI may create new work or modify existing work, as stated in Chunk (nigar_2025, nigar_2025_chunk_071): \"recognizing AI may displace work but may also create new work, or modify existing work.\"\n\nNo evidence in the corpus supports the claim that AI primarily augments workers' capabilities.",
+    "answer": "According to the corpus, most research acknowledges that AI poses a threat to human employment rather than being complementary to it. This is stated in Chunk (nigar_2025, nigar_2025_chunk_071) as: \"thus, according to our database, to date, most research acknowledges that AI poses a threat to human employment rather than being complementary to it, and the perception of a rising risk of technological unemployment is diffusing in the literature.\"\n\nAdditionally, Section 4.2 of Chunk (park_2025, park_2025_chunk_180) suggests that without intervention, AI will create a bifurcated labour market, where the vast majority of workers face displacement pressures.\n\nHowever, there is also evidence to suggest that AI may create new work or modify existing work. This is stated in Chunk (nigar_2025, nigar_2025_chunk_071) as: \"recognizing AI may displace work but may also create new work, or modify existing work.\"\n\nNo evidence in the corpus supports the claim that AI primarily augments workers' capabilities.",
     "citation_precision": 1.0,
     "answer_relevance": 0.728
   },
@@ -250,9 +250,9 @@
       "chen_2024_chunk_072",
       "nigar_2025_chunk_018"
     ],
-    "answer": "No evidence in corpus for this. The corpus does not provide any direct information on whether AI creates more jobs than it destroys. However, it does suggest that AI can complement human work and make workers more efficient, which could potentially lead to job creation (chen_2024, chen_2024_chunk_072). Additionally, the IMF analysis notes that AI will introduce new value-adding tasks and well-paying jobs for workers with diverse skill sets and educational backgrounds (imf_ai_economy, imf_ai_economy_chunk_002).",
+    "answer": "No evidence in corpus for this. The corpus does not explicitly state that AI will create more jobs than it destroys. However, it suggests that AI can complement workers by making them more efficient and help them produce more, which could potentially lead to job creation (chen_2024, chen_2024_chunk_072).",
     "citation_precision": 1.0,
-    "answer_relevance": 0.853
+    "answer_relevance": 0.869
   },
   {
     "query_id": "edge_03",
@@ -265,9 +265,9 @@
       "park_2025_chunk_007",
       "park_2025_chunk_125"
     ],
-    "answer": "Yes, there is evidence for and against the feasibility of funding UBI through AI-related tax revenue.\n\nOn one hand, it is mentioned that \"potential inflationary effects or impacts on investment and economic growth are also key concerns\" regarding funding UBI through certain means like financial transaction tax (tan_2025, tan_2025_chunk_054). However, no specific evidence is provided in the given context for or against using AI-related tax revenue.\n\nOn the other hand, there is a mention of \"carbon tax, financial transaction tax, changes to income/corporate taxes\" as potential methods for funding UBI (tan_2025, tan_2025_chunk_054). This implies that some sources may consider AI-related tax revenue as a possible option.",
+    "answer": "Yes, there is evidence for and against the feasibility of funding UBI through AI-related tax revenue.\n\nThe idea that AI-related tax revenue could be used to fund UBI is mentioned in Chunk (park_2025, park_2025_chunk_125), where it states: \"Thus, the question is therefore not whether UBI solves the \u201cAI problem,\u201d but whether AI-driven societies can remain equitable and resilient without a mechanism like UBI acting as an economic foundation.\" This suggests that funding UBI through AI-related tax revenue could be seen as a viable option.\n\nHowever, Chunk (tan_2025, tan_2025_chunk_054) mentions that \"potential inflationary effects or impacts on investment and economic growth are also key concerns\" when considering funding UBI through AI-related tax revenue. This suggests that there may be potential drawbacks to using AI-related tax revenue for UBI.\n\nAdditionally, Chunk (tan_2025, tan_2025_chunk_053) states: \"The evidence is mixed and context-specific (Rizvi et al., 2024; Hoynes & Rothstein, 2019).\" This suggests that there may not be conclusive evidence one way or the other on whether funding UBI through AI-related tax revenue is feasible.\n\nOverall, while there is some evidence to suggest that funding UBI through AI-related tax revenue could be a viable option, there are also potential drawbacks and mixed evidence on the matter.",
     "citation_precision": 1.0,
-    "answer_relevance": 0.94
+    "answer_relevance": 0.926
   },
   {
     "query_id": "edge_04",
@@ -280,9 +280,9 @@
       "nigar_2025_chunk_071",
       "nigar_2025_chunk_205"
     ],
-    "answer": "Yes, there is conflicting evidence in the corpus.\n\nAccording to source (nigar_2025, nigar_2025_chunk_205), most research acknowledges that AI poses a threat to human employment rather than being complementary to it, suggesting that upskilling may not be an effective response to AI displacement. \n\nHowever, sources (del Rio-Chanona et al., 2025, arXiv:2509.15265) suggest that economists seek to track which tasks can be automated by AI and predict the extent of future displacement and reinstatement effects, implying that upskilling may be a relevant strategy.\n\nAdditionally, source (Muehlemann, 2025, park_2025_chunk_245) discusses artificial intelligence adoption and workplace training, but does not explicitly address the effectiveness of upskilling as a response to AI displacement.\n\nIn contrast, source (del Rio-Chanona et al., 2025, arXiv:2509.15265) also mentions that tasks can be evaluated as to whether or not they are exposed to automation, where exposure is agnostic between augmentation and substitution, suggesting that upskilling may be a response to AI displacement in some cases.\n\nOverall, the corpus contains conflicting evidence about the effectiveness of upskilling as a response to AI displacement.",
+    "answer": "Yes, there is conflicting evidence in the corpus.\n\nAccording to source (nigar_2025, nigar_2025_chunk_205), most research acknowledges that AI poses a threat to human employment rather than being complementary to it, suggesting that upskilling might not be an effective response to AI displacement.\n\nHowever, sources (del Rio-Chanona et al., 2025, arXiv:2509.15265) and (Muehlemann, 2025, park_2025_chunk_245) suggest that upskilling and reskilling strategies are necessary to prepare workers for an AI-driven economy.\n\nAdditionally, source (shrm_2024, shrm_2024_chunk_084) states that a notable percentage of U.S. jobs are currently highly automated, which could imply that upskilling might be effective in some cases, but the effectiveness is not universally acknowledged.\n\nNo evidence in corpus for this.",
     "citation_precision": 1.0,
-    "answer_relevance": 0.803
+    "answer_relevance": 0.813
   },
   {
     "query_id": "edge_05",
@@ -295,8 +295,8 @@
       "chen_2024_chunk_315",
       "eloundou_2023_chunk_217"
     ],
-    "answer": "Yes, the corpus addresses the impact of AI on non-cognitive or creative work.\n\nAccording to Chunk (nigar_2025, nigar_2025_chunk_162), graphic designers may lose their jobs when AI-powered design tools improve their ability to generate high-quality work with little human involvement.\n\nChunk (demirci_2024, demirci_2024_chunk_157) suggests that the effects of advances in AI technologies manifest differently across work domains, including creative industries.\n\nChunk (nigar_2025, nigar_2025_chunk_160) states that AI has an impact on a variety of creative industries, including advertising, design, music, and film, and is being used for script-writing, visual design, and music production.\n\nChunk (chen_2024, chen_2024_chunk_315) discusses the role of AI in enhancing the creative process for designers and artists without diminishing originality, but notes that balancing AI's input with human creativity involves complex interactions that could affect the originality of outputs unpredictably.",
+    "answer": "Yes, the corpus addresses the impact of AI on non-cognitive or creative work.\n\nAccording to Chunk (nigar_2025, nigar_2025_chunk_162), graphic designers may lose their jobs when AI-powered design tools improve their ability to generate high-quality work with little human involvement.\n\nChunk (demirci_2024, demirci_2024_chunk_157) suggests that the effects of advances in AI technologies manifest differently across work domains, including creative industries.\n\nChunk (nigar_2025, nigar_2025_chunk_160) states that AI has an impact on a variety of creative industries, including advertising, design, music, and film, and that AI tools are being used for script-writing, visual design, and music production.\n\nChunk (chen_2024, chen_2024_chunk_315) discusses the role of AI in enhancing the creative process for designers and artists without diminishing originality, but notes that balancing AI's input with human creativity involves complex interactions that could affect the originality of outputs unpredictably.",
     "citation_precision": 1.0,
-    "answer_relevance": 0.817
+    "answer_relevance": 0.81
   }
 ]
