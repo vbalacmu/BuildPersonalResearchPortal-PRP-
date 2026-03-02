@@ -81,7 +81,7 @@ This writes `src/eval/phase2_eval_results.json` and prints aggregate metrics for
 
 The `report/` folder in this directory contains:
 
-- **Phase 1 (deliverables):** exported PDFs for the framing brief, prompt kit, evaluation sheet, and analysis memo (see `report/phase1_*.pdf`). For convenience, the Phase 1 source documents and additional PDFs used during Phase 1 live in `report/phase1_pdfs/`.
-- **Phase 2:** `phase2_evaluation_report.md` — corpus description, chunking and retrieval design, metrics, results, and failure cases.
-- **Phase 3:** `phase3_final_report_template.md` — final report describing the portal architecture, functionality, evaluation, limitations, and reproducibility.
-- **AI usage log:** `AI_USAGE_LOG.md` — summary of AI tools used, what they were used for, and what was edited or verified manually.
+- **Phase 1** (`report/phase1/`): exported PDFs for the framing brief, prompt kit, evaluation sheet, and analysis memo.
+- **Phase 2** (`report/phase2/`): `phase2_evaluation_report.md` — corpus description, chunking and retrieval design, metrics, results, and failure cases; `queries_phase2.md` — query set used for evaluation.
+- **Phase 3** (`report/phase3/`): `phase3_final_report.md` — final report describing the portal architecture, functionality, evaluation, limitations, and reproducibility.
+- **AI usage log** (`report/AI_USAGE_LOG.md`): summary of AI tools used, what they were used for, and what was edited or verified manually.
