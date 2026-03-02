@@ -10,5 +10,6 @@ venv/
 .vscode/
 .idea/
 
-# Ignore Phase I for now (commit Phase II only)
+# Development phases (final submission is in final_repo/)
 PhaseI/
+PhaseII/
